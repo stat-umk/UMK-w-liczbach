@@ -19,8 +19,8 @@ st.title(':floppy_disk: Wszystkie pliki')
 
 st.sidebar.subheader('Dodawanie plików')
 
-uploaded_file = st.sidebar.file_uploader(label='Wprowadź pliki', type=['xlsx'],accept_multiple_files=True)
-uploaded_file1 = st.sidebar.file_uploader(label='Wprowadź plik z ostatniego miesiąca', type=['xlsx'])
+#uploaded_file = st.sidebar.file_uploader(label='Wprowadź pliki', type=['xlsx'],accept_multiple_files=True)
+#uploaded_file1 = st.sidebar.file_uploader(label='Wprowadź plik z ostatniego miesiąca', type=['xlsx'])
 
 
 global df, l, zl, df1, z1
