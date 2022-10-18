@@ -22,6 +22,11 @@ st.sidebar.subheader('Dodawanie plików')
 #uploaded_file = st.sidebar.file_uploader(label='Wprowadź pliki', type=['xlsx'],accept_multiple_files=True)
 #uploaded_file1 = st.sidebar.file_uploader(label='Wprowadź plik z ostatniego miesiąca', type=['xlsx'])
 
+sekcja = st.sidebar.radio(
+    'Wybierz sekcję:',
+    ('Strona główna','Studenci','Administracja','Wydziały','Granty')
+ )
+if sekcja == 'Studenci':
 
 global df, l, zl, df1, z1
 #zl = pd.DataFrame()
