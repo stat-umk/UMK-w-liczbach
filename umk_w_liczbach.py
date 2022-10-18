@@ -6,9 +6,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
 
-os_path = Path(__file__).parents[0] / 'UMKwLiczbach.csv'
-with open(os_path, encoding="utf8", errors='ignore') as f:
-    DF = pd.read_csv(f,sep=',',header=0)
+DF = pd.read_excel(io='UMKwLiczbach.xlsx',engine='openpyxl',sheetname='Studenci')
 
 sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
