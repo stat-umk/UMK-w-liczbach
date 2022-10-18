@@ -26,8 +26,19 @@ sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
     ('Strona główna','Studenci','Administracja','Wydziały','Granty')
  )
+if sekcja == 'Strona główna':
+    st.title('Strona główna')
 if sekcja == 'Studenci':
+    st.title('Studenci')
+if sekcja == 'Administracja':
+    st.title('Admnistracja')
+if sekcja == 'Wydziały':
+    st.title('Wydziały')
+if sekcja == 'Granty':
+    st.title('Granty')
 
+    
+'''
 global df, l, zl, df1, z1
 #zl = pd.DataFrame()
 l = []
@@ -81,3 +92,4 @@ if uploaded_file is not None:
     except Exception as e:
         print(e)
         st.write('Czekam na dane')
+'''
