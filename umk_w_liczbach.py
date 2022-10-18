@@ -20,7 +20,7 @@ sekcja = st.sidebar.radio(
 
 if sekcja == 'Strona główna':
     new_title = '<b style="font-family:sans-serif;text-align: center; color:rgb(0, 0, 180); font-size: 62px;">Istotni Statystycznie ***</p>'
-    st.title(new_title, unsafe_allow_html=True)
+    st.markdown(new_title, unsafe_allow_html=True)
     
 if sekcja == 'Studenci':
     st.title('Studenci')
