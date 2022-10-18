@@ -7,12 +7,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
 
-[theme]
-primaryColor="#F63366"
-backgroundColor="#FFFFFF"
-secondaryBackgroundColor="#F0F2F6"
-textColor="#262730"
-font="sans serif"
+
 
 st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:', layout='wide')
 
