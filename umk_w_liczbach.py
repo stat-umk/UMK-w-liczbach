@@ -7,7 +7,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
 
-DF = pd.read_excel(io='UMKwLiczbach.xlsx',engine='openpyxl',sheetname='Studenci')
+DF = pd.read_excel(io='UMKwLiczbach.xlsx',engine='openpyxl',sheet_name='Studenci')
 
 sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
