@@ -7,11 +7,11 @@ import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
 
-page_bg_img = f"""
+page_bg_img = """
 <style>
-[data-testid="stAppViewContainer"] > .main {{
+[data-testid="stAppViewContainer"]{
 background-color #0050AA;
-}}
+}
 
 
 </style>
