@@ -18,7 +18,6 @@ sekcja = st.sidebar.radio(
     ('Strona główna','Studenci','Administracja','Wydziały','Granty')
  )
 
-st.markdown('<style>body {background: #ff0099;}</style>', unsafe_allow_html=True)
 if sekcja == 'Strona główna':
     st.title('Strona główna')
 if sekcja == 'Studenci':
@@ -32,11 +31,6 @@ if sekcja == 'Granty':
     st.title('Granty')
 
     
-hide_st_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_st_style, unsafe_allow_html=True)
+
+
+st.markdown('<style>body {background: #ff0099;}</style>', unsafe_allow_html=True)
