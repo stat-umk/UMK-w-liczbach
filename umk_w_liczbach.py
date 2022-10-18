@@ -1,6 +1,14 @@
-import streamlit as st
+import os
 import pandas as pd
-import openpyxl
+import numpy as np
+import streamlit as st
+import plotly.express as px
+import plotly.graph_objects as go
+from pathlib import Path
+
+os_path = Path(__file__).parents[0] / 'DoMod.csv'
+with open(os_path, encoding="utf8", errors='ignore') as f:
+    DF = pd.read_csv(f,sep=',',header=0)
 
 
 st.set_page_config(page_title='Porównanie RKMH', page_icon = ':bar_chart:', layout='wide')
