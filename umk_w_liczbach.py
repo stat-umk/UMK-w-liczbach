@@ -35,4 +35,4 @@ if sekcja == 'Granty':
 
 
 st.markdown('<style>body {background-color: #ff0099;}</style>', unsafe_allow_html=True)
-st.markdown('<style>body {background-color: lightgoldenrodyellow;}div[role="listbox"] ul {background-color: red;}</style>', unsafe_allow_html=True)
+st.markdown('<style>body {background-color: rgb(0, 80, 170);}</style>', unsafe_allow_html=True)
