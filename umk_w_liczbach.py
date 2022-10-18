@@ -12,8 +12,6 @@ page_bg_img = """
 [data-testid="stAppViewContainer"]{
 background-color #0050AA;
 }
-
-
 </style>
 """
 
