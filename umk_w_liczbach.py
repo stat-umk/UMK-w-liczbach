@@ -26,6 +26,7 @@ sekcja = st.sidebar.radio(
  )
 if sekcja == 'Strona główna':
     st.title('Strona główna')
+    pasldpad
 if sekcja == 'Studenci':
     st.title('Studenci')
     st.dataframe(DF)
