@@ -7,13 +7,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
 
-st.markdown("""
-<style>
-body {
-  background: #ff0099;
-}
-</style>
-    """, unsafe_allow_html=True)
 
 
 st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:', layout='wide')
@@ -24,6 +17,8 @@ sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
     ('Strona główna','Studenci','Administracja','Wydziały','Granty')
  )
+
+st.markdown('<style>body {background: #ff0099;}</style>', unsafe_allow_html=True)
 if sekcja == 'Strona główna':
     st.title('Strona główna')
 if sekcja == 'Studenci':
