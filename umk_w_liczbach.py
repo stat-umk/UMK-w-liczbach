@@ -30,7 +30,14 @@ if sekcja == 'Wydziały':
 if sekcja == 'Granty':
     st.title('Granty')
 
-    
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
-st.markdown('<style>body {background: #ff0099;}</style>', unsafe_allow_html=True)
+st.markdown('<style>body {background-color: #ff0099;}</style>', unsafe_allow_html=True)
