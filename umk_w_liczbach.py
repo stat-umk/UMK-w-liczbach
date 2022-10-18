@@ -11,7 +11,7 @@ st.session_state.primaryColor = "#f63366"
 st.session_state.backgroundColor = "#FFFFFF"
 st.session_state.secondaryBackgroundColor = "#f0f2f6"
 st.session_state.textColor = "#262730"
-st.session_state.is_dark_theme = False
+st.session_state.is_dark_theme = True
 st.session_state.first_time = True
 
 st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:', layout='wide')
