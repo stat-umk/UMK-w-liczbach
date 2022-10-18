@@ -7,6 +7,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
 
+st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:', layout='wide')
+
 DF = pd.read_excel(io='UMKwLiczbach.xlsx',engine='openpyxl',sheet_name='Studenci')
 
 sekcja = st.sidebar.radio(
