@@ -43,3 +43,4 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 st.markdown('<style>body {background-color: #ff0099;}</style>', unsafe_allow_html=True)
+st.markdown('<style>body {background-color: lightgoldenrodyellow;}div[role="listbox"] ul {background-color: red;}</style>', unsafe_allow_html=True)
