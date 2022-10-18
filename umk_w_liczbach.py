@@ -6,21 +6,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
 
-os_path = Path(__file__).parents[0] / 'DoMod.csv'
+os_path = Path(__file__).parents[0] / 'UMKwLiczbach.xlsx'
 with open(os_path, encoding="utf8", errors='ignore') as f:
-    DF = pd.read_csv(f,sep=',',header=0)
-
-
-st.set_page_config(page_title='Porównanie RKMH', page_icon = ':bar_chart:', layout='wide')
-
-st.set_option('deprecation.showfileUploaderEncoding',False)
-
-st.title(':floppy_disk: Wszystkie pliki')
-
-st.sidebar.subheader('Dodawanie plików')
-
-#uploaded_file = st.sidebar.file_uploader(label='Wprowadź pliki', type=['xlsx'],accept_multiple_files=True)
-#uploaded_file1 = st.sidebar.file_uploader(label='Wprowadź plik z ostatniego miesiąca', type=['xlsx'])
+    DF = pd.read_excel(f,sep=',',header=0)
 
 sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
@@ -30,6 +18,7 @@ if sekcja == 'Strona główna':
     st.title('Strona główna')
 if sekcja == 'Studenci':
     st.title('Studenci')
+    st.dataframe(DF)
 if sekcja == 'Administracja':
     st.title('Admnistracja')
 if sekcja == 'Wydziały':
