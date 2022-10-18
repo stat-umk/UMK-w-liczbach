@@ -8,7 +8,7 @@ from pathlib import Path
 
 os_path = Path(__file__).parents[0] / 'UMKwLiczbach.xlsx'
 with open(os_path, encoding="utf8", errors='ignore') as f:
-    DF = pd.read_excel(f,sep=',',header=0)
+    DF = pd.read_excel(f)
 
 sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
