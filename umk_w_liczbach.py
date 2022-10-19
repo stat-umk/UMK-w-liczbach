@@ -41,5 +41,17 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
+st.markdown(
+    """
+<style>
+span[data-baseweb="tag"] {
+  background-color: blue !important;
+}
+</style>
+""",
+    unsafe_allow_html=True,
+)
+
+
 st.markdown('<style>body {background-color: #ff0099;}</style>', unsafe_allow_html=True)
 st.markdown('<style>body {bgcolor: rgb(0, 80, 170);}</style>', unsafe_allow_html=True)
