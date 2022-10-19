@@ -25,6 +25,7 @@ if sekcja == 'Strona główna':
 if sekcja == 'Studenci':
     st.title('Studenci')
     st.dataframe(DF)
+    st.multiselect("Something", ["something1", "something2", "something3"])
 if sekcja == 'Administracja':
     st.title('Admnistracja')
 if sekcja == 'Wydziały':
