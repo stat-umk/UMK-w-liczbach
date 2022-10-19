@@ -46,7 +46,7 @@ st.markdown(
     """
 <style>
 span[data-baseweb="tag"] {
-  background-color: blue !important;
+  background-color: #0050AA !important;
 }
 </style>
 """,
