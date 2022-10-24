@@ -32,6 +32,7 @@ if sekcja == 'Administracja':
     st.title('Admnistracja')
 if sekcja == 'Wydziały':
     st.title('Wydziały')
+    st.button()
 if sekcja == 'Granty':
     st.title('Granty')
 
@@ -58,10 +59,7 @@ span[data-baseweb="listbox"] {
 def header(url):
      st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
         
-st.markdown(""" div.stButton > button:first-child {
-background-color: #00cc00;color:white;font-size:20px;height:3em;width:30em;border-radius:10px 10px 10px 10px;
-}
-""", unsafe_allow_html=True)
+st.markdown(""" div.stButton > button:first-child {background-color: #00cc00;color:white;font-size:20px;height:3em;width:30em;border-radius:10px 10px 10px 10px;}""", unsafe_allow_html=True)
 
 
 st.markdown('<style>body {background-color: #ff0099;}</style>', unsafe_allow_html=True)
