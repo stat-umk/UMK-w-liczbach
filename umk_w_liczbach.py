@@ -47,7 +47,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 st.markdown(
 """
 <style>
-span[data-baseweb="button"] {
+span[data-baseweb="listbox"] {
   background-color: #0050AA !important;
 }
 </style>
