@@ -29,6 +29,7 @@ if sekcja == 'Strona główna':
 if sekcja == 'Studenci':
     st.title('Studenci')
     st.dataframe(DF)
+    st.plotly_graph(px.bar,data=DF2,x='Lata',y='Razem')
 if sekcja == 'Administracja':
     st.title('Admnistracja')
 if sekcja == 'Wydziały':
