@@ -40,7 +40,7 @@ hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
-            header {visibility: visible; background-color: #0050AA; }
+            header {visibility: visible; background-color: #d1d3d1; }
             radio {color: #0050AA;}
             </style>
             """
