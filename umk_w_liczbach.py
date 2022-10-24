@@ -47,7 +47,7 @@ if sekcja == 'Wydziały':
                                                 'Nauk o Polityce i Bezpieczeństwie','Prawa i Administracji','Sztuk Pięknych','Teologiczny','Lekarski',
                                                 'Farmaceutyczny','Nauk o Zdrowiu','Ogółem'])
     kat1 = st.selectbox('Wybierz kategorię: ', ['Stacjonarne','Niestacjonarne','Razem'])
-    st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1))
+    st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1).update_traces(marker_color='rgb(0,80,170)',text=y,textposition='inside'))
 if sekcja == 'Granty':
     st.title('Granty')
 
