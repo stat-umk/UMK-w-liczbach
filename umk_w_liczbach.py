@@ -16,6 +16,7 @@ st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:', 
 DF = pd.read_excel(io='UMKwLiczbach.xlsx',engine='openpyxl',sheet_name='Studenci')
 
 DF2 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Lata':str})
+DF3 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Lata':str},sheet_name='podział')
 
 sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
@@ -39,6 +40,13 @@ if sekcja == 'Administracja':
     st.title('Admnistracja')
 if sekcja == 'Wydziały':
     st.title('Wydziały')
+    wydzial = st.selectbox('Wybierz wydział: ',['Nauk Biologicznych i Weterynaryjnych',
+                                                'Chemii','Humanistyczny','Fizyki','Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
+                                                'Matematyki i Informatyki','Nauk Ekonomicznych i Zarządzania','Nauk Historycznych','Nauk o Ziemi i Gospodarki Przestrzennej',
+                                                'Nauk o Polityce i Bezpieczeństwie','Prawa i Administracji','Sztuk Pięknych','Teologiczny','Lekarski',
+                                                'Farmaceutyczny','Nauk o Zdrowiu','Ogółem']
+    kat1 = st.select
+    st.plotly_chart(px.bar(DF3[DF3['Wydział'==wydzial]],x='Lata',y=kat1).update_traces(marker_color='rgb(0,80,170)'))
 if sekcja == 'Granty':
     st.title('Granty')
 
