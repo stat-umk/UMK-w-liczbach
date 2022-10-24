@@ -40,13 +40,14 @@ if sekcja == 'Administracja':
     st.title('Admnistracja')
 if sekcja == 'Wydziały':
     st.title('Wydziały')
+    st.dataframe(DF3[DF3['Wydział'=='Chemii']])
     wydzial = st.selectbox('Wybierz wydział: ',['Nauk Biologicznych i Weterynaryjnych',
                                                 'Chemii','Humanistyczny','Fizyki','Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
                                                 'Matematyki i Informatyki','Nauk Ekonomicznych i Zarządzania','Nauk Historycznych','Nauk o Ziemi i Gospodarki Przestrzennej',
                                                 'Nauk o Polityce i Bezpieczeństwie','Prawa i Administracji','Sztuk Pięknych','Teologiczny','Lekarski',
                                                 'Farmaceutyczny','Nauk o Zdrowiu','Ogółem'])
     kat1 = st.selectbox('Wybierz kategorię: ', ['Stacjonarne','Niestacjonarne','Razem'])
-    st.plotly_chart(px.bar(DF3[DF3['Wydział'=='Chemii']],x='Rok',y='Razem'))
+    st.plotly_chart(px.bar(DF3,x='Rok',y='Razem'))
 if sekcja == 'Granty':
     st.title('Granty')
 
