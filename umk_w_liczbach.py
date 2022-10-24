@@ -15,6 +15,8 @@ st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:', 
 
 DF = pd.read_excel(io='UMKwLiczbach.xlsx',engine='openpyxl',sheet_name='Studenci')
 
+DF2 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl')
+
 sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
     ('Strona główna','Studenci','Administracja','Wydziały','Granty')
