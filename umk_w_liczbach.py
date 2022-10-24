@@ -30,7 +30,7 @@ if sekcja == 'Studenci':
     st.title('Studenci')
     st.dataframe(DF2)
     kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
-    st.plotly_chart(px.bar(DF2,x='Lata',y=kat))
+    st.plotly_chart(px.bar(DF2,x='Lata',y=kat,width=1000))
     
 if sekcja == 'Administracja':
     st.title('Admnistracja')
