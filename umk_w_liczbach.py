@@ -32,7 +32,7 @@ if sekcja == 'Administracja':
     st.title('Admnistracja')
 if sekcja == 'Wydziały':
     st.title('Wydziały')
-    st.button()
+    st.button('test')
 if sekcja == 'Granty':
     st.title('Granty')
 
