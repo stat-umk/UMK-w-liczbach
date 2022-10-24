@@ -29,7 +29,7 @@ if sekcja == 'Strona główna':
 if sekcja == 'Studenci':
     st.title('Studenci')
     st.dataframe(DF2)
-    st.plotly_chart(px.bar(data=DF2,x='Lata',y='Razem'))
+    st.plotly_chart(px.bar(DF2,x='Lata',y='Razem'))
 if sekcja == 'Administracja':
     st.title('Admnistracja')
 if sekcja == 'Wydziały':
