@@ -29,13 +29,9 @@ if sekcja == 'Strona główna':
 if sekcja == 'Studenci':
     st.title('Studenci')
     st.dataframe(DF2)
-    st.plotly_chart(px.bar(DF2,x='Lata',y='Razem'))
+    kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
+    st.plotly_chart(px.bar(DF2,x='Lata',y=kat))
     
-
-    picture = st.camera_input("Take a picture")
-
-    if picture:
-        st.image(picture)
 if sekcja == 'Administracja':
     st.title('Admnistracja')
 if sekcja == 'Wydziały':
