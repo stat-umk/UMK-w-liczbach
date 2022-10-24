@@ -38,9 +38,9 @@ if sekcja == 'Granty':
 
 hide_st_style = """
             <style>
-            #MainMenu {visibility: hidden;}
+            #MainMenu {visibility: hidden;background-color: #d1d3d1;}
             footer {visibility: hidden;}
-            header {visibility: visible; background-color: #d1d3d1; }
+            header {visibility: hidden;}
             radio {color: #0050AA;}
             </style>
             """
