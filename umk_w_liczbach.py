@@ -7,6 +7,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
 
+from load_css import local_css
+local_css(“style.css”)
+
 
 
 st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:', layout='wide')
@@ -43,7 +46,7 @@ hide_st_style = """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 st.markdown(
-    """
+"""
 <style>
 span[data-baseweb="tag"] {
   background-color: #0050AA !important;
@@ -52,6 +55,21 @@ span[data-baseweb="tag"] {
 """,
     unsafe_allow_html=True,
 )
+
+def header(url):
+     st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
+        
+div[role=“listbox”] ul {
+** background-color: 99cfdd;**
+}
+
+div[data-baseweb=“select”] > div {
+** background-color: 99cfdd;**
+}
+
+div[data-baseweb=“input”] > div {
+** background-color: 99cfdd;**
+}
 
 
 st.markdown('<style>body {background-color: #ff0099;}</style>', unsafe_allow_html=True)
