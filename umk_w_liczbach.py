@@ -41,7 +41,7 @@ hide_st_style = """
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}
-            radio {background-color: #0050AA;}
+            radio {color: #0050AA;}
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
