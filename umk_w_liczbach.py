@@ -59,15 +59,15 @@ span[data-baseweb="tag"] {
 def header(url):
      st.markdown(f'<p style="background-color:#0066cc;color:#33ff33;font-size:24px;border-radius:2%;">{url}</p>', unsafe_allow_html=True)
         
-div[role=“listbox”] ul {
+div[role='listbox'] ul {
 ** background-color: 99cfdd;**
 }
 
-div[data-baseweb=“select”] > div {
+div[data-baseweb='select'] > div {
 ** background-color: 99cfdd;**
 }
 
-div[data-baseweb=“input”] > div {
+div[data-baseweb='input'] > div {
 ** background-color: 99cfdd;**
 }
 
