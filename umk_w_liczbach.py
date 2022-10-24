@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 from pathlib import Path
 
 from load_css import local_css
-local_css(“style.css”)
+local_css('style.css')
 
 
 
