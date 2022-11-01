@@ -40,7 +40,7 @@ if sekcja == 'Studenci':
     st.markdown('---')
     with st.container():
         kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
-        st.plotly_chart(px.bar(DF2,x='Lata',y=kat,width=1400,height=800,title=
+        st.plotly_chart(px.bar(DF2,x='Lata',y=kat,width=1800,height=400,title=
          'Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021'))
     st.markdown('---')
     col1, col2, col3 = st.columns(3)
