@@ -13,7 +13,7 @@ from pathlib import Path
 
 st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:', layout='wide')
 
-DF = pd.read_excel(io='UMKwLiczbach.xlsx',engine='openpyxl',sheet_name='Studenci')
+DF = pd.read_excel(io='UMKwLiczbach.xlsx',engine='openpyxl',sheet_name='Studenci',dtype={'Rok':str})
 
 DF2 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Lata':str})
 DF3 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Lata':str},sheet_name='podział')
@@ -24,7 +24,7 @@ sekcja = st.sidebar.radio(
  )
 
 if sekcja == 'Strona główna':
-    new_title = '< style="font-family:sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Strona główna</p>'
+    new_title = '<b style="font-family:sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Strona główna</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     
 if sekcja == 'Studenci':
