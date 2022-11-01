@@ -16,7 +16,7 @@ st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:', 
 DF = pd.read_excel(io='UMKwLiczbach.xlsx',engine='openpyxl',sheet_name='Studenci',dtype={'Rok':str})
 
 DF2 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Lata':str})
-DF3 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Lata':str},sheet_name='podział')
+DF3 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Rok':str},sheet_name='podział')
 
 sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
