@@ -50,7 +50,8 @@ if sekcja == 'Wydziały':
                                                     'Farmaceutyczny','Nauk o Zdrowiu','Ogółem'])
         kat1 = st.selectbox('Wybierz kategorię: ', ['Stacjonarne','Niestacjonarne','Razem'])
         st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=700,height=400).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",textposition='inside'))
-      
+    with col2:
+        st.write('siiaisiadiasidiasdi')
         
         
         
