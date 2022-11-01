@@ -57,7 +57,7 @@ if sekcja == 'Wydziały':
                                                     'Nauk o Polityce i Bezpieczeństwie','Prawa i Administracji','Sztuk Pięknych','Teologiczny','Lekarski',
                                                     'Farmaceutyczny','Nauk o Zdrowiu','Ogółem'])
         kat2 = st.selectbox('Wybierz kategorię1: ', ['Stacjonarne','Niestacjonarne','Razem'])
-        
+        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial1],x='Rok',y=kat2,width=700,height=400).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",textposition='inside'))
         
         
         
