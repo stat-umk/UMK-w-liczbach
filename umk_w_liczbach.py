@@ -83,7 +83,7 @@ hide_st_style = """
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}  
-            #Manage app {visible: hidden:}
+            button {visibility: hidden:}
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
