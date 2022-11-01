@@ -40,6 +40,7 @@ if sekcja == 'Administracja':
     st.title('Admnistracja')
 if sekcja == 'Wydziały':
     st.title('Wydziały')
+    st.markdown('---')
    
     wydzial = st.selectbox('Wybierz wydział: ',['Nauk Biologicznych i Weterynaryjnych',
                                                 'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
