@@ -27,7 +27,7 @@ kolwyd = {'Nauk Biologicznych i Weterynaryjnych':kolor['zielony'],
           'Teologiczny':kolor['niebieski'],'Lekarski':kolor['czerwony'],'Farmaceutyczny':kolor['czerwony'],'Nauk o Zdrowiu':kolor['czerwony'],'Ogółem':'rgb(0,80,170)'}
 sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
-    ('Strona główna','Studenci','Administracja','Wydziały','Granty')
+    ('Strona główna','Studenci','Nauczyciele akademiccy i administracja','Badania naukowe','Współpraca międzynarodowa')
  )
 
 if sekcja == 'Strona główna':
@@ -42,11 +42,6 @@ if sekcja == 'Studenci':
         kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
         st.plotly_chart(px.bar(DF2,x='Lata',y=kat,width=1400,height=800,title=
          'Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021'))
-    
-if sekcja == 'Administracja':
-    st.title('Admnistracja')
-if sekcja == 'Wydziały':
-    st.title('Wydziały')
     st.markdown('---')
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -72,11 +67,16 @@ if sekcja == 'Wydziały':
                                                     'Nauk o Polityce i Bezpieczeństwie','Prawa i Administracji','Sztuk Pięknych','Teologiczny','Lekarski',
                                                     'Farmaceutyczny','Nauk o Zdrowiu','Ogółem'])
         kat3 = st.selectbox('Wybierz kategorię:   ', ['Stacjonarne','Niestacjonarne','Razem'])
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial2],x='Rok',y=kat3,width=600,height=400).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",textposition='inside'))   
+        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial2],x='Rok',y=kat3,width=600,height=400).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",textposition='inside'))           
+    
+if sekcja == 'Nauczyciele akademiccy i administracja':
+    st.title('Nauczyciele akademiccy i administracja')
         
-        
-if sekcja == 'Granty':
-    st.title('Granty')
+if sekcja == 'Badania naukowe':
+    st.title('Badania naukowe')
+
+if sekcja == 'Współpraca międzynarodowa':
+    st.title('Współpraca międzynarodowa')      
 
 hide_st_style = """
             <style>
