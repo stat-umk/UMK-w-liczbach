@@ -18,6 +18,11 @@ DF = pd.read_excel(io='UMKwLiczbach.xlsx',engine='openpyxl',sheet_name='Studenci
 DF2 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Lata':str})
 DF3 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Rok':str},sheet_name='podział')
 
+wydziały = ['Nauk Biologicznych i Weterynaryjnych',
+                                                    'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
+                                                    'Matematyki i Informatyki','Nauk Ekonomicznych i Zarządzania','Nauk Historycznych','Nauk o Ziemi i Gospodarki Przestrzennej',
+                                                    'Nauk o Polityce i Bezpieczeństwie','Prawa i Administracji','Sztuk Pięknych','Teologiczny','Lekarski',
+                                                    'Farmaceutyczny','Nauk o Zdrowiu','Ogółem']
 kolor = {'fioletowy':'rgb(170,40,150)','niebieski':'rgb(0,175,250)','zielony':'rgb(0,165,80)','oliwkowy':'rgb(170,210,60)','pomarańczowy':'rgb(255,130,30)','czerwony':'rgb(250,20,20)'}
 kolwyd = {'Nauk Biologicznych i Weterynaryjnych':kolor['zielony'],
            'Chemii':kolor['oliwkowy'],'Humanistyczny':kolor['niebieski'],'Fizyki, Astronomii i Informatyki Stosowanej':kolor['oliwkowy'],
@@ -41,36 +46,19 @@ if sekcja == 'Studenci':
     
     col1, col2 = st.columns(2)
     with col1:
-        wydzial = st.selectbox('Wybierz wydział: ',['Nauk Biologicznych i Weterynaryjnych',
-                                                    'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
-                                                    'Matematyki i Informatyki','Nauk Ekonomicznych i Zarządzania','Nauk Historycznych','Nauk o Ziemi i Gospodarki Przestrzennej',
-                                                    'Nauk o Polityce i Bezpieczeństwie','Prawa i Administracji','Sztuk Pięknych','Teologiczny','Lekarski',
-                                                    'Farmaceutyczny','Nauk o Zdrowiu','Ogółem'])
+        wydzial = st.selectbox('Wybierz wydział: ',wydziały)
         kat1 = st.selectbox('Wybierz kategorię: ', ['Stacjonarne','Niestacjonarne','Razem'])
         st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=600,height=400).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside'))
         
+    
+
+    with col2:
+        st.markdown('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')              
         kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
         st.markdown('###')
         st.markdown('###')
-        st.markdown('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')
-        st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=600,height=400))
-
-    with col2:
-        wydzial1 = st.selectbox('Wybierz wydział:  ',['Nauk Biologicznych i Weterynaryjnych',
-                                                    'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
-                                                    'Matematyki i Informatyki','Nauk Ekonomicznych i Zarządzania','Nauk Historycznych','Nauk o Ziemi i Gospodarki Przestrzennej',
-                                                    'Nauk o Polityce i Bezpieczeństwie','Prawa i Administracji','Sztuk Pięknych','Teologiczny','Lekarski',
-                                                    'Farmaceutyczny','Nauk o Zdrowiu','Ogółem'])
-        kat2 = st.selectbox('Wybierz kategorię:  ', ['Stacjonarne','Niestacjonarne','Razem'])
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial1],x='Rok',y=kat2,width=600,height=400).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",textposition='inside'))
-    
-        wydzial2 = st.selectbox('Wybierz wydział:   ',['Nauk Biologicznych i Weterynaryjnych',
-                                                    'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
-                                                    'Matematyki i Informatyki','Nauk Ekonomicznych i Zarządzania','Nauk Historycznych','Nauk o Ziemi i Gospodarki Przestrzennej',
-                                                    'Nauk o Polityce i Bezpieczeństwie','Prawa i Administracji','Sztuk Pięknych','Teologiczny','Lekarski',
-                                                    'Farmaceutyczny','Nauk o Zdrowiu','Ogółem'])
-        kat3 = st.selectbox('Wybierz kategorię:   ', ['Stacjonarne','Niestacjonarne','Razem'])
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial2],x='Rok',y=kat3,width=600,height=400).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",textposition='inside'))           
+        st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=600,height=400))              
+                  
     
 if sekcja == 'Nauczyciele akademiccy i administracja':
     st.title('Nauczyciele akademiccy i administracja')
