@@ -48,7 +48,7 @@ if sekcja == 'Studenci':
     with col1:
         wydzial = st.selectbox('Wybierz wydział: ',wydziały)
         kat1 = st.selectbox('Wybierz kategorię: ', ['Stacjonarne','Niestacjonarne','Razem'])
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=600,height=400).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside'))
+        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=800,height=600).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside'))
         
     
 
@@ -57,7 +57,7 @@ if sekcja == 'Studenci':
         kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
         st.markdown('###')
         st.markdown('###')
-        st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=600,height=400))              
+        st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=800,height=600))              
                   
     
 if sekcja == 'Nauczyciele akademiccy i administracja':
