@@ -44,19 +44,18 @@ if sekcja == 'Studenci':
     st.markdown('---')
     
     
-    col1, col2 = st.columns(2)
-    with col1:
-        st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
-        wydzial = st.selectbox('Wybierz wydział: ',wydziały)
-        kat1 = st.selectbox('Wybierz kategorię: ', ['Stacjonarne','Niestacjonarne','Razem'])
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=900,height=500).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside'))
-        
     
+st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
+wydzial = st.selectbox('Wybierz wydział: ',wydziały)
+kat1 = st.selectbox('Wybierz kategorię: ', ['Stacjonarne','Niestacjonarne','Razem'])
+st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=900,height=500).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside'))
 
-    with col2:
-        st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')              
-        kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
-        st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=900,height=500))              
+
+
+
+st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')              
+kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
+st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=900,height=500))              
                   
     
 if sekcja == 'Nauczyciele akademiccy i administracja':
