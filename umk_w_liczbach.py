@@ -66,8 +66,8 @@ if sekcja == 'Współpraca międzynarodowa':
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
-            
-            header {visibility: hidden;} 
+            footer {visibility: hidden;}
+             
             [button class="styles_terminalButton__3xUnY" data-testid="manage-app-button"] {visibility: hidden;}
             
             </style>
