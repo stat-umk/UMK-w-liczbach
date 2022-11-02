@@ -84,6 +84,8 @@ background-color: #FFCD00;}
 color: rgb(255,255,255);}
 [class="css-qrbaxs effi0qh3"]{
 color: rgb(255,255,255);}
+[data-testid="stVerticalBlock"]{
+border-bottom-color: #0050AA;}
 </style>
 """,
     unsafe_allow_html=True)
