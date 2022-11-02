@@ -83,6 +83,11 @@ background-size:25%;
 background-position: 98% 1%;
 background-repeat: no-repeat;
 background-attachment: local;}
+[data-testid="stAppViewContainer"] > .main {background-image:url("https://www.historia.umk.pl/panel/wp-content/uploads/siw_logo_umk_pion.png");
+background-size:15%;
+background-position: 10%% 1%;
+background-repeat: no-repeat;
+background-attachment: local;}
 [data-testid="stHeader"]{background-color: rgba(0,0,0,0);}
 [class="css-1adrfps e1fqkh3o2"]{
 background-color: #0050AA;}
@@ -106,5 +111,5 @@ color: rgb(255,255,255);}
 
 
 
-
+https://www.historia.umk.pl/panel/wp-content/uploads/siw_logo_umk_pion.png
 
