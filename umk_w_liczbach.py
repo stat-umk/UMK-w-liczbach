@@ -81,7 +81,7 @@ background-color: #0050AA;}
 [class="st-bh st-bl st-bm st-bn st-bo st-bp st-az st-b4 st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-b2 st-c0"]{
 background-color: #FFCD00;}
 [class="st-bx st-cb st-cc st-ae st-af st-ag st-ah st-ai st-aj"]{
-background-color: rgb(255,255,255);}
+color: rgb(255,255,255);}
 </style>
 """,
     unsafe_allow_html=True)
