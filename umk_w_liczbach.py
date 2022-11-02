@@ -78,11 +78,6 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 st.markdown(
     """
 <style>
-[data-testid="stAppViewContainer"] > .main {background-image:url("https://www.umk.pl/grafika/logo-umk.png");
-background-size:25%;
-background-position: 98% 1%;
-background-repeat: no-repeat;
-background-attachment: local;}
 [data-testid="stAppViewContainer"] > .main {background-image:url("https://www.historia.umk.pl/panel/wp-content/uploads/siw_logo_umk_pion.png");
 background-size:15%;
 background-position: 10%% 1%;
