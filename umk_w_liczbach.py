@@ -78,6 +78,8 @@ st.markdown(
 <style>
 [class="css-1adrfps e1fqkh3o2"]{
 background-color: #0050AA;}
+[class="st-bh st-bl st-bm st-bn st-bo st-bp st-az st-b4 st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-b2 st-c0"]{
+background-color: #FFCD00;}
 </style>
 """,
     unsafe_allow_html=True)
