@@ -38,6 +38,7 @@ sekcja = st.sidebar.radio(
 if sekcja == 'Strona główna':
     new_title = '<b style="font-family:sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Strona główna</p>'
     st.markdown(new_title, unsafe_allow_html=True)
+    st.markdown('---')
     
 if sekcja == 'Studenci':
     st.title('Studenci')
@@ -56,13 +57,16 @@ if sekcja == 'Studenci':
     
 if sekcja == 'Nauczyciele akademiccy i administracja':
     st.header('Nauczyciele akademiccy i administracja')
+    st.markdown('---')
     
         
 if sekcja == 'Badania naukowe':
     st.title('Badania naukowe')
+    st.markdown('---')
 
 if sekcja == 'Współpraca międzynarodowa':
-    st.title('Współpraca międzynarodowa')      
+    st.title('Współpraca międzynarodowa')
+    st.markdown('---')
 
 hide_st_style = """
             <style>
