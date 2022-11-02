@@ -55,7 +55,7 @@ if sekcja == 'Studenci':
                   
     
 if sekcja == 'Nauczyciele akademiccy i administracja':
-    st.header('Nauczyciele akademiccy i administracją')
+    st.header('Nauczyciele akademiccy i administracja')
     
         
 if sekcja == 'Badania naukowe':
