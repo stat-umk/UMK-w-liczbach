@@ -76,14 +76,11 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 st.markdown(
     """
 <style>
-.sidebar .sidebar-content {
-    background-image: linear-gradient(#8993ab,#8993ab);
-    color: white;
-}
+[data-testid="stSidebar"]{
+background-color: #FFCD00;}
 </style>
 """,
-    unsafe_allow_html=True,
-)
+    unsafe_allow_html=True)
 
 
 
