@@ -111,5 +111,3 @@ color: rgb(255,255,255);}
 
 
 
-https://www.historia.umk.pl/panel/wp-content/uploads/siw_logo_umk_pion.png
-
