@@ -68,7 +68,7 @@ hide_st_style = """
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}  
-            
+            button {color: rgb(255,255,255);}
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
