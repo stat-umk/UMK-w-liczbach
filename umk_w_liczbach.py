@@ -55,7 +55,7 @@ st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=600,he
 
 st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')              
 kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
-st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=700,height=500))              
+st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=700,height=400))              
                   
     
 if sekcja == 'Nauczyciele akademiccy i administracja':
