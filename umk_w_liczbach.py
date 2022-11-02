@@ -46,6 +46,7 @@ if sekcja == 'Studenci':
     
     col1, col2 = st.columns(2)
     with col1:
+        st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
         wydzial = st.selectbox('Wybierz wydział: ',wydziały)
         kat1 = st.selectbox('Wybierz kategorię: ', ['Stacjonarne','Niestacjonarne','Razem'])
         st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=900,height=500).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside'))
