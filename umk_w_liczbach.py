@@ -36,7 +36,6 @@ if sekcja == 'Strona główna':
     
 if sekcja == 'Studenci':
     st.title('Studenci')
-    st.dataframe(DF2)
     st.markdown('---')
     with st.container():
         kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
