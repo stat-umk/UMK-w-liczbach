@@ -73,16 +73,11 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-st.markdown(
-"""
-<style>
-span[data-baseweb="radio-button"] {
-  background-color: #0050AA !important;
-}
-</style>
-""",
-    unsafe_allow_html=True,
-)
+st.markdown("""
+
+section[data-testid="stSidebar"] div[class="css-1wf22gv e1fqkh3o2"] {background-image: linear-gradient(#8993ab,#8993ab);color:rgb(0 80 170)}
+
+""",unsafe_allow_html=True)
 
 
 
