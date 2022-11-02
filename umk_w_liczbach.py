@@ -85,7 +85,10 @@ color: rgb(255,255,255);}
 [class="css-qrbaxs effi0qh3"]{
 color: rgb(255,255,255);}
 [class="st-av st-aw st-ax st-ay st-ci st-c4 st-b7 st-b4 st-b5 st-ck st-cl st-cm st-cn st-co st-cp st-cq st-cr st-cs st-ct st-b2 st-c0 st-cc st-dv st-dw st-dx st-dy st-c1"]{
-border-bottom-color: #0050AA;}
+border-bottom-color: #0050AA;
+border-top-color: #0050AA;
+border-right-color: #0050AA;
+border-left-color: #0050AA;}
 </style>
 """,
     unsafe_allow_html=True)
