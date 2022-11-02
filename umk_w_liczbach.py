@@ -32,7 +32,7 @@ kolwyd = {'Nauk Biologicznych i Weterynaryjnych':kolor['zielony'],
           'Teologiczny':kolor['niebieski'],'Lekarski':kolor['czerwony'],'Farmaceutyczny':kolor['czerwony'],'Nauk o Zdrowiu':kolor['czerwony'],'Ogółem':'rgb(0,80,170)'}
 sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
-    ('Strona główna','Studenci','Nauczyciele akademiccy oraz administracja','Badania naukowe','Współpraca międzynarodowa')
+    ('Strona główna','Studenci','Nauczyciele akademiccy i administracja','Badania naukowe','Współpraca międzynarodowa')
  )
 
 if sekcja == 'Strona główna':
@@ -54,8 +54,8 @@ if sekcja == 'Studenci':
     st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=750,height=450).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside'))
                   
     
-if sekcja == 'Nauczyciele akademiccy oraz administracja':
-    st.header('Nauczyciele akademiccy oraz administracją')
+if sekcja == 'Nauczyciele akademiccy i administracja':
+    st.header('Nauczyciele akademiccy i administracją')
     
         
 if sekcja == 'Badania naukowe':
