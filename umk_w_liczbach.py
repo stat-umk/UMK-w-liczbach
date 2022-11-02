@@ -77,7 +77,7 @@ st.markdown(
     """
 <style>
 [class="css-1adrfps e1fqkh3o2"]{
-background-color: #FFCD00;}
+background-color: #0050AA;}
 </style>
 """,
     unsafe_allow_html=True)
