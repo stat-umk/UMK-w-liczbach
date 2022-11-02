@@ -82,6 +82,8 @@ background-color: #0050AA;}
 background-color: #FFCD00;}
 [class="st-bx st-cb st-cc st-ae st-af st-ag st-ah st-ai st-aj"]{
 color: rgb(255,255,255);}
+[class="css-qrbaxs effi0qh3"]{
+color: rgb(255,255,255);}
 </style>
 """,
     unsafe_allow_html=True)
