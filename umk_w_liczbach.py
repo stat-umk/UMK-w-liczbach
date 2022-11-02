@@ -47,12 +47,11 @@ if sekcja == 'Studenci':
                                                     'Nauk o Polityce i Bezpieczeństwie','Prawa i Administracji','Sztuk Pięknych','Teologiczny','Lekarski',
                                                     'Farmaceutyczny','Nauk o Zdrowiu','Ogółem'])
         kat1 = st.selectbox('Wybierz kategorię: ', ['Stacjonarne','Niestacjonarne','Razem'])
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=600,height=400).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside'),use_container_width=True)
+        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=600,height=400).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside'))
         
         kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
         st.markdown('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')
-        st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=600,height=400),
-                       use_container_width=True)
+        st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=600,height=400))
 
     with col2:
         wydzial1 = st.selectbox('Wybierz wydział:  ',['Nauk Biologicznych i Weterynaryjnych',
@@ -61,7 +60,7 @@ if sekcja == 'Studenci':
                                                     'Nauk o Polityce i Bezpieczeństwie','Prawa i Administracji','Sztuk Pięknych','Teologiczny','Lekarski',
                                                     'Farmaceutyczny','Nauk o Zdrowiu','Ogółem'])
         kat2 = st.selectbox('Wybierz kategorię:  ', ['Stacjonarne','Niestacjonarne','Razem'])
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial1],x='Rok',y=kat2,width=600,height=400).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",textposition='inside'),use_container_width=True)
+        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial1],x='Rok',y=kat2,width=600,height=400).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",textposition='inside'))
     
         wydzial2 = st.selectbox('Wybierz wydział:   ',['Nauk Biologicznych i Weterynaryjnych',
                                                     'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
@@ -69,7 +68,7 @@ if sekcja == 'Studenci':
                                                     'Nauk o Polityce i Bezpieczeństwie','Prawa i Administracji','Sztuk Pięknych','Teologiczny','Lekarski',
                                                     'Farmaceutyczny','Nauk o Zdrowiu','Ogółem'])
         kat3 = st.selectbox('Wybierz kategorię:   ', ['Stacjonarne','Niestacjonarne','Razem'])
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial2],x='Rok',y=kat3,width=600,height=400).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",textposition='inside'),use_container_width=True)           
+        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial2],x='Rok',y=kat3,width=600,height=400).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",textposition='inside'))           
     
 if sekcja == 'Nauczyciele akademiccy i administracja':
     st.title('Nauczyciele akademiccy i administracja')
