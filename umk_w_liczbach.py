@@ -80,7 +80,8 @@ st.markdown(
 <style>
 [data-testid="stAppViewContainer"] > .main {background-image:url("https://www.historia.umk.pl/panel/wp-content/uploads/siw_logo_umk_pion.png");
 background-size:20%;
-background-position: top right;}
+background-position: top right;
+background-repeat: no-repeat;}
 [data-testid="stHeader"]{background-color: rgba(0,0,0,0);}
 [class="css-1adrfps e1fqkh3o2"]{
 background-color: #0050AA;}
