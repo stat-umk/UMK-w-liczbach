@@ -67,8 +67,8 @@ hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
-             
-            [button class="styles_terminalButton__3xUnY" data-testid="manage-app-button"] {visibility: hidden;}
+            
+            [class="stActionButton"] {visibility: hidden;}
             
             </style>
             """
