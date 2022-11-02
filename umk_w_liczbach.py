@@ -68,7 +68,7 @@ hide_st_style = """
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             header {visibility: hidden;}  
-            button {color: rgb(255,255,255);}
+            
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
@@ -89,6 +89,8 @@ border-bottom-color: #0050AA;
 border-top-color: #0050AA;
 border-right-color: #0050AA;
 border-left-color: #0050AA;}
+[class="css-gr05f0 e1fqkh3o1"]{
+color: rgb(255,255,255);}
 </style>
 """,
     unsafe_allow_html=True)
