@@ -50,6 +50,7 @@ if sekcja == 'Studenci':
         st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=600,height=400).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside'))
         
         kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
+        st.markdown('###')
         st.markdown('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')
         st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=600,height=400))
 
