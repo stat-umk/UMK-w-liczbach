@@ -79,7 +79,9 @@ st.markdown(
     """
 <style>
 [data-testid="stAppViewContainer"]{background-image:url("https://www.historia.umk.pl/panel/wp-content/uploads/siw_logo_umk_pion.png");
-background-size:cover;}
+background-size:80%;
+background-repeat: no-repeat;
+background-attachment: local;}
 [class="css-1adrfps e1fqkh3o2"]{
 background-color: #0050AA;}
 [class="st-bh st-bl st-bm st-bn st-bo st-bp st-az st-b4 st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-b2 st-c0"]{
