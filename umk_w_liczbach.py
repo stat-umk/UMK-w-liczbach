@@ -76,7 +76,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 st.markdown(
     """
 <style>
-[data-testid="stSidebar"]{
+[data-testid="stAppViewContainer"]{
 background-color: #FFCD00;}
 </style>
 """,
