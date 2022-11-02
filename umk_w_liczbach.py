@@ -78,8 +78,9 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 st.markdown(
     """
 <style>
-[data-testid="stAppViewContainer"]{background-image:url("https://www.historia.umk.pl/panel/wp-content/uploads/siw_logo_umk_pion.png");
+[data-testid="stAppViewContainer"] > .main {background-image:url("https://www.historia.umk.pl/panel/wp-content/uploads/siw_logo_umk_pion.png");
 background-size:80%;
+background-position: top right;
 background-repeat: no-repeat;
 background-attachment: local;}
 [class="css-1adrfps e1fqkh3o2"]{
