@@ -54,8 +54,8 @@ if sekcja == 'Studenci':
     st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=750,height=450).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside'))
                   
     
-if sekcja == 'Nauczyciele akademiccy i administracja':
-    st.title('Nauczyciele akademiccy \n i administracja')
+if sekcja == 'Nauczyciele akademiccy wraz z administracja':
+    st.title('Nauczyciele akademiccy wraz z administracją')
     
         
 if sekcja == 'Badania naukowe':
