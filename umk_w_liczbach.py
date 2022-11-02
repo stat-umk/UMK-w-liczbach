@@ -55,8 +55,8 @@ if sekcja == 'Studenci':
                   
     
 if sekcja == 'Nauczyciele akademiccy i administracja':
-    st.title('Nauczyciele akademiccy \n'+'i administracja')
-    st.title('i administracja')
+    st.title('Nauczyciele akademiccy \n i administracja')
+    
         
 if sekcja == 'Badania naukowe':
     st.title('Badania naukowe')
