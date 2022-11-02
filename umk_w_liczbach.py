@@ -39,7 +39,7 @@ if sekcja == 'Studenci':
     st.markdown('---')
     
     
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     with col1:
         wydzial = st.selectbox('Wybierz wydział: ',['Nauk Biologicznych i Weterynaryjnych',
                                                     'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
@@ -61,7 +61,7 @@ if sekcja == 'Studenci':
                                                     'Farmaceutyczny','Nauk o Zdrowiu','Ogółem'])
         kat2 = st.selectbox('Wybierz kategorię:  ', ['Stacjonarne','Niestacjonarne','Razem'])
         st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial1],x='Rok',y=kat2,width=600,height=400).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",textposition='inside'))
-    with col3:
+    
         wydzial2 = st.selectbox('Wybierz wydział:   ',['Nauk Biologicznych i Weterynaryjnych',
                                                     'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
                                                     'Matematyki i Informatyki','Nauk Ekonomicznych i Zarządzania','Nauk Historycznych','Nauk o Ziemi i Gospodarki Przestrzennej',
