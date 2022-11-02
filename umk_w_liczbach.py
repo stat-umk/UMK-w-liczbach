@@ -67,7 +67,8 @@ hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
-            header {visibility: hidden;}  
+            header {visibility: hidden;} 
+            [class="styles_terminalButton__3xUnY" ] {visibility: hidden;}
             
             </style>
             """
