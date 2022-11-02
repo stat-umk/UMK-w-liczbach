@@ -78,7 +78,6 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 st.markdown(
     """
 <style>
-[data-testid="stHeader]{background-color: rgba(0,0,0,0);}
 [data-testid="stAppViewContainer"] > .main {background-image:url("https://www.historia.umk.pl/panel/wp-content/uploads/siw_logo_umk_pion.png");
 background-size:20%;
 background-position: top right;
@@ -99,6 +98,7 @@ border-right-color: #0050AA;
 border-left-color: #0050AA;}
 [class="css-gr05f0 e1fqkh3o1"]{
 color: rgb(255,255,255);}
+[data-testid="stHeader]{background-color: rgba(0,0,0,0);}
 </style>
 """,
     unsafe_allow_html=True)
