@@ -60,6 +60,8 @@ border-right-color: #0050AA;
 border-left-color: #0050AA;}
 [class="css-1p2iens effi0qh3"]{
 color: rgb(255,255,0);}
+section[class="main css-1v3fvcr egzxvld3] label[class="css-1p2iens effi0qh3"]{
+color: rgb(255,255,0);}
 </style>
 """,
     unsafe_allow_html=True)
