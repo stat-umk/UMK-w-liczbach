@@ -40,8 +40,8 @@ st.markdown(
     """
 <style>
 [data-testid="stAppViewContainer"] > .main {background-image: url("https://login.umk.pl/themes/umk/images/logo-umk.png");
-background-size:20%;
-background-position: 20% 6%;
+background-size:30%;
+background-position: 90% 6%;
 background-repeat: no-repeat;
 background-attachment: local;}
 [data-testid="stHeader"]{background-color: rgba(0,0,0,0);}
