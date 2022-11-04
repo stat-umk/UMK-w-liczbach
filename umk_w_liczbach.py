@@ -39,9 +39,9 @@ sekcja = st.sidebar.radio(
 st.markdown(
     """
 <style>
-[data-testid="stAppViewContainer"]{background-image:url("https://www.umk.pl/grafika/logo-umk.png");
+[data-testid="stAppViewContainer"] >. main{background-image:url("https://www.umk.pl/grafika/logo-umk.png");
 background-size:20%;
-background-position: 94% 6%;
+background-position: 20% 6%;
 background-repeat: no-repeat;
 background-attachment: local;}
 [data-testid="stHeader"]{background-color: rgba(0,0,0,0);}
