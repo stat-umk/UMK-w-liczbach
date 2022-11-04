@@ -36,8 +36,7 @@ sekcja = st.sidebar.radio(
  )
 
 if sekcja == 'Strona główna':
-    new_title = '<b style="font-family:sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Strona główna</p>'
-    st.markdown(new_title, unsafe_allow_html=True)
+    
     st.markdown('---')
     
 if sekcja == 'Studenci':
@@ -91,7 +90,8 @@ background-position: 94% 6%;
 background-repeat: no-repeat;
 background-attachment: local;}
 [data-testid="stHeader"]{background-color: rgba(0,0,0,0);}
-
+[class="css-1adrfps e1fqkh3o2"]{
+background-color: #0050AA;}
 [class="st-bh st-bl st-bm st-bn st-bo st-bp st-az st-b4 st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-b2 st-c0"]{
 background-color: #FFCD00;}
 [class="st-bx st-cb st-cc st-ae st-af st-ag st-ah st-ai st-aj"]{
