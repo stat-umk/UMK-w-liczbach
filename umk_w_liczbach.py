@@ -12,7 +12,7 @@ from pathlib import Path
 
 
 
-st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:')
+st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:',initial_sidebar_state='expanded',layout='wide')
 
 DF = pd.read_excel(io='UMKwLiczbach.xlsx',engine='openpyxl',sheet_name='Studenci',dtype={'Rok':str})
 
