@@ -41,7 +41,7 @@ if sekcja == 'Strona główna':
     st.markdown('---')
     
 if sekcja == 'Studenci':
-    st.title('Studenci')
+    st.title('Studenci...')
     st.markdown('---')
 
     st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')              
