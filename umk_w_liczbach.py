@@ -52,14 +52,14 @@ background-color: #FFCD00;}
 [class="st-bx st-cb st-cc st-ae st-af st-ag st-ah st-ai st-aj"]{
 color: rgb(255,255,255);}
 [class="css-1atbdv8 e1fqkh3o1"]{
-color: rgb(255,255,0);}
+color: rgb(255,255,255);}
 [class="st-av st-aw st-ax st-ay st-ci st-c4 st-b7 st-b4 st-b5 st-ck st-cl st-cm st-cn st-co st-cp st-cq st-cr st-cs st-ct st-b2 st-c0 st-cc st-dw st-dx st-dy st-dz st-cy"]{
 border-bottom-color: #0050AA;
 border-top-color: #0050AA;
 border-right-color: #0050AA;
 border-left-color: #0050AA;}
 [class="css-1p2iens effi0qh3"]{
-color: rgb(255,255,255);}
+color: rgb(255,255,0);}
 </style>
 """,
     unsafe_allow_html=True)
