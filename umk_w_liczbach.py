@@ -68,7 +68,7 @@ hide_st_style = """
             #MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
             [data-testid="stDecoration"]{background-image: linear-gradient(90deg,#FFCD00 ,#0050AA );height: 0.25rem;}
-            [class="stActionButton"] {visibility: hidden;}
+            
             
             </style>
             """
