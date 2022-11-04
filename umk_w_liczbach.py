@@ -39,7 +39,7 @@ sekcja = st.sidebar.radio(
 st.markdown(
     """
 <style>
-[data-testid="stAppViewContainer"]{background-image:url("https://www.historia.umk.pl/panel/wp-content/uploads/siw_logo_umk_pion.png");
+[data-testid="stAppViewContainer"]{background-image:url("https://www.umk.pl/grafika/logo-umk.png");
 background-size:12%;
 background-position: 94% 6%;
 background-repeat: no-repeat;
