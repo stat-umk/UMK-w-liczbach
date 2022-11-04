@@ -104,13 +104,13 @@ border-bottom-color: #0050AA;
 border-top-color: #0050AA;
 border-right-color: #0050AA;
 border-left-color: #0050AA;}
-[class="css-gr05f0 e1fqkh3o1"]{
+[class="css-1p2iens effi0qh3"]{
 color: rgb(255,255,255);}
 </style>
 """,
     unsafe_allow_html=True)
 
-
+#css-gr05f0 e1fqkh3o1
 
 #css-1adrfps e1fqkh3o2
 #css-qrbaxs effi0qh3
