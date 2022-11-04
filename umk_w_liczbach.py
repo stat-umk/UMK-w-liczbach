@@ -58,7 +58,7 @@ border-bottom-color: #0050AA;
 border-top-color: #0050AA;
 border-right-color: #0050AA;
 border-left-color: #0050AA;}
-[class="css-1p2iens effi0qh3"]{
+section[data-testid="stSidebar"] label[class="css-1p2iens effi0qh3"]{
 color: rgb(255,255,255);}
 section[class="main css-1v3fvcr egzxvld3] label[class="css-1p2iens effi0qh3"]{
 color: rgb(255,255,0);}
