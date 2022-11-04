@@ -39,7 +39,7 @@ sekcja = st.sidebar.radio(
 st.markdown(
     """
 <style>
-[data-testid="stAppViewContainer"] > .main {background-image: url("https://ppshypothesis.umk.pl/pliki/logo%20UMK%20poziom%20ENG%20RGB.jpg");
+[data-testid="stAppViewContainer"] > .main {background-image: url("https://vetkompleksowo.pl/wp-content/uploads/sites/3/2020/07/logo-umk-miniatura.png");
 background-size:20%;
 background-position: 20% 6%;
 background-repeat: no-repeat;
