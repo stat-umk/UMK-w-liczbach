@@ -91,11 +91,12 @@ background-position: 94% 6%;
 background-repeat: no-repeat;
 background-attachment: local;}
 [data-testid="stHeader"]{background-color: rgba(0,0,0,0);}
-[class="css-1adrfps e1fqkh3o2"]{
+[class="css-1bh6xo1 e1fqkh3o2"]{
 background-color: #0050AA;}
 [class="st-bh st-bl st-bm st-bn st-bo st-bp st-az st-b4 st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-b2 st-c0"]{
 background-color: #FFCD00;}
-
+[class="st-bx st-cb st-cc st-ae st-af st-ag st-ah st-ai st-aj"]{
+color: rgb(255,255,255);}
 [class="css-qrbaxs effi0qh3"]{
 color: rgb(255,255,255);}
 [class="st-av st-aw st-ax st-ay st-ci st-c4 st-b7 st-b4 st-b5 st-ck st-cl st-cm st-cn st-co st-cp st-cq st-cr st-cs st-ct st-b2 st-c0 st-cc st-dv st-dw st-dx st-dy st-c1"]{
@@ -111,4 +112,4 @@ color: rgb(255,255,255);}
 
 
 
-
+#css-1adrfps e1fqkh3o2
