@@ -40,7 +40,7 @@ st.markdown(
     """
 <style>
 [data-testid="stAppViewContainer"]{background-image:url("https://www.umk.pl/grafika/logo-umk.png");
-background-size:12%;
+background-size:20%;
 background-position: 94% 6%;
 background-repeat: no-repeat;
 background-attachment: local;}
