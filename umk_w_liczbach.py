@@ -90,7 +90,8 @@ if sekcja == 'Studenci':
         st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
         wydzial = st.selectbox('Wybierz wydział: ',wydziały)
         kat1 = st.selectbox('Wybierz kategorię: ', ['Stacjonarne','Niestacjonarne','Razem'])
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=600,height=400).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside'))
+        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y=kat1,width=600,height=400).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside',
+                                                                                                              marker_line_color='rgb(0,70,180)',marker_line_width=2.5))
                   
     
 if sekcja == 'Nauczyciele akademiccy i administracja':
