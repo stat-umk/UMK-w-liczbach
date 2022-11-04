@@ -77,7 +77,7 @@ if sekcja == 'Strona główna':
     st.markdown('---')
     
 if sekcja == 'Studenci':
-    new_title = '<b style="font-family:sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 40px;">Studenci</p>'
+    new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Studenci</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     c1,c2, c3 = st.columns([3,1,3])
@@ -94,7 +94,8 @@ if sekcja == 'Studenci':
                   
     
 if sekcja == 'Nauczyciele akademiccy i administracja':
-    st.title('Nauczyciele akademiccy i administracja')
+    new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Nauczyciele akademiccy i administracja</p>'
+    st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     
     st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')              
@@ -103,11 +104,13 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     
         
 if sekcja == 'Badania naukowe':
-    st.title('Badania naukowe')
+    new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Badania naukowe</p>'
+    st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
 
 if sekcja == 'Współpraca międzynarodowa':
-    st.title('Współpraca międzynarodowa')
+    new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Współpraca międzynarodowa</p>'
+    st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
 
 hide_st_style = """
