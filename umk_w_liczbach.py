@@ -63,16 +63,7 @@ color: rgb(255,255,255);}
 </style>
 """,
     unsafe_allow_html=True)
-hide_st_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            [data-testid="stDecoration"]{background-image: linear-gradient(90deg,#FFCD00 ,#0050AA );height: 0.25rem;}
-            
-            
-            </style>
-            """
-st.markdown(hide_st_style, unsafe_allow_html=True)
+
 
 
 
@@ -116,7 +107,16 @@ if sekcja == 'Współpraca międzynarodowa':
     st.title('Współpraca międzynarodowa')
     st.markdown('---')
 
-
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            [data-testid="stDecoration"]{background-image: linear-gradient(90deg,#FFCD00 ,#0050AA );height: 0.25rem;}
+            [class="stActionButton"] {visibility: hidden;}
+            
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
 
