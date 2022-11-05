@@ -33,6 +33,15 @@ kolwyd = {'Nauk Biologicznych i Weterynaryjnych':kolor['zielony'],
           'Nauk Historycznych':kolor['niebieski'],
           'Nauk o Ziemi i Gospodarki Przestrzennej':kolor['zielony'],'Nauk o Polityce i Bezpieczeństwie':kolor['fioletowy'],'Prawa i Administracji':kolor['fioletowy'],'Sztuk Pięknych':kolor['pomarańczowy'],
           'Teologiczny':kolor['niebieski'],'Lekarski':kolor['czerwony'],'Farmaceutyczny':kolor['czerwony'],'Nauk o Zdrowiu':kolor['czerwony'],'Ogółem':'rgb(0,80,170)'}
+
+
+
+        
+        
+        
+        
+        
+        
 sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
     ('Strona główna','Studenci','Nauczyciele akademiccy i administracja','Badania naukowe','Współpraca międzynarodowa')
@@ -174,11 +183,19 @@ if sekcja == 'Badania naukowe':
     kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
     x = kw.index[::-1]
     y = kw['Kwota wnioskowana[zł]'][::-1]
+    
+    kw = kw.reset_index()
+    for j,i in enumerate(kw['Jednostka']):
+        if i in list(kolwyd.keys()):
+            kw['kolor'][j] = kolwyd[i]
+        else:
+            kw['kolor'][j] = 'rgb(0,70,180)'
+    barwa = kw['kolor'][::-1]
 
     fig = go.Figure()
     fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
                         textfont=dict( size=10,color='black')))
-    fig.update_traces(marker_line_color='black',marker_line_width=1.5,
+    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
                       textposition='outside',texttemplate = "<b>%{x:}")
     fig.update_xaxes(title='Kwota wnioskowana[zł]')
     fig.update_yaxes(title='Jednostka')
@@ -191,7 +208,7 @@ if sekcja == 'Badania naukowe':
     
     
     
-    lw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
+    lw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Liczba wniosków','kolor'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
     x = lw.index[::-1]
     y = lw['Liczba wniosków'][::-1]
 
