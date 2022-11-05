@@ -136,14 +136,14 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
         rok = st.selectbox('Wybierz rok:', lata)
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)]['Stanowisko'],values=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)]['badawcza'])])
         fig.update_traces(textinfo='value+percent',marker=dict( colors=['lightcyan','cyan','royalblue','darkblue'],line=dict(color='#000000', width=2)))
-        fig.update_layout(legend=dict(x=-0.1,y=1),margin=dict(t=100, b=100, l=0, r=100))
+        fig.update_layout(legend=dict(x=0.1,y=1),margin=dict(t=100, b=100, l=0, r=100))
         st.plotly_chart(fig)
     with k2:
       st.subheader("Grupa badawcza-dydaktyczna")
       rok1 = st.selectbox('Wybierz rok: ', lata)
       fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok1)]['Stanowisko'],values=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok1)]['badawcza'])])
       fig.update_traces(textinfo='value+percent',marker=dict( colors=['lightcyan','cyan','royalblue','darkblue'],line=dict(color='#000000', width=2)))
-      fig.update_layout(legend=dict(x=0.1,y=1),margin=dict(t=100, b=100, l=100, r=100))
+      fig.update_layout(legend=dict(x=0,y=1),margin=dict(t=100, b=100, l=100, r=100))
       st.plotly_chart(fig)      
     with k3:
       st.subheader("Grupa badawcza")
