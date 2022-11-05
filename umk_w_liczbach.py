@@ -134,7 +134,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
                                  'adiunkt':'royalblue',
                                  'systent':'darkblue',
                                  'lektor':'blue'})
-        st.write(fig)
+        st.plotly_chart(fig)
     
     
     
