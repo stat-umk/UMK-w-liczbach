@@ -18,7 +18,7 @@ DF = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele'
 DF2 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Lata':str})
 DF3 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Rok':str},sheet_name='podział')
 
-DF4 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='granty_złożone',dtype={'Rok':int})
+DF4 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Granty_złożone',dtype={'Rok':int})
 
 lata = [2019,2020,2021]
 wydziały = ['Nauk Biologicznych i Weterynaryjnych',
