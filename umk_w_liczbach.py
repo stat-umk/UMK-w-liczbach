@@ -80,7 +80,7 @@ if sekcja == 'Studenci':
     new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Studenci</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
-    c1, c2, c3 = st.columns()
+    
     st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
     
     
