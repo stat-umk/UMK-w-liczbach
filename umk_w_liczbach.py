@@ -80,24 +80,14 @@ if sekcja == 'Studenci':
     new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Studenci</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
-    c1,c2, c3 = st.columns()
+    c1, c2, c3 = st.columns()
     st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
     with c1:
         st.subheader('Studia stacjonarne')   
         wydzial = st.selectbox('Wybierz wydział: ',wydziały)
         st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y='Stacjonarne',width=600,height=400).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside',
         marker_line_color='rgb(0,70,180)',marker_line_width=1.5).update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)))
-    with c2:
-        st.subheader('Studia niestacjonarne')
-        wydzial1 = st.selectbox('Wybierz wydział: ',wydziały)
-        #kat1 = st.selectbox('Wybierz kategorię: ', ['Stacjonarne','Niestacjonarne','Razem'])
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial1],x='Rok',y='Niestacjonarne',width=600,height=400).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside',
-        marker_line_color='rgb(0,70,180)',marker_line_width=1.5).update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)))
-    with c3:
-        st.subheader('Razem')   
-        wydzial2 = st.selectbox('Wybierz wydział: ',wydziały)
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial2],x='Rok',y='Razem',width=600,height=400).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside',
-        marker_line_color='rgb(0,70,180)',marker_line_width=1.5).update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)))
+    
         
         
     st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')              
