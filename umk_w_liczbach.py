@@ -14,11 +14,11 @@ from pathlib import Path
 
 st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:',initial_sidebar_state='expanded',layout='wide')
 
-DF = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele',dtype={'Rok':str})
+DF = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele',dtype={'Rok':int})
 DF2 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Lata':str})
 DF3 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Rok':str},sheet_name='podział')
 
-DF4 = DF[(DF['badawcza']!=0) & (DF['Rok']==2019)]['Stanowisko']
+DF4 = DF[(DF['badawcza']!=0) & (DF['Rok']==2019)]
 
 lata = [2019,2020,2021]
 wydziały = ['Nauk Biologicznych i Weterynaryjnych',
