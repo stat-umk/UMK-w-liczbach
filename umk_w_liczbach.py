@@ -82,11 +82,7 @@ if sekcja == 'Studenci':
     st.markdown('---')
     c1, c2, c3 = st.columns()
     st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
-    with c1:
-        st.subheader('Studia stacjonarne')   
-        wydzial = st.selectbox('Wybierz wydział: ',wydziały)
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y='Stacjonarne',width=600,height=400).update_traces(marker_color=kolwyd[wydzial],texttemplate="%{y:}",textposition='inside',
-        marker_line_color='rgb(0,70,180)',marker_line_width=1.5).update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)))
+    
     
         
         
