@@ -182,7 +182,7 @@ if sekcja == 'Badania naukowe':
                       textposition='inside',texttemplate = "<b>%{x:}")
 
     fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                height=500,width=1200,plot_bgcolor='white',
+                                height=2000,width=800,plot_bgcolor='white',
                                 separators =' ')
 
     st.plotly_chart(fig)
