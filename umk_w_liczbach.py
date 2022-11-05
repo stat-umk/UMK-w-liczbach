@@ -169,8 +169,23 @@ if sekcja == 'Badania naukowe':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
 
-    
-    
+    kk1, kk2 = st.columns(2)
+    roki = st.selectbox('Wybierz rok:',lata)
+    Top10 = pd.DataFrame(DF[DF['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
+    x = Top10.index[::-1]
+    y = Top10['Kwota wnioskowana[zł]'][::-1]
+
+    fig = go.Figure()
+    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
+                        textfont=dict( size=12,color='black')))
+    fig.update_traces(marker_line_color='black',marker_line_width=1.5,
+                      textposition='inside',texttemplate = "<b>%{x:}")
+
+    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
+                                height=500,width=1200,plot_bgcolor='white',
+                                separators =' ')
+
+    st.plotly_chart(fig)
     
     
     
