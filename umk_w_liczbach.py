@@ -122,9 +122,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     
-    st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')              
-    kat5 = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
-    st.plotly_chart(px.line(DF2,x='Lata',y=kat5,width=750,height=450,markers=True).update_traces(marker_color=('rgb(0,80,170)'),line_color=('rgb(0,80,170)')))
+    
     
         
       
