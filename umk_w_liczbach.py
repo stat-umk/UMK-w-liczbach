@@ -18,7 +18,7 @@ DF = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele'
 DF2 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Lata':str})
 DF3 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Rok':str},sheet_name='podział')
 
-DF4 = DF[(DF['badawcza']!=0) & (DF['Rok']==2019)]
+DF4 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='granty_złożone',dtype={'Rok':int})
 
 lata = [2019,2020,2021]
 wydziały = ['Nauk Biologicznych i Weterynaryjnych',
@@ -171,7 +171,7 @@ if sekcja == 'Badania naukowe':
 
     kk1, kk2 = st.columns(2)
     roki = st.selectbox('Wybierz rok:',lata)
-    Top10 = pd.DataFrame(DF[DF['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
+    Top10 = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
     x = Top10.index[::-1]
     y = Top10['Kwota wnioskowana[zł]'][::-1]
 
