@@ -209,7 +209,7 @@ if sekcja == 'Badania naukowe':
     
     
     
-    lw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Liczba wniosków','kolor'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
+    lw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
     x = lw.index[::-1]
     y = lw['Liczba wniosków'][::-1]
 
