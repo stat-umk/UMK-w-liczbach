@@ -127,12 +127,13 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     with k1:
         st.subheader("Grupa badawcza")
         rok = st.selectbox('Wybierz rok:', lata)
-        st.plotly_chart(px.pie(DF[DF['Rok']==rok], values='badawcza', names='Stanowisko', color='Stanowisko',
+        fig=px.pie(DF[DF['Rok']==rok], values='badawcza', names='Stanowisko', color='Stanowisko',
              color_discrete_map={'profesor':'lightcyan',
                                  'profesor uczelni':'cyan',
                                  'adiunkt':'royalblue',
                                  'systent':'darkblue',
-                                 'lektor':'blue'}))
+                                 'lektor':'blue'})
+        fig.show()
     
     
     
