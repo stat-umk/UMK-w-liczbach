@@ -179,10 +179,10 @@ if sekcja == 'Badania naukowe':
     fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
                         textfont=dict( size=12,color='black')))
     fig.update_traces(marker_line_color='black',marker_line_width=1.5,
-                      textposition='inside',texttemplate = "<b>%{x:}")
+                      textposition='outside',texttemplate = "<b>%{x:}")
 
     fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                height=2000,width=800,plot_bgcolor='white',
+                                height=1000,width=800,plot_bgcolor='white',
                                 separators =' ')
 
     st.plotly_chart(fig)
