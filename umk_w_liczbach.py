@@ -208,8 +208,8 @@ if sekcja == 'Badania naukowe':
     st.plotly_chart(fig)
     
     
-    
-    lw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
+    roki1 = st.selectbox('Wybierz rok:',lata)
+    lw = pd.DataFrame(DF4[DF4['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
     x = lw.index[::-1]
     y = lw['Liczba wniosków'][::-1]
 
