@@ -14,11 +14,11 @@ from pathlib import Path
 
 st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:',initial_sidebar_state='expanded',layout='wide')
 
-DF = pd.read_excel(io='UMKwLiczbach.xlsx',engine='openpyxl',sheet_name='Studenci',dtype={'Rok':str})
-
+DF = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele',dtype={'Rok':str})
 DF2 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Lata':str})
 DF3 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Rok':str},sheet_name='podział')
 
+lata = [2019,2020,2021]
 wydziały = ['Nauk Biologicznych i Weterynaryjnych',
                                                     'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
                                                     'Matematyki i Informatyki','Nauk Ekonomicznych i Zarządzania','Nauk Historycznych','Nauk o Ziemi i Gospodarki Przestrzennej',
@@ -121,6 +121,18 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 60px;">Nauczyciele akademiccy i administracja</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
+    
+    st.header("Liczba nauczycieli akademickich w poszczególnych grupach w latach 2019-2021.")
+    k1,k2,k3 = st.columns(3)
+    with k1:
+        st.subheader("Grupa badawcza")
+        rok = st.selectbox('Wybierz rok:', lata)
+        st.plotly_chart(px.pie(DF[DF['Rok']==rok], values='badawcza', names='Stanowisko', color='Stanowisko',
+             color_discrete_map={'profesor':'lightcyan',
+                                 'profesor uczelni':'cyan',
+                                 'adiunkt':'royalblue',
+                                 'systent':'darkblue',
+                                 'lektor':'blue'}))
     
     
     
