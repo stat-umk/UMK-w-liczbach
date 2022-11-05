@@ -87,7 +87,7 @@ if sekcja == 'Studenci':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
-    c1, c2, c3 = st.columns()
+    c1, c2, c3 = st.columns(3)
     
     
         
