@@ -126,7 +126,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     
     st.header("Liczba nauczycieli akademickich w poszczególnych grupach w latach 2019-2021.")
     k1,k2,k3 = st.columns(3)
-    DF4
+    st.dataframe(DF4)
     with k1:
         st.subheader("Grupa badawcza")
         rok = st.selectbox('Wybierz rok:', lata)
