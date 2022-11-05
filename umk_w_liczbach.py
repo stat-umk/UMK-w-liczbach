@@ -18,6 +18,8 @@ DF = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele'
 DF2 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Lata':str})
 DF3 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Rok':str},sheet_name='podział')
 
+DF4 = DF[(DF['badawcza']!=0) & (DF['Rok']==2019)]['Stanowisko']
+
 lata = [2019,2020,2021]
 wydziały = ['Nauk Biologicznych i Weterynaryjnych',
                                                     'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
@@ -124,7 +126,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     
     st.header("Liczba nauczycieli akademickich w poszczególnych grupach w latach 2019-2021.")
     k1,k2,k3 = st.columns(3)
-    
+    DF4
     with k1:
         st.subheader("Grupa badawcza")
         rok = st.selectbox('Wybierz rok:', lata)
