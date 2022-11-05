@@ -133,7 +133,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
                                  'adiunkt':'royalblue',
                                  'systent':'darkblue',
                                  'lektor':'blue'})
-        fig.show()
+        pie_col.write(fig)
     
     
     
