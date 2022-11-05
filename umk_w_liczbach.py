@@ -130,7 +130,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     with k1:
         st.subheader("Grupa badawcza")
         rok = st.selectbox('Wybierz rok:', lata)
-        fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza']!=0) & (DF['Rok']==2019)]['Stanowisko'],values=DF[(DF['badawcza']!=0) & (DF['Rok']==2019)]['badawcza'])])
+        fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza']!=0) & (DF['Rok']==lata)]['Stanowisko'],values=DF[(DF['badawcza']!=0) & (DF['Rok']==2019)]['badawcza'])])
         fig.update_traces(textinfo='value+percent',marker=dict( colors=['lightcyan','cyan','royalblue','darkblue'],line=dict(color='#000000', width=2)))
         fig.update_layout(legend=dict(x=-0.1,y=1))
         st.plotly_chart(fig)
