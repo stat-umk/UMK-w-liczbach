@@ -76,18 +76,33 @@ if sekcja == 'Strona główna':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     
+    
+    
+    
+    
+    
+    
 if sekcja == 'Studenci':
     new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Studenci</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
-    
     st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
+    c1, c2, c3 = st.columns()
     
     
         
         
     st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')              
     kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
+    
+    
+    
+    
+    
+    
+    
+    
+    
     st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=600,height=400,markers=True).update_traces(marker_color=('rgb(0,80,170)'),line_color=('rgb(0,80,170)')).update_yaxes(tickformat=","))
 if sekcja == 'Nauczyciele akademiccy i administracja':
     new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 60px;">Nauczyciele akademiccy i administracja</p>'
@@ -99,11 +114,37 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     st.plotly_chart(px.line(DF2,x='Lata',y=kat5,width=750,height=450,markers=True).update_traces(marker_color=('rgb(0,80,170)'),line_color=('rgb(0,80,170)')))
     
         
+      
+      
+      
+      
+      
+      
+      
+      
+      
 if sekcja == 'Badania naukowe':
     new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Badania naukowe</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 if sekcja == 'Współpraca międzynarodowa':
     new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Współpraca międzynarodowa</p>'
     st.markdown(new_title, unsafe_allow_html=True)
