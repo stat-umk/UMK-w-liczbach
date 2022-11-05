@@ -180,6 +180,8 @@ if sekcja == 'Badania naukowe':
                         textfont=dict( size=12,color='black')))
     fig.update_traces(marker_line_color='black',marker_line_width=1.5,
                       textposition='outside',texttemplate = "<b>%{x:}")
+    fig.update_xaxes(title='Kwota wnioskowana[zł]')
+    fig.update_xaxes(title='Jednostka')
 
     fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
                                 height=600,width=800,plot_bgcolor='white',
