@@ -185,6 +185,7 @@ if sekcja == 'Badania naukowe':
     y = kw['Kwota wnioskowana[zł]'][::-1]
     
     kw = kw.reset_index()
+    kw['kolor']=' '
     for j,i in enumerate(kw['Jednostka']):
         if i in list(kolwyd.keys()):
             kw['kolor'][j] = kolwyd[i]
