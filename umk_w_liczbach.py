@@ -169,15 +169,15 @@ if sekcja == 'Badania naukowe':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
 
-    kk1, kk2 = st.columns(2)
+    
     roki = st.selectbox('Wybierz rok:',lata)
-    Top10 = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
-    x = Top10.index[::-1]
-    y = Top10['Kwota wnioskowana[zł]'][::-1]
+    kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
+    x = kw.index[::-1]
+    y = kw['Kwota wnioskowana[zł]'][::-1]
 
     fig = go.Figure()
     fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
-                        textfont=dict( size=12,color='black')))
+                        textfont=dict( size=10,color='black')))
     fig.update_traces(marker_line_color='black',marker_line_width=1.5,
                       textposition='outside',texttemplate = "<b>%{x:}")
     fig.update_xaxes(title='Kwota wnioskowana[zł]')
@@ -189,6 +189,25 @@ if sekcja == 'Badania naukowe':
 
     st.plotly_chart(fig)
     
+    
+    
+    lw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
+    x = lw.index[::-1]
+    y = lw['Liczba wniosków'][::-1]
+
+    fig = go.Figure()
+    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
+                        textfont=dict( size=12,color='black')))
+    fig.update_traces(marker_line_color='black',marker_line_width=1.5,
+                      textposition='outside',texttemplate = "<b>%{x:}")
+    fig.update_xaxes(title='Liczba wniosków')
+    fig.update_yaxes(title='Jednostka')
+
+    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
+                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),
+                                separators =',')
+
+    st.plotly_chart(fig)
     
     
     
