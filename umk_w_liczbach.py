@@ -126,7 +126,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     
     st.header("Liczba nauczycieli akademickich w poszczególnych grupach w latach 2019-2021.")
     k1,k2,k3 = st.columns(3)
-    st.dataframe(DF4)
+    
     with k1:
         st.subheader("Grupa badawcza")
         rok = st.selectbox('Wybierz rok:', lata)
@@ -134,7 +134,20 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
         fig.update_traces(textinfo='value+percent',marker=dict( colors=['lightcyan','cyan','royalblue','darkblue'],line=dict(color='#000000', width=2)))
         fig.update_layout(legend=dict(x=-0.1,y=1))
         st.plotly_chart(fig)
-    
+    with k2:
+      st.subheader("Grupa badawcza-dydaktyczna")
+      rok1 = st.selectbox('Wybierz rok: ', lata)
+      fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok1)]['Stanowisko'],values=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok1)]['badawcza'])])
+      fig.update_traces(textinfo='value+percent',marker=dict( colors=['lightcyan','cyan','royalblue','darkblue'],line=dict(color='#000000', width=2)))
+      fig.update_layout(legend=dict(x=-0.1,y=1))
+      st.plotly_chart(fig)      
+    with k3:
+      st.subheader("Grupa badawcza")
+      rok2 = st.selectbox('Wybierz rok:  ', lata)
+      fig = go.Figure(data=[go.Pie(labels=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok2)]['Stanowisko'],values=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok2)]['dydaktyczna'])])
+      fig.update_traces(textinfo='value+percent',marker=dict( colors=['lightcyan','cyan','royalblue','darkblue'],line=dict(color='#000000', width=2)))
+      fig.update_layout(legend=dict(x=-0.1,y=1))
+      st.plotly_chart(fig)
     
     
         
