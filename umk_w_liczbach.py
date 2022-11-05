@@ -184,7 +184,7 @@ if sekcja == 'Badania naukowe':
     fig.update_yaxes(title='Jednostka')
 
     fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=100),
+                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=150),
                                 separators =',')
 
     st.plotly_chart(fig)
