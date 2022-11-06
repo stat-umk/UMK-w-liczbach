@@ -53,7 +53,7 @@ streamlit_style = """
 			@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
 			html, body, [class*="css"]  {
-			font-family: 'Lato', sans-serif;
+			font-family: 'Lato';
 			}
 			</style>
 			"""
