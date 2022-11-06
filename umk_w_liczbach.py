@@ -192,8 +192,8 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     wydział = ck1.selectbox("Wybierz wydział:",DF5['Jednostka Organizacyjna'].unique()[:-5])
     wydział1 = ck2.selectbox("Wybierz wydział: ",DF5['Jednostka Organizacyjna'].unique()[:-5][DF5[DF5['Jednostka Organizacyjna'] == wydział].index.tolist()[0]+1:])
     fig = px.scatter(DF5[DF5['Jednostka Organizacyjna'].isin([wydział,wydział1])],x='Rok',
-		  y='Liczba nauczycieli akademickich',color='Jednostka Organizacyjna',width=1400,height=500,symbol_sequence= ['square'],
-		  markers=True,color_discrete_sequence=[kolwyd[wydział], kolwyd[wydział1]],text='Liczba nauczycieli akademickich').update_traces(marker_color=('rgb(0,80,170)'),
+		  y='Liczba nauczycieli akademickich',color='Jednostka Organizacyjna',width=1400,height=500,symbol_sequence= ['square','circle']
+		  ,color_discrete_sequence=[kolwyd[wydział], kolwyd[wydział1]],text='Liczba nauczycieli akademickich').update_traces(marker_color=('rgb(0,80,170)'),
 		  textposition="top right").update_xaxes(autorange="reversed").update_layout(font_family='Lato').add_annotation(x=0, y=int(DF5[(DF5['Rok']=='2021') & (DF5['Jednostka Organizacyjna']==wydział)]['Liczba nauczycieli akademickich']),
             text=wydział,showarrow=True,font=dict(size=16)).add_annotation(x=0, y=int(DF5[(DF5['Rok']=='2021') & (DF5['Jednostka Organizacyjna']==wydział1)]['Liczba nauczycieli akademickich']),
             text=wydział1,showarrow=True,arrowhead=1,font=dict(size=16),ax=20,ay=-20)
