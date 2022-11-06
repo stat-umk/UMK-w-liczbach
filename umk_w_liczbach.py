@@ -273,10 +273,9 @@ if sekcja == 'Badania naukowe':
 	
     st.header('Kwota wnioskowana o granty do NCN w latach 2019-2021 w podziale na jednostki.')
     roki2 = st.slider('Wybierz rok:  ',2019,2021,2021)
-    kw1 = pd.DataFrame(DF5[DF5['Rok']==roki2].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
+    kw1 = pd.DataFrame(DF6[DF6['Rok']==roki2].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
     x = kw1.index[::-1]
     y = kw1['Kwota przyznana[zł]'][::-1]
-    
     kw1 = kw1.reset_index()
     kw1['kolor']=' '
     for j,i in enumerate(kw1['Jednostka']):
@@ -303,7 +302,7 @@ if sekcja == 'Badania naukowe':
     st.header('Liczba grantów przyznanych od NCN w latach 2019-2021 w podziale na jednostki.')      
 	      
     roki4 = st.selectbox('Wybierz rok:   ',lata)
-    lg = pd.DataFrame(DF5[DF5['Rok']==roki4].groupby('Jednostka')['Liczba grantów'].agg(np.sum)).sort_values(by='Liczba grantów')[::-1]
+    lg = pd.DataFrame(DF6[DF6['Rok']==roki4].groupby('Jednostka')['Liczba grantów'].agg(np.sum)).sort_values(by='Liczba grantów')[::-1]
     x = lg.index[::-1]
     y = lg['Liczba grantów'][::-1]
 
