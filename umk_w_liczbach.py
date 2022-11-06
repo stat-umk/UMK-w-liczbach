@@ -194,10 +194,10 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     fig = px.line(DF5[DF5['Jednostka Organizacyjna'].isin([wydział,wydział1])],x='Rok',
 		  y='Liczba nauczycieli akademickich',color='Jednostka Organizacyjna',width=1400,height=500,
 		  markers=True,color_discrete_sequence=[kolwyd[wydział], kolwyd[wydział1]],text='Liczba nauczycieli akademickich').update_traces(marker_color=('rgb(0,80,170)'),
-		  textposition="top right").update_xaxes(autorange="reversed").update_layout(font_family='Lato').add_annotation(x=2019, y=200,
+		  textposition="top right").update_xaxes(autorange="reversed").update_layout(font_family='Lato').add_annotation(x=5, y=200,
             text='dads')
     st.plotly_chart(fig)
-    st.dataframe(DF5[(DF5['Rok']==2021) & (DF5['Jednostka Organizacyjna']==wydział)])
+    st.dataframe(DF5[(DF5['Rok']=='2021') & (DF5['Jednostka Organizacyjna']==wydział)]['Liczba nauczycieli akademickich'])
       
       
       
