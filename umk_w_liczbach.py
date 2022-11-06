@@ -198,7 +198,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
             text=wydział,showarrow=True,font=dict(size=16),ax=50,ay=-50).add_annotation(x=1, y=int(DF5[(DF5['Rok']=='2020') & (DF5['Jednostka Organizacyjna']==wydział1)]['Liczba nauczycieli akademickich']),
             text=wydział1,showarrow=True,arrowhead=1,font=dict(size=16),ax=-50,ay=50)
     st.plotly_chart(fig)
-    st.dataframe(DF5[(DF5['Rok']=='2021') & (DF5['Jednostka Organizacyjna']==wydział)]['Liczba nauczycieli akademickich'])
+    
       
       
       
