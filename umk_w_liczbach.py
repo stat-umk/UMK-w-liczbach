@@ -209,7 +209,7 @@ if sekcja == 'Badania naukowe':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Badania naukowe</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
-    st.header('Kwota wnioskowana o granty do NCN w latach 2019-2021 w podziale na jednostki.')
+    st.header('Kwota grantów wnioskowana do NCN w latach 2019-2021 w podziale na jednostki.')
     roki = st.slider('Wybierz rok:',2019,2021,2021)
     kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
     x = kw.index[::-1]
@@ -236,7 +236,35 @@ if sekcja == 'Badania naukowe':
                                 height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato')
 
     st.plotly_chart(fig)
-    
+	
+    st.header('Kwota grantów przyznana od NCN w latach 2019-2021 w podziale na jednostki.')
+    roki2 = st.slider('Wybierz rok:  ',2019,2021,2021)
+    kw1 = pd.DataFrame(DF6[DF6['Rok']==roki2].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
+    x = kw1.index[::-1]
+    y = kw1['Kwota przyznana[zł]'][::-1]
+    kw1 = kw1.reset_index()
+    kw1['kolor']=' '
+    for j,i in enumerate(kw1['Jednostka']):
+        if i in list(kolwyd.keys()):
+            kw1['kolor'][j] = kolwyd[i]
+        else:
+            kw1['kolor'][j] = 'rgb(0,70,180)'
+    barwa3 = kw1['kolor'][::-1]
+
+    fig = go.Figure()
+    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
+                        textfont=dict( size=10,color='black')))
+    fig.update_traces(marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,
+                      textposition='outside',texttemplate = "<b>%{x:,t}")
+    fig.update_xaxes(title='Kwota przyznana[zł]')
+    fig.update_yaxes(title='Jednostka')
+
+    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
+                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato')
+
+    st.plotly_chart(fig) 
+     
+
     
     st.header('Wnioski grantowe złożone do NCN w latach 2019-2021 w podziale na jednostki.')      
 	      
@@ -270,32 +298,6 @@ if sekcja == 'Badania naukowe':
     st.plotly_chart(fig)
 	
 	
-    st.header('Kwota wnioskowana o granty do NCN w latach 2019-2021 w podziale na jednostki.')
-    roki2 = st.slider('Wybierz rok:  ',2019,2021,2021)
-    kw1 = pd.DataFrame(DF6[DF6['Rok']==roki2].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
-    x = kw1.index[::-1]
-    y = kw1['Kwota przyznana[zł]'][::-1]
-    kw1 = kw1.reset_index()
-    kw1['kolor']=' '
-    for j,i in enumerate(kw1['Jednostka']):
-        if i in list(kolwyd.keys()):
-            kw1['kolor'][j] = kolwyd[i]
-        else:
-            kw1['kolor'][j] = 'rgb(0,70,180)'
-    barwa3 = kw1['kolor'][::-1]
-
-    fig = go.Figure()
-    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
-                        textfont=dict( size=10,color='black')))
-    fig.update_traces(marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,
-                      textposition='outside',texttemplate = "<b>%{x:,t}")
-    fig.update_xaxes(title='Kwota przyznana[zł]')
-    fig.update_yaxes(title='Jednostka')
-
-    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato')
-
-    st.plotly_chart(fig)
     
     
     st.header('Liczba grantów przyznanych od NCN w latach 2019-2021 w podziale na jednostki.')      
