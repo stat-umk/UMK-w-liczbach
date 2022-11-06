@@ -183,7 +183,9 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
         st.plotly_chart(fig)
     
     wydział = st.selectbox("Wybierz wydział:",wydziały)
-    fig = px.line(DF5[DF5['Jednostka Organizacyjna']==wydział],x='Rok',y='Liczba nauczycieli akademickich',markers=True)
+    fig = px.line(DF5[DF5['Jednostka Organizacyjna']==wydział],x='Rok',
+		  y='Liczba nauczycieli akademickich',markers=True).update_traces(marker_color=(kolwyd[wydział]),
+		  line_color=('rgb(0,80,170)')).update_yaxes(tickformat=",").update_layout(font_family='Lato')
     st.plotly_chart(fig)
         
       
