@@ -195,7 +195,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
 		  y='Liczba nauczycieli akademickich',color='Jednostka Organizacyjna',width=1400,height=500,
 		  markers=True,color_discrete_sequence=[kolwyd[wydział], kolwyd[wydział1]],text='Liczba nauczycieli akademickich').update_traces(marker_color=('rgb(0,80,170)'),
 		  textposition="top right").update_xaxes(autorange="reversed").update_layout(font_family='Lato').add_annotation(x=2021, y=DF5[(DF5['Rok']==2021) & (DF5['Jednostka Organzacyjna']==wydział)],
-            text=wydział,
+            text=wydział)
     st.plotly_chart(fig)
       
       
