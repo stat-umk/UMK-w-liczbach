@@ -47,6 +47,22 @@ sekcja = st.sidebar.radio(
     ('Strona główna','Studenci','Nauczyciele akademiccy i administracja','Badania naukowe','Współpraca międzynarodowa')
  )
 
+
+streamlit_style = """
+			<style>
+			@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
+
+			html, body, [class*="css"]  {
+			font-family: 'Roboto', sans-serif;
+			}
+			</style>
+			"""
+st.markdown(streamlit_style, unsafe_allow_html=True)
+
+
+
+
+
 st.markdown(
     """
 <style>
@@ -256,16 +272,7 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-streamlit_style = """
-			<style>
-			@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
 
-			html, body, [class*="css"]  {
-			font-family: 'Roboto', sans-serif;
-			}
-			</style>
-			"""
-st.markdown(streamlit_style, unsafe_allow_html=True)
 
 
 
