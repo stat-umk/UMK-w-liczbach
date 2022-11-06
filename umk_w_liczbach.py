@@ -19,7 +19,7 @@ DF2 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Lata':str})
 DF3 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',dtype={'Rok':str},sheet_name='podział')
 
 DF4 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Granty_złożone',dtype={'Rok':int})
-
+DF5 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele_wydziały',dtype={'Rok':str})
 lata = [2019,2020,2021]
 wydziały = ['Nauk Biologicznych i Weterynaryjnych',
                                                     'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
@@ -182,7 +182,9 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
         fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato')
         st.plotly_chart(fig)
     
-    
+    wydział = st.selectbox("Wybierz wydział:",wydziały)
+    fig = px.line(DF5,x='Rok',y='Liczba nauczycieli akademickich',color='Jednostka Organizacyjna',markers=True)
+    st.plotly_chart(fig)
         
       
       
