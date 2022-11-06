@@ -190,8 +190,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     st.header('Porównanie liczby nauczycieli akademickich w latach 2019-2021 na wybranych wydziałach.')
     ck1,ck2 = st.columns(2)
     wydział = ck1.selectbox("Wybierz wydział:",DF5['Jednostka Organizacyjna'].unique()[:-5])
-    st.dataframe(DF5['Jednostka Organizacyjna'].unique()[:-5])
-    wydział1 = ck2.selectbox("Wybierz wydział: ",DF5['Jednostka Organizacyjna'].unique()[:-5][DF5[DF5['Jednostka Organizacyjna'] == wydział].index.tolist()[0]:])
+    wydział1 = ck2.selectbox("Wybierz wydział: ",DF5['Jednostka Organizacyjna'].unique()[:-5][DF5[DF5['Jednostka Organizacyjna'] == wydział].index.tolist()[0]+1:])
     fig = px.line(DF5[DF5['Jednostka Organizacyjna'].isin([wydział,wydział1])],x='Rok',
 		  y='Liczba nauczycieli akademickich',color='Jednostka Organizacyjna',width=1400,height=500,
 		  markers=True,color_discrete_sequence=[kolwyd[wydział], kolwyd[wydział1]],text='Liczba nauczycieli akademickich').update_traces(marker_color=('rgb(0,80,170)'),
