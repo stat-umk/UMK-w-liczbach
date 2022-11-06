@@ -183,7 +183,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
         st.plotly_chart(fig)
     
 
-    st.header('Liczba nauczycieli akademickich w latach 2019-2021 w podziale na wydziały.')
+    st.header('Porównanie liczby nauczycieli akademickich w latach 2019-2021 na wybranych wydziałach.')
     ck1,ck2 = st.columns(2)
     wydział = ck1.selectbox("Wybierz wydział:",wydziały)
     wydział1 = ck2.selectbox("Wybierz wydział: ",wydziały)
