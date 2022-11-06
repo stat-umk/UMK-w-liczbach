@@ -228,7 +228,7 @@ if sekcja == 'Badania naukowe':
     lw = pd.DataFrame(DF4[DF4['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
     x = lw.index[::-1]
     y = lw['Liczba wniosków'][::-1]
-	
+    st.dataframe(lw)
     lw['kolor']=' '
     for j,i in enumerate(lw['Jednostka']):
         if i in list(kolwyd.keys()):
