@@ -113,14 +113,14 @@ if sekcja == 'Studenci':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Studenci</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
-    st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')              
+    st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021.')              
     kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
     st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=1400,height=500,markers=True).update_traces(marker_color=('rgb(0,80,170)'),
 												 line_color=('rgb(0,80,170)')).update_yaxes(tickformat=",").update_layout(font_family='Lato'))
     
     st.markdown('###')
     
-    st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
+    st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach.')
     c1, c2, c3 = st.columns(3)
     with c1:
         st.subheader('Studia stacjonarne')   
@@ -137,7 +137,7 @@ if sekcja == 'Studenci':
         st.subheader('Razem')   
         wydzial2 = st.selectbox('Wybierz wydział:  ',wydziały)
         st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial2],x='Rok',y='Razem',width=550,height=400).update_traces(marker_color=kolwyd[wydzial2],texttemplate="%{y:}",textposition='inside',
-        marker_line_color='rgb(0,70,180)',marker_line_width=1.5).update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)))
+        marker_line_color='rgb(0,70,180)',marker_line_width=1.5).update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)).update_layout(font_family='Lato'))
         
         
     
