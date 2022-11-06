@@ -228,17 +228,25 @@ if sekcja == 'Badania naukowe':
     lw = pd.DataFrame(DF4[DF4['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
     x = lw.index[::-1]
     y = lw['Liczba wniosków'][::-1]
+	
+    lw['kolor']=' '
+    for j,i in enumerate(lw['Jednostka']):
+        if i in list(kolwyd.keys()):
+            lw['kolor'][j] = kolwyd[i]
+        else:
+            lw['kolor'][j] = 'rgb(0,70,180)'
+    barwa1 = lw['kolor'][::-1]
 
     fig = go.Figure()
     fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
                         textfont=dict( size=12,color='black')))
-    fig.update_traces(marker_line_color='black',marker_line_width=1.5,
+    fig.update_traces(marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,
                       textposition='outside',texttemplate = "<b>%{x:}")
     fig.update_xaxes(title='Liczba wniosków')
     fig.update_yaxes(title='Jednostka')
 
     fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),
+                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',
                                 separators =',')
 
     st.plotly_chart(fig)
