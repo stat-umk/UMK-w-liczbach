@@ -167,7 +167,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
         st.plotly_chart(fig)
     with k2:
         st.subheader("Grupa badawcza-dydaktyczna")
-        rok1 = st.selectbox('Wybierz rok: ', lata)
+        rok1 = st.selectbox('Wybierz rok: ', lata[::-1])
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok1)].sort_values(by='badawcza-dydaktyczna')['Stanowisko'][::-1],
 				     values=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok1)].sort_values(by='badawcza-dydaktyczna')['badawcza-dydaktyczna'][::-1])])
         fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)))
@@ -175,7 +175,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
         st.plotly_chart(fig)      
     with k3:
         st.subheader("Grupa badawcza")
-        rok2 = st.selectbox('Wybierz rok:  ', lata)
+        rok2 = st.selectbox('Wybierz rok:  ', lata[::-1])
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok2)].sort_values(by='dydaktyczna')['Stanowisko'][::-1],
 				     values=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok2)].sort_values(by='dydaktyczna')['dydaktyczna'][::-1])])
         fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc','#51a2fc'],line=dict(color='#0050AA', width=2)))
@@ -197,8 +197,7 @@ if sekcja == 'Badania naukowe':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Badania naukowe</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
-
-    
+    st.header('Kwota wnioskowana o granty do NCN w latach 2019-2021 w podziale na jednostki.")
     roki = st.slider('Wybierz rok:',2019,2021,2021)
     kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
     x = kw.index[::-1]
@@ -228,6 +227,8 @@ if sekcja == 'Badania naukowe':
     st.plotly_chart(fig)
     
     
+    st.header('Wnioski grantowe złożone do NCN w latach 2019-2021 w podziale na jednostki.")      
+	      
     roki1 = st.selectbox('Wybierz rok: ',lata)
     lw = pd.DataFrame(DF4[DF4['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
     x = lw.index[::-1]
