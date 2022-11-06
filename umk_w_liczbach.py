@@ -50,7 +50,7 @@ sekcja = st.sidebar.radio(
 
 streamlit_style = """
 			<style>
-			@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+			@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 			html, body, [class*="css"]  {
 			font-family: 'Roboto', sans-serif;
