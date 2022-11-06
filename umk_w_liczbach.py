@@ -125,7 +125,7 @@ if sekcja == 'Studenci':
     with c1:
         st.subheader('Studia stacjonarne')   
         wydzial = st.selectbox('Wybierz wydział:',wydziały)
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y='Stacjonarne',width=550,height=400).update_traces(marker_color=kolwyd[wydzial1],
+        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y='Stacjonarne',width=550,height=400).update_traces(marker_color=kolwyd[wydzial],
 	texttemplate="%{y:}",textposition='inside',
         marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato'))
     with c2:
