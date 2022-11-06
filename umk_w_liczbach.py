@@ -188,7 +188,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     wydział = ck1.selectbox("Wybierz wydział:",wydziały)
     wydział1 = ck2.selectbox("Wybierz wydział: ",wydziały)
     fig = px.line(DF5[DF5['Jednostka Organizacyjna'].isin([wydział,wydział1])],x='Rok',
-		  y='Liczba nauczycieli akademickich',color='Jednostka Organizacyjna',markers=True,color_discrete_sequence=[kolwyd[wydział], kolwyd[wydział1]]).update_traces(marker_color=('rgb(0,80,170)')
+		  y='Liczba nauczycieli akademickich',color='Jednostka Organizacyjna',width=1400,height=500,markers=True,color_discrete_sequence=[kolwyd[wydział], kolwyd[wydział1]]).update_traces(marker_color=('rgb(0,80,170)')
 		  ).update_yaxes(tickformat=",").update_layout(font_family='Lato')
     st.plotly_chart(fig)
         
