@@ -196,7 +196,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
 		  markers=True,color_discrete_sequence=[kolwyd[wydział], kolwyd[wydział1]],text='Liczba nauczycieli akademickich').update_traces(marker_color=('rgb(0,80,170)'),
 		  textposition="top right").update_yaxes(tickformat=",").update_layout(font_family='Lato')
     st.plotly_chart(fig)
-        
+    st.dataframe(DF5[DF5['Jednostka Organizacyjna'].isin([wydział,wydział1])])  
       
       
 
