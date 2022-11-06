@@ -227,13 +227,12 @@ if sekcja == 'Badania naukowe':
     fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
                         textfont=dict( size=10,color='black')))
     fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-                      textposition='outside',texttemplate = "<b>%{x:,d}")
+                      textposition='outside',texttemplate = "<b>%{x:,t}")
     fig.update_xaxes(title='Kwota wnioskowana[zł]')
     fig.update_yaxes(title='Jednostka')
 
     fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',
-                                separators =',')
+                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato')
 
     st.plotly_chart(fig)
     
