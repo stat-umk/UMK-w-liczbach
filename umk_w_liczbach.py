@@ -190,7 +190,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     fig = px.line(DF5[DF5['Jednostka Organizacyjna'].isin([wydział,wydział1])],x='Rok',
 		  y='Liczba nauczycieli akademickich',color='Jednostka Organizacyjna',width=1400,height=500,
 		  markers=True,color_discrete_sequence=[kolwyd[wydział], kolwyd[wydział1]],text='Liczba nauczycieli akademickich').update_traces(marker_color=('rgb(0,80,170)'),
-		  textposition="bottom right").update_yaxes(tickformat=",").update_layout(font_family='Lato')
+		  textposition="top right").update_yaxes(tickformat=",").update_layout(font_family='Lato')
     st.plotly_chart(fig)
         
       
