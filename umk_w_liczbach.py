@@ -181,6 +181,9 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
         fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc','#51a2fc'],line=dict(color='#0050AA', width=2)))
         fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato')
         st.plotly_chart(fig)
+    
+
+    st.header('Liczba nauczycieli akademickich w latach 2019-2021 w podziale na wydziały.')
     ck1,ck2 = st.columns(2)
     wydział = ck1.selectbox("Wybierz wydział:",wydziały)
     wydział1 = ck2.selectbox("Wybierz wydział: ",wydziały)
