@@ -227,7 +227,7 @@ if sekcja == 'Badania naukowe':
     fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
                         textfont=dict( size=10,color='black')))
     fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-                      textposition='outside',texttemplate = "<b>%{x:}")
+                      textposition='outside',texttemplate = "<b>%{x:,d}")
     fig.update_xaxes(title='Kwota wnioskowana[zł]')
     fig.update_yaxes(title='Jednostka')
 
