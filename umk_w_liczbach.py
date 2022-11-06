@@ -101,6 +101,7 @@ color: rgb(255,255,255);}
 if sekcja == 'Strona główna':
     new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Strona główna</p>'
     st.markdown(new_title, unsafe_allow_html=True)
+    st.title('UNIWERSYTET MIKOIŁAJA KOPERNIKA W TORUNIU')
     st.markdown('---')
     
     
