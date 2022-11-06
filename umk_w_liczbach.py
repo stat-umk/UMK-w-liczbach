@@ -116,7 +116,7 @@ if sekcja == 'Studenci':
     st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021.')              
     kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
     st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=1400,height=500,markers=True).update_traces(marker_color=('rgb(0,80,170)'),
-												 line_color=('rgb(0,80,170)')).update_yaxes(tickformat=",").update_layout(font_family='Lato'))
+				line_color=('rgb(0,80,170)')).update_yaxes(tickformat=",").update_layout(font_family='Lato'))
     
     st.markdown('###')
     
@@ -125,19 +125,21 @@ if sekcja == 'Studenci':
     with c1:
         st.subheader('Studia stacjonarne')   
         wydzial = st.selectbox('Wybierz wydział:',wydziały)
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y='Stacjonarne',width=550,height=400).update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',
-        marker_line_color=kolwyd[wydzial],marker_line_width=2.5).update_layout(font_family='Lato'))
+        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y='Stacjonarne',width=550,height=400).update_traces(marker_color=kolwyd[wydzial1],
+	texttemplate="%{y:}",textposition='inside',
+        marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato'))
     with c2:
         st.subheader('Studia niestacjonarne')
         wydzial1 = st.selectbox('Wybierz wydział: ',wydziały)
         #kat1 = st.selectbox('Wybierz kategorię: ', ['Stacjonarne','Niestacjonarne','Razem'])
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial1],x='Rok',y='Niestacjonarne',width=550,height=400).update_traces(marker_color=kolwyd[wydzial1],texttemplate="%{y:}",textposition='inside',
-        marker_line_color='rgb(0,70,180)',marker_line_width=1.5).update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)).update_layout(font_family='Lato'))
+        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial1],x='Rok',y='Niestacjonarne',width=550,height=400).update_traces(marker_color=kolwyd[wydzial1],texttemplate="%{y:}",
+	textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
+			.update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)).update_layout(font_family='Lato'))
     with c3:
         st.subheader('Razem')   
         wydzial2 = st.selectbox('Wybierz wydział:  ',wydziały)
         st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial2],x='Rok',y='Razem',width=550,height=400).update_traces(marker_color=kolwyd[wydzial2],texttemplate="%{y:}",textposition='inside',
-        marker_line_color='rgb(0,70,180)',marker_line_width=1.5).update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)).update_layout(font_family='Lato'))
+        marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)).update_layout(font_family='Lato'))
         
         
     
