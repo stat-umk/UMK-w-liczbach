@@ -179,7 +179,7 @@ if sekcja == 'Badania naukowe':
     st.markdown('---')
 
     
-    roki = st.selectbox('Wybierz rok:',lata)
+    roki = st.slider('Wybierz rok:',2019,2021,2021)
     kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
     x = kw.index[::-1]
     y = kw['Kwota wnioskowana[zł]'][::-1]
