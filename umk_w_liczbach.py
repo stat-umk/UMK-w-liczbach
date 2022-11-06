@@ -258,7 +258,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 streamlit_style = """
 			<style>
-			@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap');
 
 			html, body, [class*="css"]  {
 			font-family: 'Roboto', sans-serif;
