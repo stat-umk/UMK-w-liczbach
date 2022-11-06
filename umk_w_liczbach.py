@@ -101,9 +101,8 @@ color: rgb(255,255,255);}
 if sekcja == 'Strona główna':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Strona główna</p>'
     st.markdown(new_title, unsafe_allow_html=True)
-    st.title('UNIWERSYTET MIKOIŁAJA KOPERNIKA W TORUNIU')
     st.markdown('---')
-    
+    st.title('UNIWERSYTET MIKOIŁAJA KOPERNIKA W TORUNIU')
     
     
     
@@ -111,7 +110,7 @@ if sekcja == 'Strona główna':
     
     
 if sekcja == 'Studenci':
-    new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Studenci</p>'
+    new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Studenci</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')              
@@ -150,7 +149,7 @@ if sekcja == 'Studenci':
     
     
 if sekcja == 'Nauczyciele akademiccy i administracja':
-    new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 60px;">Nauczyciele akademiccy i administracja</p>'
+    new_title = '<b style="color:rgb(0, 80, 170); font-size: 60px;">Nauczyciele akademiccy i administracja</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     
@@ -191,7 +190,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
       
       
 if sekcja == 'Badania naukowe':
-    new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Badania naukowe</p>'
+    new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Badania naukowe</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
 
@@ -258,7 +257,7 @@ if sekcja == 'Badania naukowe':
     
     
 if sekcja == 'Współpraca międzynarodowa':
-    new_title = '<b style="font-family:Source Sans Pro, sans-serif;font-style:normal;text-align: center; color:rgb(0, 80, 170); font-size: 62px;">Współpraca międzynarodowa</p>'
+    new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Współpraca międzynarodowa</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
 
