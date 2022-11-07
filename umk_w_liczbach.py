@@ -105,7 +105,7 @@ if sekcja == 'Strona główna':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     st.title('UNIWERSYTET MIKOIŁAJA KOPERNIKA W TORUNIU')
-    st.markdown('Uniwersytet podzielony jest na wydziały. Każdy wydział ma unikatowe logo, które charakteryzuje kolor ' +
+    st.subheader('Uniwersytet podzielony jest na wydziały. Każdy wydział ma unikatowe logo, które charakteryzuje kolor ' +
 	      'i pozycja mniejszego kółka na obwodzie większego niebieskiego koła. Poniższa grafika przedstawia loga poszczególnych ' + 
 	      'wydziałów. Warto zapoznać się z barwami jednostek, ponieważ są one częścią wizualizacji znajdujących się na pozostałych stronach.'+ 
 	      ' Ich znajomość ułatwi interpretację wykresów.')
