@@ -105,6 +105,7 @@ if sekcja == 'Strona główna':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     st.title('UNIWERSYTET MIKOIŁAJA KOPERNIKA W TORUNIU')
+    st.image('https://www.umk.pl/siw/galeria_inspiracje/UMKins8.jpg')
     
     
     
