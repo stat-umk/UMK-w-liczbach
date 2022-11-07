@@ -22,6 +22,9 @@ DF4 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Granty_zło
 DF5 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele_wydziały',dtype={'Rok':str})
 DF6 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Granty_przyznane',dtype={'Rok':int})
 
+DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='wyjazdy',dtype={'Rok':int})
+DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='przyjazdy',dtype={'Rok':int})
+
 lata = [2019,2020,2021]
 wydziały = ['Matematyki i Informatyki',
                                                     'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
@@ -353,8 +356,17 @@ if sekcja == 'Współpraca międzynarodowa':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Współpraca międzynarodowa</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
+    
+	
+    st.subheader("Liczba wyjazdów naukowo-badawczych i szkoleniowych zrealizowanych na UMK w latach 2017-2018")
+    rok = st.selectbox('Wybierz rok:', lata[::-1])
+    fig = go.Figure(data=[go.Pie(labels=DF5.columns(),values=)
+    fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)))
+    fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato')
+    st.plotly_chart(fig)	
+   
 
-    st.write('Praca w toku...')
+    
 
 hide_st_style = """
             <style>
