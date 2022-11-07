@@ -362,7 +362,7 @@ if sekcja == 'Współpraca międzynarodowa':
     rok = st.selectbox('Wybierz rok:', lata[::-1])
     fig = go.Figure(data=[go.Pie(labels=DF7.Rodzaj.unique().tolist(),values=DF7[DF7['Rok']==rok]['Liczba uczestników'])])
     fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)))
-    fig.update_layout(margin=dict(t=100, b=100, l=100, r=100),font_family='Lato')
+    fig.update_layout(margin=dict(t=100, b=100, l=100, r=100),font_family='Lato',height=1000,width=1000)
     st.plotly_chart(fig)	
    
 
