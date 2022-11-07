@@ -48,6 +48,7 @@ sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
     ('Strona główna','Studenci','Nauczyciele akademiccy i administracja','Badania naukowe','Współpraca międzynarodowa')
  )
+sekcja.image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThBBfnP58vXoV89jp6geeU5ciwdqWu6E8IbQ&usqp=CAU')
 
 
 streamlit_style = """
