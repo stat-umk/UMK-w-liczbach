@@ -360,7 +360,7 @@ if sekcja == 'Współpraca międzynarodowa':
 	
     st.subheader("Liczba wyjazdów naukowo-badawczych i szkoleniowych zrealizowanych na UMK w latach 2017-2018")
     rok = st.selectbox('Wybierz rok:', lata[::-1])
-    fig = go.Figure(data=[go.Pie(labels=DF7.Rodzaj.unique(),values=DF7[DF7['Rok']==rok]['Liczba uczestników'])
+    fig = go.Figure(data=[go.Pie(labels=DF7.Rodzaj.unique(),values=DF7[DF7['Rok']==rok]['Liczba uczestników'])])
     fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)))
     fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato')
     st.plotly_chart(fig)	
