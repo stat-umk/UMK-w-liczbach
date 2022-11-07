@@ -350,6 +350,8 @@ if sekcja == 'Współpraca międzynarodowa':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
 
+    st.write('Praca w toku...')
+
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
