@@ -22,8 +22,8 @@ DF4 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Granty_zło
 DF5 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele_wydziały',dtype={'Rok':str})
 DF6 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Granty_przyznane',dtype={'Rok':int})
 
-DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='wyjazdy',dtype={'Rok':int})
-DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='przyjazdy',dtype={'Rok':int})
+DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wyjazdy',dtype={'Rok':int})
+DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Przyjazdy',dtype={'Rok':int})
 
 lata = [2019,2020,2021]
 wydziały = ['Matematyki i Informatyki',
