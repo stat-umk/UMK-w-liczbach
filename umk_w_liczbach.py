@@ -72,8 +72,8 @@ st.markdown(
     """
 <style>
 [data-testid="stAppViewContainer"] > .main {background-image: url("https://login.umk.pl/themes/umk/images/logo-umk.png");
-background-size:450px,450px;
-background-position: 1100px 50px;
+background-size:400px,400px;
+background-position: 1150px 70px;
 background-repeat: no-repeat;
 background-attachment: local;}
 [data-testid="stHeader"]{background-color: rgba(0,0,0,0);}
