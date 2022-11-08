@@ -91,7 +91,7 @@ border-top-color: #0050AA;
 border-right-color: #0050AA;
 border-left-color: #0050AA;}
 section[data-testid="stSidebar"] label[class="css-1p2iens effi0qh3"]{
-color: rgb(255,255,255);}
+color: rgb(255,255,0);}
 section[data-testid="stSidebar"]div[class="st-d9 st-cl st-bx st-da st-db st-c6 st-dc st-dd st-de"]{
 color: rgb(255,255,255);}
 </style>
