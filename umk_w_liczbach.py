@@ -369,11 +369,11 @@ if sekcja == 'Współpraca międzynarodowa':
     	st.plotly_chart(fig)	
    
     with c2:
-    	st.subheader("Liczba wyjazdów naukowo-badawczych i szkoleniowych zrealizowanych na UMK w latach 2017-2018")
+    	st.subheader("Liczba przyjazdów naukowo-badawczych i szkoleniowych zrealizowanych na UMK w latach 2017-2018")
     	rok1 = st.selectbox('Wybierz rok: ', [2018,2019][::-1])
     	fig = go.Figure(data=[go.Pie(labels=DF8.sort_values(by='Liczba uczestników').Rodzaj.unique().tolist()[::-1],values=DF8[DF8['Rok']==rok1].sort_values(by='Liczba uczestników')['Liczba uczestników'][::-1])])
     	fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)))
-    	fig.update_layout(legend=dict(x=-0.3,y=1),margin=dict(t=50, b=0, l=0, r=0),font_family='Lato',width=700,height=500)
+    	fig.update_layout(legend=dict(x=-0.3,y=1),margin=dict(t=50, b=0, l=0, r=0),font_family='Lato',width=700,height=500,separator=',')
     	st.plotly_chart(fig)
 
     
