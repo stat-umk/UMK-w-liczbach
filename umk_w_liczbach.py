@@ -82,7 +82,7 @@ background-color: #0050AA;}
 [class="st-bh st-bl st-bm st-bn st-bo st-bp st-az st-b4 st-bq st-br st-bs st-bt st-bu st-bv st-bw st-bx st-by st-bz st-b2 st-c0"]{
 background-color: #FFCD00;}
 [class="st-d9 st-cl st-bx st-da st-db st-c6 st-dc st-dd st-de"]{
-color: rgb(255,255,255);}
+font-family: 'Lato';}
 [class="css-1atbdv8 e1fqkh3o1"]{
 color: rgb(255,255,205);}
 [class="st-av st-aw st-ax st-ay st-cl st-c6 st-b7 st-b4 st-b5 st-cn st-co st-cp st-cq st-cr st-cs st-ct st-cu st-cv st-cw st-b2 st-c2 st-ce st-dz st-e0 st-e1 st-e2 st-d1"]{
@@ -92,6 +92,9 @@ border-right-color: #0050AA;
 border-left-color: #0050AA;}
 section[data-testid="stSidebar"] label[class="css-1p2iens effi0qh3"]{
 color: rgb(255,255,255);}
+[class="st-bz st-cd st-ce st-ae st-af st-ag st-ah st-ai st-aj"]{
+font-family: 'Lato';
+color: rgb(255,255,205);}
 </style>
 """,
     unsafe_allow_html=True)
