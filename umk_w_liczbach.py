@@ -84,15 +84,13 @@ background-color: #FFCD00;}
 [class="st-d9 st-cl st-bx st-da st-db st-c6 st-dc st-dd st-de"]{
 color: rgb(255,255,255);}
 [class="css-1atbdv8 e1fqkh3o1"]{
-color: rgb(255,255,255);}
+color: rgb(255,255,205);}
 [class="st-av st-aw st-ax st-ay st-cl st-c6 st-b7 st-b4 st-b5 st-cn st-co st-cp st-cq st-cr st-cs st-ct st-cu st-cv st-cw st-b2 st-c2 st-ce st-dz st-e0 st-e1 st-e2 st-d1"]{
 border-bottom-color: #0050AA;
 border-top-color: #0050AA;
 border-right-color: #0050AA;
 border-left-color: #0050AA;}
 section[data-testid="stSidebar"] label[class="css-1p2iens effi0qh3"]{
-color: rgb(255,255,0);}
-section[data-testid="stSidebar"]div[class="st-d9 st-cl st-bx st-da st-db st-c6 st-dc st-dd st-de"]{
 color: rgb(255,255,255);}
 </style>
 """,
