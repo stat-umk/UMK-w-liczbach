@@ -364,7 +364,7 @@ if sekcja == 'Współpraca międzynarodowa':
     	st.subheader("Liczba wyjazdów naukowo-badawczych i szkoleniowych zrealizowanych na UMK w latach 2017-2018")
     	rok = st.selectbox('Wybierz rok:', [2018,2019][::-1])
     	fig = go.Figure(data=[go.Pie(labels=DF7.sort_values(by='Liczba uczestników').Rodzaj.unique().tolist()[::-1],values=DF7[DF7['Rok']==rok].sort_values(by='Liczba uczestników')['Liczba uczestników'][::-1])])
-    	fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)))
+    	fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc','#51a2fc','#6aadf7','#8dc2fc'],line=dict(color='#0050AA', width=2)))
     	fig.update_layout(font_family='Lato',separators=',',legend_font_size=10)
     	st.plotly_chart(fig)	
    
@@ -372,7 +372,7 @@ if sekcja == 'Współpraca międzynarodowa':
     	st.subheader("Liczba przyjazdów naukowo-badawczych i szkoleniowych zrealizowanych na UMK w latach 2017-2018")
     	rok1 = st.selectbox('Wybierz rok: ', [2018,2019][::-1])
     	fig = go.Figure(data=[go.Pie(labels=DF8.sort_values(by='Liczba uczestników').Rodzaj.unique().tolist()[::-1],values=DF8[DF8['Rok']==rok1].sort_values(by='Liczba uczestników')['Liczba uczestników'][::-1])])
-    	fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)))
+    	fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc','#51a2fc','#6aadf7','#8dc2fc'],line=dict(color='#0050AA', width=2)))
     	fig.update_layout(font_family='Lato',separators=',',legend_font_size=10)
     	st.plotly_chart(fig)
 
