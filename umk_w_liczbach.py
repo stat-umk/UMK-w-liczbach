@@ -110,7 +110,7 @@ if sekcja == 'Strona główna':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Strona główna</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
-    st.title('UNIWERSYTET MIKOIŁAJA KOPERNIKA W TORUNIU')
+    st.title('UNIWERSYTET MIKOŁAJA KOPERNIKA W TORUNIU')
     st.subheader('Uniwersytet podzielony jest na wydziały. Każdy wydział ma unikatowe logo, które charakteryzuje kolor ' +
 	      'i pozycja mniejszego kółka na obwodzie większego niebieskiego koła. Poniższa grafika przedstawia loga poszczególnych ' + 
 	      'wydziałów. Warto zapoznać się z barwami jednostek, ponieważ są one częścią wizualizacji znajdujących się na pozostałych stronach.'+ 
@@ -127,7 +127,7 @@ if sekcja == 'Studenci':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     
-    st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach.')
+    st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
     c1, c2, c3 = st.columns(3)
     with c1:
         st.subheader('Studia stacjonarne')   
@@ -148,7 +148,7 @@ if sekcja == 'Studenci':
         st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial2],x='Rok',y='Razem',width=550,height=400).update_traces(marker_color=kolwyd[wydzial2],texttemplate="%{y:}",textposition='inside',
         marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)).update_layout(font_family='Lato'))
         
-    st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021.')              
+    st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')              
     kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
     st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=1400,height=500,markers=True,text=kat).update_traces(marker_color=('rgb(0,80,170)'),textposition='top right',texttemplate="%{y:,d}",
 				line_color=('rgb(0,80,170)')).update_yaxes(tickformat=",").update_layout(font_family='Lato',separators='.,'))      
@@ -166,7 +166,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     
-    st.header("Liczba nauczycieli akademickich w poszczególnych grupach w latach 2019-2021.")
+    st.header("Liczba nauczycieli akademickich w poszczególnych grupach w latach 2019-2021")
     k1,k2,k3 = st.columns(3)
     
     with k1:
@@ -178,7 +178,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
         fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato',separators=',')
         st.plotly_chart(fig)
     with k2:
-        st.subheader("Grupa badawcza-dydaktyczna")
+        st.subheader("Grupa badawczo-dydaktyczna")
         rok1 = st.selectbox('Wybierz rok: ', lata[::-1])
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok1)].sort_values(by='badawcza-dydaktyczna')['Stanowisko'][::-1],
 				     values=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok1)].sort_values(by='badawcza-dydaktyczna')['badawcza-dydaktyczna'][::-1])])
@@ -195,7 +195,7 @@ if sekcja == 'Nauczyciele akademiccy i administracja':
         st.plotly_chart(fig)
     
 
-    st.header('Porównanie liczby nauczycieli akademickich w latach 2019-2021 na wybranych wydziałach.')
+    st.header('Porównanie liczby nauczycieli akademickich w latach 2019-2021 na wybranych wydziałach')
     ck1,ck2 = st.columns(2)
     wydział = ck1.selectbox("Wybierz wydział:",DF5['Jednostka Organizacyjna'].unique()[:-5])
     wydział1 = ck2.selectbox("Wybierz wydział: ",DF5['Jednostka Organizacyjna'].unique()[:-5][DF5[DF5['Jednostka Organizacyjna'] == wydział].index.tolist()[0]+1:])
@@ -220,8 +220,8 @@ if sekcja == 'Badania naukowe':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Badania naukowe</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
-    st.header('Kwota grantów wnioskowana do NCN w latach 2019-2021 w podziale na jednostki.')
-    roki = st.slider('Wybierz rok:',2019,2021,2021)
+    st.header('Kwota grantów wnioskowana do NCN w latach 2019-2021 w podziale na jednostki')
+    roki = st.selectbox('Wybierz rok:',lata)
     kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
     x = kw.index[::-1]
     y = kw['Kwota wnioskowana[zł]'][::-1]
@@ -248,8 +248,8 @@ if sekcja == 'Badania naukowe':
 
     st.plotly_chart(fig)
 	
-    st.header('Kwota grantów przyznana od NCN w latach 2019-2021 w podziale na jednostki.')
-    roki2 = st.slider('Wybierz rok:  ',2019,2021,2021)
+    st.header('Kwota grantów przyznana od NCN w latach 2019-2021 w podziale na jednostki')
+    roki2 = st.selectbox('Wybierz rok:  ',lata)
     kw1 = pd.DataFrame(DF6[DF6['Rok']==roki2].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
     x = kw1.index[::-1]
     y = kw1['Kwota przyznana[zł]'][::-1]
@@ -277,7 +277,7 @@ if sekcja == 'Badania naukowe':
      
 
     
-    st.header('Wnioski grantowe złożone do NCN w latach 2019-2021 w podziale na jednostki.')      
+    st.header('Wnioski grantowe złożone do NCN w latach 2019-2021 w podziale na jednostki')      
 	      
     roki1 = st.selectbox('Wybierz rok: ',lata)
     lw = pd.DataFrame(DF4[DF4['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
@@ -311,7 +311,7 @@ if sekcja == 'Badania naukowe':
 	
     
     
-    st.header('Liczba grantów przyznanych od NCN w latach 2019-2021 w podziale na jednostki.')      
+    st.header('Liczba grantów przyznanych od NCN w latach 2019-2021 w podziale na jednostki')      
 	      
     roki4 = st.selectbox('Wybierz rok:   ',lata)
     lg = pd.DataFrame(DF6[DF6['Rok']==roki4].groupby('Jednostka')['Liczba grantów'].agg(np.sum)).sort_values(by='Liczba grantów')[::-1]
