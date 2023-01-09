@@ -131,7 +131,7 @@ if sekcja == 'Studenci':
     st.header('Liczba kierunków studiów w latach 2009-2021')
     st.plotly_chart(px.bar(DF7,x='Rok',y='Liczba',width=550,height=400).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",
 	textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
-			.update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)).update_layout(font_family='Lato'))
+			.update_xaxes(title_font=dict(size=12), title='Lata').update_yaxes(title_font=dict(size=12),title = 'Liczba kierunków').update_layout(font_family='Lato'))
 	
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
     c1, c2, c3 = st.columns(3)
