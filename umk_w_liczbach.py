@@ -22,6 +22,7 @@ DF4 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Granty_zło
 DF5 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele_wydziały',dtype={'Rok':str})
 DF6 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Granty_przyznane',dtype={'Rok':int})
 
+DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='L_kier_stud',dtype={'Rok':str})
 #DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wyjazdy',dtype={'Rok':int})
 #DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Przyjazdy')
 
@@ -127,6 +128,11 @@ if sekcja == 'Studenci':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     
+    st.header('Liczba kierunków studiów w latach 2009-2021')
+    st.plotly_chart(px.bar(DF1,x='Rok',y='Liczba',width=550,height=400).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",
+	textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
+			.update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)).update_layout(font_family='Lato'))
+	
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
     c1, c2, c3 = st.columns(3)
     with c1:
