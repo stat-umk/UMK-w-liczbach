@@ -49,7 +49,7 @@ kolwyd = {'Nauk Biologicznych i Weterynaryjnych':kolor['zielony'],
         
 sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
-    ('Strona główna','Studenci','Nauczyciele akademiccy i administracja','Badania naukowe','Współpraca międzynarodowa')
+    ('Strona główna','Studenci','Nauczyciele akademiccy i administracja','Badania naukowe')#,'Współpraca międzynarodowa')
  )
 #st.sidebar.image('', use_column_width=True)
 
