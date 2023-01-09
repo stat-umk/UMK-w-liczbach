@@ -50,7 +50,7 @@ kolwyd = {'Nauk Biologicznych i Weterynaryjnych':kolor['zielony'],
         
 sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
-    ('Strona główna','Studenci','Pracownicy','Badania naukowe')#,'Współpraca międzynarodowa')
+    ('Strona główna','Studenci','Pracownicy','Badania naukowe')
  )
 #st.sidebar.image('', use_column_width=True)
 
@@ -167,7 +167,7 @@ if sekcja == 'Studenci':
     
     
     
-if sekcja == 'Nauczyciele akademiccy i administracja':
+if sekcja == 'Pracownicy':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 60px;">Nauczyciele akademiccy i administracja</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
