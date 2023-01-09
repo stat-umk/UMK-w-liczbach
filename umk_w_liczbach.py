@@ -22,8 +22,8 @@ DF4 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Granty_zło
 DF5 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele_wydziały',dtype={'Rok':str})
 DF6 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Granty_przyznane',dtype={'Rok':int})
 
-DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wyjazdy',dtype={'Rok':int})
-DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Przyjazdy')
+#DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wyjazdy',dtype={'Rok':int})
+#DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Przyjazdy')
 
 lata = [2019,2020,2021]
 wydziały = ['Matematyki i Informatyki',
@@ -351,7 +351,7 @@ if sekcja == 'Badania naukowe':
     
     
     
-    
+'''    
 if sekcja == 'Współpraca międzynarodowa':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Współpraca międzynarodowa</p>'
     st.markdown(new_title, unsafe_allow_html=True)
@@ -388,7 +388,7 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
-
+'''
 
 
 
