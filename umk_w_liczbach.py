@@ -129,7 +129,7 @@ if sekcja == 'Studenci':
     st.markdown('---')
     
     st.header('Liczba kierunków studiów w latach 2009-2021')
-    st.plotly_chart(px.bar(DF7,x='Rok',y='Liczba',).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",
+    st.plotly_chart(px.bar(DF7,x='Rok',y='Liczba',width=1050,height=400).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",
 	textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
 			.update_xaxes(title_font=dict(size=12), title='Lata').update_yaxes(title_font=dict(size=12),title = 'Liczba kierunków').update_layout(font_family='Lato'))
 	
