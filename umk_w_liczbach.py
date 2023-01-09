@@ -381,7 +381,7 @@ if sekcja == 'Współpraca międzynarodowa':
     	fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc','#51a2fc','#6aadf7','#8dc2fc'],line=dict(color='#0050AA', width=2)))
     	fig.update_layout(font_family='Lato',separators=',',legend_font_size=10)
     	st.plotly_chart(fig)
-
+'''
     
 
 hide_st_style = """
@@ -394,7 +394,7 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
-'''
+
 
 
 
