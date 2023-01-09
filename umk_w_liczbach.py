@@ -136,7 +136,7 @@ if sekcja == 'Studenci':
 	
 	
     st.header('Odsetek studentów niepełnosprawnych w latach 2012-2021 w podziale na rodzaj studiów')
-    st.plotly_chart(px.line(DF8,x='Rok',y='Odsetek',color = 'Rodzaj',width=1250,height=400,text='Odsetek',color_discrete_sequence=['rgb(0,80,170)','royalblue','red','crimson'])
+    st.plotly_chart(px.line(DF8,x='Rok',y='Odsetek',color = 'Rodzaj',width=1250,height=400,text='Odsetek',color_discrete_sequence=['rgb(0,80,170)','dodgerblue','red','crimson'])
 		    .update_traces(marker_color=('rgb(0,80,170)'),textposition="top right",texttemplate = "%{y:.2f}%")
 	.update_xaxes(title_font=dict(size=12), title='Rok').update_yaxes(title_font=dict(size=12),title = 'Odsetek osób niepełnosprawnych',tickformat=",")
 		    .update_layout(font_family='Lato',separators=','))
