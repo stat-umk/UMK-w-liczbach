@@ -130,13 +130,13 @@ if sekcja == 'Studenci':
     st.markdown('---')
     
     st.header('Liczba kierunków studiów w latach 2009-2021')
-    st.plotly_chart(px.bar(DF7,x='Rok',y='Liczba',width=1600,height=500).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",
+    st.plotly_chart(px.bar(DF7,x='Rok',y='Liczba',width=1400,height=500).update_traces(marker_color='rgb(0,80,170)',texttemplate="%{y:}",
 	textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
 	.update_xaxes(title_font=dict(size=12), title='Lata').update_yaxes(title_font=dict(size=12),title = 'Liczba kierunków').update_layout(font_family='Lato'))
 	
 	
     st.header('Odsetek studentów niepełnosprawnych w latach 2012-2021 w podziale na rodzaj studiów')
-    st.plotly_chart(px.line(DF8,x='Rok',y='Odsetek',color = 'Rodzaj',width=1700,height=500,text='Odsetek',color_discrete_sequence=['rgb(0,80,170)','rgb(0,200,255)','red','rgb(255,50,80)'])
+    st.plotly_chart(px.line(DF8,x='Rok',y='Odsetek',color = 'Rodzaj',width=1500,height=500,text='Odsetek',color_discrete_sequence=['rgb(0,80,170)','rgb(0,200,255)','red','rgb(255,50,80)'])
 		    .update_traces(marker_color=('rgb(0,80,170)'),textposition="top right",texttemplate = "%{y:.2f}%")
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2022]).update_yaxes(title_font=dict(size=12),title = 'Odsetek osób niepełnosprawnych',tickformat=",",range=[-0.05, 3.5])
 		    .update_layout(font_family='Lato',separators=','))
