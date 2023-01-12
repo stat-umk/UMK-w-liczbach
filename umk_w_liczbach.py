@@ -176,7 +176,8 @@ if sekcja == 'Studenci':
         st.plotly_chart(fig)
 	
 	
-    
+    st.dataframe(DF10)
+    st.dataframe(DF11)
         
   
 
