@@ -239,6 +239,7 @@ if sekcja == 'Studenci':
     st.write(list(map(lambda x: kolwyd[x],sorted(wydz1))))
     st.write(list(map(lambda x: kolwyd[x],wydz1)))
     st.write(sorted(wydz1))
+    st.dataframe(DF15[(DF15['Wydział'].isin(sorted(wydz1)))])	
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
     c1, c2, c3 = st.columns(3)
     with c1:
