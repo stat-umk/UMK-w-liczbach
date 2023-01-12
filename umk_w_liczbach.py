@@ -148,7 +148,7 @@ if sekcja == 'Studenci':
 
     
     fig = px.bar(DF13,x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato')
-    
+    st.dataframe(DF10)
     if kat34 == 'Studia stacjonarne':
         wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique())
         st.plotly_chart(px.bar(DF10[DF10['Wydział'==wydzial34]],x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='blue',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato'))
@@ -161,7 +161,7 @@ if sekcja == 'Studenci':
     elif kat34 == 'Podyplomowe':
         st.plotly_chart(fig)
     
-    st.dataframe(DF10)
+
     st.header('Odsetek studentów zagranicznych w latach 2012-2021 w podziale na rodzaj studiów')
     st.plotly_chart(px.line(DF9,x='Rok',y='Odsetek',color = 'Rodzaj',width=1500,height=500,text='Odsetek',color_discrete_sequence=['rgb(0,80,170)','rgb(0,200,255)','red','rgb(255,50,80)'])
 		    .update_traces(marker_color=('rgb(0,80,170)'),textposition="top right",texttemplate = "%{y:.2f}%")
