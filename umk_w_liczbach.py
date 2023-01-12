@@ -219,7 +219,7 @@ if sekcja == 'Studenci':
     wydz11 = q11.selectbox('Wybierz wydział :                                                                          ',DF12['Wydział'].unique())
     wydz22 = q22.selectbox('Wybierz wydział :                                                                        ',DF12['Wydział'].unique())
     st.plotly_chart(px.bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500)
-		    .update_traces(marker_color=sorted(list(map(lambda x: kolwyd[x],[wydz11,wydz22]))),texttemplate="%{y:}",textposition='inside')
+		    .update_traces(texttemplate="%{y:}",textposition='inside')
 		    .update_xaxes(dtick=1)
 		    .update_layout(font_family='Lato'))
 		    
