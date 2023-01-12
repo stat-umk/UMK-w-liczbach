@@ -212,19 +212,17 @@ if sekcja == 'Studenci':
 		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}%")
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2022],dtick=1).update_yaxes(title_font=dict(size=12),title = 'Odsetek osób niepełnosprawnych',tickformat=",",range=[-0.05, 3.5])
 		    .update_layout(font_family='Lato',separators=','))
-        
-	
-
-   
-
-   st.header('Porównanie liczby studentów na wybranych dwóch wydziałach wraz z wydziałem średnim')
-   q11, q22 = st.columns(2)
-   wydz11 = q11.selectbox('Wybierz wydział :  ',DF12['Wydział'].unique())
-   wydz22 = q22.selectbox('Wybierz wydział :  ',DF12['Wydział'].unique())
-   st.plotly_chart(px.bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500)
-		    .update_traces(marker_color=[kolwyd[wydz11],kolwyd[wydz22]],marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside')
+    
+    
+    st.header('Porównanie liczby studentów na wybranych dwóch wydziałach wraz z wydziałem średnim')
+    q11, q22 = st.columns(2)
+    wydz11 = q11.selectbox('Wybierz wydział :  ',DF12['Wydział'].unique())
+    wydz22 = q22.selectbox('Wybierz wydział :  ',DF12['Wydział'].unique())
+    st.plotly_chart(px.bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500)
+		    .update_traces(marker_color=[kolwyd[wydz11],kolwyd[wydz22]],texttemplate="%{y:}",textposition='inside')
 		    .update_xaxes(dtick=1)
 		    .update_layout(font_family='Lato'))
+		    
 
 
     st.header('Porównanie liczby studentów na wybranych wydziałach')
