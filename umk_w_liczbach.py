@@ -31,6 +31,8 @@ DF11 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Niestacjon
 DF12 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='doktoranci',dtype={'Rok':int})
 DF13 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Podyplomowe',dtype={'Rok':int})
 DF14 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Ogółem',dtype={'Rok':int})
+
+DF15 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stud_og',dtype={'Rok':int})
 #DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wyjazdy',dtype={'Rok':int})
 #DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Przyjazdy')
 
@@ -189,6 +191,12 @@ if sekcja == 'Studenci':
 
 
 
+    st.header('Porównanie liczby studentów na wybranych wydziałach')
+    r1, r2 = st.columns(2)
+    wydz1 = r1.selectbox('Wybierz wydział : ',DF12['Wydział'].unique())
+    wydz2 = r2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique())
+    st.plotly_chart(px.line(DF15[DF15['Wydział'] in [wydz1,wydz2]],x='Rok',y='Liczba',color='Wydział',width=1400,height=500,markers=True,text=kat).update_traces(marker_color=('rgb(0,80,170)','rgb(250,50,100)'),textposition='top right',texttemplate="%{y:,d}",
+				line_color=('rgb(0,80,170)')).update_yaxes(tickformat=",").update_layout(font_family='Lato',separators='.,'))
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
     c1, c2, c3 = st.columns(3)
     with c1:
