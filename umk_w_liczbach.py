@@ -176,8 +176,7 @@ if sekcja == 'Studenci':
         st.plotly_chart(fig)
 	
 	
-    st.dataframe(DF10[DF10['Wydział']=='Nauk Biologicznych i Weterynaryjnych'])
-    st.dataframe(DF11)
+    
         
   
 
