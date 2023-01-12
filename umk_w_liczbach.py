@@ -154,7 +154,7 @@ if sekcja == 'Studenci':
     if kat34 == 'Studia stacjonarne':
         wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique())
         st.plotly_chart(px.bar(DF10[DF10['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
-			.update_traces(marker_color='blue',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
+			.update_traces(marker_color=kolwyd[wydzial34],texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
 			.update_xaxes(dtick=1)
 			.update_yaxes(range=[0,None])
 			.update_layout(font_family='Lato'))
@@ -167,7 +167,9 @@ if sekcja == 'Studenci':
 			.update_layout(font_family='Lato'))
     elif kat34 == 'Doktoranckie':
         wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique())
-        st.plotly_chart(px.bar(DF12[DF12['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='blue',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato'))
+        st.plotly_chart(px.bar(DF12[DF12['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
+			.update_traces(marker_color=kolwyd[wydzial34],texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
+			.update_layout(font_family='Lato'))
     elif kat34 == 'Podyplomowe':
         st.plotly_chart(fig)
     elif kat34 == 'Ogółem':
