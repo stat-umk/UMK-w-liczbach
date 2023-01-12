@@ -38,10 +38,11 @@ DF16 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stud_og',d
 DF17 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Absolwenci',dtype={'Rok':int})
 DF18 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Abs_og',dtype={'Rok':int})
 DF19 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr',dtype={'Rok':int})
+DF20 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Styp_min',dtype={'Rok':int})
 #DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wyjazdy',dtype={'Rok':int})
 #DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Przyjazdy')
 
-lata = [2019,2020,2021]
+lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
 wydziały = ['Matematyki i Informatyki',
                                                     'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
                                                     'Nauk Biologicznych i Weterynaryjnych','Nauk Ekonomicznych i Zarządzania','Nauk Historycznych','Nauk o Ziemi i Gospodarki Przestrzennej',
@@ -228,7 +229,11 @@ if sekcja == 'Studenci':
     else:
         st.plotly_chart(fig4)
 	    
-
+    st.header('Stypendia ministra w latach 2012-2021 w podziale na wydziały')
+    r = st.selectbox('Wybierz rok : ', lata)
+    d1, d2 = st.columns(2)
+    with d1:
+		st.plotly_chart(px.bar(DF20,x='))
 
     st.header('Porównanie liczby studentów na wybranych wydziałach')
     wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique())
