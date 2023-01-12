@@ -235,12 +235,12 @@ if sekcja == 'Studenci':
     with d1:
         fig = go.Figure()
         fig.add_trace(go.Bar(x=DF20[(DF20['Rok']==r) & (DF20['Rodzaj']=='Założone')]['Liczba'],
-                        y=DF20[DF20['Rok']==r]['Wydzaił'],orientation='h',
+                        y=DF20[DF20['Rok']==r]['Wydział'],orientation='h',
                         text=DF20[(DF20['Rok']==r) & (DF20['Rodzaj']=='Założone')]['Liczba'],
                         marker_color='rgb(26, 118, 255)'
                         ))
         fig.add_trace(go.Bar(x=DF20[(DF20['Rok']==r) & (DF20['Rodzaj']=='Przyznane')]['Liczba'],
-                        y=DF20[DF20['Rok']==r]['Wydzaił'],orientation='h',
+                        y=DF20[DF20['Rok']==r]['Wydział'],orientation='h',
                         text=DF20[(DF20['Rok']==r) & (DF20['Rodzaj']=='Przyznane')]['Liczba'],
                         marker_color='rgb(26, 118, 255)'
                         ))
