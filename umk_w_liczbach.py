@@ -232,12 +232,12 @@ if sekcja == 'Studenci':
 
     st.header('Porównanie liczby studentów na wybranych wydziałach')
     wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique())
-    st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(wydz1))],x='Rok',y='Liczba',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Liczba',color_discrete_sequence=list(map(lambda x: kolwyd[x],wydz1)))
+    st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(wydz1))],x='Rok',y='Liczba',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Liczba',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
 		    .update_traces(textposition='top right',texttemplate="%{y:,d}",)
 		    .update_yaxes(tickformat=",",range=[0,np.max(DF15[(DF15['Wydział'].isin(wydz1))]['Liczba'])+(1/10)*np.max(DF15[(DF15['Wydział'].isin(wydz1))]['Liczba'])])
 		    .update_layout(font_family='Lato',separators='.,'))
-    st.write(list(map(lambda x: kolwyd[x],wydz1)))
-    st.write(wydz1)
+    st.write(list(map(lambda x: kolwyd[x],sorted(wydz1))))
+    st.write(sorted(wydz1))
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
     c1, c2, c3 = st.columns(3)
     with c1:
