@@ -158,6 +158,7 @@ if sekcja == 'Studenci':
     kat34 = st.selectbox('Wybierz kategorię : ',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
     if kat34 == 'Studia wyższe stacjonarne':
         st.write('asdasda')
+	wydzial34 = st.selectbox('Wybierz wydział:adasd', wydziały)
         
   
 
