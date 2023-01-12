@@ -236,7 +236,8 @@ if sekcja == 'Studenci':
 		    .update_traces(textposition='top right',texttemplate="%{y:,d}",)
 		    .update_yaxes(tickformat=",",range=[0,np.max(DF15[(DF15['Wydział'].isin(wydz1))]['Liczba'])+(1/10)*np.max(DF15[(DF15['Wydział'].isin(wydz1))]['Liczba'])])
 		    .update_layout(font_family='Lato',separators='.,'))
-    st.write(list(map(lambda x: kolwyd[x],wydz1)).sort())
+    st.write(sorted(list(map(lambda x: kolwyd[x],wydz1))))
+    st.write(wydz1)
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
     c1, c2, c3 = st.columns(3)
     with c1:
