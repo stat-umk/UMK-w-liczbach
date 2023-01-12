@@ -222,8 +222,8 @@ if sekcja == 'Studenci':
     fig4 = px.bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_map={wydz11: kolwyd[wydz11],wydz22: kolwyd[wydz22]},pattern_shape="Wydział")
 		    .update_traces(texttemplate="%{y:}",textposition='inside')
 		    .update_xaxes(dtick=1)
-		    .update_layout(font_family='Lato'))
-    fig5 = line(DF19,x='Rok',y='Liczba')
+		    .update_layout(font_family='Lato')
+    fig5 = px.line(DF19,x='Rok',y='Liczba')
     fi4.add_trace(fig5.data[0])
     st.plotly_chart(fig4)
 		    
