@@ -156,9 +156,10 @@ if sekcja == 'Studenci':
    
     st.header('Liczba uczestników studiów w podziale na wydziały')
     kat34 = st.multiselect('Wybierz kategorię : ',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
+    wydzial34 = st.selectbox('Wybierz wydział : ',DF11['Wydział'])
     if kat34 == 'Studia wyższe stacjonarne':
         st.write('asdasda')
-	wydzial34 = st.selectbox('Wybierz wydział:adasd', wydziały)
+	
         
   
 
