@@ -220,7 +220,7 @@ if sekcja == 'Studenci':
     wydz11 = q11.selectbox('Wybierz wydział :                                                                          ',DF12['Wydział'].unique())
     wydz22 = q22.selectbox('Wybierz wydział :                                                                        ',DF12['Wydział'].unique())
     fig4 = px.bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_map={wydz11: kolwyd[wydz11],wydz22: kolwyd[wydz22]},pattern_shape="Wydział").update_traces(texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(font_family='Lato')
-    fig5 = px.line(DF19,x='Rok',y='Liczba',text='Liczba',color_discrete_sequence=['rgb(0,80,170)']).update_traces(textposition="top left",texttemplate = "%{y:.2f}").update_yaxes(tickformat=",").update_layout(font_family='Lato',separators='.,')
+    fig5 = px.line(DF19,x='Rok',y='Liczba',text='Liczba',color_discrete_sequence=['rgb(0,80,170)']).update_traces(textposition="top left",texttemplate = "%{y:,d}").update_yaxes(tickformat=",").update_layout(font_family='Lato',separators='.,')
     fig4.add_trace(fig5.data[0])
     st.plotly_chart(fig4)
 		    
