@@ -180,11 +180,14 @@ if sekcja == 'Studenci':
         st.plotly_chart(fig1)
     
     st.header('Liczba absolwentów w latach 2010-2021')
-    st.plotly_chart(px.bar(DF18,x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato'))
+    st.plotly_chart(px.bar(DF18,x='Rok',y='Liczba',width=1500,height=500)
+		    .update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
+		    .update_yaxes(dtick=1)
+		    .update_layout(font_family='Lato'))
 	
     st.header('Zmiana liczby studentów i absolwentów w stosunku do roku poprzedniego (w %)')
     kat43 = st.selectbox('Wybierz kategorię :   ',['Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe','Ogółem'])
-    st.plotly_chart(px.line(DF17[DF17['Rodzaj']==kat43],x='Rok',y='Odsetek',color = 'Kategoria',width=1500,height=500,text='Odsetek',color_discrete_sequence=['blue','red'])
+    st.plotly_chart(px.line(DF17[DF17['Rodzaj']==kat43],x='Rok',y='Zmiana[%]',color = 'Kategoria',width=1500,height=500,text='Odsetek',color_discrete_sequence=['blue','red'])
 		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}%")
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2022],dtick=1).update_yaxes(title_font=dict(size=12),title = 'Zmiana liczby studentó/absolwentów',tickformat=",",range=[-0.05, 45])
 		    .update_layout(font_family='Lato',separators=','))
