@@ -158,7 +158,8 @@ if sekcja == 'Studenci':
 	
     st.header('Liczba uczestników studiów w podziale na wydziały')
     kat34 = st.selectbox('Wybierz kategorię : ',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
-   
+    if kat34 == 'Studia wyższe stacjonarne':
+	'asdasda'
         
   
 
@@ -174,7 +175,7 @@ if sekcja == 'Studenci':
         marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato'))
     with c2:
         st.subheader('Studia niestacjonarne')
-        wydzial1 = st.selectbox('Wybierz wydział:',wydziały)
+        wydzial1 = st.selectbox('Wybierz wydział: ',wydziały)
         #kat1 = st.selectbox('Wybierz kategorię: ', ['Stacjonarne','Niestacjonarne','Razem'])
         st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial1],x='Rok',y='Niestacjonarne',width=550,height=400).update_traces(marker_color=kolwyd[wydzial1],texttemplate="%{y:}",
 	textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
