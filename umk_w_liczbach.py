@@ -217,7 +217,7 @@ if sekcja == 'Studenci':
 
    
 
-   st.header('Porównanie liczby studentów na wybranych dwóch wydziałach wraz z wydziałem średnim')
+   
    q11, q22 = st.columns(2)
    wydz11 = q11.selectbox('Wybierz wydział :  ',DF12['Wydział'].unique())
    wydz22 = q22.selectbox('Wybierz wydział :  ',DF12['Wydział'].unique())
