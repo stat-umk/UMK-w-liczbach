@@ -153,7 +153,7 @@ if sekcja == 'Studenci':
         wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique())
         st.plotly_chart(px.bar(DF10[DF10['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
 			.update_traces(marker_color='blue',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
-			.update_yaxes(dtick=1,range=[0,max(y)+1/10*max(y))
+			.update_yaxes(dtick=1)
 			.update_xaxes(range=[0,max(y)+1/10*max(y)])
 			.update_layout(font_family='Lato'))
     elif kat34 == 'Studia niestacjonarne':
