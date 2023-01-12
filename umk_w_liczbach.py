@@ -159,7 +159,7 @@ if sekcja == 'Studenci':
     st.header('Liczba uczestników studiów w podziale na wydziały')
     kat34 = st.selectbox('Wybierz kategorię : ',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
     if kat34 == 'Studia wyższe stacjonarne':
-	'asdasda'
+	 'asdasda'
         
   
 
