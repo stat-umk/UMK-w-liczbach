@@ -157,7 +157,7 @@ if sekcja == 'Studenci':
     st.header('Liczba uczestników studiów w podziale na wydziały')
     q1, q2 = st.columns(2)
     kat34 = q1.selectbox('Wybierz kategorię : ',['Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
-    wydzial34 = q2.selectbox('Wybierz wydział : ',DF11['Wydział'])
+    wydzial34 = q2.selectbox('Wybierz wydział : ',DF11['Wydział'].unique())
 	
     fig = px.bar(DF11[DF11['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color=kolwyd[wydzial34],
     texttemplate="%{y:}",textposition='inside',
