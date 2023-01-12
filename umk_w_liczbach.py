@@ -193,8 +193,8 @@ if sekcja == 'Studenci':
 
     st.header('Porównanie liczby studentów na wybranych wydziałach')
     r1, r2 = st.columns(2)
-    wydz1 = r1.selectbox('Wybierz wydział : ',DF12['Wydział'].unique())
-    wydz2 = r2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique())
+    wydz1 = r1.selectbox('Wybierz wydział :  ',DF12['Wydział'].unique())
+    wydz2 = r2.selectbox('Wybierz wydział  : ',DF12['Wydział'].unique())
     st.plotly_chart(px.line(DF15[DF15['Wydział'] in [wydz1,wydz2]],x='Rok',y='Liczba',color='Wydział',width=1400,height=500,markers=True,text=kat).update_traces(marker_color=('rgb(0,80,170)','rgb(250,50,100)'),textposition='top right',texttemplate="%{y:,d}",
 				line_color=('rgb(0,80,170)')).update_yaxes(tickformat=",").update_layout(font_family='Lato',separators='.,'))
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
