@@ -25,6 +25,11 @@ DF6 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Granty_przy
 DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='L_kier_stud',dtype={'Rok':str})
 DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='N-wni',dtype={'Rok':int})
 DF9 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Z-czni',dtype={'Rok':int})
+
+DF10 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydziały',dtype={'Rok':int})
+DF11 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='doktoranci',dtype={'Rok':int})
+DF12 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Podyplomowe',dtype={'Rok':int})
+
 #DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wyjazdy',dtype={'Rok':int})
 #DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Przyjazdy')
 
@@ -148,8 +153,26 @@ if sekcja == 'Studenci':
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2022],dtick=1).update_yaxes(title_font=dict(size=12),title = 'Odsetek osób zagranicznych',tickformat=",",range=[-0.05, 5.5])
 		    .update_layout(font_family='Lato',separators=','))	
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
+    
+	
+	
+    st.header('Liczba uczestników studiów w podziale na wydziały')
+    kat34 = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
+    if kat34 == 'Doktoranckie':
+	wydzial34 = st.selectbox('Wybierz wydział : ',DF11['Wydział'])
+	st.plotly_chart(px.bar(DF11[DF11['Wydział']==wydzial],x='Rok',y='Liczba',width=550,height=400).update_traces(marker_color=kolwyd[wydzial],
+	texttemplate="%{y:}",textposition='inside',
+        marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato'))
+    elif kat34 =='Podyplomowe':
+	st.plotly_chart(px.bar(DF12,x='Rok',y='Liczba',width=550,height=400).update_traces(marker_color=rgb(0, 80, 170),
+	texttemplate="%{y:}",textposition='inside',
+        marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato'))
+    
 
-    c1, c2, c3 = st.columns(3)
+
+
+
+c1, c2, c3 = st.columns(3)
     with c1:
         st.subheader('Studia stacjonarne')   
         wydzial = st.selectbox('Wybierz wydział:',wydziały)
