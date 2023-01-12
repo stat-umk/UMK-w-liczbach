@@ -37,6 +37,7 @@ DF15 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stud_og',d
 DF16 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stud_og',dtype={'Rok':int})
 DF17 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Absolwenci',dtype={'Rok':int})
 DF18 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Abs_og',dtype={'Rok':int})
+DF19 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr',dtype={'Rok':int})
 #DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wyjazdy',dtype={'Rok':int})
 #DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Przyjazdy')
 
@@ -221,7 +222,7 @@ if sekcja == 'Studenci':
     st.plotly_chart(px.bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_map={wydz11: kolwyd[wydz11],wydz22: kolwyd[wydz22]},pattern_shape="Wydział")
 		    .update_traces(texttemplate="%{y:}",textposition='inside')
 		    .update_xaxes(dtick=1)
-		    .update_layout(font_family='Lato'))
+		    .update_layout(font_family='Lato').add_line(DF19,x='Rok',y='Liczba'))
 		    
 
 
