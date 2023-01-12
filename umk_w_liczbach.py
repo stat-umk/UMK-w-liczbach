@@ -199,7 +199,7 @@ if sekcja == 'Studenci':
 	
     
 
-    st.header('Odsetek studentów zagranicznych w latach 2012-2021 w podziale na rodzaj studiów')
+   
     st.plotly_chart(px.line(DF9,x='Rok',y='Odsetek',color = 'Rodzaj',width=1500,height=500,text='Odsetek',color_discrete_sequence=['rgb(0,80,170)','rgb(0,200,255)','red','rgb(255,50,80)'])
 		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}%")
 	.update_xaxes(zeroline=True, zerolinewidth=10, zerolinecolor='LightPink',title_font=dict(size=12), title='Rok',range=[2011.95,2022],dtick=1)
