@@ -146,7 +146,7 @@ if sekcja == 'Studenci':
     q1, q2 = st.columns(2)
     kat34 = q1.selectbox('Wybierz kategorię : ',['Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe','Ogółem'])
 
-    st.dataframe(DF11[DF11['Wydział']=='Chemii']['Liczba'].sort_values(ascending=False).iloc(0))
+    
     fig = px.bar(DF13,x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato')
     fig1 = px.bar(DF14,x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato')
     if kat34 == 'Studia stacjonarne':
@@ -154,14 +154,14 @@ if sekcja == 'Studenci':
         st.plotly_chart(px.bar(DF10[DF10['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
 			.update_traces(marker_color='blue',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
 			.update_xaxes(dtick=1)
-			.update_yaxes(range=[0,np.max(DF10[DF10['Wydział']==wydzial34]['Liczba'])+(1/10)*np.max(DF10[DF10['Wydział']==wydzial34]['Liczba'])])
+			.update_yaxes(range=[0,None])
 			.update_layout(font_family='Lato'))
     elif kat34 == 'Studia niestacjonarne':
         wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique())
         st.plotly_chart(px.bar(DF11[DF11['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
 			.update_traces(marker_color='blue',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
 			.update_xaxes(dtick=1)
-			.update_yaxes(range=[0,DF11[DF11['Wydział']==wydzial34]['Liczba'].sort_values(ascending=True).iloc(0,1)+(1/10)*DF11[DF11['Wydział']==wydzial34]['Liczba'].sort_values(ascending=True).iloc(0,1)])
+			.update_yaxes(range=[0,None])
 			.update_layout(font_family='Lato'))
     elif kat34 == 'Doktoranckie':
         wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique())
