@@ -234,9 +234,9 @@ if sekcja == 'Studenci':
     d1, d2 = st.columns(2)
     with d1:
         fig = go.Figure()
-        fig.add_trace(go.Bar(x=DF20[(DF20['Rok']==r) & (DF20['Rodzaj']=='Założone')]['Liczba'],
+        fig.add_trace(go.Bar(x=DF20[(DF20['Rok']==r) & (DF20['Rodzaj']=='Złożone')]['Liczba'],
                         y=DF20[DF20['Rok']==r]['Wydział'],orientation='h',
-                        text=DF20[(DF20['Rok']==r) & (DF20['Rodzaj']=='Założone')]['Liczba'],
+                        text=DF20[(DF20['Rok']==r) & (DF20['Rodzaj']=='Złożone')]['Liczba'],
                         marker_color='rgb(26, 118, 255)'
                         ))
         fig.add_trace(go.Bar(x=DF20[(DF20['Rok']==r) & (DF20['Rodzaj']=='Przyznane')]['Liczba'],
