@@ -189,7 +189,7 @@ if sekcja == 'Studenci':
     kat43 = st.selectbox('Wybierz kategorię :   ',['Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe','Ogółem'])
     st.plotly_chart(px.line(DF17[DF17['Rodzaj']==kat43],x='Rok',y='Zmiana[%]',color = 'Kategoria',width=1500,height=500,text='Zmiana[%]',color_discrete_sequence=['blue','red'])
 		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}%")
-	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2010.95,2021.5],dtick=1,zeroline=True, zerolinewidth=2, zerolinecolor='black')
+	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2010.95,2021.5],dtick=1,zeroline=True, zerolinewidth=2, zerolinecolor='Grey')
 		    .update_yaxes(title_font=dict(size=12),title = 'Zmiana liczby studentó/absolwentów',tickformat=",",range=[ np.min(DF17[DF17['Rodzaj']==kat43]['Zmiana[%]'])-5    , np.max(DF17[DF17['Rodzaj']==kat43]['Zmiana[%]'])+5])                        
 		    .update_layout(font_family='Lato',separators=','))
 
