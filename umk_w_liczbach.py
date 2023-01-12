@@ -159,7 +159,7 @@ if sekcja == 'Studenci':
     kat34 = q1.selectbox('Wybierz kategorię : ',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
     wydzial34 = q2.selectbox('Wybierz wydział : ',DF11['Wydział'])
 	
-    fig = px.bar(DF11[DF11['Wydział']==wydzial34],x='Rok',y='Liczba',width=550,height=400).update_traces(marker_color=kolwyd[wydzial],
+    fig = px.bar(DF11[DF11['Wydział']==wydzial34],x='Rok',y='Liczba',width=550,height=400).update_traces(marker_color=kolwyd[wydzial34],
     texttemplate="%{y:}",textposition='inside',
     marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato')
     fig2 = px.bar(DF12,x='Rok',y='Liczba',width=550,height=400).update_traces(marker_color='rgb(0,70,180)',
