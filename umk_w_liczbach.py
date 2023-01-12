@@ -227,8 +227,9 @@ if sekcja == 'Studenci':
 	    fig4.add_trace(fig5.data[0])
 	    st.plotly_chart(fig4)
     else:
-	st.write('Wyłączona')
+        st.write('Wyłączona')
         st.plotly_chart(fig4)
+	    
 
 
     st.header('Porównanie liczby studentów na wybranych wydziałach')
