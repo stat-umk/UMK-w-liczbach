@@ -182,7 +182,7 @@ if sekcja == 'Studenci':
     st.header('Liczba absolwentów w latach 2010-2021')
     st.plotly_chart(px.bar(DF18,x='Rok',y='Liczba',width=1500,height=500)
 		    .update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
-		    .update_yaxes(dtick=1)
+		    .update_xaxes(dtick=1)
 		    .update_layout(font_family='Lato'))
 	
     st.header('Zmiana liczby studentów i absolwentów w stosunku do roku poprzedniego (w %)')
