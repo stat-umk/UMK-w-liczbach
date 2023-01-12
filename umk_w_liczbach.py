@@ -197,7 +197,7 @@ if sekcja == 'Studenci':
     wydz2 = r2.selectbox('Wybierz wydział  : ',DF12['Wydział'].unique())
     st.dataframe(DF15[DF15['Wydział'].isin([wydz1,wydz2])])
     st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin([wydz1,wydz2]))],x='Rok',y='Liczba',color='Wydział',width=1400,height=500,markers=True,text='Liczba').update_traces(textposition='top right',texttemplate="%{y:,d}",
-				line_color=('rgb(0,80,170)')).update_yaxes(tickformat=",").update_layout(font_family='Lato',separators='.,'))
+				line_color=('rgb(0,80,170)','rgb(255,80,100)')).update_yaxes(tickformat=",").update_layout(font_family='Lato',separators='.,'))
 	
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
     c1, c2, c3 = st.columns(3)
