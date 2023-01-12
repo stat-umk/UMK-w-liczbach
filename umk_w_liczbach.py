@@ -155,7 +155,7 @@ if sekcja == 'Studenci':
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
    
     st.header('Liczba uczestników studiów w podziale na wydziały')
-    kat34 = st.selectbox('Wybierz kategorię : ',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
+    kat34 = st.multiselect('Wybierz kategorię : ',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
     if kat34 == 'Studia wyższe stacjonarne':
         st.write('asdasda')
 	wydzial34 = st.selectbox('Wybierz wydział:adasd', wydziały)
