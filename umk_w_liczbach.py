@@ -170,9 +170,9 @@ if sekcja == 'Studenci':
     marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato')
     if kat34 in ['Studia stacjonarne','Studia niestacjonarne']:
         st.plotly_chart(fig3)
-    if kat34 == 'Podyplomowe':
+    elif kat34 == 'Podyplomowe':
         st.plotly_chart(fig2)
-    if kat34 == 'Doktoranckie':
+    elif kat34 == 'Doktoranckie':
         st.plotly_chart(fig)
 	
 	
