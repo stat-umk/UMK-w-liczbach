@@ -26,9 +26,10 @@ DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='L_kier_stud
 DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='N-wni',dtype={'Rok':int})
 DF9 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Z-czni',dtype={'Rok':int})
 
-DF10 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydziały',dtype={'Rok':int})
-DF11 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='doktoranci',dtype={'Rok':int})
-DF12 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Podyplomowe',dtype={'Rok':int})
+DF10 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stacjonarne',dtype={'Rok':int})
+DF11 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Niestacjonarne',dtype={'Rok':int})
+DF12 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='doktoranci',dtype={'Rok':int})
+DF13 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Podyplomowe',dtype={'Rok':int})
 
 #DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wyjazdy',dtype={'Rok':int})
 #DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Przyjazdy')
@@ -146,14 +147,17 @@ if sekcja == 'Studenci':
     kat34 = q1.selectbox('Wybierz kategorię : ',['Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe'])
 
     
-    fig = px.bar(DF12,x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato')
+    fig = px.bar(DF13,x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato')
     
-    if kat34 in ['Studia stacjonarne','Studia niestacjonarne']:
-        wydzial34 = q2.selectbox('Wybierz wydział : ',DF11['Wydział'].unique())
-        st.plotly_chart(px.bar(DF10[(DF10['Wydział']==wydzial34) & (DF10['Rodzaj']==kat34)],x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='blue',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato'))
+    if kat34 == 'Studia stacjonarne':
+        wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique())
+        st.plotly_chart(px.bar(DF10,x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='blue',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato'))
+    elif kat34 == 'Studia niestacjonarne':
+        wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique())
+        st.plotly_chart(px.bar(DF11,x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='blue',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato'))
     elif kat34 == 'Doktoranckie':
-        wydzial34 = q2.selectbox('Wybierz wydział : ',DF11['Wydział'].unique())
-        st.plotly_chart(px.bar(DF11[DF11['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='blue',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato'))
+        wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique())
+        st.plotly_chart(px.bar(DF12[DF12['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='blue',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato'))
     elif kat34 == 'Podyplomowe':
         st.plotly_chart(fig)
     
