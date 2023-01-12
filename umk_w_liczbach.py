@@ -233,7 +233,9 @@ if sekcja == 'Studenci':
     r = st.selectbox('Wybierz rok : ', lata)
     d1, d2 = st.columns(2)
     with d1:
-		st.plotly_chart(px.bar(DF20,x='))
+		st.plotly_chart(px.bar(DF20[DF20['Rok']==r],x='Liczba',y='Wydział',orientation='h',barmode='group',color='Rodzaj'))
+    with d2:
+	st.plotly_chart(DF20[DF20['Rok']==r],x=DF20[DF20['Rok']==r][DF20['Rodzaj'=='Przyznane']]/DF20[DF20['Rok']==r][DF20['Rodzaj'=='Przyznane']]*100,y='Wydział',orientation='h')
 
     st.header('Porównanie liczby studentów na wybranych wydziałach')
     wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique())
