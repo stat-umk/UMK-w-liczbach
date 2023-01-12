@@ -219,10 +219,10 @@ if sekcja == 'Studenci':
     q11, q22 = st.columns(2)
     wydz11 = q11.selectbox('Wybierz wydział :                                                                          ',DF12['Wydział'].unique())
     wydz22 = q22.selectbox('Wybierz wydział :                                                                        ',DF12['Wydział'].unique())
-    st.plotly_chart(px.bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_map={wydz11: kolwyd[wydz11],wydz22: kolwyd[wydz22]},pattern_shape="Wydział")
+    st.plotly_chart(px.line(DF19,x='Rok',y='Liczba').add_bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_map={wydz11: kolwyd[wydz11],wydz22: kolwyd[wydz22]},pattern_shape="Wydział")
 		    .update_traces(texttemplate="%{y:}",textposition='inside')
 		    .update_xaxes(dtick=1)
-		    .update_layout(font_family='Lato').add_line(DF19,x='Rok',y='Liczba'))
+		    .update_layout(font_family='Lato'))
 		    
 
 
