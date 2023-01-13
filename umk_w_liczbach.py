@@ -124,7 +124,6 @@ color: rgb(255,255,255);}
 
 
 if sekcja == 'Strona główna':
-    st.dataframe(DF20)
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Strona główna</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
@@ -253,8 +252,6 @@ if sekcja == 'Studenci':
     	lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Złożone'].agg(np.sum)).sort_values(by='Złożone')[::-1]
     	x = lg.index[::-1]
     	y = lg['Złożone'][::-1]
-
-
     	lg = lg.reset_index()
     	lg['kolor']=' '
     	for j,i in enumerate(lg['Wydział']):
@@ -263,12 +260,9 @@ if sekcja == 'Studenci':
         	else:
             		lg['kolor'][j] = 'rgb(0,70,180)'
     	barwa4 = lg['kolor'][::-1]
-	
     	lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
     	x1 = lg1.index[::-1]
     	y1 = lg1['Przyznane'][::-1]
-
-
     	lg1 = lg1.reset_index()
     	lg1['kolor']=' '
     	for j,i in enumerate(lg1['Wydział']):
@@ -277,21 +271,22 @@ if sekcja == 'Studenci':
         	else:
             		lg1['kolor'][j] = 'rgb(0,70,180)'
     	barwa5 = lg1['kolor'][::-1]
+    	fig = go.Figure()      
+        
     	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,marker_color=barwa4,
                         textfont=dict( size=12,color='black')))
-	
+	    
     	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,marker_color=barwa5,
                         textfont=dict( size=12,color='black')))
     	fig.update_traces(marker_line_color='black',marker_line_width=1.5,
                       textposition='outside',texttemplate = "<b>%{x:}")
     	fig.update_xaxes(title='Liczba wniosków złożonych')
     	fig.update_yaxes(title='Wydział')
-
     	fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
                                 height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',barmode='group',
                                 separators =',')
-
-    	#st.plotly_chart(fig)
+            
+    	st.plotly_chart(fig)
     
     
     
