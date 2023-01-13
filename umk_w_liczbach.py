@@ -249,7 +249,7 @@ if sekcja == 'Studenci':
     with d2:
         st.write('asd')
     with d1:
-    	lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Wydział')[::-1]
+    	lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
     	x = lg.index[::-1]
     	y = lg['Przyznane'][::-1]
     	lg = lg.reset_index()
@@ -260,7 +260,7 @@ if sekcja == 'Studenci':
         	else:
             		lg['kolor'][j] = 'rgb(0,70,180)'
     	barwa4 = lg['kolor'][::-1]
-    	lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Złożone'].agg(np.sum)).sort_values(by='Wydział')[::-1]
+    	lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Złożone'].agg(np.sum)).sort_values(by='Złożone')[::-1]
     	x1 = lg1.index[::-1]
     	y1 = lg1['Złożone'][::-1]
     	lg1 = lg1.reset_index()
@@ -281,8 +281,8 @@ if sekcja == 'Studenci':
                         textfont=dict( size=12,color='black'),
                       textposition='outside',texttemplate = "<b>Złożone-%{x:}"))
     	fig.update_traces(marker_line_color='black',marker_line_width=1.5)
-    	fig.update_xaxes(title='Liczba wniosków')
-    	fig.update_yaxes(title='Wydział',range=[0,y1['Ogółem']+10])
+    	fig.update_xaxes(title='Liczba wniosków',range=[0,y1['Ogółem']+10])
+    	fig.update_yaxes(title='Wydział')
     	fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
                                 height=700,width=1200,plot_bgcolor='white',font_family='Lato',barmode='group',
                                 separators =',',showlegend=False)
