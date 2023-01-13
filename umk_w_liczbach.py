@@ -284,7 +284,7 @@ if sekcja == 'Studenci':
     	fig.update_xaxes(title='Liczba wniosków')
     	fig.update_yaxes(title='Wydział')
     	fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                height=700,width=1400,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=100),font_family='Lato',barmode='group',
+                                height=700,width=1400,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=50),font_family='Lato',barmode='group',
                                 separators =',',showlegend=False)
             
     	st.plotly_chart(fig)
