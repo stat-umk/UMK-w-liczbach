@@ -124,6 +124,7 @@ color: rgb(255,255,255);}
 
 
 if sekcja == 'Strona główna':
+    st.dataframe(DF20)
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Strona główna</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
