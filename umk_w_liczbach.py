@@ -301,8 +301,6 @@ if sekcja == 'Studenci':
 
     st.plotly_chart(fig7)
 	
-    st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
-    
         
     st.header('Porównanie liczby studentów na wybranych wydziałach')
     wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique())
