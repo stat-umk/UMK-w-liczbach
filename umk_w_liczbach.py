@@ -272,11 +272,13 @@ if sekcja == 'Studenci':
     	lg1['kolor']=' '
     	for j,i in enumerate(lg1['Wydział']):
         	if i in list(kolwyd.keys()):
-            		lg['kolor'][j] = kolwyd[i]
+            		lg1['kolor'][j] = kolwyd[i]
         	else:
-            		lg['kolor'][j] = 'rgb(0,70,180)'
+            		lg1['kolor'][j] = 'rgb(0,70,180)'
     	barwa5 = lg1['kolor'][::-1]
-
+        st.write(barwa5)
+	st.write(barwa4)
+	st.write(x1,y1)
     	fig = go.Figure()
     	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,marker_color=barwa4,
                         textfont=dict( size=12,color='black')))
