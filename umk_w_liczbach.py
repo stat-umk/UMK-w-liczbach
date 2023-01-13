@@ -295,7 +295,12 @@ if sekcja == 'Studenci':
     
     
     
-    st.write(x1,y1)
+    st.write(x1)
+    st.write(y1)
+    st.write(x)
+    st.write(y)
+    st.write(barwa5)
+    st.write(barwa4)
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
     c1, c2, c3 = st.columns(3)
     with c1:
