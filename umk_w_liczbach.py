@@ -275,16 +275,16 @@ if sekcja == 'Studenci':
         
     	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,marker_color=barwa4,
                         textfont=dict( size=12,color='black'),
-                      textposition='outside',texttemplate = "<b>Złożone-%{x:}"))
+                      textposition='outside',texttemplate = "<b>Przyznane-%{x:}"))
 	    
     	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,marker_color=barwa5,
                         textfont=dict( size=12,color='black'),
-                      textposition='outside',texttemplate = "<b>Przyznane-%{x:}"))
+                      textposition='outside',texttemplate = "<b>Złożone-%{x:}"))
     	fig.update_traces(marker_line_color='black',marker_line_width=1.5)
     	fig.update_xaxes(title='Liczba wniosków')
     	fig.update_yaxes(title='Wydział')
     	fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',barmode='group',
+                                height=800,width=1400,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',barmode='group',
                                 separators =',',showlegend=False)
             
     	st.plotly_chart(fig)
