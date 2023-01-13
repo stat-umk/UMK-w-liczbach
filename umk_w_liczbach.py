@@ -245,7 +245,7 @@ if sekcja == 'Studenci':
     
     st.header('Stypendia ministra w latach 2012-2021 w podziale na wydziały')
     r = st.selectbox('Wybierz rok : ', lata)
-    d1 = st.columns(1)
+    d1,d2 = st.columns(2)
     with d1:
     	lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
     	x = lg.index[::-1]
