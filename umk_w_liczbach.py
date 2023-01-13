@@ -228,7 +228,21 @@ if sekcja == 'Studenci':
 	    st.plotly_chart(fig4)
     else:
         st.plotly_chart(fig4)
-	    
+   
+    st.header('Porównanie liczby studentów na wybranych wydziałach')
+    wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique())
+    st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(sorted(wydz1)))],x='Rok',y='Liczba',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Liczba',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
+		    .update_traces(textposition='top right',texttemplate="%{y:,d}",)
+		    .update_yaxes(tickformat=",",rangemode='tozero')
+		    .update_layout(font_family='Lato',separators='.,'))
+ 
+    
+    
+    
+    
+    
+    
+    
     st.header('Stypendia ministra w latach 2012-2021 w podziale na wydziały')
     r = st.selectbox('Wybierz rok : ', lata)
     d1, d2 = st.columns(2)
@@ -249,7 +263,7 @@ if sekcja == 'Studenci':
             		lg['kolor'][j] = 'rgb(0,70,180)'
     	barwa4 = lg['kolor'][::-1]
 	
-	lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
+    	lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
     	x1 = lg1.index[::-1]
     	y1 = lg1['Przyznane'][::-1]
 
@@ -267,7 +281,7 @@ if sekcja == 'Studenci':
     	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
                         textfont=dict( size=12,color='black')),marker_color=barwa4)
 	
-	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,
+    	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,
                         textfont=dict( size=12,color='black')),marker_color=barwa5)
     	fig.update_traces(marker_line_color='black',marker_line_width=1.5,
                       textposition='outside',texttemplate = "<b>%{x:}")
@@ -280,13 +294,9 @@ if sekcja == 'Studenci':
 
     	st.plotly_chart(fig)
     
-    st.header('Porównanie liczby studentów na wybranych wydziałach')
-    wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique())
-    st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(sorted(wydz1)))],x='Rok',y='Liczba',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Liczba',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
-		    .update_traces(textposition='top right',texttemplate="%{y:,d}",)
-		    .update_yaxes(tickformat=",",rangemode='tozero')
-		    .update_layout(font_family='Lato',separators='.,'))
- 
+    
+    
+    
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
     c1, c2, c3 = st.columns(3)
     with c1:
