@@ -233,7 +233,7 @@ if sekcja == 'Studenci':
     r = st.selectbox('Wybierz rok : ', lata)
     d1, d2 = st.columns(2)
     with d1:
-       
+        st.write('asd')
     with d2:
     	lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Złożone'].agg(np.sum)).sort_values(by='Złożone')[::-1]
     	x = lg.index[::-1]
