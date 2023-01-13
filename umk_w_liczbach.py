@@ -291,11 +291,11 @@ if sekcja == 'Studenci':
                                 height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',barmode='group',
                                 separators =',')
 
-    	st.plotly_chart(fig)
+    	#st.plotly_chart(fig)
     
     
     
-    
+    st.write(x1,y1)
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
     c1, c2, c3 = st.columns(3)
     with c1:
