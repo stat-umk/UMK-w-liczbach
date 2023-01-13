@@ -245,9 +245,7 @@ if sekcja == 'Studenci':
     
     st.header('Stypendia ministra w latach 2012-2021 w podziale na wydziały')
     r = st.selectbox('Wybierz rok : ', lata)
-    d1, d2 = st.columns(2)
-    with d2:
-        st.write('asd')
+    d1 = st.columns(1)
     with d1:
     	lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
     	x = lg.index[::-1]
@@ -291,7 +289,37 @@ if sekcja == 'Studenci':
     
     
     
+    st.header('Liczba grantów przyznanych od NCN w latach 2019-2021 w podziale na jednostki')      
+	      
     
+    lg7 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Skuteczność'].agg(np.sum)).sort_values(by='Skuteczność')[::-1]
+    x7 = lg7.index[::-1]
+    y7 = lg7['Skuteczność'][::-1]
+
+
+    lg7 = lg7.reset_index()
+    lg7['kolor']=' '
+    for j,i in enumerate(lg7['Wydział']):
+        if i in list(kolwyd.keys()):
+            lg7['kolor'][j] = kolwyd[i]
+        else:
+            lg7['kolor'][j] = 'rgb(0,70,180)'
+    barwa7 = lg7['kolor'][::-1]
+
+    fig7 = go.Figure()
+    fig7.add_trace(go.Bar(x=y7,y=x7,orientation='h',text=y7,
+                        textfont=dict( size=12,color='black')))
+    fig7.update_traces(marker_color=barwa7,marker_line_color='black',marker_line_width=1.5,
+                      textposition='outside',texttemplate = "<b>%{x:.2f}")
+    fig7.update_xaxes(title='Współczynnik skuteczności przyznanych wniosków')
+    fig7.update_yaxes(title='Wydział')
+
+    fig7.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
+                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',barmode='group',
+                                separators =',')
+
+    st.plotly_chart(fig7)
+	
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
     c1, c2, c3 = st.columns(3)
     with c1:
