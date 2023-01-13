@@ -228,21 +228,7 @@ if sekcja == 'Studenci':
 	    st.plotly_chart(fig4)
     else:
         st.plotly_chart(fig4)
-   
-    st.header('Porównanie liczby studentów na wybranych wydziałach')
-    wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique())
-    st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(sorted(wydz1)))],x='Rok',y='Liczba',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Liczba',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
-		    .update_traces(textposition='top right',texttemplate="%{y:,d}",)
-		    .update_yaxes(tickformat=",",rangemode='tozero')
-		    .update_layout(font_family='Lato',separators='.,'))
  
-    
-    
-    
-    
-    
-    
-    
     st.header('Stypendia ministra w latach 2012-2021 w podziale na wydziały')
     r = st.selectbox('Wybierz rok : ', lata)
     d1,d2 = st.columns(2)
@@ -289,7 +275,7 @@ if sekcja == 'Studenci':
     
     
     
-    st.header('Liczba grantów przyznanych od NCN w latach 2019-2021 w podziale na jednostki')      
+    st.header('Współczynnik skuteczności dla przyznawanych stypendiów ministra (w %)')      
 	      
     
     lg7 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Skuteczność'].agg(np.sum)).sort_values(by='Skuteczność')[::-1]
@@ -310,8 +296,8 @@ if sekcja == 'Studenci':
     fig7.add_trace(go.Bar(x=y7,y=x7,orientation='h',text=y7,
                         textfont=dict( size=12,color='black')))
     fig7.update_traces(marker_color=barwa7,marker_line_color='black',marker_line_width=1.5,
-                      textposition='outside',texttemplate = "<b>%{x:.2f}")
-    fig7.update_xaxes(title='Współczynnik skuteczności przyznanych wniosków')
+                      textposition='outside',texttemplate = "<b>%{x:.2f}%")
+    fig7.update_xaxes(title='Współczynnik skuteczności')
     fig7.update_yaxes(title='Wydział')
 
     fig7.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
@@ -321,30 +307,14 @@ if sekcja == 'Studenci':
     st.plotly_chart(fig7)
 	
     st.header('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych w latach 2019-2021 na poszczgólnych wydziałach')
-    c1, c2, c3 = st.columns(3)
-    with c1:
-        st.subheader('Studia stacjonarne')   
-        wydzial = st.selectbox('Wybierz wydział:',wydziały)
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial],x='Rok',y='Stacjonarne',width=550,height=400).update_traces(marker_color=kolwyd[wydzial],
-	texttemplate="%{y:}",textposition='inside',
-        marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato'))
-    with c2:
-        st.subheader('Studia niestacjonarne')
-        wydzial1 = st.selectbox('Wybierz wydział: ',wydziały)
-        #kat1 = st.selectbox('Wybierz kategorię: ', ['Stacjonarne','Niestacjonarne','Razem'])
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial1],x='Rok',y='Niestacjonarne',width=550,height=400).update_traces(marker_color=kolwyd[wydzial1],texttemplate="%{y:}",
-	textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
-			.update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)).update_layout(font_family='Lato'))
-    with c3:
-        st.subheader('Razem')   
-        wydzial2 = st.selectbox('Wybierz wydział:  ',wydziały)
-        st.plotly_chart(px.bar(DF3[DF3['Wydział']==wydzial2],x='Rok',y='Razem',width=550,height=400).update_traces(marker_color=kolwyd[wydzial2],texttemplate="%{y:}",textposition='inside',
-        marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_xaxes(title_font=dict(size=18)).update_yaxes(title_font=dict(size=18)).update_layout(font_family='Lato'))
+    
         
-    st.subheader('Liczba studentów i absolwentów studiów stacjonarnych i niestacjonarnych oraz uczestników studiów doktoranckich i słuchaczy studiów podyplomowych w latach 2019-2021')              
-    kat = st.selectbox('Wybierz kategorię:',['Studia wyższe stacjonarne','Studia wyższe niestacjonarne','Doktoranckie','Podyplomowe','Razem'])
-    st.plotly_chart(px.line(DF2,x='Lata',y=kat,width=1400,height=500,markers=True,text=kat).update_traces(marker_color=('rgb(0,80,170)'),textposition='top right',texttemplate="%{y:,d}",
-				line_color=('rgb(0,80,170)')).update_yaxes(tickformat=",").update_layout(font_family='Lato',separators='.,'))      
+    st.header('Porównanie liczby studentów na wybranych wydziałach')
+    wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique())
+    st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(sorted(wydz1)))],x='Rok',y='Liczba',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Liczba',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
+		    .update_traces(textposition='top right',texttemplate="%{y:,d}",)
+		    .update_yaxes(tickformat=",",rangemode='tozero')
+		    .update_layout(font_family='Lato',separators='.,'))
     
     
     
