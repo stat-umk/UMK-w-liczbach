@@ -278,13 +278,13 @@ if sekcja == 'Studenci':
     	barwa5 = lg1['kolor'][::-1]
 
     	fig = go.Figure()
-    	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
-                        textfont=dict( size=12,color='black')),marker_color=barwa4)
+    	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,marker_color=barwa4,
+                        textfont=dict( size=12,color='black')))
 	
-    	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,
-                        textfont=dict( size=12,color='black')),marker_color=barwa5)
+    	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,marker_color=barwa5,
+                        textfont=dict( size=12,color='black')))
     	fig.update_traces(marker_line_color='black',marker_line_width=1.5,
-                      textposition='outside',texttemplate = "<b>%{x:}")
+                      textposition='outside',texttemplate = "<b>%{x:}",marker_color=barwa4)
     	fig.update_xaxes(title='Liczba wniosków złożonych')
     	fig.update_yaxes(title='Wydział')
 
