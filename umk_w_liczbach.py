@@ -249,9 +249,9 @@ if sekcja == 'Studenci':
     with d2:
         st.write('asd')
     with d1:
-    	lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
+    	lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Złożone'].agg(np.sum)).sort_values(by='Złożone')[::-1]
     	x = lg.index[::-1]
-    	y = lg['Przyznane'][::-1]
+    	y = lg['Złożone'][::-1]
     	lg = lg.reset_index()
     	lg['kolor']=' '
     	for j,i in enumerate(lg['Wydział']):
@@ -260,9 +260,9 @@ if sekcja == 'Studenci':
         	else:
             		lg['kolor'][j] = 'rgb(0,70,180)'
     	barwa4 = lg['kolor'][::-1]
-    	lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Złożone'].agg(np.sum)).sort_values(by='Złożone')[::-1]
+    	lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
     	x1 = lg1.index[::-1]
-    	y1 = lg1['Złożone'][::-1]
+    	y1 = lg1['Przyznane'][::-1]
     	lg1 = lg1.reset_index()
     	lg1['kolor']=' '
     	for j,i in enumerate(lg1['Wydział']):
