@@ -244,9 +244,9 @@ if sekcja == 'Studenci':
     	lg['kolor']=' '
     	for j,i in enumerate(lg['Wydział']):
         	if i in list(kolwyd.keys()):
-            	lg['kolor'][j] = kolwyd[i]
+            		lg['kolor'][j] = kolwyd[i]
         	else:
-            	lg['kolor'][j] = 'rgb(0,70,180)'
+            		lg['kolor'][j] = 'rgb(0,70,180)'
     	barwa4 = lg['kolor'][::-1]
 	
 	lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
@@ -258,9 +258,9 @@ if sekcja == 'Studenci':
     	lg1['kolor']=' '
     	for j,i in enumerate(lg1['Wydział']):
         	if i in list(kolwyd.keys()):
-            	lg['kolor'][j] = kolwyd[i]
+            		lg['kolor'][j] = kolwyd[i]
         	else:
-            	lg['kolor'][j] = 'rgb(0,70,180)'
+            		lg['kolor'][j] = 'rgb(0,70,180)'
     	barwa5 = lg1['kolor'][::-1]
 
     	fig = go.Figure()
@@ -275,12 +275,11 @@ if sekcja == 'Studenci':
     	fig.update_yaxes(title='Wydział')
 
     	fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',barmode='group'
+                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',barmode='group',
                                 separators =',')
 
     	st.plotly_chart(fig)
     
-	
     st.header('Porównanie liczby studentów na wybranych wydziałach')
     wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique())
     st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(sorted(wydz1)))],x='Rok',y='Liczba',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Liczba',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
