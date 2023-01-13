@@ -233,27 +233,52 @@ if sekcja == 'Studenci':
     r = st.selectbox('Wybierz rok : ', lata)
     d1, d2 = st.columns(2)
     with d1:
-        fig = go.Figure()
-        fig.add_trace(go.Bar(x=DF20[(DF20['Rok']==r) & (DF20['Rodzaj']=='Złożone')]['Liczba'],
-                        y=DF20[DF20['Rok']==r]['Wydział'],orientation='h',
-                        text=DF20[(DF20['Rok']==r) & (DF20['Rodzaj']=='Złożone')]['Liczba'],
-                        marker_color='rgb(26, 118, 255)'
-                        ))
-        fig.add_trace(go.Bar(x=DF20[(DF20['Rok']==r) & (DF20['Rodzaj']=='Przyznane')]['Liczba'],
-                        y=DF20[DF20['Rok']==r]['Wydział'],orientation='h',
-                        text=DF20[(DF20['Rok']==r) & (DF20['Rodzaj']=='Przyznane')]['Liczba'],
-                        marker_color='rgb(26, 118, 255)'
-                        ))
-        
-        fig.update_layout(
-            xaxis_tickfont_size=14,
-            yaxis=dict(
-                title='Wydział',
-                titlefont_size=16,
-                tickfont_size=14),barmode='group')
-        st.plotly_chart(fig)
+       
     with d2:
-        st.plotly_chart(px.bar(DF20[DF20['Rok']==r],x='Liczba',y='Wydział',orientation='h'))
+    	lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Złożone'].agg(np.sum)).sort_values(by='Złożone')[::-1]
+    	x = lg.index[::-1]
+    	y = lg['Złożone'][::-1]
+
+
+    	lg = lg.reset_index()
+    	lg['kolor']=' '
+    	for j,i in enumerate(lg['Wydział']):
+        	if i in list(kolwyd.keys()):
+            	lg['kolor'][j] = kolwyd[i]
+        	else:
+            	lg['kolor'][j] = 'rgb(0,70,180)'
+    	barwa4 = lg['kolor'][::-1]
+	
+	lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
+    	x1 = lg1.index[::-1]
+    	y1 = lg1['Przyznane'][::-1]
+
+
+    	lg1 = lg1.reset_index()
+    	lg1['kolor']=' '
+    	for j,i in enumerate(lg1['Wydział']):
+        	if i in list(kolwyd.keys()):
+            	lg['kolor'][j] = kolwyd[i]
+        	else:
+            	lg['kolor'][j] = 'rgb(0,70,180)'
+    	barwa5 = lg1['kolor'][::-1]
+
+    	fig = go.Figure()
+    	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
+                        textfont=dict( size=12,color='black')),marker_color=barwa4)
+	
+	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,
+                        textfont=dict( size=12,color='black')),marker_color=barwa5)
+    	fig.update_traces(marker_line_color='black',marker_line_width=1.5,
+                      textposition='outside',texttemplate = "<b>%{x:}")
+    	fig.update_xaxes(title='Liczba wniosków złożonych')
+    	fig.update_yaxes(title='Wydział')
+
+    	fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
+                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',
+                                separators =',')
+
+    	st.plotly_chart(fig)
     
 	
     st.header('Porównanie liczby studentów na wybranych wydziałach')
