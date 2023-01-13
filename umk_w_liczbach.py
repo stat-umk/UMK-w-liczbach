@@ -284,7 +284,7 @@ if sekcja == 'Studenci':
     	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,marker_color=barwa5,
                         textfont=dict( size=12,color='black')))
     	fig.update_traces(marker_line_color='black',marker_line_width=1.5,
-                      textposition='outside',texttemplate = "<b>%{x:}",marker_color=barwa4)
+                      textposition='outside',texttemplate = "<b>%{x:}")
     	fig.update_xaxes(title='Liczba wniosków złożonych')
     	fig.update_yaxes(title='Wydział')
 
