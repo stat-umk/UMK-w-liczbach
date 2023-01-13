@@ -229,7 +229,7 @@ if sekcja == 'Studenci':
     else:
         st.plotly_chart(fig4)
  
-    st.header('Stypendia ministra w latach 2012-2021 w podziale na wydziały')
+    st.header('Stypendia ministra w latach 2012-2021 w podziale na wydziały wraz z współczynnikiem skuteczności (w %)')
     r = st.selectbox('Wybierz rok : ', lata)
     d1,d2 = st.columns(2)
     with d1:
@@ -272,12 +272,7 @@ if sekcja == 'Studenci':
                                 separators =',',showlegend=False)
             
     	st.plotly_chart(fig)
-    
-    
-    
-    st.header('Współczynnik skuteczności dla przyznawanych stypendiów ministra (w %)')      
-	      
-    
+         	       
     lg7 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Skuteczność'].agg(np.sum)).sort_values(by='Skuteczność')[::-1]
     x7 = lg7.index[::-1]
     y7 = lg7['Skuteczność'][::-1]
