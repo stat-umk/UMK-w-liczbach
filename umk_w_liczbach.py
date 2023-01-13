@@ -249,9 +249,9 @@ if sekcja == 'Studenci':
     with d2:
         st.write('asd')
     with d1:
-    	lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Złożone'].agg(np.sum)).sort_values(by='Złożone')[::-1]
+    	lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
     	x = lg.index[::-1]
-    	y = lg['Złożone'][::-1]
+    	y = lg['Przyznane'][::-1]
     	lg = lg.reset_index()
     	lg['kolor']=' '
     	for j,i in enumerate(lg['Wydział']):
@@ -260,9 +260,9 @@ if sekcja == 'Studenci':
         	else:
             		lg['kolor'][j] = 'rgb(0,70,180)'
     	barwa4 = lg['kolor'][::-1]
-    	lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
+    	lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Złożone'].agg(np.sum)).sort_values(by='Złożone')[::-1]
     	x1 = lg1.index[::-1]
-    	y1 = lg1['Przyznane'][::-1]
+    	y1 = lg1['Złożone'][::-1]
     	lg1 = lg1.reset_index()
     	lg1['kolor']=' '
     	for j,i in enumerate(lg1['Wydział']):
@@ -274,17 +274,18 @@ if sekcja == 'Studenci':
     	fig = go.Figure()      
         
     	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,marker_color=barwa4,
-                        textfont=dict( size=12,color='black')))
+                        textfont=dict( size=12,color='black')).update_traces(marker_line_color='black',marker_line_width=1.5,
+                      textposition='outside',texttemplate = "<b>Złożone-%{x:}"))
 	    
     	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,marker_color=barwa5,
-                        textfont=dict( size=12,color='black')))
-    	fig.update_traces(marker_line_color='black',marker_line_width=1.5,
-                      textposition='outside',texttemplate = "<b>%{x:}")
-    	fig.update_xaxes(title='Liczba wniosków złożonych')
+                        textfont=dict( size=12,color='black')).update_traces(marker_line_color='black',marker_line_width=1.5,
+                      textposition='outside',texttemplate = "<b>Przyznane-%{x:}"))
+    	
+    	fig.update_xaxes(title='Liczba wniosków')
     	fig.update_yaxes(title='Wydział')
     	fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
                                 height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',barmode='group',
-                                separators =',')
+                                separators =',',showlegend=False)
             
     	st.plotly_chart(fig)
     
