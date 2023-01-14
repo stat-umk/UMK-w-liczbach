@@ -306,12 +306,12 @@ if sekcja == 'Studenci':
     st.dataframe(DF12['Wydział'].unique())
     st.header('Porównanie liczby studentów na wybranych wydziałach')
     wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique())
-    st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(sorted(wydz1)))].sort_values(by=['Wydział','Rok']),x='Rok',y='Liczba',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Liczba',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
+    st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(wydz1))].sort_values(by=['Wydział','Rok']),x='Rok',y='Liczba',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Liczba',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
 		    .update_traces(textposition='top right',texttemplate="%{y:,d}",)
 		    .update_yaxes(tickformat=",",rangemode='tozero')
 		    .update_layout(font_family='Lato',separators='.,'))
     
-    st.dataframe(DF15[(DF15['Wydział'].isin(sorted(wydz1)))].sort_values(by=['Wydział','Rok']))
+    st.dataframe(DF15[(DF15['Wydział'].isin(wydz1))].sort_values(by=['Wydział','Rok']))
     st.dataframe(list(map(lambda x: kolwyd[x],sorted(wydz1))))
     
     
