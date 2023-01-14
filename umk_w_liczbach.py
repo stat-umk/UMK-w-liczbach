@@ -326,8 +326,8 @@ if sekcja == 'Pracownicy':
     st.markdown('---')
     
     st.header("Liczba nauczycieli akademickich w poszczególnych grupach w latach 2019-2021")
-    k1,k2,k3 = st.columns(3)
     rok = st.selectbox('Wybierz rok:', lata[::-1])
+    k1,k2,k3 = st.columns(3)
     with k1:
         st.subheader("Grupa badawcza")
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)].sort_values(by='badawcza')['Stanowisko'][::-1],
