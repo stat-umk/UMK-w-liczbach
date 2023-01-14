@@ -40,7 +40,7 @@ DF18 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Abs_og',dt
 DF19 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr',dtype={'Rok':int})
 DF20 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Styp_min1',dtype={'Rok':int})
 DF21 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Nacz_og',dtype={'Rok':int})
-
+DF22 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Prac',dtype={'Rok':int})
 
 lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
 wydziały = ['Matematyki i Informatyki',
@@ -359,7 +359,13 @@ if sekcja == 'Pracownicy':
 	textposition='inside')
 	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników').update_layout(font_family='Lato'))
 	
-	
+    st.header('Zmiana liczby pracowników w stosunku do roku poprzedniego w latach 2013-2021')
+    pr1 = st.selectbox('Wybierz kategorię   : ', ['Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi','Ogółem'])
+    st.plotly_chart(px.line(DF22[DF22['Rodzaj']==pr1],x='Rok',y='Zmiana',color = 'Jednostka',width=1500,height=500,text='Zmiana',color_discrete_sequence=['blue','red','green'])
+		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}%")
+	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2010.95,2021.5],dtick=1)
+		    .update_yaxes(title_font=dict(size=12),title = 'Zmiana liczby pracowników',tickformat=",",range=[-50,50],zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)')                        
+		    .update_layout(font_family='Lato',separators=','))
 	
 	
 	
