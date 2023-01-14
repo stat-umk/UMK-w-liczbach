@@ -355,7 +355,7 @@ if sekcja == 'Pracownicy':
     
     st.header('Liczba pracowników w latach 2012-2021')
     pr = st.selectbox('Wybierz kategorię : ', ['Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi','Ogółem'])
-    st.plotly_chart(px.bar(DF21[DF21['Rodzaj']=pr],x='Rok',y='Liczba',color='Jednostka',width=1400,height=500).update_traces(texttemplate="%{y:}",
+    st.plotly_chart(px.bar(DF21[DF21['Rodzaj']==pr],x='Rok',y='Liczba',color='Jednostka',width=1400,height=500).update_traces(texttemplate="%{y:}",
 	textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
 	.update_xaxes(title_font=dict(size=12), title='Lata').update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników').update_layout(font_family='Lato'))
 	
