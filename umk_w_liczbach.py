@@ -390,7 +390,7 @@ if sekcja == 'Pracownicy':
     
 
 
-    st.header('Porównanie liczby studentów na wybranych dwóch wydziałach wraz z wydziałem średnim')
+    st.header('Porównanie liczby nauczycieli akademickich na wybranych dwóch wydziałach wraz z wydziałem średnim')
     q111, q222 = st.columns(2)
     wydz111 = q111.selectbox('Wybierz wydział :                                                                          ',DF24['Wydział'].unique())
     wydz222 = q222.selectbox('Wybierz wydział :                                                                        ',DF24['Wydział'].unique())
@@ -403,7 +403,16 @@ if sekcja == 'Pracownicy':
     else:
         st.plotly_chart(fig4)
 
+    
+    st.header('Zmiana liczby nauczycieli akademickich w porównaniu do roku poprzedniego na wybranych wydziałach')
+    wydz31 = st.multiselect('Wybierz wydział   :  ',DF24['Wydział'].unique())
+    st.plotly_chart(px.line(DF24[(DF24['Wydział'].isin(wydz31))].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Zmiana',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz31))))
+		    .update_traces(textposition='top right',texttemplate="%{y:,d}",)
+		    .update_yaxes(tickformat=",",rangemode='tozero')
+		    .update_layout(font_family='Lato',separators='.,'))
 
+
+    
     st.header('Porównanie liczby nauczycieli akademickich w latach 2019-2021 na wybranych wydziałach')
     ck1,ck2 = st.columns(2)
     wydział = ck1.selectbox("Wybierz wydział:",DF5['Jednostka Organizacyjna'].unique()[:-5])
@@ -415,6 +424,9 @@ if sekcja == 'Pracownicy':
             text=wydział,showarrow=True,font=dict(size=16),ax=50,ay=-50).add_annotation(x=1, y=int(DF5[(DF5['Rok']=='2020') & (DF5['Jednostka Organizacyjna']==wydział1)]['Liczba nauczycieli akademickich']),
             text=wydział1,showarrow=True,arrowhead=1,font=dict(size=16),ax=-50,ay=50)
     st.plotly_chart(fig)
+    
+
+    
     
       
       
