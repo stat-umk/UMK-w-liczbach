@@ -41,6 +41,7 @@ DF19 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr',d
 DF20 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Styp_min1',dtype={'Rok':int})
 DF21 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Nacz_og',dtype={'Rok':int})
 DF22 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Prac',dtype={'Rok':int})
+DF23 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_pl',dtype={'Rok':int})
 
 lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
 wydziały = ['Matematyki i Informatyki',
@@ -371,7 +372,21 @@ if sekcja == 'Pracownicy':
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2021.5],dtick=1)
 		    .update_yaxes(title_font=dict(size=12),title = 'Stosunek',tickformat=",",rangemode='tozero',zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)')                        
 		    .update_layout(font_family='Lato',separators=','))
-	
+    
+    st.header("Liczba pracowników w podziale na płeć w latach 2014-2021")
+    rok1 = st.selectbox('Wybierz rok :', lata[::-1])
+    fig7 = go.Figure(data=[go.Pie(labels=DF23[DF23['Rok']==rok1],
+				     values=DF23[DF23['Rok']==rok1])
+    fig7.update_traces(textinfo='value+percent',marker=dict( colors=['rgb(255,205,0)','rgb(255,205,0)','rgb(0,80,170)','rgb(0,80,170)'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
+    fig7.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato',separators=',')
+    st.plotly_chart(fig7)
+
+
+
+
+
+
+
     st.header('Porównanie liczby nauczycieli akademickich w latach 2019-2021 na wybranych wydziałach')
     ck1,ck2 = st.columns(2)
     wydział = ck1.selectbox("Wybierz wydział:",DF5['Jednostka Organizacyjna'].unique()[:-5])
