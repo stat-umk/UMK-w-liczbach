@@ -39,8 +39,8 @@ DF17 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Absolwenci
 DF18 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Abs_og',dtype={'Rok':int})
 DF19 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr',dtype={'Rok':int})
 DF20 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Styp_min1',dtype={'Rok':int})
-#DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wyjazdy',dtype={'Rok':int})
-#DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Przyjazdy')
+DF21 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Nacz_og',dtype={'Rok':int})
+
 
 lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
 wydziały = ['Matematyki i Informatyki',
@@ -353,7 +353,17 @@ if sekcja == 'Pracownicy':
         fig.update_layout(legend=dict(x=-0.3,y=1.2),margin=dict(t=80, b=100, l=0, r=160),font_family='Lato',separators=',')
         st.plotly_chart(fig)
     
-
+    st.header('Liczba pracowników w latach 2012-2021')
+    pr = st.selectbox('Wybierz kategorię : ', ['Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi','Ogółem'])
+    st.plotly_chart(px.bar(DF21[DF21['Rodzaj']=pr],x='Rok',y='Liczba',color='Jednostka',width=1400,height=500).update_traces(texttemplate="%{y:}",
+	textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5)
+	.update_xaxes(title_font=dict(size=12), title='Lata').update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników').update_layout(font_family='Lato'))
+	
+	
+	
+	
+	
+	
     st.header('Porównanie liczby nauczycieli akademickich w latach 2019-2021 na wybranych wydziałach')
     ck1,ck2 = st.columns(2)
     wydział = ck1.selectbox("Wybierz wydział:",DF5['Jednostka Organizacyjna'].unique()[:-5])
