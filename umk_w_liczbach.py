@@ -374,12 +374,16 @@ if sekcja == 'Pracownicy':
 		    .update_layout(font_family='Lato',separators=','))
     
     st.header("Liczba pracowników w podziale na płeć w latach 2014-2021")
-    rok1 = st.selectbox('Wybierz rok :', lata[::-1])
-    fig7 = go.Figure(data=[go.Pie(labels=DF23[DF23['Rok']==rok1].sort_values(by='Płeć')['Płeć'],sort=False,
+    y1, y2 = st.columns(2)
+    with y1:
+        rok1 = st.selectbox('Wybierz rok :', lata[::-1])
+    with k3:
+        fig7 = go.Figure(data=[go.Pie(labels=DF23[DF23['Rok']==rok1].sort_values(by='Płeć')['Płeć'],sort=False,
 				     values=DF23[DF23['Rok']==rok1].sort_values(by='Płeć')['Liczba'])])
-    fig7.update_traces(textinfo='value+percent',marker=dict( colors=['rgb(255,205,0)','rgb(255,220,0)','rgb(0,80,170)','rgb(0,80,220)']),direction ='clockwise')
-    fig7.update_layout(font_family='Lato',separators=',',margin=dict(t=0, b=0, l=20, r=0))
-    st.plotly_chart(fig7)
+    	fig7.update_traces(textinfo='value+percent',marker=dict( colors=['rgb(255,205,0)','rgb(255,220,0)','rgb(0,80,170)','rgb(0,80,220)']),direction ='clockwise')
+    	fig7.update_layout(font_family='Lato',separators=',',margin=dict(t=0, b=0, l=20, r=0))
+    	st.plotly_chart(fig7)
+    
 
 
 
