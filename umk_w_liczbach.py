@@ -303,7 +303,7 @@ if sekcja == 'Studenci':
 
     st.plotly_chart(fig7)
 	
-        
+    st.dataframe(DF12['Wydział'].unique())
     st.header('Porównanie liczby studentów na wybranych wydziałach')
     wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique())
     st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(sorted(wydz1)))],x='Rok',y='Liczba',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Liczba',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
@@ -311,11 +311,11 @@ if sekcja == 'Studenci':
 		    .update_yaxes(tickformat=",",rangemode='tozero')
 		    .update_layout(font_family='Lato',separators='.,'))
     
+    st.dataframe(DF15[(DF15['Wydział'].isin(sorted(wydz1)))])
     
     
     
-    
-    
+     
     
     
     
