@@ -409,7 +409,7 @@ if sekcja == 'Pracownicy':
     st.plotly_chart(px.line(DF24[DF24['Wydział']==wydz31].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Zmiana',color_discrete_sequence=list(map(lambda x: kolwyd[x],[wydz31])))
 		    .update_traces(textposition='top right',texttemplate="%{y:.2f}%")
 		    .update_yaxes(tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)')
-		    .update_xaxes(dtick=1,range=[np.min(DF24[DF24['Wydział']==wydz31]['Rok'])-1/2,np.min(DF24[DF24['Wydział']==wydz31]['Rok'])+1/2])
+		    .update_xaxes(dtick=1,range=[np.min(DF24[DF24['Wydział']==wydz31]['Rok'])-1/2,np.max(DF24[DF24['Wydział']==wydz31]['Rok'])+1/2])
 		    .update_layout(font_family='Lato',separators='.,'))
 
 
