@@ -333,7 +333,7 @@ if sekcja == 'Pracownicy':
         rok = st.selectbox('Wybierz rok:', lata[::-1])
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)].sort_values(by='badawcza')['Stanowisko'][::-1],
 				     values=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)].sort_values(by='badawcza')['badawcza'][::-1])])
-        fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)))
+        fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
         fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato',separators=',')
         st.plotly_chart(fig)
     with k2:
@@ -341,7 +341,7 @@ if sekcja == 'Pracownicy':
         rok1 = st.selectbox('Wybierz rok: ', lata[::-1])
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok1)].sort_values(by='badawcza-dydaktyczna')['Stanowisko'][::-1],
 				     values=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok1)].sort_values(by='badawcza-dydaktyczna')['badawcza-dydaktyczna'][::-1])])
-        fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)))
+        fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
         fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato',separators=',')
         st.plotly_chart(fig)     
     with k3:
@@ -349,7 +349,7 @@ if sekcja == 'Pracownicy':
         rok2 = st.selectbox('Wybierz rok:  ', lata[::-1])
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok2)].sort_values(by='dydaktyczna')['Stanowisko'][::-1],
 				     values=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok2)].sort_values(by='dydaktyczna')['dydaktyczna'][::-1])])
-        fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc','#51a2fc'],line=dict(color='#0050AA', width=2)))
+        fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc','#51a2fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
         fig.update_layout(legend=dict(x=-0.3,y=1.2),margin=dict(t=80, b=100, l=0, r=160),font_family='Lato',separators=',')
         st.plotly_chart(fig)
     
