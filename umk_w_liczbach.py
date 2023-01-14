@@ -375,8 +375,8 @@ if sekcja == 'Pracownicy':
     
     st.header("Liczba pracowników w podziale na płeć w latach 2014-2021")
     rok1 = st.selectbox('Wybierz rok :', lata[::-1])
-    fig7 = go.Figure(data=[go.Pie(labels=DF23[DF23['Rok']==rok1],
-				     values=DF23[DF23['Rok']==rok1])])
+    fig7 = go.Figure(data=[go.Pie(labels=DF23[DF23['Rok']==rok1]['Płeć'],
+				     values=DF23[DF23['Rok']==rok1]['Liczba'])])
     fig7.update_traces(textinfo='value+percent',marker=dict( colors=['rgb(255,205,0)','rgb(255,205,0)','rgb(0,80,170)','rgb(0,80,170)'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
     fig7.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato',separators=',')
     st.plotly_chart(fig7)
