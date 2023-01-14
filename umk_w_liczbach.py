@@ -311,7 +311,7 @@ if sekcja == 'Studenci':
 		    .update_yaxes(tickformat=",",rangemode='tozero')
 		    .update_layout(font_family='Lato',separators='.,'))
     
-    st.dataframe(DF15[(DF15['Wydział'].isin(sorted(wydz1)))])
+    st.dataframe(DF15[(DF15['Wydział'].isin(sorted(wydz1)))].sort_values(by='Wydział'))
     
     
     
