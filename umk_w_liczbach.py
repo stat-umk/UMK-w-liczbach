@@ -326,31 +326,6 @@ if sekcja == 'Pracownicy':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     
-    st.header("Liczba nauczycieli akademickich w poszczególnych grupach w latach 2019-2021")
-    rok = st.selectbox('Wybierz rok:', lata[::-1])
-    k1,k2,k3 = st.columns(3)
-    with k1:
-        st.subheader("Grupa badawcza")
-        fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)].sort_values(by='badawcza')['Stanowisko'][::-1],
-				     values=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)].sort_values(by='badawcza')['badawcza'][::-1])])
-        fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
-        fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato',separators=',')
-        st.plotly_chart(fig)
-    with k2:
-        st.subheader("Grupa badawczo-dydaktyczna")
-        fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok)].sort_values(by='badawcza-dydaktyczna')['Stanowisko'][::-1],
-				     values=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok)].sort_values(by='badawcza-dydaktyczna')['badawcza-dydaktyczna'][::-1])])
-        fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
-        fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato',separators=',')
-        st.plotly_chart(fig)     
-    with k3:
-        st.subheader("Grupa dydaktyczna")
-        fig = go.Figure(data=[go.Pie(labels=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok)].sort_values(by='dydaktyczna')['Stanowisko'][::-1],
-				     values=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok)].sort_values(by='dydaktyczna')['dydaktyczna'][::-1])])
-        fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc','#51a2fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
-        fig.update_layout(legend=dict(x=-0.3,y=1.2),margin=dict(t=80, b=100, l=0, r=160),font_family='Lato',separators=',')
-        st.plotly_chart(fig)
-    
     st.header('Liczba pracowników w latach 2012-2021')
     pr = st.selectbox('Wybierz kategorię : ', ['Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi','Ogółem'])
     st.plotly_chart(px.bar(DF21[DF21['Rodzaj']==pr],x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(0,80,170)','rgb(255,205,0)']).update_traces(texttemplate="%{y:}",
@@ -384,7 +359,30 @@ if sekcja == 'Pracownicy':
         fig7.update_layout(font_family='Lato',separators=',',margin=dict(t=0, b=0, l=20, r=0))
         st.plotly_chart(fig7)
         
-    	
+    st.header("Liczba nauczycieli akademickich w poszczególnych grupach w latach 2019-2021")
+    rok = st.selectbox('Wybierz rok:', lata[::-1])
+    k1,k2,k3 = st.columns(3)
+    with k1:
+        st.subheader("Grupa badawcza")
+        fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)].sort_values(by='badawcza')['Stanowisko'][::-1],
+				     values=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)].sort_values(by='badawcza')['badawcza'][::-1])])
+        fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
+        fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato',separators=',')
+        st.plotly_chart(fig)
+    with k2:
+        st.subheader("Grupa badawczo-dydaktyczna")
+        fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok)].sort_values(by='badawcza-dydaktyczna')['Stanowisko'][::-1],
+				     values=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok)].sort_values(by='badawcza-dydaktyczna')['badawcza-dydaktyczna'][::-1])])
+        fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
+        fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato',separators=',')
+        st.plotly_chart(fig)     
+    with k3:
+        st.subheader("Grupa dydaktyczna")
+        fig = go.Figure(data=[go.Pie(labels=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok)].sort_values(by='dydaktyczna')['Stanowisko'][::-1],
+				     values=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok)].sort_values(by='dydaktyczna')['dydaktyczna'][::-1])])
+        fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc','#51a2fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
+        fig.update_layout(legend=dict(x=-0.3,y=1.2),margin=dict(t=80, b=100, l=0, r=160),font_family='Lato',separators=',')
+        st.plotly_chart(fig)
     
 
 
