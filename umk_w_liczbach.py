@@ -369,9 +369,9 @@ if sekcja == 'Pracownicy':
 	
 	
     st.header('Stosunek liczby nienauczycieli do nauczycieli w latach 2012-2021')
-    st.plotly_chart(px.line(DF22[DF22['Rodzaj']=='Nauczyciele akademiccy')],x='Rok',y='Stosunek',color = 'Jednostka',width=1500,height=500,text='Stosunek',color_discrete_sequence=['blue','red','green'])
+    st.plotly_chart(px.line(DF22[DF22['Rodzaj']=='Nauczyciele akademiccy'],x='Rok',y='Stosunek',color = 'Jednostka',width=1500,height=500,text='Stosunek',color_discrete_sequence=['blue','red','green'])
 		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}")
-	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2012.95,2021.5],dtick=1)
+	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2021.5],dtick=1)
 		    .update_yaxes(title_font=dict(size=12),title = 'Stosunek',tickformat=",",rangemode='tozero',zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)')                        
 		    .update_layout(font_family='Lato',separators=','))
 	
