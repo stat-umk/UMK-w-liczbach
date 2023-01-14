@@ -377,8 +377,8 @@ if sekcja == 'Pracownicy':
     rok1 = st.selectbox('Wybierz rok :', lata[::-1])
     fig7 = go.Figure(data=[go.Pie(labels=DF23[DF23['Rok']==rok1].sort_values(by='Płeć')['Płeć'],sort=False,
 				     values=DF23[DF23['Rok']==rok1].sort_values(by='Płeć')['Liczba'])])
-    fig7.update_traces(textinfo='value+percent',marker=dict( colors=['rgb(255,205,0)','rgb(255,205,0)','rgb(0,80,170)','rgb(0,80,170)'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
-    fig7.update_layout(legend=dict(x=0,y=1.2),font_family='Lato',separators=',')
+    fig7.update_traces(textinfo='value+percent',marker=dict( colors=['rgb(255,205,0)','rgb(255,250,0)','rgb(0,80,170)','rgb(0,80,240)'],direction ='clockwise')
+    fig7.update_layout(font_family='Lato',separators=',')
     st.plotly_chart(fig7)
 
 
