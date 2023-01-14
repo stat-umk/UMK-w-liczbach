@@ -43,6 +43,10 @@ DF21 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Nacz_og',d
 DF22 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Prac',dtype={'Rok':int})
 DF23 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_pl',dtype={'Rok':int})
 
+DF24 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_wydz',dtype={'Rok':int})
+DF25 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_sr',dtype={'Rok':int})
+
+
 lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
 wydziały = ['Matematyki i Informatyki',
                                                     'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
@@ -386,7 +390,18 @@ if sekcja == 'Pracownicy':
     
 
 
-
+    st.header('Porównanie liczby studentów na wybranych dwóch wydziałach wraz z wydziałem średnim')
+    q111, q222 = st.columns(2)
+    wydz111 = q111.selectbox('Wybierz wydział :                                                                          ',DF24['Wydział'].unique())
+    wydz222 = q222.selectbox('Wybierz wydział :                                                                        ',DF24['Wydział'].unique())
+    gz = st.radio('Średnia liczba nauczycieli akademickich na wydziałach - Włącz/Wyłącz:',('Włącz','Wyłącz'))
+    fig4 = px.bar(DF24[(DF24['Wydział'].isin([wydz111,wydz222]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_map={wydz111: kolwyd[wydz111],wydz222: kolwyd[wydz222]},pattern_shape="Wydział").update_yaxes(tickformat=",").update_traces(texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(font_family='Lato',separators=',')
+    if gz == 'Włącz':
+	    fig5 = px.line(DF25,x='Rok',y='Liczba',text='Liczba',color_discrete_sequence=['rgb(0,80,170)']).update_traces(textposition="top left",texttemplate = "%{y:.2f}").update_yaxes(tickformat=",").update_layout(font_family='Lato',separators=',')
+	    fig4.add_trace(fig5.data[0])
+	    st.plotly_chart(fig4)
+    else:
+        st.plotly_chart(fig4)
 
 
     st.header('Porównanie liczby nauczycieli akademickich w latach 2019-2021 na wybranych wydziałach')
