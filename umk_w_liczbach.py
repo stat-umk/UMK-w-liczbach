@@ -410,7 +410,7 @@ if sekcja == 'Pracownicy':
 		    .update_traces(textposition='top right',texttemplate="%{y:.2f}%")
 		    .update_yaxes(tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)')
 		    .update_xaxes(dtick=1,range=[np.min(DF24[(DF24['Wydział']==wydz31) & (DF24['Zmiana'].notna())]['Rok'])-1/2,np.max(DF24[(DF24['Wydział']==wydz31) & (DF24['Zmiana'].notna())]['Rok'])+1/2])
-		    .update_layout(font_family='Lato',separators='.,',legendshow=False))
+		    .update_layout(font_family='Lato',separators='.,',showlegend=False))
 
 
     
