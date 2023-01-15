@@ -203,7 +203,7 @@ if sekcja == 'Studenci':
 		    .update_layout(font_family='Lato'))
 	
     st.header('Zmiana liczby studentów i absolwentów w stosunku do roku poprzedniego (w %)')
-    kat43 = st.selectbox('Wybierz kategorię :   ',['Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe','Ogółem'])
+    kat43 = st.selectbox('Wybierz kategorię :   ',['Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe','Ogółem'],index=2)
     st.plotly_chart(px.line(DF17[DF17['Rodzaj']==kat43],x='Rok',y='Zmiana[%]',color = 'Kategoria',width=1500,height=500,text='Zmiana[%]',color_discrete_sequence=['blue','red'])
 		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}%")
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2010.95,2021.5],dtick=1)
@@ -233,8 +233,8 @@ if sekcja == 'Studenci':
     
     st.header('Porównanie liczby studentów na wybranych dwóch wydziałach wraz z wydziałem średnim')
     q11, q22 = st.columns(2)
-    wydz11 = q11.selectbox('Wybierz wydział :                                                                          ',DF12['Wydział'].unique())
-    wydz22 = q22.selectbox('Wybierz wydział :                                                                        ',DF12['Wydział'].unique())
+    wydz11 = q11.selectbox('Wybierz wydział :                                                                          ',DF12['Wydział'].unique(),index=2)
+    wydz22 = q22.selectbox('Wybierz wydział :                                                                        ',DF12['Wydział'].unique(),index=3)
     gz = st.radio('Średnia liczba studentów na wydziałach - Włącz/Wyłącz:',('Włącz','Wyłącz'))
     fig4 = px.bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_map={wydz11: kolwyd[wydz11],wydz22: kolwyd[wydz22]},pattern_shape="Wydział").update_yaxes(tickformat=",").update_traces(texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(font_family='Lato',separators=',')
     if gz == 'Włącz':
