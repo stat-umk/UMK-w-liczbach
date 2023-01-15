@@ -408,6 +408,7 @@ if sekcja == 'Pracownicy':
 
     
     st.header('Zmiana liczby nauczycieli akademickich w porównaniu do roku poprzedniego na wybranych wydziałach')
+    wydz31 = 'Chemii'
     wydz31 = st.selectbox('Wybierz wydział   :  ',DF24['Wydział'].unique())
     st.plotly_chart(px.line(DF24[DF24['Wydział']==wydz31].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Zmiana',color_discrete_sequence=list(map(lambda x: kolwyd[x],[wydz31])))
 		    .update_traces(textposition='top right',texttemplate="%{y:.2f}%")
