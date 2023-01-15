@@ -452,7 +452,7 @@ if sekcja == 'Pracownicy':
     st.plotly_chart(px.line(DF28[DF28['Kategoria'].isin(wydz318)].sort_values(by=['Kategoria','Rok']),x='Rok',y='Wynagrodzenie',color='Kategoria',width=1400,height=500,markers=True,text='Wynagrodzenie')
 		    .update_traces(textposition='top right',texttemplate="%{y:,}")
 		    .update_yaxes(tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)')
-		    .update_xaxes(dtick=1,range=[np.min(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])-1/2,np.max(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF24['Wynagrodzenie'].notna())]['Rok'])+1/2])
+		    .update_xaxes(dtick=1,range=[np.min(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])-1/2,np.max(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])+1/2])
 		    .update_layout(font_family='Lato',separators='.,',showlegend=False))
 	
 	
@@ -467,7 +467,7 @@ if sekcja == 'Pracownicy':
     fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))],x='Rok',y='Zmiana', color='Kategoria',text='Zmiana',width=1500,height=500).update_yaxes(tickformat=",").update_traces(texttemplate="%{y:.2f}%",textposition='top right').update_xaxes(dtick=1).update_layout(font_family='Lato',separators=',')
     if gz1 == 'Włącz':
 	    fig55 = px.line(DF29,x='Rok',y='Inflacja',text='Inflacja',color_discrete_sequence=['rgb(0,80,170)']).update_traces(textposition="top left",texttemplate = "%{y:.2f}").update_yaxes(tickformat=",").update_layout(font_family='Lato',separators=',')
-	    fig44.add_trace(fig5.data[0])
+	    fig44.add_trace(fig55.data[0])
 	    st.plotly_chart(fig44)
     else:
         st.plotly_chart(fig44)
