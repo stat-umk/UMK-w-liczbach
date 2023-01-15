@@ -188,7 +188,7 @@ if sekcja == 'Studenci':
     elif kat34 == 'Doktoranckie':
         wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique())
         st.plotly_chart(px.bar(DF12[DF12['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
-			.update_traces(marker_color=kolwyd[wydzial34],texttemplate="%{y:}",textposition='inside')
+			.update_traces(marker_color=kolwyd[wydzial34],texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1)
 			.update_layout(font_family='Lato'))
     elif kat34 == 'Podyplomowe':
         st.plotly_chart(fig)
@@ -199,7 +199,7 @@ if sekcja == 'Studenci':
     st.plotly_chart(px.bar(DF18,x='Rok',y='Liczba',width=1500,height=500)
 		    .update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside')
 		    .update_xaxes(dtick=1)
-		    .update_yaxes(tickformat=",")
+		    .update_yaxes(tickformat=" ")
 		    .update_layout(font_family='Lato'))
 	
     st.header('Zmiana liczby studentów i absolwentów w stosunku do roku poprzedniego (w %)')
