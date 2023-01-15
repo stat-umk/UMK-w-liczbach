@@ -453,7 +453,7 @@ if sekcja == 'Pracownicy':
 		    .update_traces(textposition='top right',texttemplate="%{y:}")
 		    .update_yaxes(zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)',rangemode='tozero')
 		    .update_xaxes(dtick=1,range=[np.min(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])-1/2,np.max(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])+1/2])
-		    .update_layout(font_family='Lato',showlegend=False))
+		    .update_layout(font_family='Lato',separators=','))
 	
 	
 	
