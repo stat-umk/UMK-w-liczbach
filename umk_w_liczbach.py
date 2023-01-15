@@ -465,15 +465,13 @@ if sekcja == 'Pracownicy':
     gz1 = st.radio('Inflacja w odniesieniu do analogicznego miesiąca roku poprzedniego - Włącz/Wyłącz:',('Włącz','Wyłącz'))
     fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))],x='Rok',y='Zmiana', color='Kategoria',text='Zmiana',width=1500,height=500).update_yaxes(tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)').update_traces(texttemplate="%{y:.2f}%",textposition='top right').update_xaxes(dtick=1).update_layout(font_family='Lato',separators=',')
     if gz1 == 'Włącz':
-	    fig55 = px.line(DF29,x='Rok',y='Inflacja',text='Inflacja',color_discrete_sequence=['rgb(0,80,170)']).update_traces(textposition="top left",texttemplate = "%{y:.2f}%").update_yaxes(tickformat=",").update_layout(font_family='Lato',separators=',',showlegend=True)
+	    fig55 = px.line(DF30,x='Rok',y='Inflacja',text='Inflacja',color_discrete_sequence=['rgb(0,80,170)']).update_traces(textposition="top left",texttemplate = "%{y:.2f}%").update_yaxes(tickformat=",").update_layout(font_family='Lato',separators=',',showlegend=True)
 	    fig44.add_trace(fig55.data[0])
 	    st.plotly_chart(fig44)
     else:
         st.plotly_chart(fig44)
 
-    fig77 = px.line(DF30,x=list(range(0,9*12+1)),y='Inflacja',text='Inflacja',color_discrete_sequence=['rgb(0,80,170)'],width=1500,height=500).update_traces(textposition="top left",texttemplate = "%{y:.2f}%").update_yaxes(tickformat=",").update_xaxes(tickvals=list(range(0,9*12+1)),ticktext=DF30['Data'],tickangle=45,dtick=2).update_layout(font_family='Lato',separators=',',showlegend=True)
-    st.plotly_chart(fig77)
-
+   
     
     
       
