@@ -49,6 +49,9 @@ DF25 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_sr',dty
 DF26 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_St',dtype={'Rok':int})
 DF27 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_npwni',dtype={'Rok':int})
 
+DF28 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wynagrodzenie',dtype={'Rok':int})
+DF29 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Inflacja',dtype={'Rok':int})
+
 
 lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
 wydziały = ['Matematyki i Informatyki',
@@ -408,7 +411,6 @@ if sekcja == 'Pracownicy':
 
     
     st.header('Zmiana liczby nauczycieli akademickich w porównaniu do roku poprzedniego na wybranych wydziałach')
-    wydz31 = 'Chemii'
     wydz31 = st.selectbox('Wybierz wydział   :  ',DF24['Wydział'].unique())
     st.plotly_chart(px.line(DF24[DF24['Wydział']==wydz31].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Zmiana',color_discrete_sequence=list(map(lambda x: kolwyd[x],[wydz31])))
 		    .update_traces(textposition='top right',texttemplate="%{y:.2f}%")
@@ -430,6 +432,45 @@ if sekcja == 'Pracownicy':
 	textposition='inside')
 	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników niepełnosprawnych').update_layout(font_family='Lato'))
     
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    st.header('Przeciętne wynagrodzenie w latach 2012-2021')
+    wydz318 = st.multiselect('Wybierz kategorię   :  ',DF28['Kategoria'].unique())
+    st.plotly_chart(px.line(DF28[DF28['Kategoria'].isin(wydz318)].sort_values(by=['Kategoria','Rok']),x='Rok',y='Wynagrodzenie',color='Kategoria',width=1400,height=500,markers=True,text='Wynagrodzenie')
+		    .update_traces(textposition='top right',texttemplate="%{y:,}")
+		    .update_yaxes(tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)')
+		    .update_xaxes(dtick=1,range=[np.min(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])-1/2,np.max(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF24['Wynagrodzenie'].notna())]['Rok'])+1/2])
+		    .update_layout(font_family='Lato',separators='.,',showlegend=False))
+	
+	
+	
+	
+
+    st.header('Wzrost wynagrodzenia w latach 2012-2021')
+    q1111, q2222 = st.columns(2)
+    wydz1111 = q1111.selectbox('Wybierz kategorię :                                                                          ',DF28['Kategoria'].unique())
+    wydz2222 = q2222.selectbox('Wybierz kategorię :                                                                        ',DF28['Kategoria'].unique())
+    gz1 = st.radio('Inflacja w odniesieniu do analogicznego miesiąca roku poprzedniego - Włącz/Wyłącz:',('Włącz','Wyłącz'))
+    fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))],x='Rok',y='Zmiana', color='Kategoria',text='Zmiana',width=1500,height=500).update_yaxes(tickformat=",").update_traces(texttemplate="%{y:.2f}%",textposition='top right').update_xaxes(dtick=1).update_layout(font_family='Lato',separators=',')
+    if gz1 == 'Włącz':
+	    fig55 = px.line(DF29,x='Rok',y='Inflacja',text='Inflacja',color_discrete_sequence=['rgb(0,80,170)']).update_traces(textposition="top left",texttemplate = "%{y:.2f}").update_yaxes(tickformat=",").update_layout(font_family='Lato',separators=',')
+	    fig44.add_trace(fig5.data[0])
+	    st.plotly_chart(fig44)
+    else:
+        st.plotly_chart(fig44)
 
 
     st.header('Porównanie liczby nauczycieli akademickich w latach 2019-2021 na wybranych wydziałach')
