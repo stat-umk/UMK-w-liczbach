@@ -420,6 +420,7 @@ if sekcja == 'Pracownicy':
     st.plotly_chart(px.line(DF26[(DF26['Wydział'].isin(wydz19))].sort_values(by=['Wydział','Rok']),x='Rok',y='Stosunek',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Stosunek',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz19))))
 		    .update_traces(textposition='top right',texttemplate="%{y:.2f}",)
 		    .update_yaxes(tickformat=",",rangemode='tozero')
+		    .update_xaxes(dtick=1)
 		    .update_layout(font_family='Lato',separators='.,'))
 
 
