@@ -490,7 +490,6 @@ if sekcja == 'Badania naukowe':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Badania naukowe</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
-    st.header('Kwota grantów wnioskowana do NCN w latach 2019-2021 w podziale na jednostki')
     st.header('Wnioski grantowe złożone do NCN w latach 2019-2021 w podziale na jednostki')
     roki = st.selectbox('Wybierz rok:',lata)
     li = st.selectbox('Wybierz rodzaj:',['Liczba','Kwota'])
@@ -553,12 +552,9 @@ if sekcja == 'Badania naukowe':
         st.write('*dla wybranego roku nie dysponujemy danymi')
 		      
 		      
-    st.header('Kwota grantów przyznana od NCN w latach 2019-2021 w podziale na jednostki')
-    st.header('Liczba grantów przyznanych od NCN w latach 2019-2021 w podziale na jednostki')
-    roki2 = st.selectbox('Wybierz rok:  ',lata)
-    li2 = st.selectbox('Wybierz rodzaj :     ',['Liczba','Kwota'])
-    if li2 == 'Kwota':
-        kw1 = pd.DataFrame(DF6[DF6['Rok']==roki2].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
+    st.header('Wnioski grantowe przyznana od NCN w latach 2012-2021 w podziale na jednostki')
+    if li == 'Kwota':
+        kw1 = pd.DataFrame(DF6[DF6['Rok']==roki].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
         x = kw1.index[::-1]
         y = kw1['Kwota przyznana[zł]'][::-1]
         kw1 = kw1.reset_index()
@@ -585,7 +581,7 @@ if sekcja == 'Badania naukowe':
      
 
     else:
-        lg = pd.DataFrame(DF6[DF6['Rok']==roki2].groupby('Jednostka')['Liczba grantów'].agg(np.sum)).sort_values(by='Liczba grantów')[::-1]
+        lg = pd.DataFrame(DF6[DF6['Rok']==roki].groupby('Jednostka')['Liczba grantów'].agg(np.sum)).sort_values(by='Liczba grantów')[::-1]
         x = lg.index[::-1]
         y = lg['Liczba grantów'][::-1]
     
