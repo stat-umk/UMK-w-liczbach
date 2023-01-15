@@ -399,8 +399,8 @@ if sekcja == 'Pracownicy':
 
     st.header('Porównanie liczby nauczycieli akademickich na wybranych dwóch wydziałach wraz z wydziałem średnim')
     q111, q222 = st.columns(2)
-    wydz111 = q111.selectbox('Wybierz wydział :                                                                          ',DF24['Wydział'].unique())
-    wydz222 = q222.selectbox('Wybierz wydział :                                                                        ',DF24['Wydział'].unique())
+    wydz111 = q111.selectbox('Wybierz wydział :                                                                          ',DF24['Wydział'].unique(),index=2)
+    wydz222 = q222.selectbox('Wybierz wydział :                                                                        ',DF24['Wydział'].unique(),index=3)
     gz = st.radio('Średnia liczba nauczycieli akademickich na wydziałach - Włącz/Wyłącz:',('Włącz','Wyłącz'))
     fig4 = px.bar(DF24[(DF24['Wydział'].isin([wydz111,wydz222]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_map={wydz111: kolwyd[wydz111],wydz222: kolwyd[wydz222]},pattern_shape="Wydział").update_yaxes(tickformat=",").update_traces(texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(font_family='Lato',separators=',')
     if gz == 'Włącz':
@@ -412,7 +412,7 @@ if sekcja == 'Pracownicy':
 
     
     st.header('Zmiana liczby nauczycieli akademickich w porównaniu do roku poprzedniego na wybranych wydziałach')
-    wydz31 = st.selectbox('Wybierz wydział   :  ',DF24['Wydział'].unique())
+    wydz31 = st.selectbox('Wybierz wydział   :  ',DF24['Wydział'].unique(),index=9)
     st.plotly_chart(px.line(DF24[DF24['Wydział']==wydz31].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Zmiana',color_discrete_sequence=list(map(lambda x: kolwyd[x],[wydz31])))
 		    .update_traces(textposition='top right',texttemplate="%{y:.2f}%")
 		    .update_yaxes(tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)')
@@ -420,7 +420,7 @@ if sekcja == 'Pracownicy':
 		    .update_layout(font_family='Lato',separators='.,'))
 
     st.header('Liczba studentów przypadających na jednego nauczyciela akademickiego w podziale na wydziały w latach 2010-2021')
-    wydz19 = st.multiselect('Wybierz wydział :  ',DF26['Wydział'].unique())
+    wydz19 = st.multiselect('Wybierz wydział :  ',DF26['Wydział'].unique(),['Farmaceutyczny','Fizyki, Astronomii i Informatyki Stosowanej','Sztuk Pięknych'])
     st.plotly_chart(px.line(DF26[(DF26['Wydział'].isin(wydz19))].sort_values(by=['Wydział','Rok']),x='Rok',y='Stosunek',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Stosunek',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz19))))
 		    .update_traces(textposition='top right',texttemplate="%{y:.2f}",)
 		    .update_yaxes(tickformat=",",rangemode='tozero')
