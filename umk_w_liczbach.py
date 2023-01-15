@@ -449,7 +449,7 @@ if sekcja == 'Pracownicy':
 	
 	
     st.header('Przeciętne wynagrodzenie w latach 2012-2021')
-    wydz318 = st.multiselect('Wybierz kategorię   :  ',DF28['Kategoria'].unique())
+    wydz318 = st.multiselect('Wybierz kategorię   :  ',DF28['Kategoria'].unique(),['Ogółem','GUS','Profesorowie'])
     st.plotly_chart(px.line(DF28[DF28['Kategoria'].isin(wydz318)].sort_values(by=['Kategoria','Rok']),x='Rok',y='Wynagrodzenie',color='Kategoria',width=1400,height=500,markers=True,text='Wynagrodzenie')
 		    .update_traces(textposition='top right',texttemplate="%{y:}")
 		    .update_yaxes(zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)',rangemode='tozero')
@@ -462,8 +462,8 @@ if sekcja == 'Pracownicy':
 
     st.header('Wzrost przeciętnego wynagrodzenia w latach 2012-2021')
     q1111, q2222 = st.columns(2)
-    wydz1111 = q1111.selectbox('Wybierz kategorię :                                                                          ',DF28['Kategoria'].unique())
-    wydz2222 = q2222.selectbox('Wybierz kategorię :                                                                        ',DF28['Kategoria'].unique())
+    wydz1111 = q1111.selectbox('Wybierz kategorię :                                                                          ',DF28['Kategoria'].unique(),index=2)
+    wydz2222 = q2222.selectbox('Wybierz kategorię :                                                                        ',DF28['Kategoria'].unique(),index=6)
     gz1 = st.radio('Inflacja w odniesieniu do analogicznego miesiąca roku poprzedniego - Włącz/Wyłącz:',('Włącz','Wyłącz'))
     fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))],x='Rok',y='Zmiana', color='Kategoria',text='Zmiana',width=1500,height=500).update_yaxes(tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)').update_traces(texttemplate="%{y:.2f}%",textposition='top right').update_xaxes(dtick=1,range=[2013-1/2,2021+1/2]).update_layout(font_family='Lato',separators=',')
     if gz1 == 'Włącz':
