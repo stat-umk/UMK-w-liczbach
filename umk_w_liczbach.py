@@ -519,7 +519,6 @@ if sekcja == 'Badania naukowe':
 
 	    st.plotly_chart(fig)
     else:
-	    roki1 = st.selectbox('Wybierz rok: ',lata)
 	    lw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
 	    x = lw.index[::-1]
 	    y = lw['Liczba wniosków'][::-1]
@@ -555,7 +554,7 @@ if sekcja == 'Badania naukowe':
     st.header('Kwota grantów przyznana od NCN w latach 2019-2021 w podziale na jednostki')
     st.header('Liczba grantów przyznanych od NCN w latach 2019-2021 w podziale na jednostki')
     roki2 = st.selectbox('Wybierz rok:  ',lata)
-    li2 = st.selectbox('Wybierz rodzaj:',['Liczba','Kwota'])
+    li2 = st.selectbox('Wybierz rodzaj :     ',['Liczba','Kwota'])
     if li2 == 'Kwota':
         kw1 = pd.DataFrame(DF6[DF6['Rok']==roki2].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
         x = kw1.index[::-1]
