@@ -492,7 +492,7 @@ if sekcja == 'Badania naukowe':
     st.header('Wnioski grantowe złożone do NCN w latach 2019-2021 w podziale na jednostki')
     roki = st.selectbox('Wybierz rok:',lata)
     li = st.selectbox('Wybierz rodzaj:',['Liczba','Kwota'])
-    if li == 'Kwota':		       
+    if (li == 'Kwota') and (roki in [2019,2020,2021]) :		       
 	    kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
 	    x = kw.index[::-1]
 	    y = kw['Kwota wnioskowana[zł]'][::-1]
@@ -518,7 +518,7 @@ if sekcja == 'Badania naukowe':
 					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato')
 
 	    st.plotly_chart(fig)
-    else:
+    elif (li == 'Liczba') and (roki in [2019,2020,2021]):
 	    lw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
 	    x = lw.index[::-1]
 	    y = lw['Liczba wniosków'][::-1]
