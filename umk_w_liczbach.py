@@ -491,7 +491,7 @@ if sekcja == 'Badania naukowe':
     st.header('Kwota grantów wnioskowana do NCN w latach 2019-2021 w podziale na jednostki')
     st.header('Wnioski grantowe złożone do NCN w latach 2019-2021 w podziale na jednostki')
     roki = st.selectbox('Wybierz rok:',lata)
-    li = st.selectbox('Wybierz rodzaj:',['Liczba','Kwota']
+    li = st.selectbox('Wybierz rodzaj:',['Liczba','Kwota'])
     if li == 'Kwota':		       
 	    kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
 	    x = kw.index[::-1]
