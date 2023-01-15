@@ -314,7 +314,7 @@ if sekcja == 'Studenci':
 
     st.plotly_chart(fig7)
 	
-    st.dataframe(DF12['Wydział'].unique())
+    
     st.header('Porównanie liczby studentów na wybranych wydziałach')
     wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique())
     st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(wydz1))].sort_values(by=['Wydział','Rok']),x='Rok',y='Liczba',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Liczba',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
@@ -322,8 +322,7 @@ if sekcja == 'Studenci':
 		    .update_yaxes(tickformat=",",rangemode='tozero')
 		    .update_layout(font_family='Lato',separators='.,'))
     
-    st.dataframe(DF15[(DF15['Wydział'].isin(wydz1))].sort_values(by=['Wydział','Rok']))
-    st.dataframe(list(map(lambda x: kolwyd[x],sorted(wydz1))))
+   
     
     
     
@@ -466,24 +465,13 @@ if sekcja == 'Pracownicy':
     gz1 = st.radio('Inflacja w odniesieniu do analogicznego miesiąca roku poprzedniego - Włącz/Wyłącz:',('Włącz','Wyłącz'))
     fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))],x='Rok',y='Zmiana', color='Kategoria',text='Zmiana',width=1500,height=500).update_yaxes(tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)').update_traces(texttemplate="%{y:.2f}%",textposition='top right').update_xaxes(dtick=1).update_layout(font_family='Lato',separators=',')
     if gz1 == 'Włącz':
-	    fig55 = px.line(DF29,x='Rok',y='Inflacja',text='Inflacja',color_discrete_sequence=['rgb(0,80,170)']).update_traces(textposition="top left",texttemplate = "%{y:.2f}").update_yaxes(tickformat=",").update_layout(font_family='Lato',separators=',')
+	    fig55 = px.line(DF29,x='Rok',y='Inflacja',text='Inflacja',color_discrete_sequence=['rgb(0,80,170)']).update_traces(textposition="top left",texttemplate = "%{y:.2f}%").update_yaxes(tickformat=",").update_layout(font_family='Lato',separators=',')
 	    fig44.add_trace(fig55.data[0])
 	    st.plotly_chart(fig44)
     else:
         st.plotly_chart(fig44)
 
 
-    st.header('Porównanie liczby nauczycieli akademickich w latach 2019-2021 na wybranych wydziałach')
-    ck1,ck2 = st.columns(2)
-    wydział = ck1.selectbox("Wybierz wydział:",DF5['Jednostka Organizacyjna'].unique()[:-5])
-    wydział1 = ck2.selectbox("Wybierz wydział: ",DF5['Jednostka Organizacyjna'].unique()[:-5][DF5[DF5['Jednostka Organizacyjna'] == wydział].index.tolist()[0]+1:])
-    fig = px.line(DF5[DF5['Jednostka Organizacyjna'].isin([wydział,wydział1])],x='Rok',
-		  y='Liczba nauczycieli akademickich',color='Jednostka Organizacyjna',width=1400,height=500,symbol_sequence= ['circle'],
-		  markers=True,color_discrete_sequence=[kolwyd[wydział], kolwyd[wydział1]],text='Liczba nauczycieli akademickich').update_traces(marker_color=('rgb(0,80,170)'),
-		  textposition="top right").update_xaxes(autorange="reversed").update_layout(font_family='Lato').add_annotation(x=1, y=int(DF5[(DF5['Rok']=='2020') & (DF5['Jednostka Organizacyjna']==wydział)]['Liczba nauczycieli akademickich']),
-            text=wydział,showarrow=True,font=dict(size=16),ax=50,ay=-50).add_annotation(x=1, y=int(DF5[(DF5['Rok']=='2020') & (DF5['Jednostka Organizacyjna']==wydział1)]['Liczba nauczycieli akademickich']),
-            text=wydział1,showarrow=True,arrowhead=1,font=dict(size=16),ax=-50,ay=50)
-    st.plotly_chart(fig)
     
 
     
