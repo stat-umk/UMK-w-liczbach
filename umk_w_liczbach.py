@@ -50,7 +50,7 @@ DF26 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_St',dty
 DF27 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_npwni',dtype={'Rok':int})
 
 DF28 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wynagrodzenie',dtype={'Rok':int})
-DF29 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Inflacja',dtype={'Rok':str})
+DF29 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Inflacja',dtype={'Rok':int})
 
 
 lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
