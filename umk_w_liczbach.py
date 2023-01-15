@@ -463,7 +463,7 @@ if sekcja == 'Pracownicy':
     wydz1111 = q1111.selectbox('Wybierz kategorię :                                                                          ',DF28['Kategoria'].unique())
     wydz2222 = q2222.selectbox('Wybierz kategorię :                                                                        ',DF28['Kategoria'].unique())
     gz1 = st.radio('Inflacja w odniesieniu do analogicznego miesiąca roku poprzedniego - Włącz/Wyłącz:',('Włącz','Wyłącz'))
-    fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))],x='Rok',y='Zmiana', color='Kategoria',text='Zmiana',width=1500,height=500).update_yaxes(tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)').update_traces(texttemplate="%{y:.2f}%",textposition='top right').update_xaxes(dtick=1).update_layout(font_family='Lato',separators=',')
+    fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))],x='Rok',y='Zmiana', color='Kategoria',text='Zmiana',width=1500,height=500).update_yaxes(tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)').update_traces(texttemplate="%{y:.2f}%",textposition='top right').update_xaxes().update_layout(font_family='Lato',separators=',')
     if gz1 == 'Włącz':
 	    fig55 = px.line(DF30,x='Rok',y='Inflacja',text='Inflacja',color_discrete_sequence=['rgb(0,80,170)']).update_traces(textposition="top left",texttemplate = "%{y:.2f}%").update_yaxes(tickformat=",").update_layout(font_family='Lato',separators=',',showlegend=True)
 	    fig44.add_trace(fig55.data[0])
