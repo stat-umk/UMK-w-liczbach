@@ -546,10 +546,9 @@ if sekcja == 'Badania naukowe':
 					separators =',')
 
 	    st.plotly_chart(fig)	
-		      
-   else:
+    
+    else:
         st.write('*dla wybranego roku nie dysponujemy danymi')
-		      
 		      
 		      
     st.header('Kwota grantów przyznana od NCN w latach 2019-2021 w podziale na jednostki')
