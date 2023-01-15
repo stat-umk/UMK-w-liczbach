@@ -547,7 +547,8 @@ if sekcja == 'Badania naukowe':
 
 	    st.plotly_chart(fig)	
 		      
-		      
+   else:
+	st.write('*dla wybranego roku nie dysponujemy danymi')
 		      
 		      
 		      
