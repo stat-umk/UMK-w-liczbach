@@ -362,7 +362,7 @@ if sekcja == 'Pracownicy':
     st.header("Liczba pracowników w podziale na płeć w latach 2014-2021")
     y1, y2 = st.columns(2)
     with y1:
-        rok1 = st.selectbox('Wybierz rok :', lata[::-1])
+        rok1 = st.selectbox('Wybierz rok :', lata)
     with y2:
         fig7 = go.Figure(data=[go.Pie(labels=DF23[DF23['Rok']==rok1].sort_values(by='Płeć')['Płeć'],sort=False,
 				     values=DF23[DF23['Rok']==rok1].sort_values(by='Płeć')['Liczba'])])
@@ -371,7 +371,7 @@ if sekcja == 'Pracownicy':
         st.plotly_chart(fig7)
         
     st.header("Liczba nauczycieli akademickich w poszczególnych grupach w latach 2019-2021")
-    rok = st.selectbox('Wybierz rok:', lata[::-1])
+    rok = st.selectbox('Wybierz rok:', lata)
     k1,k2,k3 = st.columns(3)
     with k1:
         st.subheader("Grupa badawcza")
