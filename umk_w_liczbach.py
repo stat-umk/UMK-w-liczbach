@@ -46,6 +46,9 @@ DF23 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_pl',dty
 DF24 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_wydz',dtype={'Rok':int})
 DF25 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_sr',dtype={'Rok':int})
 
+DF26 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_st',dtype={'Rok':int})
+DF27 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_npwni',dtype={'Rok':int})
+
 
 lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
 wydziały = ['Matematyki i Informatyki',
@@ -412,8 +415,21 @@ if sekcja == 'Pracownicy':
 		    .update_xaxes(dtick=1,range=[np.min(DF24[(DF24['Wydział']==wydz31) & (DF24['Zmiana'].notna())]['Rok'])-1/2,np.max(DF24[(DF24['Wydział']==wydz31) & (DF24['Zmiana'].notna())]['Rok'])+1/2])
 		    .update_layout(font_family='Lato',separators='.,',showlegend=False))
 
+    st.header('Liczba studentów przypadających na jednego nauczyciela akademickiego w podziale na wydziały w latach 2010-2021')
+    wydz19 = st.multiselect('Wybierz wydział :  ',DF26['Wydział'].unique())
+    st.plotly_chart(px.line(DF26[(DF26['Wydział'].isin(wydz19))].sort_values(by=['Wydział','Rok']),x='Rok',y='Stosunek',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Stosunek',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz19))))
+		    .update_traces(textposition='top right',texttemplate="%{y:.2f}",)
+		    .update_yaxes(tickformat=",",rangemode='tozero')
+		    .update_layout(font_family='Lato',separators='.,'))
 
+
+    st.header('Liczba pracowników niepełnosprawnych w latach 2014-2021')
+    st.plotly_chart(px.bar(DF27,x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(0,80,170)','rgb(255,205,0)']).update_traces(texttemplate="%{y:}",
+	textposition='inside')
+	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników niepełnosprawnych').update_layout(font_family='Lato'))
     
+
+
     st.header('Porównanie liczby nauczycieli akademickich w latach 2019-2021 na wybranych wydziałach')
     ck1,ck2 = st.columns(2)
     wydział = ck1.selectbox("Wybierz wydział:",DF5['Jednostka Organizacyjna'].unique()[:-5])
