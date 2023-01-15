@@ -471,7 +471,7 @@ if sekcja == 'Pracownicy':
     else:
         st.plotly_chart(fig44)
 
-    fig77 = px.line(DF30,x=list(range(0,9*12+1)),y='Inflacja',text='Inflacja',color_discrete_sequence=['rgb(0,80,170)'],width=1500,height=500).update_traces(textposition="top left",texttemplate = "%{y:.2f}%").update_yaxes(tickformat=",").update_xaxes(tickvals=list(range(0,9*12+1)),ticktext=DF30['Data'],tickangle=45).update_layout(font_family='Lato',separators=',',showlegend=True)
+    fig77 = px.line(DF30,x=list(range(0,9*12+1)),y='Inflacja',text='Inflacja',color_discrete_sequence=['rgb(0,80,170)'],width=1500,height=500).update_traces(textposition="top left",texttemplate = "%{y:.2f}%").update_yaxes(tickformat=",").update_xaxes(tickvals=list(range(0,9*12+1)),ticktext=DF30['Data'],tickangle=45,dtick=2).update_layout(font_family='Lato',separators=',',showlegend=True)
     st.plotly_chart(fig77)
 
     
