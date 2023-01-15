@@ -616,7 +616,7 @@ if sekcja == 'Badania naukowe':
     
     
     st.header('Współczynnik skutecznoci dla grantów przyznanych od NCN w latach 2019-2021 w podziale na jednostki')
-    if (li == 'Kwota') and (roki in [2019,2020,2021]) :		       
+    if roki in [2019,2020,2021] :		       
 	    kw = pd.DataFrame(DF31[DF31['Rok']==roki].groupby('Jednostka')['Skuteczność'].agg(np.sum)).sort_values(by='Skuteczność')[::-1]
 	    x = kw.index[::-1]
 	    y = kw['Skuteczność'][::-1]
@@ -634,7 +634,7 @@ if sekcja == 'Badania naukowe':
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
 				textfont=dict( size=10,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-			      textposition='outside',texttemplate = "<b>%{x:,t}")
+			      textposition='outside',texttemplate = "<b>%{x:.2f}%")
 	    fig.update_xaxes(title='Skuteczność')
 	    fig.update_yaxes(title='Jednostka')
 
