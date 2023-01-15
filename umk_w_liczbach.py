@@ -51,7 +51,7 @@ DF27 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_npwni',
 
 DF28 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wynagrodzenie',dtype={'Rok':int})
 DF29 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Inflacja',dtype={'Rok':int})
-
+DF30 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Inflacja1',dtype={'Rok':int})
 
 lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
 wydziały = ['Matematyki i Informatyki',
@@ -471,8 +471,8 @@ if sekcja == 'Pracownicy':
     else:
         st.plotly_chart(fig44)
 
-
-    
+    fig77 = px.line(DF30,x=list(range(0,9*12)),y='Inflacja',text='Inflacja',color_discrete_sequence=['rgb(0,80,170)']).update_traces(textposition="top left",texttemplate = "%{y:.2f}%").update_yaxes(tickformat=",").update_xaxes(tickvals=list(range(0,9*12)),ticktext=DF30['Data'],tickangle=45).update_layout(font_family='Lato',separators=',',showlegend=True)
+    st.plotly_chart()fig77
 
     
     
