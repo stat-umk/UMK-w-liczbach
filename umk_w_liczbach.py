@@ -729,7 +729,7 @@ if sekcja == 'Badania naukowe':
         fig.update_yaxes(title='Jednostka',tickformat=",.0f")
     
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                    height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',separators=',')
+                                    height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato')
     
         st.plotly_chart(fig) 
      
