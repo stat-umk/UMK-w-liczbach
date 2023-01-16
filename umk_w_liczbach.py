@@ -366,7 +366,7 @@ if sekcja == 'Pracownicy':
     st.header("Liczba pracowników w podziale na płeć w latach 2014-2021")
     y1, y2 = st.columns(2)
     with y1:
-        rok1 = st.selectbox('Wybierz rok :', lata,index=10)
+        rok1 = st.selectbox('Wybierz rok :', lata,index=9)
     with y2:
         fig7 = go.Figure(data=[go.Pie(labels=DF23[DF23['Rok']==rok1].sort_values(by='Płeć')['Płeć'],sort=False,
 				     values=DF23[DF23['Rok']==rok1].sort_values(by='Płeć')['Liczba'])])
@@ -502,7 +502,7 @@ if sekcja == 'Badania naukowe':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     st.header('Wnioski grantowe złożone do NCN w latach 2019-2021 w podziale na jednostki')
-    roki = st.selectbox('Wybierz rok:',lata,index=10)
+    roki = st.selectbox('Wybierz rok:',lata,index=9)
     li = st.selectbox('Wybierz rodzaj:',['Liczba','Kwota'])
     if (li == 'Kwota') and (roki in [2019,2020,2021]) :		       
 	    kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
@@ -654,7 +654,7 @@ if sekcja == 'Badania naukowe':
         
         
     st.header('Wnioski grantowe złożone do MEiN w latach 2019-2021 w podziale na jednostki')
-    roki1 = st.selectbox('Wybierz rok: ',lata,index=10)
+    roki1 = st.selectbox('Wybierz rok: ',lata,index=9)
     li1 = st.selectbox('Wybierz rodzaj: ',['Liczba','Kwota'])
     if (li1 == 'Kwota') and (roki1 in [2019,2020,2021]) :		       
 	    kw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
