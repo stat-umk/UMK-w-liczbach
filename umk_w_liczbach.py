@@ -646,7 +646,7 @@ if sekcja == 'Badania naukowe':
         
     st.header('Wnioski grantowe złożone do MEiN w latach 2019-2021 w podziale na jednostki')
     roki1 = st.selectbox('Wybierz rok: ',lata)
-    li1 = st.selectbox('Wybierz rodzaj:',['Liczba','Kwota'])
+    li1 = st.selectbox('Wybierz rodzaj: ',['Liczba','Kwota'])
     if (li1 == 'Kwota') and (roki in [2019,2020,2021]) :		       
 	    kw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
 	    x = kw.index[::-1]
