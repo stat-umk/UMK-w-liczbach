@@ -707,7 +707,7 @@ if sekcja == 'Badania naukowe':
 		      
 		      
     st.header('Wnioski grantowe przyznana od MEiN w latach 2012-2021 w podziale na jednostki')
-    if (li1 == 'Kwota') and (roki in [2015,2016,2017,2018,2019,2020,2021]):
+    if (li1 == 'Kwota') and (roki in [2012,2013,2014]):
         kw1 = pd.DataFrame(DF32[DF32['Rok']==roki1].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
         x = kw1.index[::-1]
         y = kw1['Kwota przyznana[zł]'][::-1]
