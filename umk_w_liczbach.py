@@ -642,11 +642,13 @@ if sekcja == 'Badania naukowe':
 	    st.plotly_chart(fig)
     else:
         st.write('*dla wybranego roku nie dysponujemy danymi')
-  st.header('Wnioski grantowe złożone do NCN w latach 2019-2021 w podziale na jednostki')
-    roki = st.selectbox('Wybierz rok:',lata)
-    li = st.selectbox('Wybierz rodzaj:',['Liczba','Kwota'])
-    if (li == 'Kwota') and (roki in [2019,2020,2021]) :		       
-	    kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
+        
+        
+    st.header('Wnioski grantowe złożone do MEiN w latach 2019-2021 w podziale na jednostki')
+    roki1 = st.selectbox('Wybierz rok: ',lata)
+    li1 = st.selectbox('Wybierz rodzaj:',['Liczba','Kwota'])
+    if (li1 == 'Kwota') and (roki in [2019,2020,2021]) :		       
+	    kw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
 	    x = kw.index[::-1]
 	    y = kw['Kwota wnioskowana[zł]'][::-1]
 
@@ -671,8 +673,8 @@ if sekcja == 'Badania naukowe':
 					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato')
 
 	    st.plotly_chart(fig)
-    elif (li == 'Liczba') and (roki in [2019,2020,2021]):
-	    lw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
+    elif (li1 == 'Liczba') and (roki in [2019,2020,2021]):
+	    lw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
 	    x = lw.index[::-1]
 	    y = lw['Liczba wniosków'][::-1]
 
@@ -704,9 +706,9 @@ if sekcja == 'Badania naukowe':
         st.write('*dla wybranego roku nie dysponujemy danymi')
 		      
 		      
-    st.header('Wnioski grantowe przyznana od NCN w latach 2012-2021 w podziale na jednostki')
-    if li == 'Kwota':
-        kw1 = pd.DataFrame(DF6[DF6['Rok']==roki].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
+    st.header('Wnioski grantowe przyznana od MEiN w latach 2012-2021 w podziale na jednostki')
+    if li1 == 'Kwota':
+        kw1 = pd.DataFrame(DF32[DF32['Rok']==roki1].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
         x = kw1.index[::-1]
         y = kw1['Kwota przyznana[zł]'][::-1]
         kw1 = kw1.reset_index()
@@ -733,7 +735,7 @@ if sekcja == 'Badania naukowe':
      
 
     else:
-        lg = pd.DataFrame(DF6[DF6['Rok']==roki].groupby('Jednostka')['Liczba grantów'].agg(np.sum)).sort_values(by='Liczba grantów')[::-1]
+        lg = pd.DataFrame(DF32[DF32['Rok']==roki1].groupby('Jednostka')['Liczba grantów'].agg(np.sum)).sort_values(by='Liczba grantów')[::-1]
         x = lg.index[::-1]
         y = lg['Liczba grantów'][::-1]
     
@@ -763,9 +765,9 @@ if sekcja == 'Badania naukowe':
     
     
     
-    st.header('Współczynnik skutecznoci dla grantów przyznanych od NCN w latach 2019-2021 w podziale na jednostki')
+    st.header('Współczynnik skutecznoci dla grantów przyznanych od MEiN w latach 2019-2021 w podziale na jednostki')
     if roki in [2019,2020,2021] :		       
-	    kw = pd.DataFrame(DF31[DF31['Rok']==roki].groupby('Jednostka')['Skuteczność'].agg(np.sum)).sort_values(by='Skuteczność')[::-1]
+	    kw = pd.DataFrame(DF34[DF34['Rok']==roki1].groupby('Jednostka')['Skuteczność'].agg(np.sum)).sort_values(by='Skuteczność')[::-1]
 	    x = kw.index[::-1]
 	    y = kw['Skuteczność'][::-1]
 
