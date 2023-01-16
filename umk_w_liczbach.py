@@ -673,7 +673,7 @@ if sekcja == 'Badania naukowe':
 					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato')
 
 	    st.plotly_chart(fig)
-    elif (li1 == 'Liczba') and (roki in [2019,2020,2021]):
+    elif (li1 == 'Liczba') and (roki1 in [2019,2020,2021]):
 	    lw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
 	    x = lw.index[::-1]
 	    y = lw['Liczba wniosków'][::-1]
