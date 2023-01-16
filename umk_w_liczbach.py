@@ -734,7 +734,7 @@ if sekcja == 'Badania naukowe':
         st.plotly_chart(fig) 
      
 
-    elif (li1 == 'Liczba') and (roki in [2015,2016,2017,2018,2019,2020,2021]):
+    elif (li1 == 'Liczba') and (roki in [2012,2013,2014]):
         lg = pd.DataFrame(DF32[DF32['Rok']==roki1].groupby('Jednostka')['Liczba grantów'].agg(np.sum)).sort_values(by='Liczba grantów')[::-1]
         x = lg.index[::-1]
         y = lg['Liczba grantów'][::-1]
