@@ -249,7 +249,7 @@ if sekcja == 'Studenci':
         st.plotly_chart(fig4)
  
     st.header('Stypendia ministra w latach 2012-2021 w podziale na wydziały wraz z współczynnikiem skuteczności (w %)')
-    r = st.selectbox('Wybierz rok : ', lata)
+    r = st.selectbox('Wybierz rok : ', lata,index=9)
     d1,d2 = st.columns(2)
     with d1:
     	lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
@@ -375,7 +375,7 @@ if sekcja == 'Pracownicy':
         st.plotly_chart(fig7)
         
     st.header("Liczba nauczycieli akademickich w poszczególnych grupach w latach 2019-2021")
-    rok = st.selectbox('Wybierz rok:', lata,index=10)
+    rok = st.selectbox('Wybierz rok:', lata,index=9)
     k1,k2,k3 = st.columns(3)
     with k1:
         st.subheader("Grupa badawcza")
