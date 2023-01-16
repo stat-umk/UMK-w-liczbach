@@ -57,6 +57,8 @@ DF32 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='MEiN_pr',d
 DF33 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='MEiN_zl',dtype={'Rok':int})
 DF34 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Sukces_mein',dtype={'Rok':float})
 
+DF35 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Awanse',dtype={'Rok':float})
+
 lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
 wydziały = ['Matematyki i Informatyki',
                                                     'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
@@ -429,7 +431,14 @@ if sekcja == 'Pracownicy':
 		    .update_xaxes(dtick=1)
 		    .update_layout(font_family='Lato',separators='.,'))
 
-
+    st.header('Awanse nauczycieli w latach 2019-2021')
+    aw = st.selectbox('Wybierz kategorię :         ', ['Profesor','Doktor habilitowany','Doktor'])
+    st.plotly_chart(px.bar(DF35[DF35['Rodzaj']==aw],x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(0,80,170)','rgb(255,205,0)']).update_traces(texttemplate="%{y:}",
+	textposition='inside')
+	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba awansów').update_layout(font_family='Lato'))
+	
+	
+	
     st.header('Liczba pracowników niepełnosprawnych w latach 2014-2021')
     st.plotly_chart(px.bar(DF27,x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(0,80,170)','rgb(255,205,0)']).update_traces(texttemplate="%{y:}",
 	textposition='inside')
