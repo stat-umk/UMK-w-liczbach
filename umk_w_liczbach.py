@@ -309,7 +309,7 @@ if sekcja == 'Studenci':
     fig7 = go.Figure()
     fig7.add_trace(go.Bar(x=y7,y=x7,orientation='h',text=y7,
                         textfont=dict( size=12,color='black')))
-    fig7.update_traces(marker_color=barwa7,marker_line_color='black',marker_line_width=1.5,
+    fig7.update_traces(marker_color=barwa7,marker_line_color='black',marker_line_width=1.5,autosize=False,
                       textposition='outside',texttemplate = "<b>%{x:.2f}%")
     fig7.update_xaxes(title='Współczynnik skuteczności')
     fig7.update_yaxes(title='Wydział')
