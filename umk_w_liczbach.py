@@ -276,11 +276,11 @@ if sekcja == 'Studenci':
     	barwa5 = lg1['kolor'][::-1]
     	fig = go.Figure()      
         
-    	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,marker_color=barwa4,hovertemplate = 'Stypendia przyznane: %{x:}',
+    	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,marker_color=barwa4,hovertemplate = 'Stypendia przyznane: %{x:}'+"<extra></extra>",
                         textfont=dict( size=12,color='black'),
                       textposition='outside',texttemplate = "<b>Przyznane-%{x:}"))
 	    
-    	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,marker_color=barwa5,hovertemplate = 'Wnioski złożone: %{x:}',
+    	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,marker_color=barwa5,hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>",
                         textfont=dict( size=12,color='black'),
                       textposition='outside',texttemplate = "<b>Złożone-%{x:}"))
     	fig.update_xaxes(title='Liczba wniosków',range=[0,y1['Ogółem']+15]).update_traces(marker_color=barwa5,marker_line_color='black',marker_line_width=1.5)
@@ -306,7 +306,7 @@ if sekcja == 'Studenci':
     barwa7 = lg7['kolor'][::-1]
 
     fig7 = go.Figure()
-    fig7.add_trace(go.Bar(x=y7,y=x7,orientation='h',text=y7,
+    fig7.add_trace(go.Bar(x=y7,y=x7,orientation='h',text=y7,hovertemplate = 'Skuteczność: %{x:}',
                         textfont=dict( size=12,color='black')))
     fig7.update_traces(marker_color=barwa7,marker_line_color='black',marker_line_width=1.5,
                       textposition='outside',texttemplate = "<b>%{x:.2f}%")
@@ -322,8 +322,8 @@ if sekcja == 'Studenci':
     
     st.header('Porównanie liczby studentów na wybranych wydziałach')
     wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique(),['Farmaceutyczny','Matematyki i Informatyki','Teologiczny'])
-    st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(wydz1))].sort_values(by=['Wydział','Rok']),x='Rok',y='Liczba',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
-		    .update_traces(textposition='top right',texttemplate="%{y:,d}",textfont=dict( size=14))
+    st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(wydz1))].sort_values(by=['Wydział','Rok']),x='Rok',y='Liczba',hover_name="Wydział",color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
+		    .update_traces(textposition='top right',texttemplate="%{y:,d}",textfont=dict( size=14),hovertemplate='Liczba studentów: %{y:}')
 		    .update_xaxes(showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
 		    .update_yaxes(tickformat = ' ',rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=' '))
