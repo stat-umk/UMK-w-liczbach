@@ -223,15 +223,15 @@ if sekcja == 'Studenci':
     st.header('Odsetek studentów zagranicznych w latach 2012-2021 w podziale na rodzaj studiów')
     st.plotly_chart(px.line(DF9,x='Rok',y='Odsetek',color = 'Rodzaj',width=1500,height=500,text='Odsetek',color_discrete_sequence=['rgb(0,80,170)','rgb(0,200,255)','red','rgb(255,50,80)'])
 		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}%",textfont=dict( size=14))
-	.update_xaxes(zeroline=True, zerolinewidth=10, zerolinecolor='LightPink',title_font=dict(size=12), title='Rok',range=[2011.95,2022],dtick=1)
-		    .update_yaxes(title_font=dict(size=12),title = 'Odsetek osób zagranicznych',tickformat=",",rangemode='tozero')
+	.update_xaxes(zeroline=True, zerolinewidth=10, zerolinecolor='LightPink',title_font=dict(size=12), title='Rok',range=[2011.95,2022],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
+		    .update_yaxes(title_font=dict(size=12),title = 'Odsetek osób zagranicznych',tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=','))
 	
 	
     st.header('Odsetek studentów niepełnosprawnych w latach 2012-2021 w podziale na rodzaj studiów')
     st.plotly_chart(px.line(DF8,x='Rok',y='Odsetek',color = 'Rodzaj',width=1500,height=500,text='Odsetek',color_discrete_sequence=['rgb(0,80,170)','rgb(0,200,255)','red','rgb(255,50,80)'])
 		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}%",textfont=dict( size=14))
-	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2022],dtick=1).update_yaxes(title_font=dict(size=12),title = 'Odsetek osób niepełnosprawnych',tickformat=",",rangemode='tozero')
+	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2022],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_yaxes(title_font=dict(size=12),title = 'Odsetek osób niepełnosprawnych',tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=','))
     
     
@@ -325,7 +325,8 @@ if sekcja == 'Studenci':
     wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique(),['Farmaceutyczny','Matematyki i Informatyki','Teologiczny'])
     st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(wydz1))].sort_values(by=['Wydział','Rok']),x='Rok',y='Liczba',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,text='Liczba',color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
 		    .update_traces(textposition='top right',texttemplate="%{y:,d}",textfont=dict( size=14))
-		    .update_yaxes(tickformat = ' ',rangemode='tozero')
+		    .update_xaxes(showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
+		    .update_yaxes(tickformat = ' ',rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=' '))
     
    
