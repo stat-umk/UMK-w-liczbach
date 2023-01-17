@@ -276,11 +276,11 @@ if sekcja == 'Studenci':
     	barwa5 = lg1['kolor'][::-1]
     	fig = go.Figure()      
         
-    	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,marker_color=barwa4,hovertemplate = 'Stypendia przyznane: %{y:}',
+    	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,marker_color=barwa4,hovertemplate = 'Stypendia przyznane: %{x:}',
                         textfont=dict( size=12,color='black'),
                       textposition='outside',texttemplate = "<b>Przyznane-%{x:}"))
 	    
-    	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,marker_color=barwa5,hovertemplate = 'Wnioski złożone: %{y:}',
+    	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,marker_color=barwa5,hovertemplate = 'Wnioski złożone: %{x:}',
                         textfont=dict( size=12,color='black'),
                       textposition='outside',texttemplate = "<b>Złożone-%{x:}"))
     	fig.update_xaxes(title='Liczba wniosków',range=[0,y1['Ogółem']+15]).update_traces(marker_color=barwa5,marker_line_color='black',marker_line_width=1.5)
