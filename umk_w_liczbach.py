@@ -181,7 +181,7 @@ if sekcja == 'Studenci':
 			.update_traces(marker_color=kolwyd[wydzial34],texttemplate="%{y:}",textposition='inside')
 			.update_xaxes(dtick=1)
 			.update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba studentów')
-			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"))
+			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
     elif kat34 == 'Studia niestacjonarne':
         wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique(),index=9)
         st.plotly_chart(px.bar(DF11[DF11['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
@@ -193,7 +193,7 @@ if sekcja == 'Studenci':
         wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique(),index=9)
         st.plotly_chart(px.bar(DF12[DF12['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
 			.update_traces(marker_color=kolwyd[wydzial34],texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba doktorantów')
-			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"))
+			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
     elif kat34 == 'Podyplomowe':
         st.plotly_chart(fig)
     elif kat34 == 'Ogółem':
