@@ -326,7 +326,7 @@ if sekcja == 'Studenci':
 		    .update_traces(textposition='top right',texttemplate="%{y:,d}",textfont=dict( size=14),hovertemplate='Liczba studentów: %{y:}')
 		    .update_xaxes(showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
 		    .update_yaxes(tickformat = ' ',rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')
-		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=' '))
+		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=' ',hovermode="x unified"))
     
    
     
