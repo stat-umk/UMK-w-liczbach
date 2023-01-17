@@ -287,7 +287,7 @@ if sekcja == 'Studenci':
     	fig.update_xaxes(title='Liczba wniosków',range=[0,y1['Ogółem']+15])
     	fig.update_yaxes(title='Wydział')
     	fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                height=800,width=1500,plot_bgcolor='white',plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),barmode='group',
+                                height=800,width=1500,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),barmode='group',
                                 separators =',',showlegend=False)
             
     	st.plotly_chart(fig)
@@ -315,7 +315,7 @@ if sekcja == 'Studenci':
     fig7.update_yaxes(title='Wydział')
 
     fig7.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),barmode='group',
+                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),barmode='group',
                                 separators =',')
 
     st.plotly_chart(fig7)
