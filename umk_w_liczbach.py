@@ -309,14 +309,14 @@ if sekcja == 'Studenci':
     fig7 = go.Figure()
     fig7.add_trace(go.Bar(x=y7,y=x7,orientation='h',text=y7,
                         textfont=dict( size=12,color='black')))
-    fig7.update_traces(marker_color=barwa7,marker_line_color='black',marker_line_width=1.5,autosize=False,
+    fig7.update_traces(marker_color=barwa7,marker_line_color='black',marker_line_width=1.5,
                       textposition='outside',texttemplate = "<b>%{x:.2f}%")
     fig7.update_xaxes(title='Współczynnik skuteczności')
     fig7.update_yaxes(title='Wydział')
 
     fig7.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
                                 height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),barmode='group',
-                                separators =',')
+                                separators =',',autosize=False)
 
     st.plotly_chart(fig7)
 	
