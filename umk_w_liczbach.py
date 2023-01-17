@@ -211,7 +211,7 @@ if sekcja == 'Studenci':
     st.plotly_chart(px.line(DF17[DF17['Rodzaj']==kat43],x='Rok',y='Zmiana[%]',color = 'Kategoria',markers=True,width=1500,height=500,color_discrete_sequence=['blue','red'])
 		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}%",textfont=dict( size=14))
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2010.95,2021.5],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
-		    .update_yaxes(title_font=dict(size=12),title = 'Zmiana liczby studentó/absolwentów',tickformat=",",range=[-50,50],zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)',showline=False,linewidth=1)                        
+		    .update_yaxes(title_font=dict(size=12),title = 'Zmiana liczby studentó/absolwentów',tickformat=",",range=[-50,50],zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')                        
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=','))
 
 	
