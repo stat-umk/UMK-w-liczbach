@@ -201,7 +201,7 @@ if sekcja == 'Studenci':
     
     st.header('Liczba absolwentów na uniwersytecie w latach 2010-2021')
     st.plotly_chart(px.bar(DF18,x='Rok',y='Liczba',width=1500,height=500)
-		    .update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',textfont=dict( size=10,color='white'))
+		    .update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',textfont=dict( size=14,color='white'),marker_line_color='black',marker_line_width=1.5)
 		    .update_xaxes(dtick=1)
 		    .update_yaxes(tickformat=" ",title='Liczba uczestników',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
 		    .update_layout(font_family='Lato',plot_bgcolor='white'))
