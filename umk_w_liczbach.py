@@ -168,43 +168,43 @@ if sekcja == 'Studenci':
 	.update_xaxes(title_font=dict(size=12), title='Lata').update_yaxes(title_font=dict(size=12),title = 'Liczba kierunków').update_layout(font_family='Lato'))
     
    
-    st.header('Liczba uczestników studiów w podziale na wydziały')
+    st.header('Liczba uczestników studiów w podziale na wydziały w latach 2010-2021')
     q1, q2 = st.columns(2)
     kat34 = q1.selectbox('Wybierz kategorię : ',['Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe','Ogółem'])
 
     
-    fig = px.bar(DF13,x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato')
-    fig1 = px.bar(DF14,x='Rok',y='Liczba',width=1500,height=500).update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato')
+    fig = px.bar(DF13,x='Rok',y='Liczba',width=1500,height=500).update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba uczestników').update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato')
+    fig1 = px.bar(DF14,x='Rok',y='Liczba',width=1500,height=500).update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba uczestników').update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',marker_line_color='rgb(0,70,180)',marker_line_width=2.5).update_layout(font_family='Lato')
     if kat34 == 'Studia stacjonarne':
         wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique(),index=9)
         st.plotly_chart(px.bar(DF10[DF10['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
 			.update_traces(marker_color=kolwyd[wydzial34],texttemplate="%{y:}",textposition='inside')
 			.update_xaxes(dtick=1)
-			.update_yaxes(rangemode='tozero',tickformat=" ")
+			.update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba studentów')
 			.update_layout(font_family='Lato'))
     elif kat34 == 'Studia niestacjonarne':
         wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique(),index=9)
         st.plotly_chart(px.bar(DF11[DF11['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
 			.update_traces(marker_color=kolwyd[wydzial34],texttemplate="%{y:}",textposition='inside')
 			.update_xaxes(dtick=1)
-			.update_yaxes(rangemode='tozero',tickformat=" ")
+			.update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba studentów')
 			.update_layout(font_family='Lato'))
     elif kat34 == 'Doktoranckie':
         wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique(),index=9)
         st.plotly_chart(px.bar(DF12[DF12['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
-			.update_traces(marker_color=kolwyd[wydzial34],texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1)
+			.update_traces(marker_color=kolwyd[wydzial34],texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba doktorantów')
 			.update_layout(font_family='Lato'))
     elif kat34 == 'Podyplomowe':
         st.plotly_chart(fig)
     elif kat34 == 'Ogółem':
         st.plotly_chart(fig1)
     
-    st.header('Liczba absolwentów w latach 2010-2021')
+    st.header('Liczba absolwentów na uniwersytecie w latach 2010-2021')
     st.plotly_chart(px.bar(DF18,x='Rok',y='Liczba',width=1500,height=500)
-		    .update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside')
-		    .update_xaxes(dtick=1)
-		    .update_yaxes(tickformat=" ")
-		    .update_layout(font_family='Lato'))
+		    .update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',textfont=dict( size=10,color='black'))
+		    .update_xaxes(dtick=1,showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
+		    .update_yaxes(tickformat=" ",title='Liczba uczestników')
+		    .update_layout(font_family='Lato',plot_bgcolor='white'))
 	
     st.header('Zmiana liczby studentów i absolwentów w stosunku do roku poprzedniego (w %)')
     kat43 = st.selectbox('Wybierz kategorię :   ',['Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe','Ogółem'],index=2)
