@@ -382,21 +382,21 @@ if sekcja == 'Pracownicy':
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)]['Stanowisko'],sort=False,
 				     values=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)]['badawcza'])])
         fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
-        fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato',separators=',')
+        fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         st.plotly_chart(fig)
     with k2:
         st.subheader("Grupa badawczo-dydaktyczna")
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok)]['Stanowisko'],sort=False,
 				     values=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok)]['badawcza-dydaktyczna'])])
         fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
-        fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),font_family='Lato',separators=',')
+        fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         st.plotly_chart(fig)     
     with k3:
         st.subheader("Grupa dydaktyczna")
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok)]['Stanowisko'],sort=False,
 				     values=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok)]['dydaktyczna'])])
         fig.update_traces(textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc','#51a2fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise')
-        fig.update_layout(legend=dict(x=-0.3,y=1.2),margin=dict(t=80, b=100, l=0, r=160),font_family='Lato',separators=',')
+        fig.update_layout(legend=dict(x=-0.3,y=1.2),margin=dict(t=80, b=100, l=0, r=160),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         st.plotly_chart(fig)
     
 
@@ -406,9 +406,9 @@ if sekcja == 'Pracownicy':
     wydz111 = q111.selectbox('Wybierz wydział :                                                                          ',DF24['Wydział'].unique(),index=2)
     wydz222 = q222.selectbox('Wybierz wydział :                                                                        ',DF24['Wydział'].unique(),index=3)
     gz = st.radio('Średnia liczba nauczycieli akademickich na wydziałach - Włącz/Wyłącz:',('Włącz','Wyłącz'))
-    fig4 = px.bar(DF24[(DF24['Wydział'].isin([wydz111,wydz222]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_map={wydz111: kolwyd[wydz111],wydz222: kolwyd[wydz222]},pattern_shape="Wydział").update_yaxes(tickformat=",").update_traces(texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(font_family='Lato',separators=',')
+    fig4 = px.bar(DF24[(DF24['Wydział'].isin([wydz111,wydz222]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_map={wydz111: kolwyd[wydz111],wydz222: kolwyd[wydz222]},pattern_shape="Wydział").update_yaxes(tickformat=",").update_traces(texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
     if gz == 'Włącz':
-	    fig5 = px.line(DF25,x='Rok',y='Liczba',text='Liczba',color_discrete_sequence=['rgb(0,80,170)']).update_traces(textposition="top left",texttemplate = "%{y:.2f}").update_yaxes(tickformat=",").update_layout(font_family='Lato',separators=',')
+	    fig5 = px.line(DF25,x='Rok',y='Liczba',text='Liczba',color_discrete_sequence=['rgb(0,80,170)']).update_traces(textposition="top left",texttemplate = "%{y:.2f}").update_yaxes(tickformat=",").update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
 	    fig4.add_trace(fig5.data[0])
 	    st.plotly_chart(fig4)
     else:
@@ -421,7 +421,7 @@ if sekcja == 'Pracownicy':
 		    .update_traces(textposition='top right',texttemplate="%{y:.2f}%")
 		    .update_yaxes(tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)')
 		    .update_xaxes(dtick=1,range=[np.min(DF24[(DF24['Wydział']==wydz31) & (DF24['Zmiana'].notna())]['Rok'])-1/2,np.max(DF24[(DF24['Wydział']==wydz31) & (DF24['Zmiana'].notna())]['Rok'])+1/2])
-		    .update_layout(font_family='Lato',separators='.,'))
+		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators='.,'))
 
     st.header('Liczba studentów przypadających na jednego nauczyciela akademickiego w podziale na wydziały w latach 2010-2021')
     wydz19 = st.multiselect('Wybierz wydział :  ',DF26['Wydział'].unique(),['Farmaceutyczny','Fizyki, Astronomii i Informatyki Stosowanej','Sztuk Pięknych'])
@@ -429,20 +429,20 @@ if sekcja == 'Pracownicy':
 		    .update_traces(textposition='top right',texttemplate="%{y:.2f}",)
 		    .update_yaxes(tickformat=",",rangemode='tozero')
 		    .update_xaxes(dtick=1)
-		    .update_layout(font_family='Lato',separators='.,'))
+		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators='.,'))
 
     st.header('Awanse nauczycieli w latach 2019-2021')
     aw = st.selectbox('Wybierz kategorię :         ', ['Profesor','Doktor habilitowany','Doktor'])
     st.plotly_chart(px.bar(DF35[DF35['Tytuł']==aw],x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(0,80,170)','rgb(255,205,0)']).update_traces(texttemplate="%{y:}",
 	textposition='inside')
-	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba awansów').update_layout(font_family='Lato'))
+	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba awansów').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
 	
 	
 	
     st.header('Liczba pracowników niepełnosprawnych w latach 2014-2021')
     st.plotly_chart(px.bar(DF27,x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(0,80,170)','rgb(255,205,0)']).update_traces(texttemplate="%{y:}",
 	textposition='inside')
-	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników niepełnosprawnych').update_layout(font_family='Lato'))
+	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników niepełnosprawnych').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
     
 	
 	
@@ -465,7 +465,7 @@ if sekcja == 'Pracownicy':
 		    .update_traces(textposition='top right',texttemplate="%{y:}")
 		    .update_yaxes(zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)',rangemode='tozero')
 		    .update_xaxes(dtick=1,range=[np.min(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])-1/2,np.max(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])+1/2])
-		    .update_layout(font_family='Lato',separators=','))
+		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=','))
 	
 	
 	
@@ -476,10 +476,10 @@ if sekcja == 'Pracownicy':
     wydz1111 = q1111.selectbox('Wybierz kategorię :                                                                          ',DF28['Kategoria'].unique(),index=2)
     wydz2222 = q2222.selectbox('Wybierz kategorię :                                                                        ',DF28['Kategoria'].unique(),index=6)
     gz1 = st.radio('Inflacja w odniesieniu do analogicznego miesiąca roku poprzedniego - Włącz/Wyłącz:',('Włącz','Wyłącz'))
-    fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))],x='Rok',y='Zmiana', color='Kategoria',text='Zmiana',width=1500,height=500).update_yaxes(tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)').update_traces(texttemplate="%{y:.2f}%",textposition='top right').update_xaxes(dtick=1,range=[2013-1/2,2021+1/2]).update_layout(font_family='Lato',separators=',')
+    fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))],x='Rok',y='Zmiana', color='Kategoria',text='Zmiana',width=1500,height=500).update_yaxes(tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)').update_traces(texttemplate="%{y:.2f}%",textposition='top right').update_xaxes(dtick=1,range=[2013-1/2,2021+1/2]).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
     if gz1 == 'Włącz':
 	    fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))],x='Rok',y='Zmiana', color='Kategoria',text='Zmiana',width=1500,height=500).update_yaxes(tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)').update_traces(texttemplate="%{y:.2f}%",textposition='top right').update_xaxes(dtick=1,range=[2012-1/2,2022+1/2]).update_layout(font_family='Lato',separators=',')
-	    fig55 = px.line(DF30,x='Rok',y='Inflacja',color_discrete_sequence=['red'],markers=True).update_traces(textposition="top left",texttemplate = "%{y:.2f}%").update_yaxes(tickformat=",").update_xaxes(range=[2012-1/2,2022+1/2]).update_layout(font_family='Lato',separators=',')
+	    fig55 = px.line(DF30,x='Rok',y='Inflacja',color_discrete_sequence=['red'],markers=True).update_traces(textposition="top left",texttemplate = "%{y:.2f}%").update_yaxes(tickformat=",").update_xaxes(range=[2012-1/2,2022+1/2]).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
 	    fig44.add_trace(fig55.data[0])
 	    st.plotly_chart(fig44)
     else:
