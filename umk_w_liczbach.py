@@ -345,7 +345,7 @@ if sekcja == 'Pracownicy':
     pr = st.selectbox('Wybierz kategorię : ', ['Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi','Ogółem'])
     st.plotly_chart(px.bar(DF21[DF21['Rodzaj']==pr],x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(0,80,170)','rgb(255,205,0)']).update_traces(texttemplate="%{y:}",
 	textposition='inside',textfont=dict( size=14))
-	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(textfont=dict( size=14),title_font=dict(size=12),title = 'Liczba pracowników').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
+	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
 	
     st.header('Zmiana liczby pracowników w stosunku do roku poprzedniego w latach 2013-2021')
     pr1 = st.selectbox('Wybierz kategorię   : ', ['Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi','Ogółem'])
