@@ -344,13 +344,13 @@ if sekcja == 'Pracownicy':
     st.header('Liczba pracowników w latach 2012-2021')
     pr = st.selectbox('Wybierz kategorię : ', ['Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi','Ogółem'])
     st.plotly_chart(px.bar(DF21[DF21['Rodzaj']==pr],x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(0,80,170)','rgb(255,205,0)']).update_traces(texttemplate="%{y:}",
-	textposition='inside')
-	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
+	textposition='inside',textfont=dict( size=14))
+	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(textfont=dict( size=14),title_font=dict(size=12),title = 'Liczba pracowników').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
 	
     st.header('Zmiana liczby pracowników w stosunku do roku poprzedniego w latach 2013-2021')
     pr1 = st.selectbox('Wybierz kategorię   : ', ['Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi','Ogółem'])
     st.plotly_chart(px.line(DF22[DF22['Rodzaj']==pr1],x='Rok',y='Zmiana',color = 'Jednostka',width=1500,height=500,text='Zmiana',color_discrete_sequence=['blue','red','green'])
-		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}%")
+		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}%",textfont=dict( size=14))
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2012.95,2021.5],dtick=1)
 		    .update_yaxes(title_font=dict(size=12),title = 'Zmiana liczby pracowników',tickformat=",",range=[-8,8],zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)')                        
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=','))
@@ -358,7 +358,7 @@ if sekcja == 'Pracownicy':
 	
     st.header('Stosunek liczby nienauczycieli do nauczycieli w latach 2012-2021')
     st.plotly_chart(px.line(DF22[DF22['Rodzaj']=='Nauczyciele akademiccy'],x='Rok',y='Stosunek',color = 'Jednostka',width=1500,height=500,text='Stosunek',color_discrete_sequence=['blue','red','green'])
-		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}")
+		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}",textfont=dict( size=14))
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2021.5],dtick=1)
 		    .update_yaxes(title_font=dict(size=12),title = 'Stosunek',tickformat=",",rangemode='tozero',zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)')                        
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=','))
@@ -370,7 +370,7 @@ if sekcja == 'Pracownicy':
     with y2:
         fig7 = go.Figure(data=[go.Pie(labels=DF23[DF23['Rok']==rok1].sort_values(by='Płeć')['Płeć'],sort=False,
 				     values=DF23[DF23['Rok']==rok1].sort_values(by='Płeć')['Liczba'])])
-        fig7.update_traces(textinfo='value+percent',marker=dict( colors=['rgb(255,205,0)','rgb(255,220,0)','rgb(0,80,170)','rgb(0,80,220)']),direction ='clockwise')
+        fig7.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['rgb(255,205,0)','rgb(255,220,0)','rgb(0,80,170)','rgb(0,80,220)']),direction ='clockwise')
         fig7.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',margin=dict(t=0, b=0, l=20, r=0))
         st.plotly_chart(fig7)
         
