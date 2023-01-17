@@ -357,7 +357,7 @@ if sekcja == 'Pracownicy':
 	
 	
     st.header('Stosunek liczby nienauczycieli do nauczycieli w latach 2012-2021')
-    st.plotly_chart(px.line(DF22[DF22['Rodzaj']=='Nauczyciele akademiccy'],x='Rok',y='Stosunek',color = 'Jednostka',width=1500,height=500,color_discrete_sequence=['blue','red','green'])
+    st.plotly_chart(px.line(DF22[DF22['Rodzaj']=='Nauczyciele akademiccy'],x='Rok',y='Stosunek',color = 'Jednostka',width=1500,height=500,color_discrete_sequence=['blue','red','green'],markers=True)
 		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}",textfont=dict( size=14),hovertemplate = 'Stosunek: %{y:,.2f}')
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2021.5],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
 		    .update_yaxes(title_font=dict(size=12),title = 'Stosunek',tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')                        
@@ -370,7 +370,7 @@ if sekcja == 'Pracownicy':
     with y2:
         fig7 = go.Figure(data=[go.Pie(labels=DF23[DF23['Rok']==rok1].sort_values(by='Płeć')['Płeć'],sort=False,
 				     values=DF23[DF23['Rok']==rok1].sort_values(by='Płeć')['Liczba'])])
-        fig7.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['rgb(255,205,0)','rgb(255,220,0)','rgb(0,80,170)','rgb(0,80,220)']),direction ='clockwise',hovertemplate = '%{labels}')
+        fig7.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['rgb(255,205,0)','rgb(255,220,0)','rgb(0,80,170)','rgb(0,80,220)']),direction ='clockwise',hovertemplate = '%{label}')
         fig7.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',margin=dict(t=0, b=0, l=20, r=0))
         st.plotly_chart(fig7)
         
@@ -381,21 +381,21 @@ if sekcja == 'Pracownicy':
         st.subheader("Grupa badawcza")
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)]['Stanowisko'],sort=False,
 				     values=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)]['badawcza'])])
-        fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{labels}')
+        fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{label}')
         fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         st.plotly_chart(fig)
     with k2:
         st.subheader("Grupa badawczo-dydaktyczna")
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok)]['Stanowisko'],sort=False,
 				     values=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok)]['badawcza-dydaktyczna'])])
-        fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{labels}')
+        fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{label}')
         fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         st.plotly_chart(fig)     
     with k3:
         st.subheader("Grupa dydaktyczna")
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok)]['Stanowisko'],sort=False,
 				     values=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok)]['dydaktyczna'])])
-        fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc','#51a2fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{labels}')
+        fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc','#51a2fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{label}')
         fig.update_layout(legend=dict(x=-0.3,y=1.2),margin=dict(t=80, b=100, l=0, r=160),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         st.plotly_chart(fig)
     
