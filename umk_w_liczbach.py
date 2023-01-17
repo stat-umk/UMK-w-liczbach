@@ -209,7 +209,7 @@ if sekcja == 'Studenci':
     st.header('Zmiana liczby studentów i absolwentów w stosunku do roku poprzedniego (w %)')
     kat43 = st.selectbox('Wybierz kategorię :   ',['Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe','Ogółem'],index=2)
     st.plotly_chart(px.line(DF17[DF17['Rodzaj']==kat43],x='Rok',y='Zmiana[%]',color = 'Kategoria',hover_name="Kategoria",markers=True,width=1500,height=500,color_discrete_sequence=['blue','red'])
-		    .update_traces(hovertemplate = 'Zmiana: %{y:.2f}%',textposition="top right",texttemplate = "%{y:.2f}%",textfont=dict( size=14))
+		    .update_traces(hovertemplate = 'Zmiana: %{y:,2f}%',textposition="top right",texttemplate = "%{y:.2f}%",textfont=dict( size=14))
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2010.95,2021.5],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
 		    .update_yaxes(title_font=dict(size=12),title = 'Zmiana liczby studentó/absolwentów',tickformat=",",range=[-50,50],zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')                        
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=','))
@@ -222,7 +222,7 @@ if sekcja == 'Studenci':
 
     st.header('Odsetek studentów zagranicznych w latach 2012-2021 w podziale na rodzaj studiów')
     st.plotly_chart(px.line(DF9,x='Rok',y='Odsetek',color = 'Rodzaj',hover_name="Rodzaj",width=1500,height=500,markers=True,color_discrete_sequence=['rgb(0,80,170)','rgb(0,200,255)','red','rgb(255,50,80)'])
-		    .update_traces(textposition="top right",hovertemplate = 'Odsetek: %{y:.2f}',texttemplate = "%{y:.2f}%",textfont=dict( size=14))
+		    .update_traces(textposition="top right",hovertemplate = 'Odsetek: %{y:,2f}%',texttemplate = "%{y:.2f}%",textfont=dict( size=14))
 	.update_xaxes(zeroline=True, zerolinewidth=10, zerolinecolor='LightPink',title_font=dict(size=12), title='Rok',range=[2011.95,2022],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
 		    .update_yaxes(title_font=dict(size=12),title = 'Odsetek osób zagranicznych',tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=','))
@@ -230,7 +230,7 @@ if sekcja == 'Studenci':
 	
     st.header('Odsetek studentów niepełnosprawnych w latach 2012-2021 w podziale na rodzaj studiów')
     st.plotly_chart(px.line(DF8,x='Rok',y='Odsetek',color = 'Rodzaj',hover_name="Rodzaj",width=1500,height=500,markers=True,color_discrete_sequence=['rgb(0,80,170)','rgb(0,200,255)','red','rgb(255,50,80)'])
-		    .update_traces(textposition="top right",hovertemplate = 'Odsetek: %{y:.2f}',texttemplate = "%{y:.2f}%",textfont=dict( size=14))
+		    .update_traces(textposition="top right",hovertemplate = 'Odsetek: %{y:,2f}%',texttemplate = "%{y:.2f}%",textfont=dict( size=14))
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2022],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_yaxes(title_font=dict(size=12),title = 'Odsetek osób niepełnosprawnych',tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=','))
     
@@ -240,9 +240,9 @@ if sekcja == 'Studenci':
     wydz11 = q11.selectbox('Wybierz wydział :                                                                          ',DF12['Wydział'].unique(),index=2)
     wydz22 = q22.selectbox('Wybierz wydział :                                                                        ',DF12['Wydział'].unique(),index=3)
     gz = st.radio('Średnia liczba studentów na wydziałach - Włącz/Wyłącz:',('Włącz','Wyłącz'))
-    fig4 = px.bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_map={wydz11: kolwyd[wydz11],wydz22: kolwyd[wydz22]},pattern_shape="Wydział").update_yaxes(tickformat=",",showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_traces(textfont=dict( size=14),texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
+    fig4 = px.bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group',hover_name="Wydział", color='Wydział',width=1500,height=500,color_discrete_map={wydz11: kolwyd[wydz11],wydz22: kolwyd[wydz22]},pattern_shape="Wydział").update_yaxes(tickformat=",",showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_traces(hovertemplate = 'Liczba studentów: %{y:}',textfont=dict( size=14),texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
     if gz == 'Włącz':
-	    fig5 = px.line(DF19,x='Rok',y='Liczba',color_discrete_sequence=['rgb(0,80,170)'],markers=True).update_traces(textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}").update_yaxes(tickformat=",").update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
+	    fig5 = px.line(DF19,x='Rok',y='Liczba',color_discrete_sequence=['rgb(0,80,170)'],markers=True).update_traces(hovertemplate = 'Średnia liczba studentów: %{y:}',textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}").update_yaxes(tickformat=",").update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
 	    fig4.add_trace(fig5.data[0])
 	    st.plotly_chart(fig4)
     else:
@@ -277,13 +277,12 @@ if sekcja == 'Studenci':
     	fig = go.Figure()      
         
     	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,marker_color=barwa4,
-                        textfont=dict( size=12,color='black'),
-                      textposition='outside',texttemplate = "<b>Przyznane-%{x:}"))
+                        textfont=dict( size=12,color='black'),hover_name=x,
+                      textposition='outside',texttemplate = "<b>Przyznane-%{x:}").update_traces(marker_line_color='black',marker_line_width=1.5,hovertemplate = 'Wnioski złożone: %{y:}'))
 	    
-    	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,marker_color=barwa5,
+    	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,marker_color=barwa5,hover_name=x1,
                         textfont=dict( size=12,color='black'),
-                      textposition='outside',texttemplate = "<b>Złożone-%{x:}"))
-    	fig.update_traces(marker_line_color='black',marker_line_width=1.5)
+                      textposition='outside',texttemplate = "<b>Złożone-%{x:}").update_traces(marker_line_color='black',marker_line_width=1.5,hovertemplate = 'Wnioski złożone: %{y1:}'))
     	fig.update_xaxes(title='Liczba wniosków',range=[0,y1['Ogółem']+15])
     	fig.update_yaxes(title='Wydział')
     	fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
