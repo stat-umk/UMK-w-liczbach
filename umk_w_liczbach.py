@@ -204,7 +204,7 @@ if sekcja == 'Studenci':
 		    .update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',textfont=dict( size=14,color='white'),marker_line_color='black',marker_line_width=1.5)
 		    .update_xaxes(dtick=1)
 		    .update_yaxes(tickformat=" ",title='Liczba uczestników',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
-		    .update_layout(font_family='Lato',plot_bgcolor='white'))
+		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
 	
     st.header('Zmiana liczby studentów i absolwentów w stosunku do roku poprzedniego (w %)')
     kat43 = st.selectbox('Wybierz kategorię :   ',['Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe','Ogółem'],index=2)
