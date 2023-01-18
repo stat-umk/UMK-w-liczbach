@@ -419,7 +419,7 @@ if sekcja == 'Pracownicy':
     wydz31 = st.selectbox('Wybierz wydział   :  ',DF24['Wydział'].unique(),index=9)
     st.plotly_chart(px.line(DF24[DF24['Wydział']==wydz31].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd[x],[wydz31])))
 		    .update_traces(textposition='top right',texttemplate="%{y:,.2f}%",textfont=dict( size=14),hovertemplate = 'Zmiana: %{y:,.2f}%')
-		    .update_yaxes(title='Zmiana liczby nauczycieli',tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=2, zerolinecolor='rgba(0,0,0,0.5)',title='Liczba nauczycieli')
+		    .update_yaxes(title='Zmiana liczby nauczycieli',tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=2, zerolinecolor='rgba(0,0,0,0.5)')
 		    .update_xaxes(dtick=1,range=[np.min(DF24[(DF24['Wydział']==wydz31) & (DF24['Zmiana'].notna())]['Rok'])-1/2,np.max(DF24[(DF24['Wydział']==wydz31) & (DF24['Zmiana'].notna())]['Rok'])+1/2],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"))
 
