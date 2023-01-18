@@ -522,7 +522,7 @@ if sekcja == 'Badania naukowe':
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-			      textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Wnioski złożone: %{x:,}'+"<extra></extra>")
+			      textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Wnioski złożone: %{x:,}zł'+"<extra></extra>")
 	    fig.update_xaxes(title='Kwota wnioskowana[zł]')
 	    fig.update_yaxes(title='Jednostka')
 
@@ -581,7 +581,7 @@ if sekcja == 'Badania naukowe':
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
                             textfont=dict( size=12,color='black')))
         fig.update_traces(marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,
-                          textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Kwota przyznanych grantów: %{x:}'+"<extra></extra>")
+                          textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>")
         fig.update_xaxes(title='Kwota przyznana[zł]')
         fig.update_yaxes(title='Jednostka')
     
@@ -733,7 +733,7 @@ if sekcja == 'Badania naukowe':
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
                             textfont=dict( size=12,color='black')))
         fig.update_traces(marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,
-                          textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Kwota przyznanych grantów: %{x:}'+"<extra></extra>")
+                          textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>")
         fig.update_xaxes(title='Kwota przyznana[zł]')
         fig.update_yaxes(title='Jednostka')
     
