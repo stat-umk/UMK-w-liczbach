@@ -306,7 +306,7 @@ if sekcja == 'Studenci':
     barwa7 = lg7['kolor'][::-1]
 
     fig7 = go.Figure()
-    fig7.add_trace(go.Bar(x=y7,y=x7,orientation='h',text=y7,hovertemplate = 'Skuteczność: %{x:,.2f}'+"<extra></extra>",
+    fig7.add_trace(go.Bar(x=y7,y=x7,orientation='h',text=y7,hovertemplate = 'Skuteczność: %{x:,.2f}%'+"<extra></extra>",
                         textfont=dict( size=12,color='black')))
     fig7.update_traces(marker_color=barwa7,marker_line_color='black',marker_line_width=1.5,
                       textposition='outside',texttemplate = "<b>%{x:.2f}%")
@@ -522,7 +522,7 @@ if sekcja == 'Badania naukowe':
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-			      textposition='outside',texttemplate = "<b>%{x:,t}")
+			      textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>")
 	    fig.update_xaxes(title='Kwota wnioskowana[zł]')
 	    fig.update_yaxes(title='Jednostka')
 
@@ -549,7 +549,7 @@ if sekcja == 'Badania naukowe':
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,
-			      textposition='outside',texttemplate = "<b>%{x:}")
+			      textposition='outside',texttemplate = "<b>%{x:}",hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>")
 	    fig.update_xaxes(title='Liczba wniosków')
 	    fig.update_yaxes(title='Jednostka')
 
@@ -581,7 +581,7 @@ if sekcja == 'Badania naukowe':
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
                             textfont=dict( size=12,color='black')))
         fig.update_traces(marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,
-                          textposition='outside',texttemplate = "<b>%{x:,t}")
+                          textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Kwota przyznanych grantów: %{x:}'+"<extra></extra>")
         fig.update_xaxes(title='Kwota przyznana[zł]')
         fig.update_yaxes(title='Jednostka')
     
@@ -610,7 +610,7 @@ if sekcja == 'Badania naukowe':
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
                             textfont=dict( size=12,color='black')))
         fig.update_traces(marker_color=barwa4,marker_line_color='black',marker_line_width=1.5,
-                          textposition='outside',texttemplate = "<b>%{x:}")
+                          textposition='outside',texttemplate = "<b>%{x:}",hovertemplate = 'Liczba przyznanych grantów: %{x:}'+"<extra></extra>")
         fig.update_xaxes(title='Liczba wniosków')
         fig.update_yaxes(title='Jednostka')
     
@@ -641,7 +641,7 @@ if sekcja == 'Badania naukowe':
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-			      textposition='outside',texttemplate = "<b>%{x:.2f}%")
+			      textposition='outside',texttemplate = "<b>%{x:.2f}%",hovertemplate = 'Skuteczność: %{y:,.2f}%'+"<extra></extra>")
 	    fig.update_xaxes(title='Skuteczność')
 	    fig.update_yaxes(title='Jednostka')
 
@@ -674,7 +674,7 @@ if sekcja == 'Badania naukowe':
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-			      textposition='outside',texttemplate = "<b>%{x:,t}")
+			      textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>")
 	    fig.update_xaxes(title='Kwota wnioskowana[zł]')
 	    fig.update_yaxes(title='Jednostka')
 
@@ -701,7 +701,7 @@ if sekcja == 'Badania naukowe':
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,
-			      textposition='outside',texttemplate = "<b>%{x:}")
+			      textposition='outside',texttemplate = "<b>%{x:}",hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>")
 	    fig.update_xaxes(title='Liczba wniosków')
 	    fig.update_yaxes(title='Jednostka')
 
@@ -733,7 +733,7 @@ if sekcja == 'Badania naukowe':
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
                             textfont=dict( size=12,color='black')))
         fig.update_traces(marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,
-                          textposition='outside',texttemplate = "<b>%{x:,t}")
+                          textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Kwota przyznanych grantów: %{x:}'+"<extra></extra>")
         fig.update_xaxes(title='Kwota przyznana[zł]')
         fig.update_yaxes(title='Jednostka')
     
@@ -762,7 +762,7 @@ if sekcja == 'Badania naukowe':
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
                             textfont=dict( size=12,color='black')))
         fig.update_traces(marker_color=barwa4,marker_line_color='black',marker_line_width=1.5,
-                          textposition='outside',texttemplate = "<b>%{x:}")
+                          textposition='outside',texttemplate = "<b>%{x:}",hovertemplate = 'Liczba przyznanych grantów: %{x:}'+"<extra></extra>")
         fig.update_xaxes(title='Liczba wniosków')
         fig.update_yaxes(title='Jednostka')
     
@@ -794,7 +794,7 @@ if sekcja == 'Badania naukowe':
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-			      textposition='outside',texttemplate = "<b>%{x:.2f}%")
+			      textposition='outside',texttemplate = "<b>%{x:.2f}%",hovertemplate = 'Skuteczność: %{y:,.2f}%'+"<extra></extra>")
 	    fig.update_xaxes(title='Skuteczność')
 	    fig.update_yaxes(title='Jednostka')
 
