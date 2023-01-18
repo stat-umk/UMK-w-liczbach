@@ -309,7 +309,7 @@ if sekcja == 'Studenci':
     fig7.add_trace(go.Bar(x=y7,y=x7,orientation='h',text=y7,hovertemplate = 'Skuteczność: %{x:,.2f}%'+"<extra></extra>",
                         textfont=dict( size=12,color='black')))
     fig7.update_traces(marker_color=barwa7,marker_line_color='black',marker_line_width=1.5,
-                      textposition='outside',texttemplate = "<b>%{x:.2f}%")
+                      textposition='outside',texttemplate = "<b>%{x:,.2f}%")
     fig7.update_xaxes(title='Współczynnik skuteczności')
     fig7.update_yaxes(title='Wydział')
 
@@ -641,7 +641,7 @@ if sekcja == 'Badania naukowe':
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-			      textposition='outside',texttemplate = "<b>%{x:.2f}%",hovertemplate = 'Skuteczność: %{x:,.2f}%'+"<extra></extra>")
+			      textposition='outside',texttemplate = "<b>%{x:,.2f}%",hovertemplate = 'Skuteczność: %{x:,.2f}%'+"<extra></extra>")
 	    fig.update_xaxes(title='Skuteczność')
 	    fig.update_yaxes(title='Jednostka')
 
@@ -794,7 +794,7 @@ if sekcja == 'Badania naukowe':
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-			      textposition='outside',texttemplate = "<b>%{x:.2f}%",hovertemplate = 'Skuteczność: %{x:,.2f}%'+"<extra></extra>")
+			      textposition='outside',texttemplate = "<b>%{x:,.2f}%",hovertemplate = 'Skuteczność: %{x:,.2f}%'+"<extra></extra>")
 	    fig.update_xaxes(title='Skuteczność')
 	    fig.update_yaxes(title='Jednostka')
 
