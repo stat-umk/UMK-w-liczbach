@@ -375,26 +375,26 @@ if sekcja == 'Pracownicy':
         st.plotly_chart(fig7)
         
     st.header("Liczba nauczycieli akademickich na uniwersytecie w poszczególnych grupach w latach 2019-2021")
-    rok = st.selectbox('Wybierz rok:', [2019,2020,2021],index=2)
+    rok9 = st.selectbox('Wybierz rok:', [2019,2020,2021],index=2)
     k1,k2,k3 = st.columns(3)
     with k1:
         st.subheader("Grupa badawcza")
-        fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)]['Stanowisko'],sort=False,
-				     values=DF[(DF['badawcza']!=0) & (DF['Rok']==rok)]['badawcza'])])
+        fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza']!=0) & (DF['Rok']==rok9)]['Stanowisko'],sort=False,
+				     values=DF[(DF['badawcza']!=0) & (DF['Rok']==rok9)]['badawcza'])])
         fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{label}'+"<extra></extra>")
         fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         st.plotly_chart(fig)
     with k2:
         st.subheader("Grupa badawczo-dydaktyczna")
-        fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok)]['Stanowisko'],sort=False,
-				     values=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok)]['badawcza-dydaktyczna'])])
+        fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok9)]['Stanowisko'],sort=False,
+				     values=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok9)]['badawcza-dydaktyczna'])])
         fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{label}'+"<extra></extra>")
         fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         st.plotly_chart(fig)     
     with k3:
         st.subheader("Grupa dydaktyczna")
-        fig = go.Figure(data=[go.Pie(labels=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok)]['Stanowisko'],sort=False,
-				     values=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok)]['dydaktyczna'])])
+        fig = go.Figure(data=[go.Pie(labels=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok9)]['Stanowisko'],sort=False,
+				     values=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok9)]['dydaktyczna'])])
         fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc','#51a2fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{label}'+"<extra></extra>")
         fig.update_layout(legend=dict(x=-0.3,y=1.2),margin=dict(t=80, b=100, l=0, r=160),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         st.plotly_chart(fig)
@@ -522,7 +522,7 @@ if sekcja == 'Badania naukowe':
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-			      textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>")
+			      textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Wnioski złożone: %{x:,}'+"<extra></extra>")
 	    fig.update_xaxes(title='Kwota wnioskowana[zł]')
 	    fig.update_yaxes(title='Jednostka')
 
