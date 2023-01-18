@@ -520,14 +520,14 @@ if sekcja == 'Badania naukowe':
 
 	    fig = go.Figure()
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
-				textfont=dict( size=10,color='black')))
+				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
 			      textposition='outside',texttemplate = "<b>%{x:,t}")
 	    fig.update_xaxes(title='Kwota wnioskowana[zł]')
 	    fig.update_yaxes(title='Jednostka')
 
 	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato')
+					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
 
 	    st.plotly_chart(fig)
     elif (li == 'Liczba') and (roki in [2019,2020,2021]):
@@ -554,7 +554,7 @@ if sekcja == 'Badania naukowe':
 	    fig.update_yaxes(title='Jednostka')
 
 	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',
+					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
 					separators =',')
 
 	    st.plotly_chart(fig)	
@@ -579,14 +579,14 @@ if sekcja == 'Badania naukowe':
     
         fig = go.Figure()
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
-                            textfont=dict( size=10,color='black')))
+                            textfont=dict( size=12,color='black')))
         fig.update_traces(marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,
                           textposition='outside',texttemplate = "<b>%{x:,t}")
         fig.update_xaxes(title='Kwota przyznana[zł]')
         fig.update_yaxes(title='Jednostka')
     
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                    height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato')
+                                    height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
     
         st.plotly_chart(fig) 
      
@@ -615,7 +615,7 @@ if sekcja == 'Badania naukowe':
         fig.update_yaxes(title='Jednostka')
     
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                    height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',
+                                    height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
                                     separators =',')
     
         st.plotly_chart(fig)
@@ -639,14 +639,14 @@ if sekcja == 'Badania naukowe':
 
 	    fig = go.Figure()
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
-				textfont=dict( size=10,color='black')))
+				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
 			      textposition='outside',texttemplate = "<b>%{x:.2f}%")
 	    fig.update_xaxes(title='Skuteczność')
 	    fig.update_yaxes(title='Jednostka')
 
 	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato')
+					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
 
 	    st.plotly_chart(fig)
     else:
@@ -672,14 +672,14 @@ if sekcja == 'Badania naukowe':
 
 	    fig = go.Figure()
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
-				textfont=dict( size=10,color='black')))
+				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
 			      textposition='outside',texttemplate = "<b>%{x:,t}")
 	    fig.update_xaxes(title='Kwota wnioskowana[zł]')
 	    fig.update_yaxes(title='Jednostka')
 
 	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato')
+					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
 
 	    st.plotly_chart(fig)
     elif (li1 == 'Liczba') and (roki1 in [2019,2020,2021]):
@@ -706,7 +706,7 @@ if sekcja == 'Badania naukowe':
 	    fig.update_yaxes(title='Jednostka')
 
 	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',
+					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
 					separators =',')
 
 	    st.plotly_chart(fig)	
@@ -731,14 +731,14 @@ if sekcja == 'Badania naukowe':
     
         fig = go.Figure()
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
-                            textfont=dict( size=10,color='black')))
+                            textfont=dict( size=12,color='black')))
         fig.update_traces(marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,
                           textposition='outside',texttemplate = "<b>%{x:,t}")
         fig.update_xaxes(title='Kwota przyznana[zł]')
         fig.update_yaxes(title='Jednostka')
     
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                    height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato')
+                                    height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
     
         st.plotly_chart(fig) 
      
@@ -767,7 +767,7 @@ if sekcja == 'Badania naukowe':
         fig.update_yaxes(title='Jednostka')
     
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                    height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato',
+                                    height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
                                     separators =',')
     
         st.plotly_chart(fig)
@@ -792,14 +792,14 @@ if sekcja == 'Badania naukowe':
 
 	    fig = go.Figure()
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
-				textfont=dict( size=10,color='black')))
+				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
 			      textposition='outside',texttemplate = "<b>%{x:.2f}%")
 	    fig.update_xaxes(title='Skuteczność')
 	    fig.update_yaxes(title='Jednostka')
 
 	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font_family='Lato')
+					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
 
 	    st.plotly_chart(fig)
     else:
