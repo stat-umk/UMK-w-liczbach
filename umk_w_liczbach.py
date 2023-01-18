@@ -375,7 +375,7 @@ if sekcja == 'Pracownicy':
         st.plotly_chart(fig7)
         
     st.header("Liczba nauczycieli akademickich na uniwersytecie w poszczególnych grupach w latach 2019-2021")
-    rok = st.selectbox('Wybierz rok:', [2019,2020,2021],index=3)
+    rok = st.selectbox('Wybierz rok:', [2019,2020,2021],index=2)
     k1,k2,k3 = st.columns(3)
     with k1:
         st.subheader("Grupa badawcza")
