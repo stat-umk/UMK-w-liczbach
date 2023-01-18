@@ -478,7 +478,7 @@ if sekcja == 'Pracownicy':
     gz1 = st.radio('Inflacja w odniesieniu do analogicznego miesiąca roku poprzedniego - Włącz/Wyłącz:',('Włącz','Wyłącz'))
     fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))],x='Rok',y='Zmiana', color='Kategoria',width=1500,height=500,markers=True).update_yaxes(tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=2, zerolinecolor='rgba(0,0,0,0.5)',title='Zmiana przeciętnego wynagrodzenia').update_traces(textfont=dict( size=14),texttemplate="%{y:.2f}%",textposition='top right',hovertemplate = 'Zmiana przeciętnego wynagrodzenia: %{y:,.2f}%').update_xaxes(dtick=1,range=[2013-1/2,2021+1/2],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x")
     if gz1 == 'Włącz':
-	    fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))],x='Rok',y='Zmiana', color='Kategoria',width=1500,height=500,markers=True).update_yaxes(tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=2, zerolinecolor='rgba(0,0,0,0.5)',title='Zmiana przeciętnego wynagrodzenia').update_traces(textfont=dict( size=14),texttemplate="%{y:.2f}%",textposition='top right',hovertemplate = 'Zmiana przeciętnego wynagrodzenia: %{y:,.2f}%').update_xaxes(dtick=1,range=[2012-1/2,2022+1/2],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode='x')
+	    fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))],x='Rok',y='Zmiana', color='Kategoria',width=1500,height=500,markers=True).update_yaxes(tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=2, zerolinecolor='rgba(0,0,0,0.5)',title='Zmiana przeciętnego wynagrodzenia').update_traces(textfont=dict( size=14),texttemplate="%{y:.2f}%",textposition='top right',hovertemplate = 'Zmiana przeciętnego wynagrodzenia: %{y:,.2f}%').update_xaxes(dtick=1,range=[2012-1/2,2022+1/2],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
 	    fig55 = px.line(DF30,x='Rok',y='Inflacja',color_discrete_sequence=['red'],markers=True,custom_data=['dr']).update_traces(textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}%",hovertemplate ='<br>Okres: %{customdata}</br>'+'Inflacja w Polsce: %{y:,.2f}%').update_yaxes(tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray').update_xaxes(range=[2012-1/2,2022+1/2],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
 	    fig44.add_trace(fig55.data[0])
 	    st.plotly_chart(fig44)
@@ -641,7 +641,7 @@ if sekcja == 'Badania naukowe':
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-			      textposition='outside',texttemplate = "<b>%{x:.2f}%",hovertemplate = 'Skuteczność: %{y:,.2f}%'+"<extra></extra>")
+			      textposition='outside',texttemplate = "<b>%{x:.2f}%",hovertemplate = 'Skuteczność: %{x:,.2f}%'+"<extra></extra>")
 	    fig.update_xaxes(title='Skuteczność')
 	    fig.update_yaxes(title='Jednostka')
 
@@ -674,7 +674,7 @@ if sekcja == 'Badania naukowe':
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-			      textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>")
+			      textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Wnioski złożone: %{x:,}zł'+"<extra></extra>")
 	    fig.update_xaxes(title='Kwota wnioskowana[zł]')
 	    fig.update_yaxes(title='Jednostka')
 
@@ -794,7 +794,7 @@ if sekcja == 'Badania naukowe':
 	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-			      textposition='outside',texttemplate = "<b>%{x:.2f}%",hovertemplate = 'Skuteczność: %{y:,.2f}%'+"<extra></extra>")
+			      textposition='outside',texttemplate = "<b>%{x:.2f}%",hovertemplate = 'Skuteczność: %{x:,.2f}%'+"<extra></extra>")
 	    fig.update_xaxes(title='Skuteczność')
 	    fig.update_yaxes(title='Jednostka')
 
