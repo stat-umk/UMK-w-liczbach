@@ -158,7 +158,7 @@ if sekcja == 'Strona główna':
     
     
     
-if sekcja == 'Studenci':
+elif sekcja == 'Studenci':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Studenci</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
@@ -337,7 +337,7 @@ if sekcja == 'Studenci':
     
     
     
-if sekcja == 'Pracownicy':
+elif sekcja == 'Pracownicy':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 60px;">Nauczyciele akademiccy i administracja</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
@@ -498,7 +498,7 @@ if sekcja == 'Pracownicy':
       
       
       
-if sekcja == 'Badania naukowe':
+elif sekcja == 'Badania naukowe':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Badania naukowe</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
