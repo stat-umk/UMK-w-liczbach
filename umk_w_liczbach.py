@@ -468,7 +468,7 @@ elif sekcja == 'Pracownicy':
 		    .update_xaxes(dtick=1,range=[np.min(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])-1/2,np.max(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])+1/2],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"))
 	
-	
+   st.dataframe(list(map(lambda x: pr_cy[x],wydz318)))
 	
 	
 
