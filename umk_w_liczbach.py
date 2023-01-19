@@ -349,7 +349,7 @@ elif sekcja == 'Pracownicy':
     
     st.header('Liczba pracowników na uniwerystecie w latach 2012-2021')
     pr = st.selectbox('Wybierz kategorię : ', ['Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi','Ogółem'])
-    st.plotly_chart(px.bar(DF21[DF21['Rodzaj']==pr],x='Rok',y='Liczba',customdata=DF21[DF21['Rodzaj']==pr].groupby('Rok')['Liczba'].agg(np.sum),color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(255,205,0)','rgb(250,20,20)']).update_traces(texttemplate="%{y:}",hovertemplate = 'Liczba ogółem: %{customdata}'+"<extra></extra>",
+    st.plotly_chart(px.bar(DF21[DF21['Rodzaj']==pr],x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(255,205,0)','rgb(250,20,20)']).update_traces(customdata=DF21[DF21['Rodzaj']==pr].groupby('Rok')['Liczba'].agg(np.sum),texttemplate="%{y:}",hovertemplate = 'Liczba ogółem: %{customdata}'+"<extra></extra>",
 	textposition='inside',textfont=dict( size=14))
 	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
 	
