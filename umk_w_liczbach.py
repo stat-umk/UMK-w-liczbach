@@ -772,7 +772,7 @@ elif sekcja == 'Badania naukowe':
         fig.update_xaxes(title='Liczba wniosków')
         fig.update_yaxes(title='Wydział')
     
-        fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='Granty przyznane',
+        fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Granty przyznane',title_x=0.5,
                                     height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
                                     separators =',')
     
@@ -804,7 +804,7 @@ elif sekcja == 'Badania naukowe':
 	    fig.update_xaxes(title='Skuteczność')
 	    fig.update_yaxes(title='Wydział')
 
-	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='Współczynnik skuteczności',
+	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Współczynnik skuteczności',title_x=0.5,
 					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),separators=',')
 
 	    st.plotly_chart(fig)
