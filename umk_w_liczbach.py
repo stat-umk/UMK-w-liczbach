@@ -230,8 +230,8 @@ if sekcja == 'Studenci':
 	
     st.header('Odsetek studentów niepełnosprawnych w podziale na rodzaj studiów w latach 2012-2021')
     st.plotly_chart(px.line(DF8,x='Rok',y='Odsetek',color = 'Rodzaj',hover_name="Rodzaj",width=1500,height=500,markers=True,color_discrete_sequence=['rgb(0,80,170)','rgb(0,200,255)','red','rgb(255,50,80)'])
-		    .update_traces(textposition="top right",hovertemplate = 'Odsetek osób niepełnosprawnych[%]: %{y:,.2f}%',texttemplate = "%{y:,.2f}%",textfont=dict( size=14))
-	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2022],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_yaxes(title_font=dict(size=12),title = 'Odsetek osób niepełnosprawnych',tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')
+		    .update_traces(textposition="top right",hovertemplate = 'Odsetek osób niepełnosprawnych: %{y:,.2f}%',texttemplate = "%{y:,.2f}%",textfont=dict( size=14))
+	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2022],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_yaxes(title_font=dict(size=12),title = 'Odsetek osób niepełnosprawnych[%]',tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"))
     
     
@@ -280,7 +280,7 @@ if sekcja == 'Studenci':
                         textfont=dict( size=12,color='black'),
                       textposition='outside',texttemplate = "<b>Przyznane-%{x:}"))
 	    
-    	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,marker_color=barwa4,hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>",
+    	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,marker_color=barwa5,hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>",
                         textfont=dict( size=12,color='black'),
                       textposition='outside',texttemplate = "<b>Złożone-%{x:}"))
     	fig.update_xaxes(title='Liczba wniosków',range=[0,y1['Ogółem']+15]).update_traces(marker_color=barwa4,marker_line_color='black',marker_line_width=1.5)
