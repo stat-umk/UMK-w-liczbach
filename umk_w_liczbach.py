@@ -253,7 +253,7 @@ elif sekcja == 'Studenci':
     st.header('Zmiana liczby studentów w stosunku do roku poprzedniego w podziale na wydziały w latach 2011-2021')
     wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique(),['Farmaceutyczny','Matematyki i Informatyki','Teologiczny'])
     st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(wydz1))].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',hover_name="Wydział",color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
-		    .update_traces(marker_size=5,textposition='top right',texttemplate="%{y:,d}",textfont=dict( size=14),hovertemplate='Zmiana liczby studentów: %{y:,.2f}%')
+		    .update_traces(marker_size=15,textposition='top right',texttemplate="%{y:,d}",textfont=dict( size=14),hovertemplate='Zmiana liczby studentów: %{y:,.2f}%')
 		    .update_xaxes(showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',range=[2011-1/2,2021+1/2],dtick=1)
 		    .update_yaxes(tickformat = ' ',rangemode='tozero',zeroline=True, zerolinewidth=2, zerolinecolor='rgba(0,0,0,0.5)',showline=False,linewidth=1,gridwidth=1,gridcolor='gray',title='Zmiana liczby studentów[%]')
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=' ',hovermode="x"))
