@@ -490,7 +490,7 @@ elif sekcja == 'Pracownicy':
 	    st.plotly_chart(fig44)
     else:
         st.plotly_chart(fig44)
-    st.dataframe(list(map(lambda x: pr_cy[x],wydz318)))
+    
 
    
     
