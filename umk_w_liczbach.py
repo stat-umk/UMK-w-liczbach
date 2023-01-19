@@ -73,7 +73,7 @@ kolwyd = {'Nauk Biologicznych i Weterynaryjnych':kolor['zielony'],'Biologii i Oc
           'Nauk o Ziemi i Gospodarki Przestrzennej':kolor['oliwkowy'],'Nauk o Polityce i Bezpieczeństwie':kolor['fioletowy'],'Prawa i Administracji':kolor['fioletowy'],'Sztuk Pięknych':kolor['pomarańczowy'],
           'Teologiczny':kolor['zielony'],'Lekarski':kolor['czerwony'],'Farmaceutyczny':kolor['czerwony'],'Nauk o Zdrowiu':kolor['czerwony'],'Ogółem':'rgb(0,80,170)',
 	 'Interdyscyplinarne Centrum Nowoczesnych Technologii':kolor['oliwkowy'],'Biologii i Nauk o Ziemi':kolor['zielony']}
-pr_cy = {'Profesorowie':'rgb(170,40,150)','rgb(0,175,250)','Ogółem':'rgb(0,70,180)','Nienauczyciele':'rgb(255,205,0)','rgb(255,130,30)','rgb(250,20,20)','GUS':'rgb(204,204,204)'}
+pr_cy = {'Profesorowie':'rgb(170,40,150)','Nauczyciele':'rgb(0,175,250)','Ogółem':'rgb(0,70,180)','Nienauczyciele':'rgb(255,205,0)','Asystenci i lektorzy':'rgb(255,130,30)','Adiunkci':'rgb(250,20,20)','GUS':'rgb(204,204,204)'}
 
 
 
