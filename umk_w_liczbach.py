@@ -459,7 +459,7 @@ elif sekcja == 'Pracownicy':
 	
 	
 	
-	
+    st.write(type(DF28[DF28['Kategoria'].isin(wydz318)]))	
     st.header('Przeciętne wynagrodzenie pracowników uniwersytetu w podziale na stanowiska wraz z średnią z GUS w latach 2012-2021')
     wydz318 = st.multiselect('Wybierz kategorię   :  ',DF28['Kategoria'].unique(),['Ogółem','GUS','Profesorowie'])
     st.plotly_chart(px.line(DF28[DF28['Kategoria'].isin(wydz318)].sort_values(by=['Kategoria','Rok'],key= lambda x: pr_cy1[x]),x='Rok',y='Wynagrodzenie',color='Kategoria',width=1400,height=500,markers=True,color_discrete_sequence=list(map(lambda x: pr_cy[x],wydz318)))
