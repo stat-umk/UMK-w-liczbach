@@ -563,7 +563,7 @@ if sekcja == 'Badania naukowe':
         st.write('*dla wybranego roku nie dysponujemy danymi')
 		      
 		      
-    st.header('Wnioski grantowe przyznana od NCN w podziale na wydziały w latach 2012-2021')
+    st.header('Granty przyznane od NCN w podziale na wydziały w latach 2012-2021')
     if li == 'Kwota':
         kw1 = pd.DataFrame(DF6[DF6['Rok']==roki].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
         x = kw1.index[::-1]
@@ -715,7 +715,7 @@ if sekcja == 'Badania naukowe':
         st.write('*dla wybranego roku nie dysponujemy danymi')
 		      
 		      
-    st.header('Wnioski grantowe przyznana od MEiN w podziale na wydziały w latach 2012-2021')
+    st.header('Granty przyznane od MEiN w podziale na wydziały w latach 2012-2021')
     if (li1 == 'Kwota') and (roki1 in [2015,2016,2017,2018,2019,2020,2021]):
         kw1 = pd.DataFrame(DF32[DF32['Rok']==roki1].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
         x = kw1.index[::-1]
