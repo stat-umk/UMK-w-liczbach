@@ -238,8 +238,8 @@ elif sekcja == 'Studenci':
     
     st.header('Porównanie liczby studentów na wybranych dwóch wydziałach wraz z wydziałem średnim w latach 2010-2021')
     q11, q22 = st.columns(2)
-    wydz11 = q11.selectbox('Wybierz wydział :                                                                          ',DF12['Wydział'].unique().remove('Ogółem'),index=2)
-    wydz22 = q22.selectbox('Wybierz wydział :                                                                        ',DF12['Wydział'].unique().remove('Ogółem'),index=3)
+    wydz11 = q11.selectbox('Wybierz wydział :                                                                          ',list(DF12['Wydział'].unique()).remove('Ogółem'),index=2)
+    wydz22 = q22.selectbox('Wybierz wydział :                                                                        ',list(DF12['Wydział'].unique()).remove('Ogółem'),index=3)
     gz = st.radio('Średnia liczba studentów na wydziałach - Włącz/Wyłącz:',('Włącz','Wyłącz'))
     fig4 = px.bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group',hover_name="Wydział", color='Wydział',width=1500,height=500,color_discrete_map={wydz11: kolwyd[wydz11],wydz22: kolwyd[wydz22]},pattern_shape="Wydział").update_yaxes(tickformat=",",showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',title='Liczba studentów').update_traces(hovertemplate = 'Liczba studentów: %{y:}',textfont=dict( size=14),texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
     if gz == 'Włącz':
