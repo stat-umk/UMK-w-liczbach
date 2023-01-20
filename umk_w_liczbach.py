@@ -201,7 +201,8 @@ elif sekcja == 'Studenci':
         st.plotly_chart(fig1)
     
     st.header('Liczba absolwentów na uniwersytecie w latach 2010-2021')
-    st.plotly_chart(px.bar(DF18,x='Rok',y='Liczba',width=1500,height=500)
+    ab = st.selectbox('Wybierz kategorię:    ',['Ogółem','Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe'])	
+    st.plotly_chart(px.bar(DF17[(DF17['Kategoria']=='Absolwent') & (DF17['Rodzaj']==ab)],x='Rok',y='Liczba',width=1500,height=500)
 		    .update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',textfont=dict( size=14,color='white'),hovertemplate = 'Liczba absolwentów: %{y:}')
 		    .update_xaxes(dtick=1)
 		    .update_yaxes(tickformat=" ",title='Liczba absolwentów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
