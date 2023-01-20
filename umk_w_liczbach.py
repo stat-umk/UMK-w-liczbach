@@ -179,21 +179,21 @@ elif sekcja == 'Studenci':
     fig = px.bar(DF13,x='Rok',y='Liczba',width=1500,height=500).update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba uczestników',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_traces(hovertemplate = 'Liczba uczestników: %{y:}',textfont=dict( size=14),marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"))
     fig1 = px.bar(DF14,x='Rok',y='Liczba',width=1500,height=500).update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba uczestników',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_traces(hovertemplate = 'Liczba uczestników: %{y:}',textfont=dict( size=14),marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"))
     if kat34 == 'Studia stacjonarne':
-        wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique(),index=9)
+        wydzial34 = q2.selectbox('Wybierz wydział : ',DF15['Wydział'].unique(),index=9)
         st.plotly_chart(px.bar(DF10[DF10['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
 			.update_traces(marker_color=kolwyd[wydzial34],texttemplate="%{y:}",textposition='inside',textfont=dict( size=14),hovertemplate = 'Liczba studentów: %{y:}')
 			.update_xaxes(dtick=1)
 			.update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba studentów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
 			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
     elif kat34 == 'Studia niestacjonarne':
-        wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique(),index=9)
+        wydzial34 = q2.selectbox('Wybierz wydział : ',DF15['Wydział'].unique(),index=9)
         st.plotly_chart(px.bar(DF11[DF11['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
 			.update_traces(marker_color=kolwyd[wydzial34],texttemplate="%{y:}",textposition='inside',textfont=dict( size=14),hovertemplate = 'Liczba studentów: %{y:}')
 			.update_xaxes(dtick=1)
 			.update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba studentów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
 			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
     elif kat34 == 'Doktoranckie':
-        wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique(),index=9)
+        wydzial34 = q2.selectbox('Wybierz wydział : ',DF15['Wydział'].unique(),index=9)
         st.plotly_chart(px.bar(DF12[DF12['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
 			.update_traces(hovertemplate = 'Liczba doktorantów: %{y:}',textfont=dict( size=14),marker_color=kolwyd[wydzial34],texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba doktorantów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
 			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
@@ -241,8 +241,8 @@ elif sekcja == 'Studenci':
     
     st.header('Porównanie liczby studentów na wybranych dwóch wydziałach wraz z wydziałem średnim w latach 2010-2021')
     q11, q22 = st.columns(2)
-    wydz11 = q11.selectbox('Wybierz wydział :                                                                          ',DF12[DF12['Wydział']!='Ogółem']['Wydział'].unique(),index=2)
-    wydz22 = q22.selectbox('Wybierz wydział :                                                                        ',DF12[DF12['Wydział']!='Ogółem']['Wydział'].unique(),index=3)
+    wydz11 = q11.selectbox('Wybierz wydział :                                                                          ',DF15[DF15['Wydział']!='Ogółem']['Wydział'].unique(),index=2)
+    wydz22 = q22.selectbox('Wybierz wydział :                                                                        ',DF15[DF15['Wydział']!='Ogółem']['Wydział'].unique(),index=3)
     gz = st.radio('Średnia liczba studentów na wydziałach - Włącz/Wyłącz:',('Włącz','Wyłącz'))
     fig4 = px.bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group',hover_name="Wydział", color='Wydział',width=1500,height=500,color_discrete_map={wydz11: kolwyd[wydz11],wydz22: kolwyd[wydz22]},pattern_shape="Wydział").update_yaxes(tickformat=",",showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',title='Liczba studentów').update_traces(hovertemplate = 'Liczba studentów: %{y:}',textfont=dict( size=14),texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
     if gz == 'Włącz':
@@ -254,7 +254,7 @@ elif sekcja == 'Studenci':
     
 
     st.header('Zmiana liczby studentów w stosunku do roku poprzedniego w podziale na wydziały w latach 2011-2021')
-    wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique(),['Ogółem','Matematyki i Informatyki'])
+    wydz1 = st.multiselect('Wybierz wydział :  ',DF15['Wydział'].unique(),['Ogółem','Matematyki i Informatyki'])
     st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(wydz1))].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',hover_name="Wydział",color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz1))))
 		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,d}",textfont=dict( size=14),hovertemplate='Zmiana liczby studentów: %{y:,.2f}%')
 		    .update_xaxes(showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',range=[2011-1/5,2021+1/5],dtick=1)
