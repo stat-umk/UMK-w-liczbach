@@ -192,14 +192,14 @@ elif sekcja == 'Studenci':
 			.update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba studentów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
 			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
     elif kat34 == 'Studia niestacjonarne':
-        wydzial34 = q2.selectbox('Wybierz wydział : ',DF26['Wydział'].unique(),index=10)
+        wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique(),index=10)
         st.plotly_chart(px.bar(DF11[DF11['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
 			.update_traces(marker_color=kolwyd1[wydzial34],texttemplate="%{y:}",textposition='inside',textfont=dict( size=14),hovertemplate = 'Liczba studentów: %{y:}')
 			.update_xaxes(dtick=1)
 			.update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba studentów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
 			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
     elif kat34 == 'Doktoranckie':
-        wydzial34 = q2.selectbox('Wybierz wydział : ',DF26['Wydział'].unique(),index=10)
+        wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique(),index=10)
         st.plotly_chart(px.bar(DF12[DF12['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
 			.update_traces(hovertemplate = 'Liczba doktorantów: %{y:}',textfont=dict( size=14),marker_color=kolwyd1[wydzial34],texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba doktorantów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
 			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
