@@ -819,7 +819,16 @@ elif sekcja == 'Badania naukowe':
 	    st.plotly_chart(fig)
     else:
         st.write('*dla wybranego roku nie dysponujemy danymi')
-    
+	
+	
+	
+    st.header('Zmiana liczby przyznanych grantów w stosunku do roku poprzedniego w podziale na wydziały w latach 2011-2021')
+    wydz171 = st.multiselect('Wybierz wydział :  ',DF32['Wydział'].unique(),['Matematyki i Informatyki'])
+    st.plotly_chart(px.line(DF32[(DF32['Wydział'].isin(wydz171))].sort_values(by=['Wydział','Rok']),x='Rok',y='ZmianaL',hover_name="Wydział",color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz171))))
+		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,d}",textfont=dict( size=14),hovertemplate='Zmiana liczby przyznanych grantów: %{y:,.2f}%')
+		    .update_xaxes(showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',range=[2011-1/5,2021+1/5],dtick=1)
+		    .update_yaxes(tickformat = ' ',rangemode='tozero',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',showline=False,linewidth=1,gridwidth=1,gridcolor='gray',title='Zmiana liczby przyznanych grantów[%]')
+		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=' ',hovermode="x"))
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
