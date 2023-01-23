@@ -247,10 +247,10 @@ elif sekcja == 'Studenci':
     
     st.header('Porównanie liczby studentów na wybranych dwóch wydziałach wraz z wydziałem średnim w latach 2010-2021')
     q11, q22 = st.columns(2)
-    wydz11 = q11.selectbox('Wybierz wydział :                                                                          ',DF26[DF26['Wydział']!='Ogółem']['Wydział'].unique(),index=2)
-    wydz22 = q22.selectbox('Wybierz wydział :                                                                        ',DF26[DF26['Wydział']!='Ogółem']['Wydział'].unique(),index=3)
+    wydz11 = q11.selectbox('Wybierz wydział :                                                                          ',DF12[DF12['Wydział']!='Ogółem']['Wydział'].unique(),index=2)
+    wydz22 = q22.selectbox('Wybierz wydział :                                                                        ',DF12[DF12['Wydział']!='Ogółem']['Wydział'].unique(),index=3)
     gz = st.radio('Średnia liczba studentów na wydziałach - Włącz/Wyłącz:',('Włącz','Wyłącz'))
-    fig4 = px.bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group',hover_name="Wydział", color='Wydział',width=1500,height=500,color_discrete_map={wydz11: kolwyd[wydz11],wydz22: kolwyd[wydz22]},pattern_shape="Wydział").update_yaxes(tickformat=",",showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',title='Liczba studentów').update_traces(hovertemplate = 'Liczba studentów: %{y:}',textfont=dict( size=14),texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
+    fig4 = px.bar(DF15[(DF15['Wydział'].isin([wydz11,wydz22]))],x='Rok',y='Liczba',barmode = 'group',hover_name="Wydział", color='Wydział',width=1500,height=500,color_discrete_map={wydz11: kolwyd1[wydz11],wydz22: kolwyd1[wydz22]},pattern_shape="Wydział").update_yaxes(tickformat=",",showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',title='Liczba studentów').update_traces(hovertemplate = 'Liczba studentów: %{y:}',textfont=dict( size=14),texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
     if gz == 'Włącz':
 	    fig5 = px.line(DF19,x='Rok',y='Liczba',color_discrete_sequence=['rgb(0,80,170)'],markers=True).update_traces(hovertemplate = 'Średnia liczba studentów: %{y:,.2f}',textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}").update_yaxes(tickformat=",").update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
 	    fig4.add_trace(fig5.data[0])
