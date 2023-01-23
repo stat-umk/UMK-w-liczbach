@@ -187,7 +187,7 @@ elif sekcja == 'Studenci':
     if kat34 == 'Studia stacjonarne':
         wydzial34 = q2.selectbox('Wybierz wydział : ',DF12['Wydział'].unique(),index=10)
         st.plotly_chart(px.bar(DF10[DF10['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
-			.update_traces(autosize=False,marker_color=kolwyd1[wydzial34],texttemplate="%{y:}",textposition='inside',textfont=dict( size=14),hovertemplate = 'Liczba studentów: %{y:}')
+			.update_traces(marker_color=kolwyd1[wydzial34],texttemplate="%{y:}",textposition='inside',textfont=dict( size=14),hovertemplate = 'Liczba studentów: %{y:}')
 			.update_xaxes(dtick=1)
 			.update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba studentów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
 			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
