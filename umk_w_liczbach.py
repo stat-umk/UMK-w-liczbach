@@ -391,26 +391,26 @@ elif sekcja == 'Pracownicy':
         
     st.header("Liczba nauczycieli akademickich na uniwersytecie w poszczególnych grupach w latach 2019-2021")
     rok9 = st.selectbox('Wybierz rok:', lata[::-1])
-    k1,k2,k3 = st.columns(3)
+    k1,k2,k3 = st.columns(3) 
     with k1:
         st.subheader("Grupa badawcza")
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza']!=0) & (DF['Rok']==rok9)]['Stanowisko'],sort=False,
 				     values=DF[(DF['badawcza']!=0) & (DF['Rok']==rok9)]['badawcza'])])
-        fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{label}'+"<extra></extra>")
+        fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['rgb(0,165,80)','rgb(170,210,60)','rgb(250,20,20)','rgb(255,130,30)'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{label}'+"<extra></extra>")
         fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         st.plotly_chart(fig)
     with k2:
         st.subheader("Grupa badawczo-dydaktyczna")
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok9)]['Stanowisko'],sort=False,
 				     values=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok9)]['badawcza-dydaktyczna'])])
-        fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{label}'+"<extra></extra>")
+        fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['rgb(0,165,80)','rgb(170,210,60)','rgb(250,20,20)','rgb(255,130,30)'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{label}'+"<extra></extra>")
         fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         st.plotly_chart(fig)     
     with k3:
         st.subheader("Grupa dydaktyczna")
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok9)]['Stanowisko'],sort=False,
 				     values=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok9)]['dydaktyczna'])])
-        fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['#0050AA','#0262cf','#157aed','#2188fc','#51a2fc'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{label}'+"<extra></extra>")
+        fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['rgb(0,165,80)','rgb(170,210,60)','rgb(250,20,20)','rgb(255,130,30)','rgb(255,205,0)'],line=dict(color='#0050AA', width=2)),direction ='clockwise',hovertemplate = '%{label}'+"<extra></extra>")
         fig.update_layout(legend=dict(x=-0.3,y=1.2),margin=dict(t=80, b=100, l=0, r=160),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         st.plotly_chart(fig)
     
@@ -821,14 +821,6 @@ elif sekcja == 'Badania naukowe':
         st.write('*dla wybranego roku nie dysponujemy danymi')
 	
 	
-	
-    st.header('Zmiana liczby przyznanych grantów w stosunku do roku poprzedniego w podziale na wydziały w latach 2011-2021')
-    wydz171 = st.multiselect('Wybierz wydział :  ',DF6['Jednostka'].unique(),['Matematyki i Informatyki'])
-    st.plotly_chart(px.line(DF6[(DF6['Jednostka'].isin(wydz171))].sort_values(by=['Jednostka','Rok']),x='Rok',y='ZmianaL',hover_name="Jednostka",color='Jednostka',width=1400,height=500,symbol='Jednostka',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz171))))
-		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,d}",textfont=dict( size=14),hovertemplate='Zmiana liczby przyznanych grantów: %{y:,.2f}%')
-		    .update_xaxes(showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',range=[2011-1/5,2021+1/5],dtick=1)
-		    .update_yaxes(tickformat = ' ',rangemode='tozero',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',showline=False,linewidth=1,gridwidth=1,gridcolor='gray',title='Zmiana liczby przyznanych grantów[%]')
-		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=' ',hovermode="x"))
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
