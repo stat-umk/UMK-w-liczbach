@@ -265,7 +265,7 @@ elif sekcja == 'Studenci':
     
 
     st.header('Zmiana liczby studentów w stosunku do roku poprzedniego w podziale na wydziały w latach 2011-2021')
-    wydz1 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique(),['Ogółem','Matematyki i Informatyki'])
+    wydz1 = st.multiselect('Wybierz wydział :    ',DF12['Wydział'].unique(),['Ogółem','Matematyki i Informatyki'])
     st.write(wydz1)
     st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(wydz1))].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',hover_name="Wydział",color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz1))))
 		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,d}",textfont=dict( size=14),hovertemplate='Zmiana liczby studentów: %{y:,.2f}%')
