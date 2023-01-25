@@ -206,7 +206,11 @@ elif sekcja == 'Studenci':
     elif kat34 == 'Podyplomowe':
         st.plotly_chart(fig)
     elif kat34 == 'Ogółem':
-        st.plotly_chart(fig1)
+        st.plotly_chart(px.bar(DF15[DF15['Wydział']==wydzial34],x='Rok',y='Liczba',width=1500,height=500)
+			.update_traces(marker_color=kolwyd1[wydzial34],texttemplate="%{y:}",textposition='inside',textfont=dict( size=14),hovertemplate = 'Liczba studentów: %{y:}')
+			.update_xaxes(dtick=1)
+			.update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba studentów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
+			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
     
     st.header('Liczba absolwentów na uniwersytecie w latach 2010-2021')
     ab = st.selectbox('Wybierz kategorię:    ',['Ogółem','Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe'])	
@@ -266,7 +270,7 @@ elif sekcja == 'Studenci':
 		    .update_xaxes(showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',range=[2011-1/5,2021+1/5],dtick=1)
 		    .update_yaxes(tickformat = ' ',rangemode='tozero',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',showline=False,linewidth=1,gridwidth=1,gridcolor='gray',title='Zmiana liczby studentów[%]')
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=' ',hovermode="x"))
-    st.write(wydz19)
+ 
 
 
 
