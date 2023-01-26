@@ -12,7 +12,7 @@ from pathlib import Path
 
 
 
-st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:',initial_sidebar_state='expanded',layout='ultrawide')
+st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:',initial_sidebar_state='expanded',layout='wide')
 
 DF = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele',dtype={'Rok':int})
 
@@ -142,8 +142,8 @@ color: rgb(255,255,255);}
 </style>
 """,
     unsafe_allow_html=True)
-
-
+max_width_str = f"max-width: 2000px;"
+st.markdown(f"""<style>.reportview-container .main .block-container{{{max_width_str}}}</style>    """,unsafe_allow_html=True,)
 
 
 
@@ -170,10 +170,6 @@ if sekcja == 'Strona główna':
     
     
 elif sekcja == 'Studenci i absolwenci':
-    st.markdown("""
-    <style>
-    background-position: top;
-    </style>""",unsafe_allow_html=True)
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Studenci i absolwenci</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
