@@ -144,7 +144,7 @@ color: rgb(255,255,255);}
 """,
     unsafe_allow_html=True)
 
-st.markdown("""<style>.reportview-container .main .block-container{max-width: 2ch;}</style>""",unsafe_allow_html=True)
+st.markdown("""<style>.appview-container .main .block-container{max-width: 2ch;}</style>""",unsafe_allow_html=True)
 
 
 
