@@ -170,6 +170,10 @@ if sekcja == 'Strona główna':
     
     
 elif sekcja == 'Studenci i absolwenci':
+    st.markdown("""
+    <style>
+    background-position: top;
+    </style>""")
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Studenci i absolwenci</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
