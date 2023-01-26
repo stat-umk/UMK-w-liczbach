@@ -117,7 +117,6 @@ st.markdown(
     """
 <style>
 [data-testid="stAppViewContainer"] > .main {background-image: url("https://login.umk.pl/themes/umk/images/logo-umk.png");
-max-width: 2000px;
 background-size:400px,400px;
 background-position: 1150px 100px;
 background-repeat: no-repeat;
@@ -145,7 +144,7 @@ color: rgb(255,255,255);}
 """,
     unsafe_allow_html=True)
 
-st.markdown("""<style>.reportview-container .main .block-container{max-width: 2000px}</style>""",unsafe_allow_html=True)
+st.markdown("""<style>.reportview-container .main .block-container{max-width: 1000px}</style>""",unsafe_allow_html=True)
 
 
 
