@@ -143,7 +143,7 @@ color: rgb(255,255,255);}
 </style>
 """,
     unsafe_allow_html=True)
-st.markdown("""<style>.appview-container .main .block-container{max-width: 1500px;}</style>""",unsafe_allow_html=True)
+st.markdown("""<style>.appview-container .main .block-container{max-width: 1200px;}</style>""",unsafe_allow_html=True)
 
 st.markdown(
     """
