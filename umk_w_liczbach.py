@@ -143,8 +143,8 @@ color: rgb(255,255,255);}
 </style>
 """,
     unsafe_allow_html=True)
-max_width_str = f"min-width: 2000px;"
-st.markdown(f"""<style>.reportview-container .main .block-container{{{max_width_str}}}</style>    """,unsafe_allow_html=True)
+
+st.markdown("""<style>.reportview-container .main .block-container{min-width: 2000px}</style>""",unsafe_allow_html=True)
 
 
 
