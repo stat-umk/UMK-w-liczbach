@@ -149,11 +149,11 @@ st.markdown(
     """
     <style>
     [data-testid="stSidebar"][aria-expanded="true"] > div:first-child{
-        width: 200px;
+        width: 300px;
     }
     [data-testid="stSidebar"][aria-expanded="false"] > div:first-child{
-        width: 200px;
-        margin-left: -400px;
+        width: 300px;
+        margin-left: -100px;
     }
      
     """,
