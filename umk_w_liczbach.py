@@ -161,12 +161,7 @@ st.markdown(
 
 
 
-
-
-if sekcja == 'Strona główna':
-    new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Strona główna</p>'
-    st.markdown(new_title, unsafe_allow_html=True)
-    sekcja = option_menu(None, ["Strona Główna", "Studenci i absolwenci", "Pracownicy", 'Badania naukowe'], 
+sekcja = option_menu(None, ["Strona Główna", "Studenci i absolwenci", "Pracownicy", 'Badania naukowe'], 
     icons=['house', 'cloud-upload', "list-task", 'gear'], 
     menu_icon="cast", default_index=0, orientation="horizontal",
     styles={
@@ -176,6 +171,10 @@ if sekcja == 'Strona główna':
         "nav-link-selected": {"background-color": "green"},
     }
     )
+
+if sekcja == 'Strona główna':
+    new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Strona główna</p>'
+    st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     st.title('Uniwersytet Mikołaja Kopernika w Toruniu w liczbach')
     st.subheader('    Uniwersytet Mikołaja Kopernika jest jednym z 43 uniwersytetów publicznych w Polsce i jedną z 10 uczelni w programie „Inicjatywa Doskonałości - Uczelnia Badawcza” , zatrudnia ponad 4000 pracowników '+
