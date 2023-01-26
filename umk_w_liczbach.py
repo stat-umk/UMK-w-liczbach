@@ -177,7 +177,7 @@ if sekcja == 'Strona główna':
 	      'i pozycja mniejszego kółka na obwodzie większego niebieskiego koła. Poniższa grafika przedstawia loga poszczególnych ' + 
 	      'wydziałów. Warto zapoznać się z barwami jednostek, ponieważ są one częścią wizualizacji znajdujących się na pozostałych stronach.'+ 
 	      ' Ich znajomość ułatwi interpretację wykresów.')
-    st.image('Image/UMKlog.png')
+    st.image('Image/UMKlog1.png')
     
     
     
