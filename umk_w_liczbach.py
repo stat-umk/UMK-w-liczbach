@@ -160,7 +160,7 @@ sekcja = option_menu(None, ["Strona główna", "Studenci i absolwenci", "Pracown
     icons=['house', 'cloud-upload', "list-task", 'gear'], 
     menu_icon="cast", default_index=0, orientation="horizontal",
     styles={
-        "container": {"padding": "0!important", "background-color": "#fafafa"},
+        "container": {"padding": "0!important", "background-color": "rgb(255,205,0)"},
         "icon": {"color": "orange", "font-size": "15px"}, 
         "nav-link": {"font-size": "15px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
         "nav-link-selected": {"background-color": "rgb(0,70,180)"},
