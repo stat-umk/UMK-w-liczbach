@@ -565,7 +565,7 @@ elif sekcja == 'Badania naukowe':
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
 			      textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Wnioski złożone: %{x:,}zł'+"<extra></extra>")
-	    fig.update_xaxes(title='Kwota wnioskowana[zł]',range=[0,y[::-1][0]+y[::-1][0]/50])
+	    fig.update_xaxes(title='Kwota wnioskowana[zł]',range=[0,y[::-1][0]+y[::-1][0]/4])
 	    fig.update_yaxes(title='Wydział')
 
 	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
@@ -624,7 +624,7 @@ elif sekcja == 'Badania naukowe':
                             textfont=dict( size=12,color='black')))
         fig.update_traces(marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,
                           textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>")
-        fig.update_xaxes(title='Kwota przyznana[zł]',range=[0,y[::-1][0]+y[::-1][0]/50])
+        fig.update_xaxes(title='Kwota przyznana[zł]',range=[0,y[::-1][0]+y[::-1][0]/4])
         fig.update_yaxes(title='Wydział')
     
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Granty przyznane',title_x=0.5,
@@ -716,7 +716,7 @@ elif sekcja == 'Badania naukowe':
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
 			      textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Wnioski złożone: %{x:,}zł'+"<extra></extra>")
-	    fig.update_xaxes(title='Kwota wnioskowana[zł]',range=[0,y[::-1][0]+y[::-1][0]/50])
+	    fig.update_xaxes(title='Kwota wnioskowana[zł]',range=[0,y[::-1][0]+y[::-1][0]/4])
 	    fig.update_yaxes(title='Wydział')
 
 	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
@@ -775,7 +775,7 @@ elif sekcja == 'Badania naukowe':
                             textfont=dict( size=12,color='black')))
         fig.update_traces(marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,
                           textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>")
-        fig.update_xaxes(title='Kwota przyznana[zł]',range=[0,y[::-1][0]+y[::-1][0]/50])
+        fig.update_xaxes(title='Kwota przyznana[zł]',range=[0,y[::-1][0]+y[::-1][0]/4])
         fig.update_yaxes(title='Wydział')
     
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Granty przyznane',title_x=0.5,
