@@ -361,7 +361,7 @@ elif sekcja == 'Studenci i absolwenci':
     fig7.update_yaxes(title='Wydział')
 
     fig7.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),barmode='group',
+                                height=600,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),barmode='group',
                                 separators =',',autosize=False)
 
     st.plotly_chart(fig7,use_container_width=True)
