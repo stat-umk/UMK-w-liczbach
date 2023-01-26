@@ -408,7 +408,7 @@ elif sekcja == 'Pracownicy':
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"),use_container_width=True)
     
     st.header("Liczba pracowników w podziale na płeć i jednostkę w latach 2014-2021")
-    y1, y2 = st.columns(1,3)
+    y1, y2 = st.columns([1,3])
     with y1:
         rok1 = st.selectbox('Wybierz rok :', lata[::-1])
     with y2:
