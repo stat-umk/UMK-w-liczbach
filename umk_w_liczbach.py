@@ -34,6 +34,7 @@ DF15 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stud_og',d
 
 DF16 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stud_og',dtype={'Rok':int})
 DF17 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Absolwenci',dtype={'Rok':int})
+DF17a = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Absolwenci1',dtype={'Rok':int})
 DF18 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Abs_og',dtype={'Rok':int})
 DF19 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr',dtype={'Rok':int})
 DF20 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Styp_min1',dtype={'Rok':int})
@@ -155,7 +156,7 @@ if sekcja == 'Strona główna':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     st.title('Uniwersytet Mikołaja Kopernika w Toruniu w liczbach')
-    st.subheader('    Uniwersytet Mikołaja Kopernika jest jednym z 43 uniwersytetów publicznych w Polsce i jedną z 10 uczelni w programie ,,Inicjatywa Doskonałości - Uczelnia Badawcza” , zatrudnia ponad 4000 pracowników '+
+    st.subheader('    Uniwersytet Mikołaja Kopernika jest jednym z 43 uniwersytetów publicznych w Polsce i jedną z 10 uczelni w programie „Inicjatywa Doskonałości - Uczelnia Badawcza” , zatrudnia ponad 4000 pracowników '+
 		 'i kształci w ramach różnych form studiów ponad 19000 studentów. Niniejsza aplikacja ma na celu prezentację wizualną danych dotyczących tej znakomitej uczelni. '+
 		 'Dane pochodzą ze sprawozdań Rektora UMK za lata 2010-2021. Dane prezentują stan na ostatni dzień danego roku. ')
     st.subheader('Uniwersytet podzielony jest na wydziały. Każdy wydział ma unikatowe logo, które charakteryzuje kolor ' +
@@ -218,8 +219,8 @@ elif sekcja == 'Studenci i absolwenci':
     elif kat34 == 'Ogółem':
         st.plotly_chart(fig1)
     st.header('Liczba absolwentów uniwersytetu')
-    ab = st.selectbox('Wybierz kategorię:    ',['Ogółem','Studia stacjonarne','Studia niestacjonarne','Studia doktoranckie','Studia podyplomowe'])	
-    st.plotly_chart(px.bar(DF17[(DF17['Kategoria']=='Absolwenci') & (DF17['Rodzaj']==ab)],x='Rok',y='Liczba',width=1500,height=500)
+    ab = st.selectbox('Wybierz kategorię:    ',['Ogółem','Studia stacjonarne i niestacjonarne','Studia stacjonarne','Studia niestacjonarne','Studia doktoranckie','Studia podyplomowe'])	
+    st.plotly_chart(px.bar(DF17a[(DF17a['Forma kształcenia']==ab)],x='Rok',y='Liczba',width=1500,height=500)
 		    .update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',textfont=dict( size=14,color='white'),hovertemplate = 'Liczba absolwentów: %{y:}')
 		    .update_xaxes(dtick=1)
 		    .update_yaxes(tickformat=" ",title='Liczba absolwentów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
