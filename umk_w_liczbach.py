@@ -144,7 +144,7 @@ color: rgb(255,255,255);}
 """,
     unsafe_allow_html=True)
 
-st.markdown("""<style>.appview-container .main .block-container{min-width: 500px;}</style>""",unsafe_allow_html=True)
+st.markdown("""<style>.appview-container .main .block-container{min-width: 2000px;}</style>""",unsafe_allow_html=True)
 st.markdown(
     """
     <style>
@@ -153,7 +153,7 @@ st.markdown(
     }
     [data-testid="stSidebar"][aria-expanded="false"] > div:first-child{
         width: 300px;
-        margin-left: -100px;
+        margin-left: -200px;
     }
      
     """,
