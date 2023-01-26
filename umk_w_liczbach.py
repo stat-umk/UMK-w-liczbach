@@ -93,7 +93,7 @@ pr_cy2 = ['Ogółem','Nauczyciele akademiccy','Profesorowie','Adiunkci','Asysten
         
 sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
-    ('Strona główna','Studenci','Pracownicy','Badania naukowe')
+    ('Strona główna','Studenci i absolwenci','Pracownicy','Badania naukowe')
  )
 #st.sidebar.image('', use_column_width=True)
 
@@ -154,8 +154,11 @@ if sekcja == 'Strona główna':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Strona główna</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
-    st.title('UNIWERSYTET MIKOŁAJA KOPERNIKA W TORUNIU')
-    st.subheader('Uniwersytet podzielony jest na wydziały. Każdy wydział ma unikatowe logo, które charakteryzuje kolor ' +
+    st.title('Uniwersytet Mikołaja Kopernika w Toruniu w liczbach')
+    st.subheader('UMK jest jednym z czterdziestu trzech uniwersytetów publicznych w Polsce i jedną z 10 uczelni w programie ,,Inicjatywa Doskonałości - Uczelnia Badawcza'', zatrudnia ponad cztery tysiące pracowników'+
+		 'i kształci w ramach różnych form studiów ... studentów. Niniejsza aplikacja ma na celu prezentację wizualną danych dotyczących tej znakomitej uczelni.'+
+		 'Dane pochodzą ze sprawozdań Rektora UMK za lata 2010-2021 Dane prezentują stan na ostatni dzień danego roku.'+
+		 'Uniwersytet podzielony jest na wydziały. Każdy wydział ma unikatowe logo, które charakteryzuje kolor ' +
 	      'i pozycja mniejszego kółka na obwodzie większego niebieskiego koła. Poniższa grafika przedstawia loga poszczególnych ' + 
 	      'wydziałów. Warto zapoznać się z barwami jednostek, ponieważ są one częścią wizualizacji znajdujących się na pozostałych stronach.'+ 
 	      ' Ich znajomość ułatwi interpretację wykresów.')
@@ -166,8 +169,8 @@ if sekcja == 'Strona główna':
     
     
     
-elif sekcja == 'Studenci':
-    new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Studenci</p>'
+elif sekcja == 'Studenci i absolwenci':
+    new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Studenci i absolwenci</p>'
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     
@@ -179,7 +182,7 @@ elif sekcja == 'Studenci':
    
     st.header('Liczba uczestników studiów w podziale na wydziały w latach 2010-2021')
     q1, q2 = st.columns(2)
-    kat34 = q1.selectbox('Wybierz kategorię : ',['Studia stacjonarne i niestacjonarne','Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe'])
+    kat34 = q1.selectbox('Wybierz kategorię : ',['Ogółem','Studia stacjonarne i niestacjonarne','Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe'])
 
     
     fig = px.bar(DF13,x='Rok',y='Liczba',width=1500,height=500).update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba uczestników',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_traces(hovertemplate = 'Liczba uczestników: %{y:}',textfont=dict( size=14),marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"))
@@ -212,7 +215,8 @@ elif sekcja == 'Studenci':
 			.update_xaxes(dtick=1)
 			.update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba studentów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
 			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
-    
+    elif kat34 == 'Ogółem':
+        st.plotly_chart(fig1)
     st.header('Liczba absolwentów na uniwersytecie w latach 2010-2021')
     ab = st.selectbox('Wybierz kategorię:    ',['Ogółem','Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe'])	
     st.plotly_chart(px.bar(DF17[(DF17['Kategoria']=='Absolwent') & (DF17['Rodzaj']==ab)],x='Rok',y='Liczba',width=1500,height=500)
