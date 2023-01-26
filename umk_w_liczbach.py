@@ -219,7 +219,7 @@ elif sekcja == 'Studenci i absolwenci':
         st.plotly_chart(fig1)
     st.header('Liczba absolwentów uniwersytetu')
     ab = st.selectbox('Wybierz kategorię:    ',['Ogółem','Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe'])	
-    st.plotly_chart(px.bar(DF17[(DF17['Kategoria']=='Absolwent') & (DF17['Rodzaj']==ab)],x='Rok',y='Liczba',width=1500,height=500)
+    st.plotly_chart(px.bar(DF17[(DF17['Kategoria']=='Absolwenci') & (DF17['Rodzaj']==ab)],x='Rok',y='Liczba',width=1500,height=500)
 		    .update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',textfont=dict( size=14,color='white'),hovertemplate = 'Liczba absolwentów: %{y:}')
 		    .update_xaxes(dtick=1)
 		    .update_yaxes(tickformat=" ",title='Liczba absolwentów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
@@ -240,7 +240,7 @@ elif sekcja == 'Studenci i absolwenci':
     
 
     st.header('Odsetek uczestników z zagranicy z uwzględnieniem formy kształcenia')
-    st.plotly_chart(px.line(DF9,x='Rok',y='Odsetek',color = 'Rodzaj',hover_name="Rodzaj",width=1500,height=500,markers=True,color_discrete_sequence=['rgb(0,80,170)','rgb(0,175,250)','rgb(250,20,20)','rgb(255,205,0)'])
+    st.plotly_chart(px.line(DF9,x='Rok',y='Odsetek',color = 'Forma kształcenia',hover_name="Forma kształcenia",width=1500,height=500,markers=True,color_discrete_sequence=['rgb(0,80,170)','rgb(0,175,250)','rgb(250,20,20)','rgb(255,205,0)'])
 		    .update_traces(textposition="top right",hovertemplate = 'Odsetek osób zagranicznych: %{y:,.2f}%',texttemplate = "%{y:.2f}%",textfont=dict( size=14))
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2021+1/5],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
 		    .update_yaxes(title_font=dict(size=12),title = 'Odsetek uczestników z zagranicy',tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')
