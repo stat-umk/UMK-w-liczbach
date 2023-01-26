@@ -153,7 +153,7 @@ st.markdown(
     }
     [data-testid="stSidebar"][aria-expanded="false"] > div:first-child{
         width: 300px;
-        margin-left: -200px;
+        margin-left: -100px;
     }
      
     """,
