@@ -218,7 +218,7 @@ elif sekcja == 'Studenci i absolwenci':
     elif kat34 == 'Ogółem':
         st.plotly_chart(fig1)
     st.header('Liczba absolwentów uniwersytetu')
-    ab = st.selectbox('Wybierz kategorię:    ',['Ogółem','Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe'])	
+    ab = st.selectbox('Wybierz kategorię:    ',['Ogółem','Studia stacjonarne','Studia niestacjonarne','Studia doktoranckie','Studia podyplomowe'])	
     st.plotly_chart(px.bar(DF17[(DF17['Kategoria']=='Absolwenci') & (DF17['Rodzaj']==ab)],x='Rok',y='Liczba',width=1500,height=500)
 		    .update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',textfont=dict( size=14,color='white'),hovertemplate = 'Liczba absolwentów: %{y:}')
 		    .update_xaxes(dtick=1)
