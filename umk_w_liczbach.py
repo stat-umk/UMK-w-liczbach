@@ -143,7 +143,7 @@ color: rgb(255,255,255);}
 </style>
 """,
     unsafe_allow_html=True)
-max_width_str = f"max-width: 2000px;"
+max_width_str = f"min-width: 2000px;"
 st.markdown(f"""<style>.reportview-container .main .block-container{{{max_width_str}}}</style>    """,unsafe_allow_html=True,)
 
 
