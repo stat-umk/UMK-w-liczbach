@@ -298,46 +298,44 @@ elif sekcja == 'Studenci i absolwenci':
 
     st.header('Stypendia ministra w podziale na wydziały wraz ze współczynnikiem skuteczności (w %)')
     r = st.selectbox('Wybierz rok : ', lata,index=9)
-    d1,d2 = st.columns(2)
-    with d1:
-    	lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
-    	x = lg.index[::-1]
-    	y = lg['Przyznane'][::-1]
-    	lg = lg.reset_index()
-    	lg['kolor']=' '
-    	for j,i in enumerate(lg['Wydział']):
-        	if i in list(kolwyd.keys()):
-            		lg['kolor'][j] = kolwyd[i]
-        	else:
-            		lg['kolor'][j] = 'rgb(0,70,180)'
-    	barwa4 = lg['kolor'][::-1]
-    	lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Złożone'].agg(np.sum)).sort_values(by='Złożone')[::-1]
-    	x1 = lg1.index[::-1]
-    	y1 = lg1['Złożone'][::-1]
-    	lg1 = lg1.reset_index()
-    	lg1['kolor']=' '
-    	for j,i in enumerate(lg1['Wydział']):
-        	if i in list(kolwyd.keys()):
-            		lg1['kolor'][j] = kolwyd[i]
-        	else:
-            		lg1['kolor'][j] = 'rgb(0,70,180)'
-    	barwa5 = lg1['kolor'][::-1]
-    	fig = go.Figure()      
-        
-    	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,hovertemplate = 'Stypendia przyznane: %{x:}'+"<extra></extra>",
-                        textfont=dict( size=12,color='black'),marker_color=barwa4,
-                      textposition='outside',texttemplate = "<b>Przyznane-%{x:}"))
-	    
-    	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>",
-                        textfont=dict( size=12,color='black'),marker_color=barwa5,
-                      textposition='outside',texttemplate = "<b>Złożone-%{x:}"))
-    	fig.update_xaxes(title='Liczba wniosków',range=[0,y1['Ogółem']+15]).update_traces(marker_line_color='black',marker_line_width=1.5)
-    	fig.update_yaxes(title='Wydział')
-    	fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
-                                height=800,width=1500,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),barmode='group',
-                                separators =',',showlegend=False)
-            
-    	st.plotly_chart(fig,use_container_width=True)
+	lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
+	x = lg.index[::-1]
+	y = lg['Przyznane'][::-1]
+	lg = lg.reset_index()
+	lg['kolor']=' '
+	for j,i in enumerate(lg['Wydział']):
+		if i in list(kolwyd.keys()):
+			lg['kolor'][j] = kolwyd[i]
+		else:
+			lg['kolor'][j] = 'rgb(0,70,180)'
+	barwa4 = lg['kolor'][::-1]
+	lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Złożone'].agg(np.sum)).sort_values(by='Złożone')[::-1]
+	x1 = lg1.index[::-1]
+	y1 = lg1['Złożone'][::-1]
+	lg1 = lg1.reset_index()
+	lg1['kolor']=' '
+	for j,i in enumerate(lg1['Wydział']):
+		if i in list(kolwyd.keys()):
+			lg1['kolor'][j] = kolwyd[i]
+		else:
+			lg1['kolor'][j] = 'rgb(0,70,180)'
+	barwa5 = lg1['kolor'][::-1]
+	fig = go.Figure()      
+
+	fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,hovertemplate = 'Stypendia przyznane: %{x:}'+"<extra></extra>",
+			textfont=dict( size=12,color='black'),marker_color=barwa4,
+		      textposition='outside',texttemplate = "<b>Przyznane-%{x:}"))
+
+	fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>",
+			textfont=dict( size=12,color='black'),marker_color=barwa5,
+		      textposition='outside',texttemplate = "<b>Złożone-%{x:}"))
+	fig.update_xaxes(title='Liczba wniosków',range=[0,y1['Ogółem']+15]).update_traces(marker_line_color='black',marker_line_width=1.5)
+	fig.update_yaxes(title='Wydział')
+	fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
+				height=800,width=1500,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),barmode='group',
+				separators =',',showlegend=False)
+
+	st.plotly_chart(fig,use_container_width=True)
          	       
     lg7 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Skuteczność'].agg(np.sum)).sort_values(by='Skuteczność')[::-1]
     x7 = lg7.index[::-1]
