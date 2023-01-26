@@ -6,7 +6,7 @@ import openpyxl
 import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
-
+from streamlit_option_menu import option_menu
 
 
 
@@ -90,13 +90,12 @@ pr_cy2 = ['Ogółem','Nauczyciele akademiccy','Profesorowie','Adiunkci','Asysten
         
         
         
-        
-        
+'''  
 sekcja = st.sidebar.radio(
     'Wybierz sekcję:',
     ('Strona główna','Studenci i absolwenci','Pracownicy','Badania naukowe')
- )
-#st.sidebar.image('', use_column_width=True)
+    '''
+
 
 streamlit_style = """
 			<style>
@@ -160,13 +159,32 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-
+sekcja = option_menu(None, ["Strona Główna", "Studenci i absolwenci", "Pracownicy", 'Badania naukowe'], 
+    icons=['house', 'cloud-upload', "list-task", 'gear'], 
+    menu_icon="cast", default_index=0, orientation="horizontal",
+    styles={
+        "container": {"padding": "0!important", "background-color": "#fafafa"},
+        "icon": {"color": "orange", "font-size": "25px"}, 
+        "nav-link": {"font-size": "25px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+        "nav-link-selected": {"background-color": "green"},
+    }
+)
 
 
 
 if sekcja == 'Strona główna':
     new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Strona główna</p>'
     st.markdown(new_title, unsafe_allow_html=True)
+    sekcja = option_menu(None, ["Strona Główna", "Studenci i absolwenci", "Pracownicy", 'Badania naukowe'], 
+    icons=['house', 'cloud-upload', "list-task", 'gear'], 
+    menu_icon="cast", default_index=0, orientation="horizontal",
+    styles={
+        "container": {"padding": "0!important", "background-color": "#fafafa"},
+        "icon": {"color": "orange", "font-size": "25px"}, 
+        "nav-link": {"font-size": "25px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+        "nav-link-selected": {"background-color": "green"},
+    }
+    )
     st.markdown('---')
     st.title('Uniwersytet Mikołaja Kopernika w Toruniu w liczbach')
     st.subheader('    Uniwersytet Mikołaja Kopernika jest jednym z 43 uniwersytetów publicznych w Polsce i jedną z 10 uczelni w programie „Inicjatywa Doskonałości - Uczelnia Badawcza” , zatrudnia ponad 4000 pracowników '+
