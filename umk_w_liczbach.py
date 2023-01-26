@@ -438,7 +438,7 @@ elif sekcja == 'Pracownicy':
 				     values=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok9)]['dydaktyczna'])])
         fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['rgb(0,165,80)','rgb(170,210,60)','rgb(250,20,20)','rgb(255,130,30)','rgb(255,205,0)']),direction ='clockwise',hovertemplate = '%{label}'+"<extra></extra>")
         fig.update_layout(title="Grupa dydaktyczna",legend=dict(x=-0.3,y=1.2),margin=dict(t=80, b=100, l=0, r=160),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',showlegend=False)
-        st.plotly_chart(fig,use_container_width=False)
+        st.plotly_chart(fig,use_container_width=True)
     
 
 
