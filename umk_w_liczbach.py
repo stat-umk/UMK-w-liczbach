@@ -389,7 +389,7 @@ elif sekcja == 'Pracownicy':
     pr = st.selectbox('Wybierz kategorię : ', ['Ogółem','Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi'])
     st.plotly_chart(px.bar(DF21[DF21['Rodzaj']==pr],x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(255,205,0)','rgb(250,20,20)']).update_traces(customdata=DF21[DF21['Rodzaj']==pr].groupby('Rok')['Liczba'].agg(np.sum)[::-1],texttemplate="%{y:}",hovertemplate = 'Liczba ogółem: %{customdata}'+"<extra></extra>",
 	textposition='inside',textfont=dict( size=14))
-	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
+	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")),use_container_width=True)
 	
     st.header('Zmiana liczby pracowników na uniwersytecie w stosunku do roku poprzedniego w latach 2013-2021')
     pr1 = st.selectbox('Wybierz kategorię   : ', ['Ogółem','Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi'])
@@ -397,7 +397,7 @@ elif sekcja == 'Pracownicy':
 		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}%",textfont=dict( size=14),hovertemplate = 'Zmiana liczby pracowników: %{y:,.2f}%')
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2012.95,2021.5],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
 		    .update_yaxes(title_font=dict(size=12),title = 'Zmiana liczby pracowników[%]',tickformat=",",range=[-8,8],zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')                        
-		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"))
+		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"),use_container_width=True)
 	
 	
     st.header('Liczba pracowników niebędących nauczycielami akademickimi przypadających na jednego nauczyciela na uniwersytecie w latach 2012-2021')
@@ -405,7 +405,7 @@ elif sekcja == 'Pracownicy':
 		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}",textfont=dict( size=14),hovertemplate = 'Stosunek liczby nienauczycieli do nauczycieli: %{y:,.2f}')
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2011.95,2021.5],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
 		    .update_yaxes(title_font=dict(size=12),title = 'Stosunek nienauczycieli do nauczycieli',tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')                        
-		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"))
+		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"),use_container_width=True)
     
     st.header("Liczba pracowników w podziale na płeć i jednostkę w latach 2014-2021")
     y1, y2 = st.columns(2)
@@ -416,7 +416,7 @@ elif sekcja == 'Pracownicy':
 				     values=DF23[DF23['Rok']==rok1].sort_values(by='Płeć')['Liczba'])])
         fig7.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['rgb(255,205,0)','rgb(255,220,0)','rgb(0,80,170)','rgb(0,80,220)']),direction ='clockwise',hovertemplate = '%{label}'+"<extra></extra>")
         fig7.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',margin=dict(t=0, b=0, l=20, r=0))
-        st.plotly_chart(fig7)
+        st.plotly_chart(fig7,use_container_width=True)
         
     st.header("Liczba nauczycieli akademickich na uniwersytecie w poszczególnych grupach w latach 2019-2021")
     rok9 = st.selectbox('Wybierz rok:', lata[::-1])
@@ -427,21 +427,21 @@ elif sekcja == 'Pracownicy':
 				     values=DF[(DF['badawcza']!=0) & (DF['Rok']==rok9)]['badawcza'])])
         fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['rgb(0,165,80)','rgb(170,210,60)','rgb(250,20,20)','rgb(255,130,30)']),direction ='clockwise',hovertemplate = '%{label}'+"<extra></extra>")
         fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
-        st.plotly_chart(fig)
+        st.plotly_chart(fig,use_container_width=True)
     with k2:
         st.subheader("Grupa badawczo-dydaktyczna")
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok9)]['Stanowisko'],sort=False,
 				     values=DF[(DF['badawcza-dydaktyczna']!=0) & (DF['Rok']==rok9)]['badawcza-dydaktyczna'])])
         fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['rgb(0,165,80)','rgb(170,210,60)','rgb(250,20,20)','rgb(255,130,30)']),direction ='clockwise',hovertemplate = '%{label}'+"<extra></extra>")
         fig.update_layout(legend=dict(x=0,y=1.2),margin=dict(t=80, b=100, l=0, r=100),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
-        st.plotly_chart(fig)     
+        st.plotly_chart(fig,use_container_width=True)     
     with k3:
         st.subheader("Grupa dydaktyczna")
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok9)]['Stanowisko'],sort=False,
 				     values=DF[(DF['dydaktyczna']!=0) & (DF['Rok']==rok9)]['dydaktyczna'])])
         fig.update_traces(textfont=dict( size=14),textinfo='value+percent',marker=dict( colors=['rgb(0,165,80)','rgb(170,210,60)','rgb(250,20,20)','rgb(255,130,30)','rgb(255,205,0)']),direction ='clockwise',hovertemplate = '%{label}'+"<extra></extra>")
         fig.update_layout(legend=dict(x=-0.3,y=1.2),margin=dict(t=80, b=100, l=0, r=160),plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
-        st.plotly_chart(fig)
+        st.plotly_chart(fig,use_container_width=True)
     
 
 
@@ -454,9 +454,9 @@ elif sekcja == 'Pracownicy':
     if gz == 'Włącz':
 	    fig5 = px.line(DF25,x='Rok',y='Liczba',color_discrete_sequence=['rgb(0,80,170)'],markers=True).update_traces(textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}",hovertemplate = 'Średnia liczba pracowników: %{y:,.2f}').update_yaxes(tickformat=",").update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
 	    fig4.add_trace(fig5.data[0])
-	    st.plotly_chart(fig4)
+	    st.plotly_chart(fig4,use_container_width=True)
     else:
-        st.plotly_chart(fig4)
+        st.plotly_chart(fig4,use_container_width=True)
 
     
     st.header('Zmiana liczby nauczycieli akademickich w porównaniu do roku poprzedniego na wybranych wydziałach w latach 2011-2021')
@@ -465,7 +465,7 @@ elif sekcja == 'Pracownicy':
 		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,.2f}%",textfont=dict( size=14),hovertemplate = 'Zmiana liczby nauczycieli akademickich: %{y:,.2f}%')
 		    .update_yaxes(title='Zmiana liczby nauczycieli[%]',tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)')
 		    .update_xaxes(dtick=1,range=[np.min(DF24[(DF24['Wydział'].isin(wydz31)) & (DF24['Zmiana'].notna())]['Rok'])-1/5,np.max(DF24[(DF24['Wydział'].isin(wydz31)) & (DF24['Zmiana'].notna())]['Rok'])+1/5],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
-		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"))
+		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"),use_container_width=True)
 
     st.header('Liczba studentów przypadających na jednego nauczyciela akademickiego w podziale na wydziały w latach 2010-2021')
     wydz19 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique(),['Ogółem','Matematyki i Informatyki'])
@@ -473,20 +473,20 @@ elif sekcja == 'Pracownicy':
 		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,.2f}",textfont=dict( size=14),hovertemplate = 'Liczba studentów na jednego nauczyciela: %{y:,.2f}')
 		    .update_yaxes(tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray',title='Stosunek liczby studentów do nauczycieli')
 		    .update_xaxes(dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',range=[2010-1/5,2021+1/5])
-		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"))
+		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"),use_container_width=True)
 
     st.header('Liczba awansów nauczycieli akademickich w podziale na jednostki w latach 2019-2021')
     aw = st.selectbox('Wybierz kategorię :         ', ['Profesor','Doktor habilitowany','Doktor'])
     st.plotly_chart(px.bar(DF35[DF35['Tytuł']==aw],x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(255,205,0)','rgb(250,20,20)']).update_traces(customdata=DF35[DF35['Tytuł']==aw].groupby('Rok')['Liczba'].agg(np.sum)[::-1],texttemplate="%{y:}",textfont=dict( size=14),
 	textposition='inside',hovertemplate = 'Liczba ogółem: %{customdata}'+'<extra></extra>')
-	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba awansów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
+	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba awansów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")),use_container_width=True)
 	
 	
 	
     st.header('Liczba pracowników niepełnosprawnych na uniwersytecie w latach 2014-2021')
     st.plotly_chart(px.bar(DF27,x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(255,205,0)','rgb(250,20,20)']).update_traces(customdata=DF27.groupby('Rok')['Liczba'].agg(np.sum)[::-1],texttemplate="%{y:}",textfont=dict( size=14),
 	textposition='inside',hovertemplate = 'Liczba ogółem: %{customdata}'+'<extra></extra>')
-	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników niepełnosprawnych',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")))
+	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników niepełnosprawnych',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")),use_container_width=True)
     
 	
 	
@@ -509,7 +509,7 @@ elif sekcja == 'Pracownicy':
 		    .update_traces(textposition='top right',texttemplate="%{y:}",textfont=dict( size=14),hovertemplate = 'Przeciętne wynagrodzenie: %{y:}zł')
 		    .update_yaxes(title='Przeciętne wynagrodzenie',tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)',rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')
 		    .update_xaxes(dtick=1,range=[np.min(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])-1/5,np.max(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])+1/5],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
-		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"))
+		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"),use_container_width=True)
 	
   
 	
@@ -525,9 +525,9 @@ elif sekcja == 'Pracownicy':
 	    fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))].sort_values(by=['Kategoria','Rok'],key=lambda x: x.map(pr_cy1)),x='Rok',y='Zmiana', color='Kategoria',width=1500,height=500,markers=True,color_discrete_sequence=list(map(lambda x: pr_cy[x],sorted([wydz1111,wydz2222],key=lambda x: pr_cy1[x])))).update_yaxes(tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',title='Zmiana przeciętnego wynagrodzenia[%]').update_traces(textfont=dict( size=14),texttemplate="%{y:.2f}%",textposition='top right',hovertemplate = 'Zmiana przeciętnego wynagrodzenia: %{y:,.2f}%').update_xaxes(range=[2013-1/5,2021+1/5],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
 	    fig55 = px.line(DF30,x='Rok',y='Inflacja',color_discrete_sequence=['red'],markers=True,custom_data=['dr']).update_traces(textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}%",hovertemplate ='<br>Okres: %{customdata}</br>'+'Inflacja w Polsce: %{y:,.2f}%').update_yaxes(tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray').update_xaxes(showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
 	    fig44.add_trace(fig55.data[0])
-	    st.plotly_chart(fig44)
+	    st.plotly_chart(fig44,use_container_width=True)
     else:
-        st.plotly_chart(fig44)
+        st.plotly_chart(fig44,use_container_width=True)
     
 
    
