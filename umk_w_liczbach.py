@@ -571,7 +571,7 @@ elif sekcja == 'Badania naukowe':
 	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
 					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
 
-	    st.plotly_chart(fig)
+	    st.plotly_chart(fig,use_container_width=True)
     elif (li == 'Liczba') and (roki in [2019,2020,2021]):
 	    lw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
 	    x = lw.index[::-1]
@@ -599,7 +599,7 @@ elif sekcja == 'Badania naukowe':
 					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
 					separators =',')
 
-	    st.plotly_chart(fig)	
+	    st.plotly_chart(fig,use_container_width=True)	
     
     else:
         st.write('*dla wybranego roku nie dysponujemy danymi')
@@ -630,7 +630,7 @@ elif sekcja == 'Badania naukowe':
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Granty przyznane',title_x=0.5,
                                     height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
     
-        st.plotly_chart(fig) 
+        st.plotly_chart(fig,use_container_width=True) 
      
 
     else:
@@ -660,7 +660,7 @@ elif sekcja == 'Badania naukowe':
                                     height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
                                     separators =',')
     
-        st.plotly_chart(fig)
+        st.plotly_chart(fig,use_container_width=True)
     
     
     
@@ -689,7 +689,7 @@ elif sekcja == 'Badania naukowe':
 	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Współczynnik skuteczności',title_x=0.5,
 					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),separators=',')
 
-	    st.plotly_chart(fig)
+	    st.plotly_chart(fig,use_container_width=True)
     else:
         st.write('*dla wybranego roku nie dysponujemy danymi')
         
@@ -722,7 +722,7 @@ elif sekcja == 'Badania naukowe':
 	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
 					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
 
-	    st.plotly_chart(fig)
+	    st.plotly_chart(fig,use_container_width=True)
     elif (li1 == 'Liczba') and (roki1 in [2019,2020,2021]):
 	    lw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
 	    x = lw.index[::-1]
@@ -750,7 +750,7 @@ elif sekcja == 'Badania naukowe':
 					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
 					separators =',')
 
-	    st.plotly_chart(fig)	
+	    st.plotly_chart(fig,use_container_width=True)	
     
     else:
         st.write('*dla wybranego roku nie dysponujemy danymi')
@@ -781,7 +781,7 @@ elif sekcja == 'Badania naukowe':
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Granty przyznane',title_x=0.5,
                                     height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
     
-        st.plotly_chart(fig) 
+        st.plotly_chart(fig,use_container_width=True) 
      
 
     elif (li1 == 'Liczba') and (roki1 in [2015,2016,2017,2018,2019,2020,2021]):
@@ -811,7 +811,7 @@ elif sekcja == 'Badania naukowe':
                                     height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
                                     separators =',')
     
-        st.plotly_chart(fig)
+        st.plotly_chart(fig,use_container_width=True)
     
     else:
         st.write('*dla wybranego roku nie dysponujemy danymi')
@@ -842,7 +842,7 @@ elif sekcja == 'Badania naukowe':
 	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Współczynnik skuteczności',title_x=0.5,
 					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),separators=',')
 
-	    st.plotly_chart(fig)
+	    st.plotly_chart(fig,use_container_width=True)
     else:
         st.write('*dla wybranego roku nie dysponujemy danymi')
 	
