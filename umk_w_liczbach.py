@@ -155,7 +155,7 @@ if sekcja == 'Strona główna':
     st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     st.title('Uniwersytet Mikołaja Kopernika w Toruniu w liczbach')
-    st.subheader('    Uniwersytet Mikołaja Kopernika jest jednym z 43 uniwersytetów publicznych w Polsce i jedną z 10 uczelni w programie ,,Inicjatywa Doskonałości - Uczelnia Badawcza'' , zatrudnia ponad 4000 pracowników '+
+    st.subheader('    Uniwersytet Mikołaja Kopernika jest jednym z 43 uniwersytetów publicznych w Polsce i jedną z 10 uczelni w programie ,,Inicjatywa Doskonałości - Uczelnia Badawcza” , zatrudnia ponad 4000 pracowników '+
 		 'i kształci w ramach różnych form studiów ponad 19000 studentów. Niniejsza aplikacja ma na celu prezentację wizualną danych dotyczących tej znakomitej uczelni. '+
 		 'Dane pochodzą ze sprawozdań Rektora UMK za lata 2010-2021. Dane prezentują stan na ostatni dzień danego roku. ')
     st.subheader('Uniwersytet podzielony jest na wydziały. Każdy wydział ma unikatowe logo, które charakteryzuje kolor ' +
