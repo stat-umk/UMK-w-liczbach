@@ -168,8 +168,6 @@ sekcja = option_menu(None, ["Strona główna", "Studenci i absolwenci", "Pracown
     )
 
 if sekcja == 'Strona główna':
-    new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Strona główna</p>'
-    st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     st.title('Uniwersytet Mikołaja Kopernika w Toruniu w liczbach')
     st.subheader('    Uniwersytet Mikołaja Kopernika jest jednym z 43 uniwersytetów publicznych w Polsce i jedną z 10 uczelni w programie „Inicjatywa Doskonałości - Uczelnia Badawcza” , zatrudnia ponad 4000 pracowników '+
@@ -187,8 +185,6 @@ if sekcja == 'Strona główna':
     
     
 elif sekcja == 'Studenci i absolwenci':
-    new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Studenci i absolwenci</p>'
-    st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     
     st.header('Liczba kierunków studiów')
@@ -381,8 +377,6 @@ elif sekcja == 'Studenci i absolwenci':
     
     
 elif sekcja == 'Pracownicy':
-    new_title = '<b style="color:rgb(0, 80, 170); font-size: 60px;">Pracownicy</p>'
-    st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     
     st.header('Liczba pracowników na uniwerystecie w latach 2012-2021')
@@ -540,8 +534,6 @@ elif sekcja == 'Pracownicy':
       
       
 elif sekcja == 'Badania naukowe':
-    new_title = '<b style="color:rgb(0, 80, 170); font-size: 62px;">Badania naukowe</p>'
-    st.markdown(new_title, unsafe_allow_html=True)
     st.markdown('---')
     st.header('Granty NCN')
     roki = st.selectbox('Wybierz rok:   '   ,lata[::-1])
