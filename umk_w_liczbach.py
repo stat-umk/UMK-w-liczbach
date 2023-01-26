@@ -159,16 +159,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-sekcja = option_menu(None, ["Strona Główna", "Studenci i absolwenci", "Pracownicy", 'Badania naukowe'], 
-    icons=['house', 'cloud-upload', "list-task", 'gear'], 
-    menu_icon="cast", default_index=0, orientation="horizontal",
-    styles={
-        "container": {"padding": "0!important", "background-color": "#fafafa"},
-        "icon": {"color": "orange", "font-size": "25px"}, 
-        "nav-link": {"font-size": "25px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-        "nav-link-selected": {"background-color": "green"},
-    }
-)
+
 
 
 
