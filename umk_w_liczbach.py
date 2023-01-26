@@ -161,7 +161,7 @@ st.markdown(
 
 
 
-sekcja = option_menu(None, ["Strona Główna", "Studenci i absolwenci", "Pracownicy", 'Badania naukowe'], 
+sekcja = option_menu(None, ["Strona główna", "Studenci i absolwenci", "Pracownicy", 'Badania naukowe'], 
     icons=['house', 'cloud-upload', "list-task", 'gear'], 
     menu_icon="cast", default_index=0, orientation="horizontal",
     styles={
