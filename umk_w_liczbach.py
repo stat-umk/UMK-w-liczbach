@@ -242,7 +242,7 @@ elif sekcja == 'Studenci i absolwenci':
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")),use_container_width=True)
 	
     st.header('Zmiana liczby studentów i absolwentów w stosunku do roku poprzedniego (w %)')
-    kat43 = st.selectbox('Wybierz kategorię :   ',['Ogółem','Studia stacjonarne','Studia niestacjonarne','Doktoranckie','Podyplomowe'])
+    kat43 = st.selectbox('Wybierz kategorię :   ',['Ogółem','Studia stacjonarne','Studia niestacjonarne','Studia doktoranckie','Studia podyplomowe'])
     st.plotly_chart(px.line(DF17[DF17['Rodzaj']==kat43],x='Rok',y='Zmiana[%]',color = 'Kategoria',hover_name="Kategoria",markers=True,width=1500,height=500,color_discrete_sequence=['rgb(255,205,0)','rgb(0,70,180)'])
 		    .update_traces(hovertemplate = 'Zmiana liczby: %{y:,.2f}%',textposition="top right",texttemplate = "%{y:,.2f}%",textfont=dict( size=14))
 	.update_xaxes(title_font=dict(size=12), title='Rok',range=[2010.95,2021+1/5],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
