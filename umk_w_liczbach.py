@@ -541,9 +541,9 @@ elif sekcja == 'Pracownicy':
       
 elif sekcja == 'Badania naukowe':
     st.markdown('---')
-    st.header('Granty NCN')
+    st.header('Granty Narodowego Centrum Nauki')
     roki = st.selectbox('Wybierz rok:   '   ,lata[::-1])
-    li = st.selectbox('Wybierz rodzaj:',['Liczba','Kwota'])
+    li = st.selectbox('Wybierz podsumowanie:',['Liczba','Kwota'])
     if (li == 'Kwota') and (roki in [2019,2020,2021]) :		       
 	    kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
 	    x = kw.index[::-1]
