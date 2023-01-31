@@ -414,7 +414,7 @@ elif sekcja == 'Pracownicy':
         fig7.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',margin=dict(t=0, b=0, l=20, r=0),showlegend=False)
         st.plotly_chart(fig7,use_container_width=True)
         
-    st.header("Liczba nauczycieli akademickich na uniwersytecie w poszczególnych grupach w latach 2019-2021")
+    st.header("Porównanie liczby nauczycieli akademickich na wybranych wydziałach")
     rok9 = st.selectbox('Wybierz rok:', lata[::-1])
     k1,k2,k3 = st.columns(3) 
     with k1:
@@ -438,11 +438,11 @@ elif sekcja == 'Pracownicy':
     
 
 
-    st.header('Porównanie liczby nauczycieli akademickich na wybranych wydziałach wraz z wydziałem średnim w latach 2010-2021')
+    st.header('Porównanie liczby nauczycieli akademickich na wybranych wydziałach wraz z wydziałem średnim')
     q111, q222 = st.columns(2)
     wydz123 = q111.selectbox('Wybierz wydział :                                                                          ',DF24[DF24['Wydział']!='Ogółem']['Wydział'].unique(),index=2)
     wydz222 = q222.selectbox('Wybierz wydział :                                                                        ',DF24[DF24['Wydział']!='Ogółem']['Wydział'].unique(),index=3)
-    gz = st.radio('Średnia liczba nauczycieli akademickich na wydziałach - Włącz/Wyłącz:',('Włącz','Wyłącz'))
+    gz = st.radio('Średnio na 1 wydział UMK - Włącz/Wyłącz:',('Włącz','Wyłącz'))
     fig4 = px.bar(DF24[(DF24['Wydział'].isin([wydz123,wydz222]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_map={wydz123: kolwyd1[wydz123],wydz222: kolwyd1[wydz222]},pattern_shape="Wydział").update_yaxes(tickformat=",",showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',title='Liczba nauczycieli akademickich').update_traces(textfont=dict( size=14),texttemplate="%{y:}",textposition='inside',hovertemplate = 'Liczba nauczycieli akademickich: %{y:}').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
     if gz == 'Włącz':
 	    fig5 = px.line(DF25,x='Rok',y='Liczba',color_discrete_sequence=['rgb(0,80,170)'],markers=True).update_traces(textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}",hovertemplate = 'Średnia liczba pracowników: %{y:,.2f}').update_yaxes(tickformat=",").update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
@@ -452,13 +452,15 @@ elif sekcja == 'Pracownicy':
         st.plotly_chart(fig4,use_container_width=True)
 
     
-    st.header('Zmiana liczby nauczycieli akademickich w porównaniu do roku poprzedniego na wybranych wydziałach w latach 2011-2021')
+    st.header('Zmiana liczby nauczycieli akademickich w stosunku do roku poprzedniego w podziale na wydziały.')
     wydz31 = st.multiselect('Wybierz wydział   :  ',DF12['Wydział'].unique(),['Ogółem','Matematyki i Informatyki'])
     st.plotly_chart(px.line(DF24[(DF24['Wydział'].isin(wydz31))].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz31))))
 		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,.2f}%",textfont=dict( size=14),hovertemplate = 'Zmiana liczby nauczycieli akademickich: %{y:,.2f}%')
 		    .update_yaxes(title='Zmiana liczby nauczycieli[%]',tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)')
 		    .update_xaxes(dtick=1,range=[np.min(DF24[(DF24['Wydział'].isin(wydz31)) & (DF24['Zmiana'].notna())]['Rok'])-1/5,np.max(DF24[(DF24['Wydział'].isin(wydz31)) & (DF24['Zmiana'].notna())]['Rok'])+1/5],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"),use_container_width=True)
+    st.write('Wartości poniżej 0 oznaczają spadek liczby studentów względem roku poprzedniego, a powyżej - wzrost.')
+
 
     st.header('Liczba studentów przypadających na jednego nauczyciela akademickiego w podziale na wydziały w latach 2010-2021')
     wydz19 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique(),['Ogółem','Matematyki i Informatyki'])
