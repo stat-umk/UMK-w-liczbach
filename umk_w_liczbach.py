@@ -403,7 +403,7 @@ elif sekcja == 'Pracownicy':
 		    .update_yaxes(title_font=dict(size=12),title = 'Stosunek nienauczycieli do nauczycieli',tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')                        
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"), legend_title_text='Kampus', separators=',',hovermode="x"),use_container_width=True)
     
-    st.header("Liczba pracowników w podziale na płeć i jednostkę w latach 2014-2021")
+    st.header("Struktura pracowników w podziale na płeć i kampusy")
     y1, y2 = st.columns([1,3])
     with y1:
         rok1 = st.selectbox('Wybierz rok :', lata[::-1])
