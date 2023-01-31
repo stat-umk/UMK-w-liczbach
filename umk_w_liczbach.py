@@ -692,7 +692,7 @@ elif sekcja == 'Badania naukowe':
         st.write('*dla wybranego roku nie dysponujemy danymi')
         
         
-    st.header('Granty MEiN')
+    st.header('Granty ministerstwa właściwego ds. nauki')
     roki1 = st.selectbox('Wybierz rok: ',lata[::-1])
     li1 = st.selectbox('Wybierz rodzaj: ',['Liczba','Kwota'])
     if (li1 == 'Kwota') and (roki1 in [2019,2020,2021]) :		       
