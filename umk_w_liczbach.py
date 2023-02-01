@@ -286,10 +286,11 @@ elif sekcja == 'Studenci i absolwenci':
     
 
     st.header('Zmiana liczby studentów w stosunku do roku poprzedniego w podziale na wydziały')
+	df['Course'] = df['Course'].replace(['Spark'],'Pyspark')
     DF12_1 = DF12
-    DF12_1=DF12_1[DF12_1['Wydział'] == 'Ogółem']['Wydział'] = 'Ogółem UMK'
+    DF12_1[DF12_1['Wydział'] == 'Ogółem']['Wydział'] = DF12_1[DF12_1['Wydział'] == 'Ogółem']['Wydział'].replace(['Ogółem'],'Ogółem UMK')
     DF15_1 = DF15
-    DF15_1=DF15_1[DF15_1['Wydział'] == 'Ogółem']['Wydział'] = 'Ogółem UMK'
+    DF15_1[DF15_1['Wydział'] == 'Ogółem']['Wydział'] = DF15_1[DF15_1['Wydział'] == 'Ogółem']['Wydział'].replace(['Ogółem'],'Ogółem UMK')
     st.dataframe(DF15_1)
     wydz1 = st.multiselect('Wybierz wydział :    ',DF12_1['Wydział'].unique(),['Ogółem UMK','Matematyki i Informatyki'])
     st.plotly_chart(px.line(DF15_1[(DF15_1['Wydział'].isin(wydz1))].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',hover_name="Wydział",color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz1))))
