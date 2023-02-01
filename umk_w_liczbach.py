@@ -286,7 +286,6 @@ elif sekcja == 'Studenci i absolwenci':
     
 
     st.header('Zmiana liczby studentów w stosunku do roku poprzedniego w podziale na wydziały')
-	df['Course'] = df['Course'].replace(['Spark'],'Pyspark')
     DF12_1 = DF12
     DF12_1[DF12_1['Wydział'] == 'Ogółem']['Wydział'] = DF12_1[DF12_1['Wydział'] == 'Ogółem']['Wydział'].replace(['Ogółem'],'Ogółem UMK')
     DF15_1 = DF15
