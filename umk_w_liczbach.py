@@ -722,7 +722,7 @@ elif sekcja == 'Badania naukowe':
     st.header('Granty ministerstwa właściwego ds. nauki')
     roki1 = st.selectbox('Wybierz rok: ',lata[::-1])
     li1 = st.selectbox('Wybierz rodzaj: ',['Liczba','Kwota'])
-    if (li1 == 'Kwota') and (roki1 in [2019,2020,2021]) :		       
+    if (li1 == 'Kwota')  :		       
 	    kw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
 	    x = kw.index[::-1]
 	    y = kw['Kwota wnioskowana[zł]'][::-1]
