@@ -587,7 +587,7 @@ elif sekcja == 'Badania naukowe':
                           textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>"))
     
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
-        				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożone',marker_pattern_shape="x",
+        				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='AZłożone',marker_pattern_shape="x",
         			      textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Wnioski złożone: %{x:,}zł'+"<extra></extra>"))
         fig.update_xaxes(title='Kwota wnioskowana[zł]')#,range=[0,y[::-1][0]+y[::-1][0]/4])
         fig.update_yaxes(title='Wydział')
