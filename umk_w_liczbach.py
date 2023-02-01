@@ -592,7 +592,8 @@ elif sekcja == 'Badania naukowe':
         fig.update_xaxes(title='Kwota wnioskowana[zł]')#,range=[0,y[::-1][0]+y[::-1][0]/4])
         fig.update_yaxes(title='Wydział')
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
-        					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
+        					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
+			 legend_title_text='Rodzaj wniosku')
         
         st.plotly_chart(fig,use_container_width=True)
 	    
