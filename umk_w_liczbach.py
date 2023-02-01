@@ -515,7 +515,7 @@ elif sekcja == 'Pracownicy':
 		    .update_yaxes(title='Przeciętne wynagrodzenie',tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)',rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')
 		    .update_xaxes(dtick=1,range=[np.min(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])-1/5,np.max(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])+1/5],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"),use_container_width=True)
-    st.write('Średnia krajowa na podstawie danych GUS [tu wklej link do strony z której wziąłeś dane Tomeczku]')
+    st.write('Średnia krajowa na podstawie danych GUS https://wynagrodzenia.pl/gus')
 	
   
 	
@@ -534,7 +534,8 @@ elif sekcja == 'Pracownicy':
 	    st.plotly_chart(fig44,use_container_width=True)
     else:
         st.plotly_chart(fig44,use_container_width=True)
-    st.write('Wartości poniżej 0 oznaczają spadek liczby studentów względem roku poprzedniego, a powyżej - wzrost. tu też wklej link do strony Tomeczku skąd dane dot inflacji')
+    st.write('Wartości poniżej 0 oznaczają spadek liczby studentów względem roku poprzedniego, a powyżej - wzrost.')
+    st.write('Dane o inflacji  https://stat.gov.pl/obszary-tematyczne/ceny-handel/wskazniki-cen/wskazniki-cen-towarow-i-uslug-konsumpcyjnych-pot-inflacja-/roczne-wskazniki-cen-towarow-i-uslug-konsumpcyjnych/')
     
 
    
