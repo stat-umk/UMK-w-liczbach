@@ -461,7 +461,7 @@ elif sekcja == 'Pracownicy':
     DF12_1['Wydział'] = DF12_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')
     DF24_1 = DF24
     DF24_1['Wydział'] = DF24_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')	
-    wydz31 = st.multiselect('Wybierz wydział   :  ',DF12_1['Wydział'].unique(),['Ogółem','Matematyki i Informatyki'])
+    wydz31 = st.multiselect('Wybierz wydział   :  ',DF12_1['Wydział'].unique(),['Ogółem UMK','Matematyki i Informatyki'])
     st.plotly_chart(px.line(DF24_1[(DF24_1['Wydział'].isin(wydz31))].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz31))))
 		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,.2f}%",textfont=dict( size=14),hovertemplate = 'Zmiana liczby nauczycieli akademickich: %{y:,.2f}%')
 		    .update_yaxes(title='Zmiana liczby nauczycieli[%]',tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)')
@@ -473,7 +473,7 @@ elif sekcja == 'Pracownicy':
     st.header('Liczba studentów przypadających na jednego nauczyciela akademickiego w podziale na wydziały')  	
     DF26_1 = DF26
     DF26_1['Wydział'] = DF26_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')
-    wydz19 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique(),['Ogółem','Matematyki i Informatyki'])
+    wydz19 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique(),['Ogółem UMK','Matematyki i Informatyki'])
     st.plotly_chart(px.line(DF26_1[(DF26_1['Wydział'].isin(wydz19))].sort_values(by=['Wydział','Rok']),x='Rok',y='Stosunek',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz19))))
 		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,.2f}",textfont=dict( size=14),hovertemplate = 'Liczba studentów na jednego nauczyciela: %{y:,.2f}')
 		    .update_yaxes(tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray',title='Stosunek liczby studentów do nauczycieli')
