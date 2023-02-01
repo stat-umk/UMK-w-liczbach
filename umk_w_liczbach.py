@@ -290,7 +290,6 @@ elif sekcja == 'Studenci i absolwenci':
     DF12_1['Wydział'] = DF12_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')
     DF15_1 = DF15
     DF15_1['Wydział'] = DF15_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')
-    st.dataframe(DF15_1)
     wydz1 = st.multiselect('Wybierz wydział :    ',DF12_1['Wydział'].unique(),['Ogółem UMK','Matematyki i Informatyki'])
     st.plotly_chart(px.line(DF15_1[(DF15_1['Wydział'].isin(wydz1))].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',hover_name="Wydział",color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz1))))
 		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,d}",textfont=dict( size=14),hovertemplate='Zmiana liczby studentów: %{y:,.2f}%')
@@ -458,8 +457,12 @@ elif sekcja == 'Pracownicy':
 
     
     st.header('Zmiana liczby nauczycieli akademickich w stosunku do roku poprzedniego w podziale na wydziały.')
-    wydz31 = st.multiselect('Wybierz wydział   :  ',DF12['Wydział'].unique(),['Ogółem','Matematyki i Informatyki'])
-    st.plotly_chart(px.line(DF24[(DF24['Wydział'].isin(wydz31))].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz31))))
+    DF12_1 = DF12
+    DF12_1['Wydział'] = DF12_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')
+    DF24_1 = DF24
+    DF24_1['Wydział'] = DF24_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')	
+    wydz31 = st.multiselect('Wybierz wydział   :  ',DF12_1['Wydział'].unique(),['Ogółem','Matematyki i Informatyki'])
+    st.plotly_chart(px.line(DF24_1[(DF24_1['Wydział'].isin(wydz31))].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz31))))
 		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,.2f}%",textfont=dict( size=14),hovertemplate = 'Zmiana liczby nauczycieli akademickich: %{y:,.2f}%')
 		    .update_yaxes(title='Zmiana liczby nauczycieli[%]',tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)')
 		    .update_xaxes(dtick=1,range=[np.min(DF24[(DF24['Wydział'].isin(wydz31)) & (DF24['Zmiana'].notna())]['Rok'])-1/5,np.max(DF24[(DF24['Wydział'].isin(wydz31)) & (DF24['Zmiana'].notna())]['Rok'])+1/5],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
@@ -467,9 +470,11 @@ elif sekcja == 'Pracownicy':
     st.write('Wartości poniżej 0 oznaczają spadek liczby studentów względem roku poprzedniego, a powyżej - wzrost.')
 
 
-    st.header('Liczba studentów przypadających na jednego nauczyciela akademickiego w podziale na wydziały')
+    st.header('Liczba studentów przypadających na jednego nauczyciela akademickiego w podziale na wydziały')  	
+    DF26_1 = DF26
+    DF26_1['Wydział'] = DF26_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')
     wydz19 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique(),['Ogółem','Matematyki i Informatyki'])
-    st.plotly_chart(px.line(DF26[(DF26['Wydział'].isin(wydz19))].sort_values(by=['Wydział','Rok']),x='Rok',y='Stosunek',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz19))))
+    st.plotly_chart(px.line(DF26_1[(DF26_1['Wydział'].isin(wydz19))].sort_values(by=['Wydział','Rok']),x='Rok',y='Stosunek',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz19))))
 		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,.2f}",textfont=dict( size=14),hovertemplate = 'Liczba studentów na jednego nauczyciela: %{y:,.2f}')
 		    .update_yaxes(tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray',title='Stosunek liczby studentów do nauczycieli')
 		    .update_xaxes(dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',range=[2010-1/5,2021+1/5])
