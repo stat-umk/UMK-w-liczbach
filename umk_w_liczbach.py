@@ -72,7 +72,7 @@ kolwyd1 = {'Nauk Biologicznych i Weterynaryjnych (2019-2021)':kolor['zielony'],'
           'Filozofii i Nauk Społecznych (2019-2021)':kolor['fioletowy'],'Matematyki i Informatyki':kolor['oliwkowy'],'Nauk Ekonomicznych i Zarządzania':kolor['fioletowy'],
           'Nauk Historycznych':kolor['niebieski'],'Nauk o Ziemi (2012-2018)':kolor['zielony'],'Nauk Pedagogicznych (2010-2018)':kolor['fioletowy'],'Politologii i Studiów Międzynarodowych (2010-2018)':kolor['fioletowy'],
           'Nauk o Ziemi i Gospodarki Przestrzennej (2019-2021)':kolor['oliwkowy'],'Nauk o Polityce i Bezpieczeństwie (2019-2021)':kolor['fioletowy'],'Prawa i Administracji':kolor['fioletowy'],'Sztuk Pięknych':kolor['pomarańczowy'],
-          'Teologiczny':kolor['zielony'],'Lekarski':kolor['czerwony'],'Farmaceutyczny':kolor['czerwony'],'Nauk o Zdrowiu':kolor['czerwony'],'Ogółem':'rgb(0,80,170)',
+          'Teologiczny':kolor['zielony'],'Lekarski':kolor['czerwony'],'Farmaceutyczny':kolor['czerwony'],'Nauk o Zdrowiu':kolor['czerwony'],'Ogółem':'rgb(0,80,170)','Ogółem UMK':'rgb(0,80,170)',
 	 'Interdyscyplinarne Centrum Nowoczesnych Technologii':kolor['oliwkowy'],'Biologii i Nauk o Ziemi (2010-2011)':kolor['zielony']}
 kolwyd = {'Nauk Biologicznych i Weterynaryjnych':kolor['zielony'],'Biologii i Ochrony Środowiska':kolor['zielony'],'Filologiczny':kolor['niebieski'],
            'Chemii':kolor['oliwkowy'],'Humanistyczny':kolor['niebieski'],'Fizyki, Astronomii i Informatyki Stosowanej':kolor['oliwkowy'],
