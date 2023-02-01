@@ -329,13 +329,13 @@ elif sekcja == 'Studenci i absolwenci':
        		      textposition='outside',texttemplate = "<b>Przyznane-%{x:}"))
        
     fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>",
-       			textfont=dict( size=12,color='black'),marker_color=barwa5,
+       			textfont=dict( size=12,color='black'),marker_color=barwa5,marker_pattern_shape="x",
        		      textposition='outside',texttemplate = "<b>Złożone-%{x:}"))
     fig.update_xaxes(title='Liczba wniosków',range=[0,y1['Ogółem']+15]).update_traces(marker_line_color='black',marker_line_width=1.5)
     fig.update_yaxes(title='Wydział')
     fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
        				height=800,width=1500,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),barmode='group',
-       				separators =',',showlegend=False)
+       				separators =',',showlegend=True)
        
     st.plotly_chart(fig,use_container_width=True)
 
