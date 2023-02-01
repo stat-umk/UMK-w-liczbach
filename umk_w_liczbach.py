@@ -555,7 +555,7 @@ elif sekcja == 'Badania naukowe':
     st.header('Granty Narodowego Centrum Nauki')
     roki = st.selectbox('Wybierz rok:   '   ,lata[::-1])
     li = st.selectbox('Wybierz podsumowanie:',['Liczba','Kwota'])
-    if (li == 'Kwota'):
+    if (li == 'Kwota') and (roki in [2019,2020,2021]):
         kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
         x = kw.index[::-1]
         y = kw['Kwota wnioskowana[zł]'][::-1]
@@ -587,12 +587,12 @@ elif sekcja == 'Badania naukowe':
                           textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>"))
     
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
-        				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='AZłożone',marker_pattern_shape="x",
+        				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożone',marker_pattern_shape="x",
         			      textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Wnioski złożone: %{x:,}zł'+"<extra></extra>"))
-        fig.update_xaxes(title='Kwota wnioskowana[zł]')#,range=[0,y[::-1][0]+y[::-1][0]/4])
+        fig.update_xaxes(title='Kwota wnioskowana[zł]',range=[0,y[::-1][0]+y[::-1][0]/4])
         fig.update_yaxes(title='Wydział')
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
-        					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
+        					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=16,color="Black"),
 			 legend_title_text='Rodzaj wniosku')
         
         st.plotly_chart(fig,use_container_width=True)
