@@ -14,54 +14,6 @@ from streamlit_option_menu import option_menu
 
 st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:',initial_sidebar_state='expanded')
 
-#DF = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele',dtype={'Rok':int})
-
-#DF4 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Granty_złożone',dtype={'Rok':int})
-#DF5 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele_wydziały',dtype={'Rok':str})
-#DF6 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Granty_przyznane',dtype={'Rok':int})
-
-#DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='L_kier_stud',dtype={'Rok':str})
-#DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='N-wni',dtype={'Rok':int})
-#DF9 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Z-czni',dtype={'Rok':int})
-
-#DF10 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stacjonarne',dtype={'Rok':int})
-#DF11 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Niestacjonarne',dtype={'Rok':int})
-#DF12 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='doktoranci',dtype={'Rok':int})
-#DF13 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Podyplomowe',dtype={'Rok':int})
-#DF14 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Ogółem',dtype={'Rok':int})
-
-#DF15 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stud_og',dtype={'Rok':int})
-
-#DF16 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stud_og',dtype={'Rok':int})
-#DF17 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Absolwenci',dtype={'Rok':int})
-#DF17a = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Absolwenci1',dtype={'Rok':int})
-#DF18 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Abs_og',dtype={'Rok':int})
-#DF19 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr',dtype={'Rok':int})
-#DF20 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Styp_min1',dtype={'Rok':int})
-
-
-
-#DF21 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Nacz_og',dtype={'Rok':int})
-#DF22 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Prac',dtype={'Rok':int})
-#DF23 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_pl',dtype={'Rok':int})
-
-#DF24 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_wydz',dtype={'Rok':int})
-#DF25 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_sr',dtype={'Rok':int})
-
-#DF26 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_St',dtype={'Rok':int})
-#DF27 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_npwni',dtype={'Rok':int})
-
-#DF28 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wynagrodzenie',dtype={'Rok':int})
-#DF29 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Inflacja',dtype={'Rok':int})
-#DF30 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Inflacja1',dtype={'Rok':float,'dr':str})
-
-#DF31 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Sukces',dtype={'Rok':int})
-
-#DF32 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='MEiN_pr',dtype={'Rok':int})
-#DF33 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='MEiN_zl',dtype={'Rok':int})
-#DF34 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Sukces_mein',dtype={'Rok':float})
-
-#DF35 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Awanse',dtype={'Rok':float})
 
 lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
 wydziały = ['Matematyki i Informatyki',
@@ -77,17 +29,17 @@ kolwyd1 = {'Nauk Biologicznych i Weterynaryjnych (2019-2021)':kolor['zielony'],'
           'Nauk o Ziemi i Gospodarki Przestrzennej (2019-2021)':kolor['oliwkowy'],'Nauk o Polityce i Bezpieczeństwie (2019-2021)':kolor['fioletowy'],'Prawa i Administracji':kolor['fioletowy'],'Sztuk Pięknych':kolor['pomarańczowy'],
           'Teologiczny':kolor['zielony'],'Lekarski':kolor['czerwony'],'Farmaceutyczny':kolor['czerwony'],'Nauk o Zdrowiu':kolor['czerwony'],'Ogółem':'rgb(0,80,170)','Ogółem UMK':'rgb(0,80,170)',
 	 'Interdyscyplinarne Centrum Nowoczesnych Technologii':kolor['oliwkowy'],'Biologii i Nauk o Ziemi (2010-2011)':kolor['zielony']}
-kolwyd = {'Nauk Biologicznych i Weterynaryjnych':kolor['zielony'],'Biologii i Ochrony Środowiska':kolor['zielony'],'Filologiczny':kolor['niebieski'],
-           'Chemii':kolor['oliwkowy'],'Humanistyczny':kolor['niebieski'],'Fizyki, Astronomii i Informatyki Stosowanej':kolor['oliwkowy'],
-          'Filozofii i Nauk Społecznych':kolor['fioletowy'],'Matematyki i Informatyki':kolor['oliwkowy'],'Nauk Ekonomicznych i Zarządzania':kolor['fioletowy'],
-          'Nauk Historycznych':kolor['niebieski'],'Nauk o Ziemi':kolor['zielony'],'Nauk Pedagogicznych':kolor['fioletowy'],'Politologii i Studiów Międzynarodowych':kolor['fioletowy'],
-          'Nauk o Ziemi i Gospodarki Przestrzennej':kolor['oliwkowy'],'Nauk o Polityce i Bezpieczeństwie':kolor['fioletowy'],'Prawa i Administracji':kolor['fioletowy'],'Sztuk Pięknych':kolor['pomarańczowy'],
-          'Teologiczny':kolor['zielony'],'Lekarski':kolor['czerwony'],'Farmaceutyczny':kolor['czerwony'],'Nauk o Zdrowiu':kolor['czerwony'],'Ogółem UMK':'rgb(0,80,170)','Ogółem':'rgb(0,80,170)',
-	 'Interdyscyplinarne Centrum Nowoczesnych Technologii':kolor['oliwkowy'],'Biologii i Nauk o Ziemi':kolor['zielony']}
+#kolwyd = {'Nauk Biologicznych i Weterynaryjnych':kolor['zielony'],'Biologii i Ochrony Środowiska':kolor['zielony'],'Filologiczny':kolor['niebieski'],
+  #         'Chemii':kolor['oliwkowy'],'Humanistyczny':kolor['niebieski'],'Fizyki, Astronomii i Informatyki Stosowanej':kolor['oliwkowy'],
+   #       'Filozofii i Nauk Społecznych':kolor['fioletowy'],'Matematyki i Informatyki':kolor['oliwkowy'],'Nauk Ekonomicznych i Zarządzania':kolor['fioletowy'],
+   #       'Nauk Historycznych':kolor['niebieski'],'Nauk o Ziemi':kolor['zielony'],'Nauk Pedagogicznych':kolor['fioletowy'],'Politologii i Studiów Międzynarodowych':kolor['fioletowy'],
+    #      'Nauk o Ziemi i Gospodarki Przestrzennej':kolor['oliwkowy'],'Nauk o Polityce i Bezpieczeństwie':kolor['fioletowy'],'Prawa i Administracji':kolor['fioletowy'],'Sztuk Pięknych':kolor['pomarańczowy'],
+   #       'Teologiczny':kolor['zielony'],'Lekarski':kolor['czerwony'],'Farmaceutyczny':kolor['czerwony'],'Nauk o Zdrowiu':kolor['czerwony'],'Ogółem UMK':'rgb(0,80,170)','Ogółem':'rgb(0,80,170)',
+	# 'Interdyscyplinarne Centrum Nowoczesnych Technologii':kolor['oliwkowy'],'Biologii i Nauk o Ziemi':kolor['zielony']}
 
 pr_cy = {'Ogółem':'rgb(0,70,180)','Nauczyciele akademiccy':'rgb(0,175,250)','Profesorowie':'rgb(170,40,150)','Adiunkci':'rgb(250,20,20)','Asystenci i lektorzy':'rgb(255,130,30)','Nienauczyciele':'rgb(255,205,0)','Średnia krajowa':'rgb(204,204,204)'}
 pr_cy1 = {'Ogółem':0,'Nauczyciele akademiccy':1,'Profesorowie':2,'Adiunkci':3,'Asystenci i lektorzy':4,'Nienauczyciele':5,'Średnia krajowa':6}
-pr_cy2 = ['Ogółem','Nauczyciele akademiccy','Profesorowie','Adiunkci','Asystenci i lektorzy','Nienauczyciele','Średnia krajowa']
+
 
         
         
@@ -330,8 +282,8 @@ elif sekcja == 'Studenci i absolwenci':
     lg = lg.reset_index()
     lg['kolor']=' '
     for j,i in enumerate(lg['Wydział']):
-        if i in list(kolwyd.keys()):
-            lg['kolor'][j] = kolwyd[i]
+        if i in list(kolwyd1.keys()):
+            lg['kolor'][j] = kolwyd1[i]
         else:
             lg['kolor'][j] = 'rgb(0,70,180)'
     barwa4 = lg['kolor'][::-1]
@@ -341,8 +293,8 @@ elif sekcja == 'Studenci i absolwenci':
     lg1 = lg1.reset_index()
     lg1['kolor']=' '
     for j,i in enumerate(lg1['Wydział']):
-        if i in list(kolwyd.keys()):
-            lg1['kolor'][j] = kolwyd[i]
+        if i in list(kolwyd1.keys()):
+            lg1['kolor'][j] = kolwyd1[i]
         else:
             lg1['kolor'][j] = 'rgb(0,70,180)'
     barwa5 = lg1['kolor'][::-1]
@@ -374,8 +326,8 @@ elif sekcja == 'Studenci i absolwenci':
     lg7 = lg7.reset_index()
     lg7['kolor']=' '
     for j,i in enumerate(lg7['Wydział']):
-        if i in list(kolwyd.keys()):
-            lg7['kolor'][j] = kolwyd[i]
+        if i in list(kolwyd1.keys()):
+            lg7['kolor'][j] = kolwyd1[i]
         else:
             lg7['kolor'][j] = 'rgb(0,70,180)'
     barwa7 = lg7['kolor'][::-1]
@@ -617,8 +569,8 @@ elif sekcja == 'Badania naukowe':
         kw = kw.reset_index()
         kw['kolor']=' '
         for j,i in enumerate(kw['Jednostka']):
-            if i in list(kolwyd.keys()):
-                kw['kolor'][j] = kolwyd[i]
+            if i in list(kolwyd1.keys()):
+                kw['kolor'][j] = kolwyd1[i]
             else:
                 kw['kolor'][j] = 'rgb(0,70,180)'
         barwa = kw['kolor'][::-1]
@@ -628,8 +580,8 @@ elif sekcja == 'Badania naukowe':
         kw1 = kw1.reset_index()
         kw1['kolor']=' '
         for j,i in enumerate(kw1['Jednostka']):
-            if i in list(kolwyd.keys()):
-                kw1['kolor'][j] = kolwyd[i]
+            if i in list(kolwyd1.keys()):
+                kw1['kolor'][j] = kolwyd1[i]
             else:
                 kw1['kolor'][j] = 'rgb(0,70,180)'
         barwa3 = kw1['kolor'][::-1]
@@ -659,8 +611,8 @@ elif sekcja == 'Badania naukowe':
 	    lw = lw.reset_index()
 	    lw['kolor']=' '
 	    for j,i in enumerate(lw['Jednostka']):
-		    if i in list(kolwyd.keys()):
-		        lw['kolor'][j] = kolwyd[i]
+		    if i in list(kolwyd1.keys()):
+		        lw['kolor'][j] = kolwyd1[i]
 		    else:
 		        lw['kolor'][j] = 'rgb(0,70,180)'
 	    barwa1 = lw['kolor'][::-1]
@@ -691,8 +643,8 @@ elif sekcja == 'Badania naukowe':
         kw1 = kw1.reset_index()
         kw1['kolor']=' '
         for j,i in enumerate(kw1['Jednostka']):
-            if i in list(kolwyd.keys()):
-                kw1['kolor'][j] = kolwyd[i]
+            if i in list(kolwyd1.keys()):
+                kw1['kolor'][j] = kolwyd1[i]
             else:
                 kw1['kolor'][j] = 'rgb(0,70,180)'
         barwa3 = kw1['kolor'][::-1]
@@ -720,8 +672,8 @@ elif sekcja == 'Badania naukowe':
         lg = lg.reset_index()
         lg['kolor']=' '
         for j,i in enumerate(lg['Jednostka']):
-            if i in list(kolwyd.keys()):
-                lg['kolor'][j] = kolwyd[i]
+            if i in list(kolwyd1.keys()):
+                lg['kolor'][j] = kolwyd1[i]
             else:
                 lg['kolor'][j] = 'rgb(0,70,180)'
         barwa4 = lg['kolor'][::-1]
@@ -750,8 +702,8 @@ elif sekcja == 'Badania naukowe':
 	    kw = kw.reset_index()
 	    kw['kolor']=' '
 	    for j,i in enumerate(kw['Jednostka']):
-		    if i in list(kolwyd.keys()):
-		        kw['kolor'][j] = kolwyd[i]
+		    if i in list(kolwyd1.keys()):
+		        kw['kolor'][j] = kolwyd1[i]
 		    else:
 		        kw['kolor'][j] = 'rgb(0,70,180)'
 	    barwa = kw['kolor'][::-1]
@@ -783,8 +735,8 @@ elif sekcja == 'Badania naukowe':
 	    kw = kw.reset_index()
 	    kw['kolor']=' '
 	    for j,i in enumerate(kw['Jednostka']):
-		    if i in list(kolwyd.keys()):
-		        kw['kolor'][j] = kolwyd[i]
+		    if i in list(kolwyd1.keys()):
+		        kw['kolor'][j] = kolwyd1[i]
 		    else:
 		        kw['kolor'][j] = 'rgb(0,70,180)'
 	    barwa = kw['kolor'][::-1]
@@ -810,8 +762,8 @@ elif sekcja == 'Badania naukowe':
 	    lw = lw.reset_index()
 	    lw['kolor']=' '
 	    for j,i in enumerate(lw['Jednostka']):
-		    if i in list(kolwyd.keys()):
-		        lw['kolor'][j] = kolwyd[i]
+		    if i in list(kolwyd1.keys()):
+		        lw['kolor'][j] = kolwyd1[i]
 		    else:
 		        lw['kolor'][j] = 'rgb(0,70,180)'
 	    barwa1 = lw['kolor'][::-1]
@@ -842,8 +794,8 @@ elif sekcja == 'Badania naukowe':
         kw1 = kw1.reset_index()
         kw1['kolor']=' '
         for j,i in enumerate(kw1['Jednostka']):
-            if i in list(kolwyd.keys()):
-                kw1['kolor'][j] = kolwyd[i]
+            if i in list(kolwyd1.keys()):
+                kw1['kolor'][j] = kolwyd1[i]
             else:
                 kw1['kolor'][j] = 'rgb(0,70,180)'
         barwa3 = kw1['kolor'][::-1]
@@ -871,8 +823,8 @@ elif sekcja == 'Badania naukowe':
         lg = lg.reset_index()
         lg['kolor']=' '
         for j,i in enumerate(lg['Jednostka']):
-            if i in list(kolwyd.keys()):
-                lg['kolor'][j] = kolwyd[i]
+            if i in list(kolwyd1.keys()):
+                lg['kolor'][j] = kolwyd1[i]
             else:
                 lg['kolor'][j] = 'rgb(0,70,180)'
         barwa4 = lg['kolor'][::-1]
@@ -903,8 +855,8 @@ elif sekcja == 'Badania naukowe':
 	    kw = kw.reset_index()
 	    kw['kolor']=' '
 	    for j,i in enumerate(kw['Jednostka']):
-		    if i in list(kolwyd.keys()):
-		        kw['kolor'][j] = kolwyd[i]
+		    if i in list(kolwyd1.keys()):
+		        kw['kolor'][j] = kolwyd1[i]
 		    else:
 		        kw['kolor'][j] = 'rgb(0,70,180)'
 	    barwa = kw['kolor'][::-1]
