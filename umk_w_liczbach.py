@@ -562,7 +562,7 @@ elif sekcja == 'Badania naukowe':
     st.header('Granty Narodowego Centrum Nauki')
     roki = st.selectbox('Wybierz rok:   '   ,lata[::-1])
     li = st.selectbox('Wybierz podsumowanie:',['Liczba','Kwota'])
-    if (li == 'Kwota') :
+    if (li == 'Kwota') and (roki in [2019,2020,2021] ):
         kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
         x = kw.index[::-1]
         y = kw['Kwota wnioskowana[zł]'][::-1]
@@ -596,7 +596,7 @@ elif sekcja == 'Badania naukowe':
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
         				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożone',marker_pattern_shape="x",
         			      textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Wnioski złożone: %{x:,}zł'+"<extra></extra>"))
-        fig.update_xaxes(title='Kwota wnioskowana[zł]',range=[0,np.max([y1[::-1][0],y[::-1][0]])+np.max([y1[::-1][0]/4,y[::-1][0]/4])])
+        fig.update_xaxes(title='Kwota wnioskowana[zł]',range=[0,np.max([y1[::-1][0],y1[::-1][0]])+np.max([y1[::-1][0]/4,y[::-1][0]/4])])
         fig.update_yaxes(title='Wydział')
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
         					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),showlegend=True,
@@ -604,7 +604,7 @@ elif sekcja == 'Badania naukowe':
         
         st.plotly_chart(fig,use_container_width=True)
 	    
-    elif (li == 'Liczba'):
+    elif (li == 'Liczba') and (roki1 in [2019,2020,2021]):
         lw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
         x = lw.index[::-1]
         y = lw['Liczba wniosków'][::-1]
@@ -690,7 +690,7 @@ elif sekcja == 'Badania naukowe':
     st.header('Granty ministerstwa właściwego ds. nauki')
     roki1 = st.selectbox('Wybierz rok: ',lata[::-1])
     li1 = st.selectbox('Wybierz rodzaj: ',['Liczba','Kwota'])
-    if (li1 == 'Kwota'):		       
+    if (li1 == 'Kwota') and (roki1 in [2019,2020,2021]):		       
         kw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
         x = kw.index[::-1]
         y = kw['Kwota wnioskowana[zł]'][::-1]
@@ -731,7 +731,7 @@ elif sekcja == 'Badania naukowe':
         					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
         
         st.plotly_chart(fig,use_container_width=True)
-    elif (li1 == 'Liczba') :
+    elif (li1 == 'Liczba') and (roki1 in [2019,2020,2021]) :
         lw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
         x = lw.index[::-1]
         y = lw['Liczba wniosków'][::-1]
