@@ -133,7 +133,7 @@ if sekcja == 'Strona główna':
 	      'i pozycja mniejszego kółka na obwodzie większego niebieskiego koła. Poniższa grafika przedstawia loga poszczególnych ' + 
 	      'wydziałów. Warto zapoznać się z barwami jednostek, ponieważ są one częścią wizualizacji znajdujących się na pozostałych stronach.'+ 
 	      ' Ich znajomość ułatwi interpretację wykresów.')
-    st.image('Image/UMKlog1.png')
+    st.image('Image/UMKlog1.png',use_column_width=True)
     
     
     
@@ -562,7 +562,7 @@ elif sekcja == 'Badania naukowe':
     st.header('Granty Narodowego Centrum Nauki')
     roki = st.selectbox('Wybierz rok:   '   ,lata[::-1])
     li = st.selectbox('Wybierz podsumowanie:',['Liczba','Kwota'])
-    if (li == 'Kwota') and (roki in [2019,2020,2021]):
+    if (li == 'Kwota') :
         kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
         x = kw.index[::-1]
         y = kw['Kwota wnioskowana[zł]'][::-1]
@@ -731,7 +731,7 @@ elif sekcja == 'Badania naukowe':
         					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
         
         st.plotly_chart(fig,use_container_width=True)
-    elif (li1 == 'Liczba') and (roki1 in [2019,2020,2021]):
+    elif (li1 == 'Liczba') :
         lw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
         x = lw.index[::-1]
         y = lw['Liczba wniosków'][::-1]
