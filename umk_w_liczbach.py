@@ -528,7 +528,7 @@ elif sekcja == 'Pracownicy':
                     dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside'
                     ).update_layout(
                         plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode='x')
-        fig55 = px.line(DF30,x=list(range=[1,109]),y='Inflacja',color_discrete_sequence=['red'],markers=True,custom_data=['dr']).update_traces(textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}%",hovertemplate ='<br>Okres: %{customdata}</br>'+'Inflacja w Polsce: %{y:,.2f}%').update_yaxes(
+        fig55 = px.line(DF30,x=list(range(1,109)),y='Inflacja',color_discrete_sequence=['red'],markers=True,custom_data=['dr']).update_traces(textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}%",hovertemplate ='<br>Okres: %{customdata}</br>'+'Inflacja w Polsce: %{y:,.2f}%').update_yaxes(
             tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray').update_xaxes(
                 showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',tickvals=list(range(1,109)),ticktext=[
                                                    '01-2013','02-2013','03-2013','04-2013','05-2013','06-2013','07-2013','08-2013','09-2013','10-2013','11-2013','12-2013',
