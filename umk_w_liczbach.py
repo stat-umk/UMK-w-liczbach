@@ -532,8 +532,8 @@ elif sekcja == 'Pracownicy':
             tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray').update_xaxes(
                 showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',autorange='reversed',tickangle=45
                 ).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode='x')
-        fig44.add_trace(fig55.data[0])
-        st.plotly_chart(fig44,use_container_width=True)
+        fig55.add_trace(fig44.data[0])
+        st.plotly_chart(fig55,use_container_width=True)
     else:
         st.plotly_chart(fig44,use_container_width=True)
     st.write('Wartości poniżej 0 oznaczają spadek liczby studentów względem roku poprzedniego, a powyżej - wzrost.')
