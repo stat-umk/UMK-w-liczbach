@@ -414,7 +414,7 @@ elif sekcja == 'Pracownicy':
         
     st.header("Porównanie liczby nauczycieli akademickich na wybranych wydziałach")
     rok9 = st.selectbox('Wybierz rok:', lata[::-1])
-    xyz,yxz,zxy = st.columns(3)
+    xyz,yxz,zxy = st.columns([1,2,1])
     yxz.image('Image/legenda.png', use_column_width=True)
     k1,k2,k3 = st.columns(3)
     with k1:
