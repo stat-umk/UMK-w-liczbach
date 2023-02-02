@@ -529,10 +529,10 @@ elif sekcja == 'Pracownicy':
                     ).update_layout(
                         plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode='x')
         fig55 = px.line(DF30,x='dr',y='Inflacja',color_discrete_sequence=['red'],markers=True,custom_data=['dr']).update_traces(textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}%",hovertemplate ='<br>Okres: %{customdata}</br>'+'Inflacja w Polsce: %{y:,.2f}%').update_yaxes(
-            tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray').update_xaxes(
+            tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',title='Zmiana przeciętnego wynagrodzenia[%]').update_xaxes(
                 showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',tickangle=45,dtick=1,
                 ).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode='x')
-        fig55.add_trace(fig44.data[0:2])
+        fig55.add_trace(fig44)
         st.plotly_chart(fig55,use_container_width=True)
     else:
         st.plotly_chart(fig44,use_container_width=True)
