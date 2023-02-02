@@ -333,10 +333,10 @@ elif sekcja == 'Studenci i absolwenci':
     barwa7 = lg7['kolor'][::-1]
 
     fig7 = go.Figure()
-    fig7.add_trace(go.Bar(x=y7,y=x7,orientation='h',text=y7,hovertemplate = 'Skuteczność: %{x:,.2f}'+"<extra></extra>",
+    fig7.add_trace(go.Bar(x=y7,y=x7,orientation='h',text=y7,hovertemplate = 'Skuteczność: %{x:,.2f}%'+"<extra></extra>",
                         textfont=dict( size=12,color='black')))
     fig7.update_traces(marker_color=barwa7,marker_line_color='black',marker_line_width=1.5,
-                      textposition='outside',texttemplate = "<b>%{x:,.2f}%")
+                      textposition='outside',texttemplate = "<b>%{x:,.2f}")
     fig7.update_xaxes(title='Współczynnik skuteczności [%]',range=[0,list(y7)[::-1][0]+15])
     fig7.update_yaxes(title='Wydział')
 
@@ -597,7 +597,7 @@ elif sekcja == 'Badania naukowe':
         fig.update_xaxes(title='Kwota wnioskowana[zł]',range=[0,np.max([y1[::-1][0],y[::-1][0]])+np.max([y1[::-1][0]/4,y[::-1][0]/4])])
         fig.update_yaxes(title='Wydział')
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
-        					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),
+        					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),showlegend=True,
 			 legend_title_text='Rodzaj wniosku')
         
         st.plotly_chart(fig,use_container_width=True)
@@ -645,7 +645,7 @@ elif sekcja == 'Badania naukowe':
         fig.update_yaxes(title='Wydział')
         
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
-        					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
+        					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
         					separators =',')
         
         st.plotly_chart(fig,use_container_width=True)	
@@ -726,7 +726,7 @@ elif sekcja == 'Badania naukowe':
         fig.update_yaxes(title='Wydział')
         
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
-        					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
+        					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"))
         
         st.plotly_chart(fig,use_container_width=True)
     elif (li1 == 'Liczba') and (roki1 in [2019,2020,2021]):
@@ -770,7 +770,7 @@ elif sekcja == 'Badania naukowe':
         fig.update_yaxes(title='Wydział')
         
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
-        					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
+        					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
         					separators =',')
         
         st.plotly_chart(fig,use_container_width=True)	
