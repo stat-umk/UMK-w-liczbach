@@ -562,7 +562,7 @@ elif sekcja == 'Badania naukowe':
     st.header('Granty Narodowego Centrum Nauki')
     roki = st.selectbox('Wybierz rok:   '   ,lata[::-1])
     li = st.selectbox('Wybierz podsumowanie:',['Liczba','Kwota'])
-    if (li == 'Kwota') and (roki in [2019,2020,2021] ):
+    if (li == 'Kwota'):
         kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
         x = kw.index[::-1]
         y = kw['Kwota wnioskowana[zł]'][::-1]
@@ -604,7 +604,7 @@ elif sekcja == 'Badania naukowe':
         
         st.plotly_chart(fig,use_container_width=True)
 	    
-    elif (li == 'Liczba') and (roki1 in [2019,2020,2021]):
+    elif (li == 'Liczba'):
         lw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
         x = lw.index[::-1]
         y = lw['Liczba wniosków'][::-1]
