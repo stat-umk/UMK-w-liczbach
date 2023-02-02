@@ -514,7 +514,8 @@ elif sekcja == 'Pracownicy':
   
 	
 	
-
+    df = px.data.stocks()
+    st.dataframe(df)
     st.header('Zmiana przeciętnego wynagrodzenia pracowników uniwersytetu w stusunku do roku poprzedniego [w %]')
     q1111, q2222 = st.columns(2)
     wydz1111 = q1111.selectbox('Wybierz kategorię :                                                                          ',DF28['Kategoria'].unique(),index=0)
