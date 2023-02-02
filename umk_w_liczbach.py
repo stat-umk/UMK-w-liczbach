@@ -172,7 +172,7 @@ elif sekcja == 'Studenci i absolwenci':
    
     st.header('Liczba uczestników studiów w podziale na wydziały')
     q1, q2 = st.columns(2)
-    kat34 = q1.selectbox('Wybierz kategorię : ',['Ogółem','Studia stacjonarne i niestacjonarne','Studia stacjonarne','Studia niestacjonarne','Studia doktoranckie','Studia podyplomowe'])
+    kat34 = q1.selectbox('Wybierz kategorię : ',['Studia stacjonarne i niestacjonarne','Studia stacjonarne','Studia niestacjonarne','Studia doktoranckie','Studia podyplomowe'])
 
     
     fig = px.bar(DF13,x='Rok',y='Liczba',width=1500,height=500).update_xaxes(dtick=1).update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba uczestników',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_traces(hovertemplate = 'Liczba uczestników: %{y:}',textfont=dict( size=14),marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"))
@@ -517,8 +517,8 @@ elif sekcja == 'Pracownicy':
 
     st.header('Zmiana przeciętnego wynagrodzenia pracowników uniwersytetu w stusunku do roku poprzedniego [w %]')
     q1111, q2222 = st.columns(2)
-    wydz1111 = q1111.selectbox('Wybierz kategorię :                                                                          ',DF28['Kategoria'].unique(),index=2)
-    wydz2222 = q2222.selectbox('Wybierz kategorię :                                                                        ',DF28['Kategoria'].unique(),index=1)
+    wydz1111 = q1111.selectbox('Wybierz kategorię :                                                                          ',DF28['Kategoria'].unique(),index=0)
+    wydz2222 = q2222.selectbox('Wybierz kategorię :                                                                        ',DF28['Kategoria'].unique(),index=6)
     gz1 = st.radio('Inflacja w odniesieniu do analogicznego miesiąca roku poprzedniego - Włącz/Wyłącz:',('Włącz','Wyłącz'))
     fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))].sort_values(by=['Kategoria','Rok'],key=lambda x: x.map(pr_cy1)),x='Rok',y='Zmiana', color='Kategoria',width=1500,height=500,markers=True,color_discrete_sequence=list(map(lambda x: pr_cy[x],sorted([wydz1111,wydz2222],key=lambda x: pr_cy1[x])))).update_yaxes(tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',title='Zmiana przeciętnego wynagrodzenia[%]').update_traces(textfont=dict( size=14),texttemplate="%{y:.2f}%",textposition='top right',hovertemplate = 'Zmiana przeciętnego wynagrodzenia: %{y:,.2f}%').update_xaxes(dtick=1,range=[2013-1/2,2021+1/2],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x")
     if gz1 == 'Włącz':
