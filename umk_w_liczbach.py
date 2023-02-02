@@ -536,7 +536,7 @@ elif sekcja == 'Pracownicy':
                                                    '01-2019','02-2019','03-2019','04-2019','05-2019','06-2019','07-2019','08-2019','09-2019','10-2019','11-2019','12-2019',
                                                    '01-2020','02-2020','03-2020','04-2020','05-2020','06-2020','07-2020','08-2020','09-2020','10-2020','11-2020','12-2020',
                                                    '01-2021','02-2021','03-2021','04-2021','05-2021','06-2021','07-2021','08-2021','09-2021','10-2021','11-2021','12-2021'],
-                    tickangle=45,range=[0,111],dtick=4).update_layout(
+                    tickangle=45,range=[0,111],tick0=0,dtick=4).update_layout(
                         plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode='x')
         fig55 = px.line(DF30,x='Rok',y='Inflacja',color_discrete_sequence=['red'],markers=True,custom_data=['dr']).update_traces(textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}%",hovertemplate ='<br>Okres: %{customdata}</br>'+'Inflacja w Polsce: %{y:,.2f}%').update_yaxes(tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray').update_xaxes(showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         fig44.add_trace(fig55.data[0])
