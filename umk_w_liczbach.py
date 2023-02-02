@@ -527,7 +527,12 @@ elif sekcja == 'Pracownicy':
                 showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',tickangle=45
                 ).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode='x')
         
-       
+        fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))].sort_values(by=['Kategoria','Rok'],key=lambda x: x.map(pr_cy1)),x='dr',y='Zmiana', color='Kategoria',width=1500,height=500,markers=True,color_discrete_sequence=list(map(lambda x: pr_cy[x],sorted([wydz1111,wydz2222],key=lambda x: pr_cy1[x])))).update_yaxes(
+            tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4).update_traces(
+                textfont=dict( size=14),texttemplate="%{y:.2f}%",textposition='top right',hovertemplate = 'Zmiana przeciętnego wynagrodzenia: %{y:,.2f}%').update_xaxes(
+                    dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside'
+                    ).update_layout(
+                        plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode='x')
         st.plotly_chart(fig55,use_container_width=True)
     else:
         st.plotly_chart(fig44,use_container_width=True)
