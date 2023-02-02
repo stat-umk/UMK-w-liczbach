@@ -643,7 +643,7 @@ elif sekcja == 'Badania naukowe':
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
         				textfont=dict( size=12,color='black'),marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,name='Złożone',marker_pattern_shape="x",
         			      textposition='outside',texttemplate = "<b>%{x:}",hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>"))
-        fig.update_xaxes(title='Liczba wniosków',range=[0,np.max([y[::-1][0],y1[::-1][0]])+5])
+        fig.update_xaxes(title='Liczba wniosków',range=[0,np.max([y[::-1][0],y[::-1][0]])+5])
         fig.update_yaxes(title='Wydział')
         
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
