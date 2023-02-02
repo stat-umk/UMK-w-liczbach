@@ -589,9 +589,9 @@ elif sekcja == 'Badania naukowe':
         barwa3 = kw1['kolor'][::-1]
     
         fig = go.Figure()
-        fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,
+        fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
                             textfont=dict( size=12,color='black'),marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,name='Przyznane',
-                          textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>"))
+                          textposition='outside',hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>"))
     
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
         				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożone',marker_pattern_shape="x",
@@ -634,9 +634,9 @@ elif sekcja == 'Badania naukowe':
         barwa4 = lg['kolor'][::-1]
     
         fig = go.Figure()
-        fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,
+        fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
                             textfont=dict( size=12,color='black'),marker_color=barwa4,marker_line_color='black',marker_line_width=1.5,name='Przyznane',
-                          textposition='outside',texttemplate = "<b>%{x:}",hovertemplate = 'Liczba przyznanych grantów: %{x:}'+"<extra></extra>"))
+                          textposition='outside',hovertemplate = 'Liczba przyznanych grantów: %{x:}'+"<extra></extra>"))
     
         
         
