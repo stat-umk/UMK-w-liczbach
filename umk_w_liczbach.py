@@ -382,7 +382,7 @@ elif sekcja == 'Pracownicy':
     pr = st.selectbox('Wybierz kategorię : ', ['Ogółem','Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi'])
     st.plotly_chart(px.bar(DF21[DF21['Rodzaj']==pr],x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(255,205,0)','rgb(250,20,20)']).update_traces(customdata=DF21[DF21['Rodzaj']==pr].groupby('Rok')['Liczba'].agg(np.sum)[::-1],texttemplate="%{y:}",hovertemplate = 'Liczba ogółem: %{customdata}'+"<extra></extra>",
 	textposition='inside',textfont=dict( size=14))
-	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=4).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"), legend_title_text='Kampus'),use_container_width=True)
+	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"), legend_title_text='Kampus'),use_container_width=True)
 	
     st.header('Zmiana liczby pracowników uniwersytetu w stosunku do roku poprzedniego')
     pr1 = st.selectbox('Wybierz kategorię   : ', ['Ogółem','Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi'])
@@ -525,7 +525,7 @@ elif sekcja == 'Pracownicy':
         fig44 = px.line(DF28[(DF28['Kategoria'].isin([wydz1111,wydz2222]))].sort_values(by=['Kategoria','Rok'],key=lambda x: x.map(pr_cy1)),x='Rok',y='Zmiana', color='Kategoria',width=1500,height=500,markers=True,color_discrete_sequence=list(map(lambda x: pr_cy[x],sorted([wydz1111,wydz2222],key=lambda x: pr_cy1[x])))).update_yaxes(
             tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',title='Zmiana przeciętnego wynagrodzenia[%]').update_traces(
                 textfont=dict( size=14),texttemplate="%{y:.2f}%",textposition='top right',hovertemplate = 'Zmiana przeciętnego wynagrodzenia: %{y:,.2f}%').update_xaxes(
-                    dtick=4,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',
+                    ,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',
                     tickvals=list(range(1,109)),ticktext=[
                                                    '01-2013','02-2013','03-2013','04-2013','05-2013','06-2013','07-2013','08-2013','09-2013','10-2013','11-2013','12-2013',
                                                    '01-2014','02-2014','03-2014','04-2014','05-2014','06-2014','07-2014','08-2014','09-2014','10-2014','11-2014','12-2014',
@@ -536,7 +536,7 @@ elif sekcja == 'Pracownicy':
                                                    '01-2019','02-2019','03-2019','04-2019','05-2019','06-2019','07-2019','08-2019','09-2019','10-2019','11-2019','12-2019',
                                                    '01-2020','02-2020','03-2020','04-2020','05-2020','06-2020','07-2020','08-2020','09-2020','10-2020','11-2020','12-2020',
                                                    '01-2021','02-2021','03-2021','04-2021','05-2021','06-2021','07-2021','08-2021','09-2021','10-2021','11-2021','12-2021'],
-                    tickangle=45,range=[0,111]).update_layout(
+                    tickangle=45,range=[0,111],dtick=4).update_layout(
                         plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode='x')
         fig55 = px.line(DF30,x='Rok',y='Inflacja',color_discrete_sequence=['red'],markers=True,custom_data=['dr']).update_traces(textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}%",hovertemplate ='<br>Okres: %{customdata}</br>'+'Inflacja w Polsce: %{y:,.2f}%').update_yaxes(tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray').update_xaxes(showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         fig44.add_trace(fig55.data[0])
