@@ -524,8 +524,8 @@ elif sekcja == 'Pracownicy':
     if gz1 == 'Włącz':
         fig55 = px.line(DF30,x='dr',y='Inflacja',color_discrete_sequence=['red'],markers=True,custom_data=['dr']).update_traces(textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}%",hovertemplate ='<br>Okres: %{customdata}</br>'+'Inflacja w Polsce: %{y:,.2f}%').update_yaxes(
             tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray').update_xaxes(
-                showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',autorange='reversed',
-                ).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
+                showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',autorange='reversed',tickangle=45
+                ).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode='x')
         
         st.plotly_chart(fig55,use_container_width=True)
     else:
