@@ -414,7 +414,7 @@ elif sekcja == 'Pracownicy':
         
     st.header("Porównanie liczby nauczycieli akademickich na wybranych wydziałach")
     rok9 = st.selectbox('Wybierz rok:', lata[::-1])
-    k3 = st.columns() 
+    kx,k3 = st.columns([1,4]) 
     k1,k2 = st.columns(2)
     with k1:
         fig = go.Figure(data=[go.Pie(labels=DF[(DF['badawcza']!=0) & (DF['Rok']==rok9)]['Stanowisko'],sort=False,
