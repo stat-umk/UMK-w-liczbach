@@ -532,7 +532,7 @@ elif sekcja == 'Pracownicy':
             tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',title='Zmiana przeciętnego wynagrodzenia[%]').update_xaxes(
                 showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',tickangle=45,dtick=1,
                 ).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode='x')
-        fig55.add_trace(fig44)
+        fig55.add_trace(fig44.data[0])
         st.plotly_chart(fig55,use_container_width=True)
     else:
         st.plotly_chart(fig44,use_container_width=True)
