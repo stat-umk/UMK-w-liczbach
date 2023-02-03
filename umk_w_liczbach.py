@@ -719,11 +719,11 @@ elif sekcja == 'Badania naukowe':
         fig = go.Figure()
         fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
                             textfont=dict( size=12,color='black'),marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,name='Przyznane',
-                          textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>"))
+                          hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>"))
         
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',
         				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożone',marker_pattern_shape="x",
-        			      textposition='outside',texttemplate = "<b>%{x:,t}",hovertemplate = 'Wnioski złożone: %{x:,}zł'+"<extra></extra>"))
+        			      hovertemplate = 'Wnioski złożone: %{x:,}zł'+"<extra></extra>"))
         fig.update_xaxes(title='Kwota wnioskowana[zł]')
         fig.update_yaxes(title='Wydział')
         
