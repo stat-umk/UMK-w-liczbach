@@ -683,7 +683,7 @@ elif sekcja == 'Badania naukowe':
 					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),separators=',')
 
 	    st.plotly_chart(fig,use_container_width=True)
-    elif (li == 'Kwota') and ~(roki in [2019,2020,2021]) :
+    elif (li == 'Kwota') and (roki not in [2019,2020,2021]) :
         st.write('*dla wybranego roku nie dysponujemy danymi')
         
         
