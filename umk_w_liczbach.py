@@ -247,7 +247,7 @@ elif sekcja == 'Studenci i absolwenci':
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"),use_container_width=True)
     
     
-    st.header('Porównanie liczby studentów na wybranych wydziałach')
+    st.header('Porównanie liczby studentów studiów stacjonarnych i niestacjonarnych na wybranych wydziałach')
     q11, q22 = st.columns(2)
     wydz11 = q11.selectbox('Wybierz wydział :                                              ',DF12[DF12['Wydział']!='Ogółem']['Wydział'].unique(),index=2)
     wydz22 = q22.selectbox('Wybierz wydział :                                        ',DF12[DF12['Wydział']!='Ogółem']['Wydział'].unique(),index=3)
@@ -261,7 +261,7 @@ elif sekcja == 'Studenci i absolwenci':
         st.plotly_chart(fig77,use_container_width=True)
     
 
-    st.header('Zmiana liczby studentów w stosunku do roku poprzedniego w podziale na wydziały')
+    st.header('Zmiana liczby studentów studiów stacjonarnych i niestacjonarnych w stosunku do roku poprzedniego w podziale na wydziały')
     DF12_1 = DF12
     DF12_1['Wydział'] = DF12_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')
     DF15_1 = DF15
