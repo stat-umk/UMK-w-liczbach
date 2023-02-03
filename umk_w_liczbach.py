@@ -256,6 +256,7 @@ elif sekcja == 'Studenci i absolwenci':
     		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"),use_container_width=True)
     
     if sekcja1 == 'Stypendia Ministra':
+	DF12 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='doktoranci',dtype={'Rok':int})
         DF20 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Styp_min1',dtype={'Rok':int})
         st.header('Porównanie liczby studentów studiów stacjonarnych i niestacjonarnych na wybranych wydziałach')
         q11, q22 = st.columns(2)
