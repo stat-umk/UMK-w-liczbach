@@ -657,7 +657,7 @@ elif sekcja == 'Badania naukowe':
     
     
     
-    if roki in [2019,2020,2021] :		       
+    if (roki in [2019,2020,2021]) and (li == 'Liczba') :		       
 	    kw = pd.DataFrame(DF31[DF31['Rok']==roki].groupby('Jednostka')['Skuteczność'].agg(np.sum)).sort_values(by='Skuteczność')[::-1]
 	    x = kw.index[::-1]
 	    y = kw['Skuteczność'][::-1]
@@ -683,7 +683,7 @@ elif sekcja == 'Badania naukowe':
 					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),separators=',')
 
 	    st.plotly_chart(fig,use_container_width=True)
-    else:
+    elif (li == 'Kwota') and ~(roki in [2019,2020,2021]) :
         st.write('*dla wybranego roku nie dysponujemy danymi')
         
         
