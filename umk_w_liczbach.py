@@ -684,7 +684,7 @@ elif sekcja == 'Badania naukowe':
 
 	    st.plotly_chart(fig,use_container_width=True)
     elif (li == 'Kwota' or li == 'Liczba') and (roki not in [2019,2020,2021]) :
-        st.write('*dla wybranego roku nie dysponujemy danymi')
+        st.write('*dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
         
         
     st.header('Granty ministerstwa właściwego ds. nauki')
