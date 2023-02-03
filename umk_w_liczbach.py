@@ -672,7 +672,7 @@ elif sekcja == 'Badania naukowe':
 	    barwa = kw['kolor'][::-1]
 
 	    fig = go.Figure()
-	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
+	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
 			      textposition='outside',texttemplate = "<b>%{x:,.2f}",hovertemplate = 'Skuteczność: %{x:,.2f}%'+"<extra></extra>")
@@ -680,7 +680,7 @@ elif sekcja == 'Badania naukowe':
 	    fig.update_yaxes(title='Wydział')
 
 	    fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Współczynnik skuteczności',title_x=0.5,
-					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),separators=',')
+					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),separators=',')
 
 	    st.plotly_chart(fig,use_container_width=True)
     else:
