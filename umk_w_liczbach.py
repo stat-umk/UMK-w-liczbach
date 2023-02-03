@@ -728,7 +728,7 @@ elif sekcja == 'Badania naukowe':
         fig.update_yaxes(title='Wydział')
         
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
-        					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"))
+        					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
         
         st.plotly_chart(fig,use_container_width=True)
     elif (li1 == 'Liczba'):
@@ -763,17 +763,17 @@ elif sekcja == 'Badania naukowe':
         fig = go.Figure()
         fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
                             textfont=dict( size=12,color='black'),marker_color=barwa4,marker_line_color='black',marker_line_width=1.5,name='Przyznane',
-                          textposition='outside',texttemplate = "<b>%{x:}",hovertemplate = 'Liczba przyznanych grantów: %{x:}'+"<extra></extra>"))
+                          hovertemplate = 'Liczba przyznanych grantów: %{x:}'+"<extra></extra>"))
         
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',
         				textfont=dict( size=12,color='black'),marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,name='Złożone',marker_pattern_shape="x",
-        			      textposition='outside',texttemplate = "<b>%{x:}",hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>"))
+        			      hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>"))
         fig.update_xaxes(title='Liczba wniosków')
         fig.update_yaxes(title='Wydział')
         
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
         					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),
-        					separators =',')
+        					separators =',',showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
         
         st.plotly_chart(fig,use_container_width=True)	
     
@@ -797,7 +797,7 @@ elif sekcja == 'Badania naukowe':
 	    barwa = kw['kolor'][::-1]
 
 	    fig = go.Figure()
-	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,
+	    fig.add_trace(go.Bar(x=y,y=x,orientation='h',
 				textfont=dict( size=12,color='black')))
 	    fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
 			      textposition='outside',texttemplate = "<b>%{x:,.2f}",hovertemplate ='Skuteczność: %{x:,.2f}%'+"<extra></extra>")
@@ -808,7 +808,7 @@ elif sekcja == 'Badania naukowe':
 					height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),separators=',')
 
 	    st.plotly_chart(fig,use_container_width=True)
-    elif (li == 'Kwota' or li == 'Liczba') and (roki not in [2019,2020,2021]):
+    elif (li1 == 'Kwota' or li1 == 'Liczba') and (roki1 not in [2019,2020,2021]):
         st.write('*dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
 	
 	
