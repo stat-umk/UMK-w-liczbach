@@ -413,7 +413,7 @@ elif sekcja == 'Pracownicy':
         st.plotly_chart(fig7,use_container_width=True)
         
     st.header("Porównanie liczby nauczycieli akademickich na wybranych wydziałach")
-    rok9 = st.selectbox('Wybierz rok:', lata[::-1])
+    rok9 = st.selectbox('Wybierz rok:', [2019,2020,2021][::-1])
     xyz,yxz,zxy = st.columns([1,2,1])
     yxz.image('Image/legenda.png', use_column_width=True)
     k1,k2,k3 = st.columns(3)
@@ -438,7 +438,7 @@ elif sekcja == 'Pracownicy':
     
 
 
-    st.header('Porównanie liczby nauczycieli akademickich na wybranych wydziałach wraz z wydziałem średnim')
+    st.header('Porównanie liczby nauczycieli akademickich na wybranych wydziałach')
     q111, q222 = st.columns(2)
     wydz123 = q111.selectbox('Wybierz wydział :                                                                          ',DF24[DF24['Wydział']!='Ogółem']['Wydział'].unique(),index=2)
     wydz222 = q222.selectbox('Wybierz wydział :                                                                        ',DF24[DF24['Wydział']!='Ogółem']['Wydział'].unique(),index=3)
@@ -452,7 +452,7 @@ elif sekcja == 'Pracownicy':
         st.plotly_chart(fig4,use_container_width=True)
 
     
-    st.header('Zmiana liczby nauczycieli akademickich w stosunku do roku poprzedniego w podziale na wydziały.')
+    st.header('Zmiana liczby nauczycieli akademickich w stosunku do roku poprzedniego w podziale na wydziały')
     DF12_1 = DF12
     DF12_1['Wydział'] = DF12_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')
     DF24_1 = DF24
