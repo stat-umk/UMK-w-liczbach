@@ -428,7 +428,7 @@ elif sekcja == 'Pracownicy':
         DF35 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Awanse',dtype={'Rok':float})
         DF26 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_St',dtype={'Rok':int})
         
-        st.header("Porównanie liczby nauczycieli akademickich na wybranych wydziałach")
+        st.header("Liczba nauczycieli akademickich na uniwersytecie w poszczególnych grupach")
         rok9 = st.selectbox('Wybierz rok:', [2019,2020,2021][::-1])
         xyz,yxz,zxy = st.columns([1,2,1])
         yxz.image('Image/legenda.png', use_column_width=True)
