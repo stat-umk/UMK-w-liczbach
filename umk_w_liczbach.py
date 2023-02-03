@@ -310,7 +310,7 @@ elif sekcja == 'Studenci i absolwenci':
     fig.update_yaxes(title='Wydział')
     fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
        				height=800,width=1500,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),barmode='group',
-       				separators =',',showlegend=True,legend_title_text='Rodzaj wniosku',legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
+       				separators =',',showlegend=True,legend_title_text='Rodzaj wniosku',margin=dict(t=100, b=0, l=180, r=50),legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
        
     st.plotly_chart(fig,use_container_width=True)
 
@@ -341,7 +341,7 @@ elif sekcja == 'Studenci i absolwenci':
 
     fig7.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
                                 height=600,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),barmode='group',
-                                separators =',',autosize=False)
+                                separators =',',autosize=False,margin=dict(t=100, b=0, l=180, r=50))
 
     st.plotly_chart(fig7,use_container_width=True)
 	
@@ -771,7 +771,7 @@ elif sekcja == 'Badania naukowe':
         fig.update_yaxes(title='Wydział')
         
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
-        					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),
+        					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),
         					separators =',',margin=dict(t=100, b=0, l=180, r=50),showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
         
         st.plotly_chart(fig,use_container_width=True)	
