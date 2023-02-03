@@ -147,8 +147,8 @@ elif sekcja == 'Studenci i absolwenci':
     menu_icon="cast", default_index=0, orientation="horizontal",
     styles={
         "container": {"padding": "0!important", "background-color": "rgb(255,205,0)"},
-        "icon": {"color": "white", "font-size": "20px"}, 
-        "nav-link": {"font-size": "18px", "text-align": "left", "margin":"0px", "--hover-color": "rgb(255,205,0)"},
+        "icon": {"color": "white", "font-size": "18px"}, 
+        "nav-link": {"font-size": "14px", "text-align": "left", "margin":"0px", "--hover-color": "rgb(255,205,0)"},
         "nav-link-selected": {"background-color": "rgb(0,70,180)"},
     }
     )
@@ -375,8 +375,8 @@ elif sekcja == 'Pracownicy':
     menu_icon="cast", default_index=0, orientation="horizontal",
     styles={
         "container": {"padding": "0!important", "background-color": "rgb(255,205,0)"},
-        "icon": {"color": "white", "font-size": "20px"}, 
-        "nav-link": {"font-size": "18px", "text-align": "left", "margin":"0px", "--hover-color": "rgb(255,205,0)"},
+        "icon": {"color": "white", "font-size": "18px"}, 
+        "nav-link": {"font-size": "14px", "text-align": "left", "margin":"0px", "--hover-color": "rgb(255,205,0)"},
         "nav-link-selected": {"background-color": "rgb(0,70,180)"},})
     
     #kod właściwy
@@ -559,8 +559,8 @@ elif sekcja == 'Badania naukowe':
     menu_icon="cast", default_index=0, orientation="horizontal",
     styles={
         "container": {"padding": "0!important", "background-color": "rgb(255,205,0)"},
-        "icon": {"color": "white", "font-size": "20px"}, 
-        "nav-link": {"font-size": "18px", "text-align": "left", "margin":"0px", "--hover-color": "rgb(255,205,0)"},
+        "icon": {"color": "white", "font-size": "18px"}, 
+        "nav-link": {"font-size": "14px", "text-align": "left", "margin":"0px", "--hover-color": "rgb(255,205,0)"},
         "nav-link-selected": {"background-color": "rgb(0,70,180)"},
     }
     )
