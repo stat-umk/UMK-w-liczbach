@@ -595,7 +595,7 @@ elif sekcja == 'Badania naukowe':
     
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',
         				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożone',marker_pattern_shape="x",
-        			      textposition='outside',hovertemplate = 'Wnioski złożone: %{x:,}zł'+"<extra></extra>"))
+        			      textposition='outside',hovertemplate = 'Kwota wnioskowana: %{x:,}zł'+"<extra></extra>"))
         fig.update_xaxes(title='Kwota wnioskowana[zł]')
         fig.update_yaxes(title='Wydział')
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
@@ -647,7 +647,7 @@ elif sekcja == 'Badania naukowe':
         fig.update_yaxes(title='Wydział')
         
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
-        					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=100, l=0, r=200),font=dict(family='Lato',size=18,color="Black"),
+        					height=800,width=1600,plot_bgcolor='white',margin=dict(t=200, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),
         					separators =',')
         
         st.plotly_chart(fig,use_container_width=True)	
