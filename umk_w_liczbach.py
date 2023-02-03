@@ -589,11 +589,11 @@ elif sekcja == 'Badania naukowe':
     
         fig = go.Figure()
         fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
-                            textfont=dict( size=12,color='black'),marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,name='Przyznane',
+                            textfont=dict( size=12,color='black'),marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,name='Przyznany',
                           textposition='outside',hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>"))
     
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',
-        				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożone',marker_pattern_shape="x",
+        				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożony',marker_pattern_shape="x",
         			      textposition='outside',hovertemplate = 'Kwota wnioskowana: %{x:,}zł'+"<extra></extra>"))
         fig.update_xaxes(title='Kwota wnioskowana[zł]')
         fig.update_yaxes(title='Wydział')
@@ -634,13 +634,13 @@ elif sekcja == 'Badania naukowe':
     
         fig = go.Figure()
         fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
-                            textfont=dict( size=12,color='black'),marker_color=barwa4,marker_line_color='black',marker_line_width=1.5,name='Przyznane',
+                            textfont=dict( size=12,color='black'),marker_color=barwa4,marker_line_color='black',marker_line_width=1.5,name='Przyznany',
                           textposition='outside',hovertemplate = 'Liczba przyznanych grantów: %{x:}'+"<extra></extra>"))
     
         
         
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',
-        				textfont=dict( size=12,color='black'),marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,name='Złożone',marker_pattern_shape="x",
+        				textfont=dict( size=12,color='black'),marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,name='Złożony',marker_pattern_shape="x",
         			      textposition='outside',hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>"))
         fig.update_xaxes(title='Liczba wniosków')
         fig.update_yaxes(title='Wydział')
@@ -717,11 +717,11 @@ elif sekcja == 'Badania naukowe':
     
         fig = go.Figure()
         fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
-                            textfont=dict( size=12,color='black'),marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,name='Przyznane',
+                            textfont=dict( size=12,color='black'),marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,name='Przyznany',
                           hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>"))
         
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',
-        				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożone',marker_pattern_shape="x",
+        				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożony',marker_pattern_shape="x",
         			      hovertemplate = 'Wnioski złożone: %{x:,}zł'+"<extra></extra>"))
         fig.update_xaxes(title='Kwota wnioskowana[zł]')
         fig.update_yaxes(title='Wydział')
@@ -761,11 +761,11 @@ elif sekcja == 'Badania naukowe':
     
         fig = go.Figure()
         fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
-                            textfont=dict( size=12,color='black'),marker_color=barwa4,marker_line_color='black',marker_line_width=1.5,name='Przyznane',
+                            textfont=dict( size=12,color='black'),marker_color=barwa4,marker_line_color='black',marker_line_width=1.5,name='Przyznany',
                           hovertemplate = 'Liczba przyznanych grantów: %{x:}'+"<extra></extra>"))
         
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',
-        				textfont=dict( size=12,color='black'),marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,name='Złożone',marker_pattern_shape="x",
+        				textfont=dict( size=12,color='black'),marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,name='Złożony',marker_pattern_shape="x",
         			      hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>"))
         fig.update_xaxes(title='Liczba wniosków')
         fig.update_yaxes(title='Wydział')
