@@ -598,8 +598,8 @@ elif sekcja == 'Badania naukowe':
         			      textposition='outside',hovertemplate = 'Kwota wnioskowana: %{x:,}zł'+"<extra></extra>"))
         fig.update_xaxes(title='Kwota wnioskowana[zł]')
         fig.update_yaxes(title='Wydział')
-        fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
-        					height=800,width=1400,plot_bgcolor='white',margin=dict(t=200, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1,
+        fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,
+        					height=800,width=1400,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1,
 			 legend_title_text='Rodzaj wniosku')
         
         st.plotly_chart(fig,use_container_width=True)
@@ -648,7 +648,7 @@ elif sekcja == 'Badania naukowe':
         
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
         					height=800,width=1600,plot_bgcolor='white',margin=dict(t=200, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),
-        					separators =',')
+        					separators =',',showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1,legend_title_text='Rodzaj wniosku')
         
         st.plotly_chart(fig,use_container_width=True)	
     
