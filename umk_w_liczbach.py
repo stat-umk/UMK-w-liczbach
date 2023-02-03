@@ -300,18 +300,18 @@ elif sekcja == 'Studenci i absolwenci':
     barwa5 = lg1['kolor'][::-1]
     fig = go.Figure()      
        
-    fig.add_trace(go.Bar(x=y,y=x,orientation='h',text=y,hovertemplate = 'Stypendia przyznane: %{x:}'+"<extra></extra>",
-    textfont=dict( size=12,color='black'),marker_color=barwa4,name='Przyznany',
-       		      textposition='outside',texttemplate = "<b>%{x:}</b>"))
+    fig.add_trace(go.Bar(x=y,y=x,orientation='h',hovertemplate = 'Stypendia przyznane: %{x:}'+"<extra></extra>",
+    textfont=dict( size=12,color='black'),marker_color=barwa4,name='Przyznany'
+       		      )
        
-    fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',text=y1,hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>",
-       			textfont=dict( size=12,color='black'),marker_color=barwa5,marker_pattern_shape="x",name='Złożony',
-       		      textposition='outside',texttemplate = "<b>%{x:}</b>"))
-    fig.update_xaxes(title='Liczba wniosków',range=[0,y1['Ogółem']+15]).update_traces(marker_line_color='black',marker_line_width=1.5)
+    fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>",
+       			textfont=dict( size=12,color='black'),marker_color=barwa5,marker_pattern_shape="x",name='Złożony'
+       		      )
+    fig.update_xaxes(title='Liczba wniosków').update_traces(marker_line_color='black',marker_line_width=1.5)
     fig.update_yaxes(title='Wydział')
     fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
        				height=800,width=1500,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),barmode='group',
-       				separators =',',showlegend=True,legend_title_text='Rodzaj wniosku')
+       				separators =',',showlegend=True,legend_title_text='Rodzaj wniosku',margin=dict(t=100, b=0, l=180, r=50),legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
        
     st.plotly_chart(fig,use_container_width=True)
 
@@ -333,11 +333,11 @@ elif sekcja == 'Studenci i absolwenci':
     barwa7 = lg7['kolor'][::-1]
 
     fig7 = go.Figure()
-    fig7.add_trace(go.Bar(x=y7,y=x7,orientation='h',text=y7,hovertemplate = 'Skuteczność: %{x:,.2f}%'+"<extra></extra>",
+    fig7.add_trace(go.Bar(x=y7,y=x7,orientation='h',hovertemplate = 'Skuteczność: %{x:,.2f}%'+"<extra></extra>",
                         textfont=dict( size=12,color='black')))
-    fig7.update_traces(marker_color=barwa7,marker_line_color='black',marker_line_width=1.5,
-                      textposition='outside',texttemplate = "<b>%{x:,.2f}")
-    fig7.update_xaxes(title='Współczynnik skuteczności [%]',range=[0,list(y7)[::-1][0]+15])
+    fig7.update_traces(marker_color=barwa7,marker_line_color='black',marker_line_width=1.5
+                      )
+    fig7.update_xaxes(title='Współczynnik skuteczności [%]'range=[0,105])
     fig7.update_yaxes(title='Wydział')
 
     fig7.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
@@ -773,7 +773,7 @@ elif sekcja == 'Badania naukowe':
         
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
         					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),
-        					separators =',',showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
+        					separators =',',margin=dict(t=100, b=0, l=180, r=50),showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
         
         st.plotly_chart(fig,use_container_width=True)	
     
