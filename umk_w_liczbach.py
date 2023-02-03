@@ -310,7 +310,7 @@ elif sekcja == 'Studenci i absolwenci':
     fig.update_yaxes(title='Wydział')
     fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
        				height=800,width=1500,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),barmode='group',
-       				separators =',',showlegend=True,legend_title_text='Rodzaj wniosku',margin=dict(t=100, b=0, l=180, r=50),legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
+       				separators =',',showlegend=True,legend_title_text='Rodzaj wniosku',legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
        
     st.plotly_chart(fig,use_container_width=True)
 
