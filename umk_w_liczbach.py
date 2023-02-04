@@ -743,7 +743,7 @@ elif sekcja == 'Badania naukowe':
             
             fig.add_trace(go.Bar(x=y,y=x,orientation='h',
             				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożony',marker_pattern_shape="x",
-            			      hovertemplate = 'Wnioski złożone: %{x:,}zł'+"<extra></extra>"))
+            			      hovertemplate = 'Kwota wnioskowana: %{x:,}zł'+"<extra></extra>"))
             fig.update_xaxes(title='Kwota wnioskowana[zł]')
             fig.update_yaxes(title='Wydział')
             
