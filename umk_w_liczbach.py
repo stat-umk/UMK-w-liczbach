@@ -152,7 +152,7 @@ if sekcja == 'Strona główna':
 elif sekcja == 'Studenci i absolwenci':
     #kod właściwy
     st.markdown('---')
-    sekcja1 = option_menu(None, ["Studenci i Absolwenci", "Studenci z zagranicy", "Studenci niepełnosprawni", 'Stypendia Ministra'], 
+    sekcja1 = option_menu(None, ["Studenci i absolwenci", "Porównanie wydziałów", 'Stypendia'], 
     menu_icon="cast", default_index=0, orientation="horizontal",
     styles={
         "container": {"padding": "0!important", "background-color": "rgb(255,205,0)"},
