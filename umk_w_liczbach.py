@@ -575,7 +575,7 @@ elif sekcja == 'Pracownicy':
         DF28 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wynagrodzenie',dtype={'Rok':int})
         DF30 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Inflacja1',dtype={'Rok':float,'dr':str})
         DF28_1 = DF28
-        DF28_1['Wydział'] = DF28_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')
+        DF28_1['Wydział'] = DF28_1['Kategoria'].replace(['Ogółem'],'Ogółem UMK')
         st.header('Przeciętne wynagrodzenie brutto pracowników uniwersytetu')
         wydz318 = st.multiselect('Wybierz kategorię   :  ',DF28_1['Kategoria'].unique(),['Ogółem UMK','Średnia krajowa'])
         st.plotly_chart(px.line(DF28_1[DF28_1['Kategoria'].isin(wydz318)].sort_values(by=['Kategoria','Rok'],key=lambda x: x.map(pr_cy1)),x='Rok',y='Wynagrodzenie',color='Kategoria',width=1400,height=500,markers=True,color_discrete_sequence=list(map(lambda x: pr_cy[x],sorted(wydz318,key=lambda x: pr_cy1[x]))))
