@@ -228,7 +228,7 @@ elif sekcja == 'Studenci i absolwenci':
     			.update_xaxes(dtick=1)
     			.update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba studentów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
     			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")),use_container_width=True)
-        elif kat34 == 'Ogółem':
+        elif kat34 == 'Ogółem UMK':
             st.plotly_chart(fig1,use_container_width=True)
 	
 	
@@ -896,7 +896,7 @@ elif sekcja == 'Badania naukowe':
         elif (li1 == 'Kwota' or li1 == 'Liczba') and (roki1 not in [2019,2020,2021]):
             st.write('*dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
 	
-st.plotly_chart(fig,use_container_width=True)
+
 hide_st_style = """
             <style>
             #MainMenu {visibility: hidden;}
