@@ -303,7 +303,7 @@ elif sekcja == 'Studenci i absolwenci':
         elif (gz3 == 'Wyłącz') and (kat09 == 'Studia stacjonarne i niestacjonarne'):
             st.plotly_chart(px.bar(DF15[(DF15['Wydział'].isin(wydz746))].sort_values(by=['Wydział','Rok']),x='Rok',y='Liczba',barmode = 'group',hover_name="Wydział", color='Wydział',width=1500,height=500,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz746))),pattern_shape="Wydział").update_yaxes(tickformat=",",showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',title='Liczba studentów').update_traces(hovertemplate = 'Liczba studentów: %{y:}',textfont=dict( size=14),texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=','),use_container_width=True)
         elif (gz3 == 'Włącz') and (kat09 == 'Studia stacjonarne'):
-            fig77 = px.bar(DF10[(DF10['Wydział'].isin(wydz746))].sort_values(by=['Wydział','Rok']),x='Rok',y='Liczba',barmode = 'group',hover_name="Wydział", color='Wydział',width=1500,height=500,color_discrete_sequence=list(map(lambda x: kolwyd[x],sorted(wydz746))),pattern_shape="Wydział").update_yaxes(tickformat=",",showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',title='Liczba studentów').update_traces(hovertemplate = 'Liczba studentów: %{y:}',textfont=dict( size=14),texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
+            fig77 = px.bar(DF10[(DF10['Wydział'].isin(wydz746))].sort_values(by=['Wydział','Rok']),x='Rok',y='Liczba',barmode = 'group',hover_name="Wydział", color='Wydział',width=1500,height=500,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz746))),pattern_shape="Wydział").update_yaxes(tickformat=",",showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',title='Liczba studentów').update_traces(hovertemplate = 'Liczba studentów: %{y:}',textfont=dict( size=14),texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
             fig52 = px.line(DF19a,x='Rok',y='Liczba',color_discrete_sequence=['rgb(0,80,170)'],markers=True).update_traces(hovertemplate = 'Średnia liczba studentów studiów stacjonarnych: %{y:,.2f}',textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}").update_yaxes(tickformat=",").update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
             fig77.add_trace(fig52.data[0])
             st.plotly_chart(fig77,use_container_width=True)
@@ -459,14 +459,16 @@ elif sekcja == 'Pracownicy':
         DF23 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_pl',dtype={'Rok':int})
         DF27 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_npwni',dtype={'Rok':int})
         
+        DF21['Wydział'] = DF21['Wydział'].replace(['Ogółem'],'Ogółem UMK')
+        DF22['Wydział'] = DF22['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         st.header('Liczba pracowników uniwersytetu')
-        pr = st.selectbox('Wybierz kategorię : ', ['Ogółem','Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi'])
+        pr = st.selectbox('Wybierz kategorię : ', ['Ogółem UMK','Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi'])
         st.plotly_chart(px.bar(DF21[DF21['Rodzaj']==pr],x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(255,205,0)','rgb(250,20,20)']).update_traces(customdata=DF21[DF21['Rodzaj']==pr].groupby('Rok')['Liczba'].agg(np.sum)[::-1],texttemplate="%{y:}",hovertemplate = 'Liczba ogółem: %{customdata}'+"<extra></extra>",
         	textposition='inside',textfont=dict( size=14))
         	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"), legend_title_text='Kampus'),use_container_width=True)
 	
         st.header('Zmiana liczby pracowników uniwersytetu w stosunku do roku poprzedniego')
-        pr1 = st.selectbox('Wybierz kategorię   : ', ['Ogółem','Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi'])
+        pr1 = st.selectbox('Wybierz kategorię   : ', ['Ogółem UMK','Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi'])
         st.plotly_chart(px.line(DF22[DF22['Rodzaj']==pr1],x='Rok',y='Zmiana',color = 'Jednostka',width=1500,height=500,color_discrete_sequence=['rgb(250,20,20)','rgb(255,205,0)','rgb(0,70,180)'],markers=True)
 		    .update_traces(textposition="top right",texttemplate = "%{y:.2f}%",textfont=dict( size=14),hovertemplate = 'Zmiana liczby pracowników: %{y:,.2f}%')
 	        .update_xaxes(title_font=dict(size=12), title='Rok',range=[2012.95,2021.5],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
@@ -507,6 +509,9 @@ elif sekcja == 'Pracownicy':
         DF35 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Awanse',dtype={'Rok':float})
         DF26 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_St',dtype={'Rok':int})
         
+        DF12['Wydział'] = DF12['Wydział'].replace(['Ogółem'],'Ogółem UMK')
+        DF24['Wydział'] = DF24['Wydział'].replace(['Ogółem'],'Ogółem UMK')
+        DF26['Wydział'] = DF26['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         st.header("Liczba nauczycieli akademickich na uniwersytecie w poszczególnych grupach")
         rok9 = st.selectbox('Wybierz rok:', [2019,2020,2021][::-1])
         xyz,yxz,zxy = st.columns([1,2,1])
@@ -548,12 +553,8 @@ elif sekcja == 'Pracownicy':
 
 
         st.header('Zmiana liczby nauczycieli akademickich w stosunku do roku poprzedniego w podziale na wydziały')
-        DF12_1 = DF12
-        DF12_1['Wydział'] = DF12_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')
-        DF24_1 = DF24
-        DF24_1['Wydział'] = DF24_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')	
-        wydz31 = st.multiselect('Wybierz wydział   :  ',DF12_1['Wydział'].unique(),['Ogółem UMK','Matematyki i Informatyki'])
-        st.plotly_chart(px.line(DF24_1[(DF24_1['Wydział'].isin(wydz31))].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz31))))
+        wydz31 = st.multiselect('Wybierz wydział   :  ',DF12['Wydział'].unique(),['Ogółem UMK','Matematyki i Informatyki'])
+        st.plotly_chart(px.line(DF24[(DF24['Wydział'].isin(wydz31))].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz31))))
 		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,.2f}%",textfont=dict( size=14),hovertemplate = 'Zmiana liczby nauczycieli akademickich: %{y:,.2f}%')
 		    .update_yaxes(title='Zmiana liczby nauczycieli[%]',tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)')
 		    .update_xaxes(dtick=1,range=[np.min(DF24[(DF24['Wydział'].isin(wydz31)) & (DF24['Zmiana'].notna())]['Rok'])-1/5,np.max(DF24[(DF24['Wydział'].isin(wydz31)) & (DF24['Zmiana'].notna())]['Rok'])+1/5],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
@@ -562,10 +563,8 @@ elif sekcja == 'Pracownicy':
 
 
         st.header('Liczba studentów przypadających na jednego nauczyciela akademickiego w podziale na wydziały')  	
-        DF26_1 = DF26
-        DF26_1['Wydział'] = DF26_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         wydz19 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique(),['Ogółem UMK','Matematyki i Informatyki'])
-        st.plotly_chart(px.line(DF26_1[(DF26_1['Wydział'].isin(wydz19))].sort_values(by=['Wydział','Rok']),x='Rok',y='Stosunek',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz19))))
+        st.plotly_chart(px.line(DF26[(DF26['Wydział'].isin(wydz19))].sort_values(by=['Wydział','Rok']),x='Rok',y='Stosunek',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz19))))
 		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,.2f}",textfont=dict( size=14),hovertemplate = 'Liczba studentów na jednego nauczyciela: %{y:,.2f}')
 		    .update_yaxes(tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray',title='Stosunek liczby studentów do nauczycieli')
 		    .update_xaxes(dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',range=[2010-1/5,2021+1/5])
@@ -581,11 +580,10 @@ elif sekcja == 'Pracownicy':
     elif sekcja2 == 'Wynagrodzenie':
         DF28 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wynagrodzenie',dtype={'Rok':int})
         DF30 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Inflacja1',dtype={'Rok':float,'dr':str})
-        DF28_1 = DF28
-        DF28_1['Wydział'] = DF28_1['Wydział'].replace(['Ogółem'],'Ogółem UMK')
+        DF28['Kategoria'] = DF28['Kategoria'].replace(['Ogółem'],'Ogółem UMK')
         st.header('Przeciętne wynagrodzenie brutto pracowników uniwersytetu')
-        wydz318 = st.multiselect('Wybierz kategorię   :  ',DF28_1['Kategoria'].unique(),['Ogółem UMK','Średnia krajowa'])
-        st.plotly_chart(px.line(DF28_1[DF28_1['Kategoria'].isin(wydz318)].sort_values(by=['Kategoria','Rok'],key=lambda x: x.map(pr_cy1)),x='Rok',y='Wynagrodzenie',color='Kategoria',width=1400,height=500,markers=True,color_discrete_sequence=list(map(lambda x: pr_cy[x],sorted(wydz318,key=lambda x: pr_cy1[x]))))
+        wydz318 = st.multiselect('Wybierz kategorię   :  ',DF28['Kategoria'].unique(),['Ogółem UMK','Średnia krajowa'])
+        st.plotly_chart(px.line(DF28[DF28['Kategoria'].isin(wydz318)].sort_values(by=['Kategoria','Rok'],key=lambda x: x.map(pr_cy1)),x='Rok',y='Wynagrodzenie',color='Kategoria',width=1400,height=500,markers=True,color_discrete_sequence=list(map(lambda x: pr_cy[x],sorted(wydz318,key=lambda x: pr_cy1[x]))))
     		    .update_traces(textposition='top right',texttemplate="%{y:}",textfont=dict( size=14),hovertemplate = 'Przeciętne wynagrodzenie: %{y:}zł')
     		    .update_yaxes(title='Przeciętne wynagrodzenie',tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)',rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')
     		    .update_xaxes(dtick=1,range=[np.min(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])-1/5,np.max(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])+1/5],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
@@ -599,11 +597,11 @@ elif sekcja == 'Pracownicy':
         st.header('Zmiana przeciętnego wynagrodzenia brutto pracowników uniwersytetu w stosunku do roku poprzedniego [w %]')
         #wydz1111 = q1111.selectbox('Wybierz kategorię :                                                                          ',DF28['Kategoria'].unique(),index=0)
         #wydz2222 = q2222.selectbox('Wybierz kategorię :                                                                        ',DF28['Kategoria'].unique(),index=6)
-        wydz31 = st.multiselect('Wybierz kategorię  :    ',DF28_1['Kategoria'].unique(),['Ogółem UMK','Średnia krajowa'])
+        wydz31 = st.multiselect('Wybierz kategorię  :    ',DF28['Kategoria'].unique(),['Ogółem UMK','Średnia krajowa'])
         gz1 = st.radio('Inflacja w odniesieniu do analogicznego miesiąca roku poprzedniego - Włącz/Wyłącz:',('Włącz','Wyłącz'))
-        fig44 = px.line(DF28_1[(DF28_1['Kategoria'].isin(wydz31))].sort_values(by=['Kategoria','Rok'],key=lambda x: x.map(pr_cy1)),x='Rok',y='Zmiana', color='Kategoria',width=1500,height=500,markers=True,color_discrete_sequence=list(map(lambda x: pr_cy[x],sorted(wydz31,key=lambda x: pr_cy1[x])))).update_yaxes(tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',title='Zmiana przeciętnego wynagrodzenia[%]').update_traces(textfont=dict( size=14),texttemplate="%{y:.2f}%",textposition='top right',hovertemplate = 'Zmiana przeciętnego wynagrodzenia: %{y:,.2f}%').update_xaxes(dtick=1,range=[2013-1/2,2021+1/2],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x")
+        fig44 = px.line(DF28[(DF28['Kategoria'].isin(wydz31))].sort_values(by=['Kategoria','Rok'],key=lambda x: x.map(pr_cy1)),x='Rok',y='Zmiana', color='Kategoria',width=1500,height=500,markers=True,color_discrete_sequence=list(map(lambda x: pr_cy[x],sorted(wydz31,key=lambda x: pr_cy1[x])))).update_yaxes(tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',title='Zmiana przeciętnego wynagrodzenia[%]').update_traces(textfont=dict( size=14),texttemplate="%{y:.2f}%",textposition='top right',hovertemplate = 'Zmiana przeciętnego wynagrodzenia: %{y:,.2f}%').update_xaxes(dtick=1,range=[2013-1/2,2021+1/2],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x")
         if gz1 == 'Włącz':
-            fig44 = px.line(DF28_1[(DF28_1['Kategoria'].isin(wydz31))].sort_values(by=['Kategoria','dr'],key=lambda x: x.map(pr_cy1)),x='dr',y='Zmiana', color='Kategoria',width=1500,height=500,markers=True,color_discrete_sequence=list(map(lambda x: pr_cy[x],sorted(wydz31,key=lambda x: pr_cy1[x]))),custom_data=['dr']).update_yaxes(tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',title='Zmiana przeciętnego wynagrodzenia[%]').update_traces(textfont=dict( size=14),texttemplate="%{y:.2f}%",textposition='top right',hovertemplate = 'Zmiana przeciętnego wynagrodzenia: %{y:,.2f}%').update_xaxes(tickformat="%m-%Y",showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',range=['2013-6','2022-6'],title='Rok').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode='x')
+            fig44 = px.line(DF28[(DF28['Kategoria'].isin(wydz31))].sort_values(by=['Kategoria','dr'],key=lambda x: x.map(pr_cy1)),x='dr',y='Zmiana', color='Kategoria',width=1500,height=500,markers=True,color_discrete_sequence=list(map(lambda x: pr_cy[x],sorted(wydz31,key=lambda x: pr_cy1[x]))),custom_data=['dr']).update_yaxes(tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',title='Zmiana przeciętnego wynagrodzenia[%]').update_traces(textfont=dict( size=14),texttemplate="%{y:.2f}%",textposition='top right',hovertemplate = 'Zmiana przeciętnego wynagrodzenia: %{y:,.2f}%').update_xaxes(tickformat="%m-%Y",showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',range=['2013-6','2022-6'],title='Rok').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode='x')
             fig55 = px.line(DF30,x='dr',y='Inflacja',color_discrete_sequence=['red'],markers=True,custom_data=['dr1']).update_traces(textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}%",hovertemplate ='<br>Okres: %{customdata}</br>'+'Inflacja w Polsce: %{y:,.2f}%').update_yaxes(tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray').update_xaxes(tickformat="%m-%Y",showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside').update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
             fig44.add_trace(fig55.data[0])
             st.plotly_chart(fig44,use_container_width=True)
