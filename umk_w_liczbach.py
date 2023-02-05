@@ -181,7 +181,9 @@ elif sekcja == 'Studenci i absolwenci':
 
 	
         DF17 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Absolwenci',dtype={'Rok':int})
+        DF17['Rodzaj'] = DF17['Rodzaj'].replace(['Ogółem'],'Ogółem UMK')
         DF17a = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Absolwenci1',dtype={'Rok':int})
+        DF17a['Forma kształcenia'] = DF17a['Forma kształcenia'].replace(['Ogółem'],'Ogółem UMK')
 	
         #DF19 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr',dtype={'Rok':int})
         
