@@ -174,7 +174,6 @@ elif sekcja == 'Studenci i absolwenci':
         DF12 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='doktoranci',dtype={'Rok':int})
         DF12['Wydział'] = DF12['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         DF13 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Podyplomowe',dtype={'Rok':int})
-        DF13['Wydział'] = DF13['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         DF14 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Ogółem',dtype={'Rok':int})
 
         DF15 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stud_og',dtype={'Rok':int})
