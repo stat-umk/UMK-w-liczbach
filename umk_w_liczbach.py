@@ -841,7 +841,7 @@ elif sekcja == 'Badania naukowe':
             barwa4 = lg['kolor'][::-1]
         
             fig = go.Figure()
-            fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',marker_showscale=True,
+            fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
                                 textfont=dict( size=12,color='black'),marker_color=barwa4,marker_line_color='black',marker_line_width=1.5,name='Przyznany',
                               hovertemplate = 'Liczba przyznanych grantów: %{x:}'+"<extra></extra>"))
             
