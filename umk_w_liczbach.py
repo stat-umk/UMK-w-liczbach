@@ -125,7 +125,7 @@ sekcja = option_menu(None, ["Strona główna", "Studenci i absolwenci", "Pracown
 if sekcja == 'Strona główna':
     st.markdown('---')
     st.title('Uniwersytet Mikołaja Kopernika w Toruniu w liczbach')
-    st.markdown('<div style="text-align: justify; font-size: 42px;">Uniwersytet Mikołaja Kopernika jest jednym z 43 uniwersytetów publicznych w Polsce i jedną z 10 uczelni w programie „Inicjatywa Doskonałości - Uczelnia Badawcza”.</div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align: justify; font-size: 32px;">Uniwersytet Mikołaja Kopernika jest jednym z 43 uniwersytetów publicznych w Polsce i jedną z 10 uczelni w programie „Inicjatywa Doskonałości - Uczelnia Badawcza”.</div>', unsafe_allow_html=True)
     st.subheader('Uniwersytet Mikołaja Kopernika jest jednym z 43 uniwersytetów publicznych w Polsce i jedną z 10 uczelni w programie „Inicjatywa Doskonałości - Uczelnia Badawcza”.  ' +
 		'Zatrudnia ponad 4 000 pracowników i kształci w ramach różnych form studiów ponad 19 000 studentów. ' +
 		'Niniejsza aplikacja ma na celu prezentację wizualną danych dotyczących tej znakomitej uczelni. ' +
