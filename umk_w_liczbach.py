@@ -125,7 +125,7 @@ if sekcja == 'Strona główna':
 		'Niniejsza aplikacja ma na celu prezentację wizualną danych dotyczących tej znakomitej uczelni. '+
 		'Dane pochodzą ze sprawozdań Rektora UMK za lata 2010-2021 i prezentują stan na ostatni dzień danego roku.</div>', unsafe_allow_html=True)
     st.markdown(' ')
-    st.markdown('<div style="text-align: justify; font-size: 25px;">Uniwersytet podzielony jest na wydziały. Każdy wydział ma unikatowe logo, które charakteryzuje kolor '+
+    st.markdown('<div style="text-align: justify; font-size: 25px;">Uniwersytet podzielony jest na wydziały. Każdy z wydziałów posiada unikatowe logo, które charakteryzuje kolor '+
 		'oraz pozycja mniejszego kółka na obwodzie większego niebieskiego koła. Poniższa grafika przedstawia loga poszczególnych '+
 		'wydziałów. Warto zapoznać się z barwami jednostek, ponieważ są one częścią wizualizacji znajdujących się na pozostałych stronach. '+
 		' Ich znajomość ułatwi interpretację wykresów.</div>', unsafe_allow_html=True)
@@ -490,13 +490,13 @@ elif sekcja == 'Pracownicy':
         
     elif sekcja2 == 'Nauczyciele akademiccy':
         DF = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='nauczyciele',dtype={'Rok':int})
-        DF12 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='doktoranci',dtype={'Rok':int})
+        #DF12 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='doktoranci',dtype={'Rok':int})
         DF24 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_wydz',dtype={'Rok':int})
         DF25 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_sr',dtype={'Rok':int})
         DF35 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Awanse',dtype={'Rok':float})
         DF26 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_St',dtype={'Rok':int})
         
-        DF12['Wydział'] = DF12['Wydział'].replace(['Ogółem'],'Ogółem UMK')
+        #DF12['Wydział'] = DF12['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         DF24['Wydział'] = DF24['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         DF26['Wydział'] = DF26['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         st.header("Liczba nauczycieli akademickich na uniwersytecie w poszczególnych grupach")
@@ -526,11 +526,12 @@ elif sekcja == 'Pracownicy':
 
 
         st.header('Porównanie liczby nauczycieli akademickich na wybranych wydziałach')
-        q111, q222 = st.columns(2)
-        wydz123 = q111.selectbox('Wybierz wydział :                                                                          ',DF24[DF24['Wydział']!='Ogółem']['Wydział'].unique(),index=2)
-        wydz222 = q222.selectbox('Wybierz wydział :                                                                        ',DF24[DF24['Wydział']!='Ogółem']['Wydział'].unique(),index=3)
+        #q111, q222 = st.columns(2)
+        #wydz123 = q111.selectbox('Wybierz wydział :                                                                          ',DF24[DF24['Wydział']!='Ogółem']['Wydział'].unique(),index=2)
+        #wydz222 = q222.selectbox('Wybierz wydział :                                                                        ',DF24[DF24['Wydział']!='Ogółem']['Wydział'].unique(),index=3)
+        wydz313 = st.multiselect('Wybierz wydział   :    ',DF24[DF24['Wydział']!='Ogółem']['Wydział'].unique(),['Ogółem UMK','Matematyki i Informatyki'])
         gz = st.radio('Średnio na 1 wydział UMK - Włącz/Wyłącz:',('Włącz','Wyłącz'))
-        fig4 = px.bar(DF24[(DF24['Wydział'].isin([wydz123,wydz222]))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_map={wydz123: kolwyd1[wydz123],wydz222: kolwyd1[wydz222]},pattern_shape="Wydział").update_yaxes(tickformat=",",showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',title='Liczba nauczycieli akademickich').update_traces(textfont=dict( size=14),texttemplate="%{y:}",textposition='inside',hovertemplate = 'Liczba nauczycieli akademickich: %{y:}').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
+        fig4 = px.bar(DF24[(DF24['Wydział'].isin(wydz313))],x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz313))),pattern_shape="Wydział").update_yaxes(tickformat=",",showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',title='Liczba nauczycieli akademickich').update_traces(textfont=dict( size=14),texttemplate="%{y:}",textposition='inside',hovertemplate = 'Liczba nauczycieli akademickich: %{y:}').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         if gz == 'Włącz':
 	        fig5 = px.line(DF25,x='Rok',y='Liczba',color_discrete_sequence=['rgb(0,80,170)'],markers=True).update_traces(textfont=dict( size=14),textposition="top left",texttemplate = "%{y:.2f}",hovertemplate = 'Średnia liczba pracowników: %{y:,.2f}').update_yaxes(tickformat=",").update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
 	        fig4.add_trace(fig5.data[0])
@@ -540,7 +541,7 @@ elif sekcja == 'Pracownicy':
 
 
         st.header('Zmiana liczby nauczycieli akademickich w stosunku do roku poprzedniego w podziale na wydziały')
-        wydz31 = st.multiselect('Wybierz wydział   :  ',DF12['Wydział'].unique(),['Ogółem UMK','Matematyki i Informatyki'])
+        wydz31 = st.multiselect('Wybierz wydział   :  ',DF24[DF24['Wydział']!='Ogółem']['Wydział'].unique(),['Ogółem UMK','Matematyki i Informatyki'])
         st.plotly_chart(px.line(DF24[(DF24['Wydział'].isin(wydz31))].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz31))))
 		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,.2f}%",textfont=dict( size=14),hovertemplate = 'Zmiana liczby nauczycieli akademickich: %{y:,.2f}%')
 		    .update_yaxes(title='Zmiana liczby nauczycieli[%]',tickformat=",",showline=False,linewidth=1,gridwidth=1,gridcolor='gray',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)')
@@ -550,7 +551,7 @@ elif sekcja == 'Pracownicy':
 
 
         st.header('Liczba studentów przypadających na jednego nauczyciela akademickiego w podziale na wydziały')  	
-        wydz19 = st.multiselect('Wybierz wydział :  ',DF12['Wydział'].unique(),['Ogółem UMK','Matematyki i Informatyki'])
+        wydz19 = st.multiselect('Wybierz wydział :  ',DF24[DF24['Wydział']!='Ogółem']['Wydział'].unique(),['Ogółem UMK','Matematyki i Informatyki'])
         st.plotly_chart(px.line(DF26[(DF26['Wydział'].isin(wydz19))].sort_values(by=['Wydział','Rok']),x='Rok',y='Stosunek',color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz19))))
 		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,.2f}",textfont=dict( size=14),hovertemplate = 'Liczba studentów na jednego nauczyciela: %{y:,.2f}')
 		    .update_yaxes(tickformat=",",rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray',title='Stosunek liczby studentów do nauczycieli')
