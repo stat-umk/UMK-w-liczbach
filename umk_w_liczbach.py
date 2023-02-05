@@ -129,6 +129,7 @@ if sekcja == 'Strona główna':
 		' Zatrudnia ponad 4 000 pracowników i kształci w ramach różnych form studiów ponad 19 000 studentów. '+
 		'Niniejsza aplikacja ma na celu prezentację wizualną danych dotyczących tej znakomitej uczelni. '+
 		'Dane pochodzą ze sprawozdań Rektora UMK za lata 2010-2021 i prezentują stan na ostatni dzień danego roku.</div>', unsafe_allow_html=True)
+    st.markdown(' ')
     st.markdown('<div style="text-align: justify; font-size: 25px;">Uniwersytet podzielony jest na wydziały. Każdy wydział ma unikatowe logo, które charakteryzuje kolor '+
 		'oraz pozycja mniejszego kółka na obwodzie większego niebieskiego koła. Poniższa grafika przedstawia loga poszczególnych '+
 		'wydziałów. Warto zapoznać się z barwami jednostek, ponieważ są one częścią wizualizacji znajdujących się na pozostałych stronach. '+
