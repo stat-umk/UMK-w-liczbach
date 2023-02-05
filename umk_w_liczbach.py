@@ -529,7 +529,7 @@ elif sekcja == 'Pracownicy':
         #q111, q222 = st.columns(2)
         #wydz123 = q111.selectbox('Wybierz wydział :                                                                          ',DF24[DF24['Wydział']!='Ogółem']['Wydział'].unique(),index=2)
         #wydz222 = q222.selectbox('Wybierz wydział :                                                                        ',DF24[DF24['Wydział']!='Ogółem']['Wydział'].unique(),index=3)
-        wydz313 = st.multiselect('Wybierz wydział   :    ',DF24[DF24['Wydział']!='Ogółem UMK']['Wydział'].unique(),['Ogółem UMK','Matematyki i Informatyki'])
+        wydz313 = st.multiselect('Wybierz wydział   :    ',DF24[DF24['Wydział']!='Ogółem UMK']['Wydział'].unique(),['Farmaceutyczny','Matematyki i Informatyki'])
         gz = st.radio('Średnio na 1 wydział UMK - Włącz/Wyłącz:',('Włącz','Wyłącz'))
         fig4 = px.bar(DF24[(DF24['Wydział'].isin(wydz313))].sort_values(by=['Wydział','Rok']),x='Rok',y='Liczba',barmode = 'group', color='Wydział',width=1500,height=500,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz313))),pattern_shape="Wydział").update_yaxes(tickformat=",",showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',title='Liczba nauczycieli akademickich').update_traces(textfont=dict( size=14),texttemplate="%{y:}",textposition='inside',hovertemplate = 'Liczba nauczycieli akademickich: %{y:}').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',')
         if gz == 'Włącz':
