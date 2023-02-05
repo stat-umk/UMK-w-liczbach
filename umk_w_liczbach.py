@@ -16,11 +16,6 @@ st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:',i
 
 
 lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
-wydziały = ['Matematyki i Informatyki',
-                                                    'Chemii','Humanistyczny','Fizyki, Astronomii i Informatyki Stosowanej','Filozofii i Nauk Społecznych',
-                                                    'Nauk Biologicznych i Weterynaryjnych','Nauk Ekonomicznych i Zarządzania','Nauk Historycznych','Nauk o Ziemi i Gospodarki Przestrzennej',
-                                                    'Nauk o Polityce i Bezpieczeństwie','Prawa i Administracji','Sztuk Pięknych','Teologiczny','Lekarski',
-                                                    'Farmaceutyczny','Nauk o Zdrowiu','Ogółem']
 kolor = {'fioletowy':'rgb(170,40,150)','niebieski':'rgb(0,175,250)','zielony':'rgb(0,165,80)','oliwkowy':'rgb(170,210,60)','pomarańczowy':'rgb(255,130,30)','czerwony':'rgb(250,20,20)'}
 kolwyd1 = {'Nauk Biologicznych i Weterynaryjnych (2019-2021)':kolor['zielony'],'Biologii i Ochrony Środowiska (2012-2018)':kolor['zielony'],'Filologiczny (2010-2018)':kolor['niebieski'],
            'Chemii':kolor['oliwkowy'],'Humanistyczny':kolor['niebieski'],'Fizyki, Astronomii i Informatyki Stosowanej':kolor['oliwkowy'],
@@ -37,8 +32,8 @@ kolwyd = {'Nauk Biologicznych i Weterynaryjnych':kolor['zielony'],'Biologii i Oc
           'Teologiczny':kolor['zielony'],'Lekarski':kolor['czerwony'],'Farmaceutyczny':kolor['czerwony'],'Nauk o Zdrowiu':kolor['czerwony'],'Ogółem UMK':'rgb(0,80,170)','Ogółem':'rgb(0,80,170)',
 	 'Interdyscyplinarne Centrum Nowoczesnych Technologii':kolor['oliwkowy'],'Biologii i Nauk o Ziemi':kolor['zielony']}
 
-pr_cy = {'Ogółem':'rgb(0,70,180)','Nauczyciele akademiccy':'rgb(0,175,250)','Profesorowie':'rgb(170,40,150)','Adiunkci':'rgb(250,20,20)','Asystenci i lektorzy':'rgb(255,130,30)','Nienauczyciele':'rgb(255,205,0)','Średnia krajowa':'rgb(204,204,204)'}
-pr_cy1 = {'Ogółem':0,'Nauczyciele akademiccy':1,'Profesorowie':2,'Adiunkci':3,'Asystenci i lektorzy':4,'Nienauczyciele':5,'Średnia krajowa':6}
+pr_cy = {'Ogółem UMK':'rgb(0,70,180)','Nauczyciele akademiccy':'rgb(0,175,250)','Profesorowie':'rgb(170,40,150)','Adiunkci':'rgb(250,20,20)','Asystenci i lektorzy':'rgb(255,130,30)','Nienauczyciele':'rgb(255,205,0)','Średnia krajowa':'rgb(204,204,204)'}
+pr_cy1 = {'Ogółem UMK':0,'Nauczyciele akademiccy':1,'Profesorowie':2,'Adiunkci':3,'Asystenci i lektorzy':4,'Nienauczyciele':5,'Średnia krajowa':6}
 
 
         
@@ -134,14 +129,6 @@ if sekcja == 'Strona główna':
 		'oraz pozycja mniejszego kółka na obwodzie większego niebieskiego koła. Poniższa grafika przedstawia loga poszczególnych '+
 		'wydziałów. Warto zapoznać się z barwami jednostek, ponieważ są one częścią wizualizacji znajdujących się na pozostałych stronach. '+
 		' Ich znajomość ułatwi interpretację wykresów.</div>', unsafe_allow_html=True)
-    st.subheader('Uniwersytet Mikołaja Kopernika jest jednym z 43 uniwersytetów publicznych w Polsce i jedną z 10 uczelni w programie „Inicjatywa Doskonałości - Uczelnia Badawcza”.  ' +
-		'Zatrudnia ponad 4 000 pracowników i kształci w ramach różnych form studiów ponad 19 000 studentów. ' +
-		'Niniejsza aplikacja ma na celu prezentację wizualną danych dotyczących tej znakomitej uczelni. ' +
-		'Dane pochodzą ze sprawozdań Rektora UMK za lata 2010-2021 i prezentują stan na ostatni dzień danego roku.')
-    st.subheader('Uniwersytet podzielony jest na wydziały. Każdy wydział ma unikatowe logo, które charakteryzuje kolor ' +
-	      'oraz pozycja mniejszego kółka na obwodzie większego niebieskiego koła. Poniższa grafika przedstawia loga poszczególnych ' + 
-	      'wydziałów. Warto zapoznać się z barwami jednostek, ponieważ są one częścią wizualizacji znajdujących się na pozostałych stronach.'+ 
-	      ' Ich znajomość ułatwi interpretację wykresów.')
     st.image('Image/UMKlog1.png',use_column_width=True)
     
     
