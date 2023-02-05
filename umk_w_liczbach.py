@@ -813,8 +813,8 @@ elif sekcja == 'Badania naukowe':
             st.plotly_chart(fig,use_container_width=True)
         elif (li1 == 'Liczba'):
             lw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
-            x = lw.index
-            y = lw['Liczba wniosków']
+            x = lw.index[::-1]
+            y = lw['Liczba wniosków'][::-1]
             
             
             lw = lw.reset_index()
@@ -824,11 +824,11 @@ elif sekcja == 'Badania naukowe':
                     lw['kolor'][j] = kolwyd[i]
                 else:
                     lw['kolor'][j] = 'rgb(0,70,180)'
-            barwa1 = lw['kolor']
+            barwa1 = lw['kolor'][::-1]
             
             lg = pd.DataFrame(DF32[DF32['Rok']==roki1].groupby('Jednostka')['Liczba grantów'].agg(np.sum)).sort_values(by='Liczba grantów')[::-1]
-            x1 = lg.index
-            y1 = lg['Liczba grantów']
+            x1 = lg.index[::-1]
+            y1 = lg['Liczba grantów'][::-1]
         
         
             lg = lg.reset_index()
@@ -838,7 +838,7 @@ elif sekcja == 'Badania naukowe':
                     lg['kolor'][j] = kolwyd[i]
                 else:
                     lg['kolor'][j] = 'rgb(0,70,180)'
-            barwa4 = lg['kolor']
+            barwa4 = lg['kolor'][::-1]
         
             fig = go.Figure()
             fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
@@ -852,7 +852,7 @@ elif sekcja == 'Badania naukowe':
             fig.update_yaxes(title='Wydział')
             
             fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
-            					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),legend_traceorder='reversed',
+            					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),legend_traceorder='reversed',marker_showscale=True,
             					separators =',',margin=dict(t=100, b=0, l=180, r=50),showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
             
             st.plotly_chart(fig,use_container_width=True)	
