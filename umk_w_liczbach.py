@@ -813,8 +813,8 @@ elif sekcja == 'Badania naukowe':
             st.plotly_chart(fig,use_container_width=True)
         elif (li1 == 'Liczba'):
             lw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
-            x = lw.index[::-1]
-            y = lw['Liczba wniosków'][::-1]
+            x = lw.index
+            y = lw['Liczba wniosków']
             
             
             lw = lw.reset_index()
@@ -824,7 +824,7 @@ elif sekcja == 'Badania naukowe':
                     lw['kolor'][j] = kolwyd[i]
                 else:
                     lw['kolor'][j] = 'rgb(0,70,180)'
-            barwa1 = lw['kolor'][::-1]
+            barwa1 = lw['kolor']
             
             lg = pd.DataFrame(DF32[DF32['Rok']==roki1].groupby('Jednostka')['Liczba grantów'].agg(np.sum)).sort_values(by='Liczba grantów')[::-1]
             x1 = lg.index
