@@ -827,8 +827,8 @@ elif sekcja == 'Badania naukowe':
             barwa1 = lw['kolor'][::-1]
             
             lg = pd.DataFrame(DF32[DF32['Rok']==roki1].groupby('Jednostka')['Liczba grantów'].agg(np.sum)).sort_values(by='Liczba grantów')[::-1]
-            x1 = lg.index[::-1]
-            y1 = lg['Liczba grantów'][::-1]
+            x1 = lg.index
+            y1 = lg['Liczba grantów']
         
         
             lg = lg.reset_index()
@@ -838,7 +838,7 @@ elif sekcja == 'Badania naukowe':
                     lg['kolor'][j] = kolwyd[i]
                 else:
                     lg['kolor'][j] = 'rgb(0,70,180)'
-            barwa4 = lg['kolor'][::-1]
+            barwa4 = lg['kolor']
         
             fig = go.Figure()
             fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
