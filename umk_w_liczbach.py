@@ -459,8 +459,8 @@ elif sekcja == 'Pracownicy':
         DF23 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_pl',dtype={'Rok':int})
         DF27 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Pr_npwni',dtype={'Rok':int})
         
-        DF21['Wydział'] = DF21['Wydział'].replace(['Ogółem'],'Ogółem UMK')
-        DF22['Wydział'] = DF22['Wydział'].replace(['Ogółem'],'Ogółem UMK')
+        DF21['Rodzaj'] = DF21['Rodzaj'].replace(['Ogółem'],'Ogółem UMK')
+        DF22['Rodzaj'] = DF22['Rodzaj'].replace(['Ogółem'],'Ogółem UMK')
         st.header('Liczba pracowników uniwersytetu')
         pr = st.selectbox('Wybierz kategorię : ', ['Ogółem UMK','Nauczyciele akademiccy','Pracownicy niebędący nauczycielami akademickimi'])
         st.plotly_chart(px.bar(DF21[DF21['Rodzaj']==pr],x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(255,205,0)','rgb(250,20,20)']).update_traces(customdata=DF21[DF21['Rodzaj']==pr].groupby('Rok')['Liczba'].agg(np.sum)[::-1],texttemplate="%{y:}",hovertemplate = 'Liczba ogółem: %{customdata}'+"<extra></extra>",
