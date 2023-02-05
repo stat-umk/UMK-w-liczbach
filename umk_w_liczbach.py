@@ -346,7 +346,7 @@ elif sekcja == 'Studenci i absolwenci':
         
         
         st.header('Stypendia ministra w podziale na wydziały wraz ze współczynnikiem skuteczności (w %)')
-        r = st.selectbox('Wybierz rok : ', lata,index=9)
+        r = st.selectbox('Wybierz rok : ', lata[::-1],index=9)
         lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
         x = lg.index[::-1]
         y = lg['Przyznane'][::-1]
