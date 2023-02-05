@@ -228,7 +228,7 @@ elif sekcja == 'Studenci i absolwenci':
     			.update_xaxes(dtick=1)
     			.update_yaxes(rangemode='tozero',tickformat=" ",title='Liczba studentów',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray')
     			.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")),use_container_width=True)
-        elif kat34 == 'Ogółem UMK':
+        elif kat34 == 'Ogółem':
             st.plotly_chart(fig1,use_container_width=True)
 	
 	
@@ -271,9 +271,13 @@ elif sekcja == 'Studenci i absolwenci':
     
     elif sekcja1 == 'Porównanie wydziałów':
         DF10 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stacjonarne',dtype={'Rok':int})
+        DF10['Wydział'] = DF10['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         DF11 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Niestacjonarne',dtype={'Rok':int})
+        DF11['Wydział'] = DF11['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         DF12 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='doktoranci',dtype={'Rok':int})
+        DF12['Wydział'] = DF12['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         DF15 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stud_og',dtype={'Rok':int})
+        DF15['Wydział'] = DF15['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         DF19 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr',dtype={'Rok':int})
         DF19a = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr_stacjo',dtype={'Rok':int})
         DF19b = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr_niestacjo',dtype={'Rok':int})
