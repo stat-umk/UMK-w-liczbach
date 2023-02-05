@@ -482,10 +482,10 @@ elif sekcja == 'Pracownicy':
             fig7.update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',margin=dict(t=0, b=0, l=20, r=0),showlegend=True)
             st.plotly_chart(fig7,use_container_width=True)
         
-        st.header('Liczba pracowników niepełnosprawnych na uniwersytecie')
+        st.header('Liczba pracowników z niepełnosprawnościami na uniwersytecie')
         st.plotly_chart(px.bar(DF27,x='Rok',y='Liczba',color='Jednostka',width=1400,height=500,color_discrete_sequence=['rgb(255,205,0)','rgb(250,20,20)']).update_traces(customdata=DF27.groupby('Rok')['Liczba'].agg(np.sum)[::-1],texttemplate="%{y:}",textfont=dict( size=14),
     	textposition='inside',hovertemplate = 'Liczba ogółem: %{customdata}'+'<extra></extra>')
-    	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników niepełnosprawnych',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_layout(legend_title_text='Kampus', plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")),use_container_width=True)
+    	.update_xaxes(title_font=dict(size=12), title='Rok',dtick=1).update_yaxes(title_font=dict(size=12),title = 'Liczba pracowników z niepełnosprawnościami',showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray').update_layout(legend_title_text='Kampus', plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black")),use_container_width=True)
         
         
     elif sekcja2 == 'Nauczyciele akademiccy':
@@ -595,7 +595,7 @@ elif sekcja == 'Pracownicy':
             st.plotly_chart(fig44,use_container_width=True)
         else:
             st.plotly_chart(fig44,use_container_width=True)
-        st.write('Wartości poniżej 0 oznaczają spadek liczby studentów względem roku poprzedniego, a powyżej - wzrost.')
+        st.write('Wartości poniżej 0 oznaczają spadek przeciętnego wynagrodzenia względem roku poprzedniego, a powyżej - wzrost.')
         st.write('Dane o inflacji  https://stat.gov.pl/obszary-tematyczne/ceny-handel/wskazniki-cen/wskazniki-cen-towarow-i-uslug-konsumpcyjnych-pot-inflacja-/roczne-wskazniki-cen-towarow-i-uslug-konsumpcyjnych/')
     
 
