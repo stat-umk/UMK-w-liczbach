@@ -768,9 +768,9 @@ elif sekcja == 'Badania naukowe':
         DF34 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Sukces_mein',dtype={'Rok':float})
         
         st.header('Granty ministerstwa właściwego ds. nauki')
-        roki1 = st.selectbox('Wybierz rok: ',lata[::-1])
+        roki1 = st.selectbox('Wybierz rok: ',[2015,2016,2017,2018,2019,2020,2021][::-1])
         li1 = st.selectbox('Wybierz podsumowanie: ',['Liczba','Kwota'])
-        if (li1 == 'Kwota'):		       
+        if (li1 == 'Kwota') and (roki1 > 2018):		       
             kw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
             x = kw.index[::-1]
             y = kw['Kwota wnioskowana[zł]'][::-1]
@@ -784,6 +784,23 @@ elif sekcja == 'Badania naukowe':
                     kw['kolor'][j] = 'rgb(0,70,180)'
             barwa = kw['kolor'][::-1]
             
+            
+            fig1 = go.Figure()
+            fig1.add_trace(go.Bar(x=y,y=x,orientation='h',
+            				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
+            			      hovertemplate = 'Kwota wnioskowana: %{x:,}zł'+"<extra></extra>"))
+            fig1.update_xaxes(title='Kwota wnioskowana[zł]')
+            fig1.update_yaxes(title='Wydział')
+            
+            fig1.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
+            					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"))
+            
+            st.plotly_chart(fig1,use_container_width=True)
+            
+        elif (li1 == 'Kwota') and (roki1 <= 2018):		       
+            st.write('Dla lat poniżej 2019 roku nie dysponujemy danymi o składanych wnioskach.')
+            
+        elif (li1 == 'Kwota'):		       
             kw1 = pd.DataFrame(DF32[DF32['Rok']==roki1].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
             x1 = kw1.index[::-1]
             y1 = kw1['Kwota przyznana[zł]'][::-1]
@@ -805,17 +822,6 @@ elif sekcja == 'Badania naukowe':
             fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
             					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),title='<b>Granty przyznane',title_x=0.5)
             
-            fig1 = go.Figure()
-            fig1.add_trace(go.Bar(x=y,y=x,orientation='h',
-            				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-            			      hovertemplate = 'Kwota wnioskowana: %{x:,}zł'+"<extra></extra>"))
-            fig1.update_xaxes(title='Kwota wnioskowana[zł]')
-            fig1.update_yaxes(title='Wydział')
-            
-            fig1.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
-            					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"))
-            
-            st.plotly_chart(fig1,use_container_width=True)
             st.plotly_chart(fig,use_container_width=True)
         elif (li1 == 'Liczba'):
             lw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
@@ -852,7 +858,7 @@ elif sekcja == 'Badania naukowe':
                               hovertemplate = 'Liczba przyznanych grantów: %{x:}'+"<extra></extra>"))
             fig.update_xaxes(title='Liczba przyznanych grantów')
             fig.update_yaxes(title='Wydział')
-            fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='Granty przyzanen',title_x=0.5,
+            fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Granty przyzanen',title_x=0.5,
             					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),
             					separators =',',margin=dict(t=100, b=0, l=180, r=50))
             
@@ -863,7 +869,7 @@ elif sekcja == 'Badania naukowe':
             fig1.update_xaxes(title='Liczba złożonych wniosków')
             fig1.update_yaxes(title='Wydział')
             
-            fig1.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='Wnioski złożone',title_x=0.5,
+            fig1.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
             					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),
             					separators =',',margin=dict(t=100, b=0, l=180, r=50))
             
@@ -872,37 +878,7 @@ elif sekcja == 'Badania naukowe':
 
         else:
             st.write('*dla wybranego roku nie dysponujemy danymi')
-    		      
-        
-        
-        if (roki1 in [2019,2020,2021]) and (li1 == 'Liczba'):		       
-            kw = pd.DataFrame(DF34[DF34['Rok']==roki1].groupby('Jednostka')['Skuteczność'].agg(np.sum)).sort_values(by='Skuteczność')[::-1]
-            x = kw.index[::-1]
-            y = kw['Skuteczność'][::-1]
-
-            kw = kw.reset_index()
-            kw['kolor']=' '
-            for j,i in enumerate(kw['Jednostka']):
-                if i in list(kolwyd.keys()):
-                    kw['kolor'][j] = kolwyd[i]
-                else:
-                    kw['kolor'][j] = 'rgb(0,70,180)'
-            barwa = kw['kolor'][::-1]
-            fig = go.Figure()
-            fig.add_trace(go.Bar(x=y,y=x,orientation='h',
-            textfont=dict( size=12,color='black')))
-            fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
-            hovertemplate ='Skuteczność: %{x:,.2f}%'+"<extra></extra>")
-            fig.update_xaxes(title='Skuteczność [%]',range=[0,np.max(y)+np.max(y)/5])
-            fig.update_yaxes(title='Wydział')
-
-            fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Współczynnik skuteczności',title_x=0.5,
-             height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),separators=',')
-            
-            st.plotly_chart(fig,use_container_width=True) 
-            st.write('Współczynnik skuteczności jest określony jako stosunek liczby otrzymanych przyznanych grantów do złożonych wniosków (w %)')
-        elif (li1 == 'Kwota' or li1 == 'Liczba') and (roki1 not in [2019,2020,2021]):
-            st.write('*dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
+        st.write('Liczba przyznanych grantów może być większa niż złożonych wniosków, gdyż granty mogą być przyznane w roku kalendarzowym następującym po roku złożenia wniosku.')	      
 	
 
 hide_st_style = """
