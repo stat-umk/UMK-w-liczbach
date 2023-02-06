@@ -17,7 +17,7 @@ st.set_page_config(page_title='UMK w liczbach', page_icon = ':page_facing_up:',i
 
 lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
 kolor = {'fioletowy':'rgb(170,40,150)','niebieski':'rgb(0,175,250)','zielony':'rgb(0,165,80)','oliwkowy':'rgb(170,210,60)','pomarańczowy':'rgb(255,130,30)','czerwony':'rgb(250,20,20)'}
-kolwyd1 = {'Nauk Biologicznych i Weterynaryjnych (od 2019)':kolor['zielony'],'Biologii i Ochrony Środowiska (2012-2018)':kolor['zielony'],'Filologiczny (2010-2018)':kolor['niebieski'],
+kolwyd1 = {'Nauk Biologicznych i Weterynaryjnych (od 2019)':kolor['oliwkowy'],'Biologii i Ochrony Środowiska (2012-2018)':kolor['zielony'],'Filologiczny (2010-2018)':kolor['niebieski'],
            'Chemii':kolor['oliwkowy'],'Humanistyczny (2010-2018)':kolor['niebieski'],'Humanistyczny (od 2019)':kolor['niebieski'],'Fizyki, Astronomii i Informatyki Stosowanej':kolor['oliwkowy'],
           'Filozofii i Nauk Społecznych (od 2019)':kolor['fioletowy'],'Matematyki i Informatyki':kolor['oliwkowy'],'Nauk Ekonomicznych i Zarządzania':kolor['fioletowy'],
           'Nauk Historycznych':kolor['niebieski'],'Nauk o Ziemi (2012-2018)':kolor['zielony'],'Nauk Pedagogicznych (2010-2018)':kolor['fioletowy'],'Politologii i Studiów Międzynarodowych (2010-2018)':kolor['fioletowy'],
