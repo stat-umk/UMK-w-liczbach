@@ -800,18 +800,23 @@ elif sekcja == 'Badania naukowe':
             fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
                                 textfont=dict( size=12,color='black'),marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,
                               hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>"))
-            st.plotly_chart(fig,use_container_width=True)
+            fig.update_xaxes(title='Kwota przyznana[zł]')
+            fig.update_yaxes(title='Wydział')
+            fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,
+            					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),title='Granty przyznane')
+            
             fig1 = go.Figure()
             fig1.add_trace(go.Bar(x=y,y=x,orientation='h',
-            				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,marker_pattern_shape="x",
+            				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,
             			      hovertemplate = 'Kwota wnioskowana: %{x:,}zł'+"<extra></extra>"))
             fig1.update_xaxes(title='Kwota wnioskowana[zł]')
             fig1.update_yaxes(title='Wydział')
             
-            fig1.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',legend_traceorder='reversed',
-            					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
+            fig1.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,title='Wnioski złożone',
+            					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"))
             
             st.plotly_chart(fig1,use_container_width=True)
+            st.plotly_chart(fig,use_container_width=True)
         elif (li1 == 'Liczba'):
             lw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
             x = lw.index[::-1]
