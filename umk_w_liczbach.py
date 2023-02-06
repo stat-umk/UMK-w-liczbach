@@ -800,7 +800,7 @@ elif sekcja == 'Badania naukowe':
         elif (li1 == 'Kwota') and (roki1 <= 2018):		       
             st.write('Dla lat poniżej 2019 roku nie dysponujemy danymi o składanych wnioskach.')
             
-        elif (li1 == 'Kwota'):		       
+        if (li1 == 'Kwota'):		       
             kw1 = pd.DataFrame(DF32[DF32['Rok']==roki1].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
             x1 = kw1.index[::-1]
             y1 = kw1['Kwota przyznana[zł]'][::-1]
@@ -823,7 +823,7 @@ elif sekcja == 'Badania naukowe':
             					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),title='<b>Granty przyznane',title_x=0.5)
             
             st.plotly_chart(fig,use_container_width=True)
-        elif (li1 == 'Liczba'):
+        if (li1 == 'Liczba') and (roki1 > 2018):
             lw = pd.DataFrame(DF33[DF33['Rok']==roki1].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
             x = lw.index[::-1]
             y = lw['Liczba wniosków'][::-1]
@@ -838,6 +838,23 @@ elif sekcja == 'Badania naukowe':
                     lw['kolor'][j] = 'rgb(0,70,180)'
             barwa1 = lw['kolor'][::-1]
             
+            
+            fig1 = go.Figure()
+            fig1.add_trace(go.Bar(x=y,y=x,orientation='h',
+            				textfont=dict( size=12,color='black'),marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,
+            			      hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>"))
+            fig1.update_xaxes(title='Liczba złożonych wniosków')
+            fig1.update_yaxes(title='Wydział')
+            
+            fig1.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
+            					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),
+            					separators =',',margin=dict(t=100, b=0, l=180, r=50))
+            
+            st.plotly_chart(fig1,use_container_width=True)	
+            
+        elif (li1 == 'Liczba') and (roki1 <= 2018):
+            st.write('Dla lat poniżej 2019 roku nie dysponujemy danymi o składanych wnioskach.')
+        if (li1 == 'Liczba'):
             lg = pd.DataFrame(DF32[DF32['Rok']==roki1].groupby('Jednostka')['Liczba grantów'].agg(np.sum)).sort_values(by='Liczba grantów')[::-1]
             x1 = lg.index[::-1]
             y1 = lg['Liczba grantów'][::-1]
@@ -862,22 +879,8 @@ elif sekcja == 'Badania naukowe':
             					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),
             					separators =',',margin=dict(t=100, b=0, l=180, r=50))
             
-            fig1 = go.Figure()
-            fig1.add_trace(go.Bar(x=y,y=x,orientation='h',
-            				textfont=dict( size=12,color='black'),marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,
-            			      hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>"))
-            fig1.update_xaxes(title='Liczba złożonych wniosków')
-            fig1.update_yaxes(title='Wydział')
-            
-            fig1.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
-            					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),
-            					separators =',',margin=dict(t=100, b=0, l=180, r=50))
-            
-            st.plotly_chart(fig1,use_container_width=True)	
             st.plotly_chart(fig,use_container_width=True)
 
-        else:
-            st.write('*dla wybranego roku nie dysponujemy danymi')
         st.write('Liczba przyznanych grantów może być większa niż złożonych wniosków, gdyż granty mogą być przyznane w roku kalendarzowym następującym po roku złożenia wniosku.')	      
 	
 
