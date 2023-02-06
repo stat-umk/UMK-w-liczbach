@@ -802,8 +802,8 @@ elif sekcja == 'Badania naukowe':
                               hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>"))
             fig.update_xaxes(title='Kwota przyznana[zł]')
             fig.update_yaxes(title='Wydział')
-            fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,
-            					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),title='Granty przyznane')
+            fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
+            					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),title='<b>Granty przyznane',title_x=0.5)
             
             fig1 = go.Figure()
             fig1.add_trace(go.Bar(x=y,y=x,orientation='h',
@@ -812,7 +812,7 @@ elif sekcja == 'Badania naukowe':
             fig1.update_xaxes(title='Kwota wnioskowana[zł]')
             fig1.update_yaxes(title='Wydział')
             
-            fig1.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,title='Wnioski złożone',
+            fig1.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Wnioski złożone',title_x=0.5,
             					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"))
             
             st.plotly_chart(fig1,use_container_width=True)
@@ -848,20 +848,27 @@ elif sekcja == 'Badania naukowe':
         
             fig = go.Figure()
             fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
-                                textfont=dict( size=12,color='black'),marker_color=barwa4,marker_line_color='black',marker_line_width=1.5,name='Przyznany',
+                                textfont=dict( size=12,color='black'),marker_color=barwa4,marker_line_color='black',marker_line_width=1.5,
                               hovertemplate = 'Liczba przyznanych grantów: %{x:}'+"<extra></extra>"))
-            
-            fig.add_trace(go.Bar(x=y,y=x,orientation='h',
-            				textfont=dict( size=12,color='black'),marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,name='Złożony',marker_pattern_shape="x",
-            			      hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>"))
-            fig.update_xaxes(title='Liczba wniosków')
+            fig.update_xaxes(title='Liczba przyznanych grantów')
             fig.update_yaxes(title='Wydział')
+            fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,
+            					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),
+            					separators =',',margin=dict(t=100, b=0, l=180, r=50))
             
-            fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
-            					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),legend_traceorder='reversed',
-            					separators =',',margin=dict(t=100, b=0, l=180, r=50),showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
+            fig1 = go.Figure()
+            fig1.add_trace(go.Bar(x=y,y=x,orientation='h',
+            				textfont=dict( size=12,color='black'),marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,
+            			      hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>"))
+            fig1.update_xaxes(title='Liczba złożonych wniosków')
+            fig1.update_yaxes(title='Wydział')
             
-            st.plotly_chart(fig,use_container_width=True)	
+            fig1.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,
+            					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),
+            					separators =',',margin=dict(t=100, b=0, l=180, r=50))
+            
+            st.plotly_chart(fig1,use_container_width=True)	
+            st.plotly_chart(fig,use_container_width=True)
 
         else:
             st.write('*dla wybranego roku nie dysponujemy danymi')
