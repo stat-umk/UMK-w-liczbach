@@ -852,7 +852,7 @@ elif sekcja == 'Badania naukowe':
                               hovertemplate = 'Liczba przyznanych grantów: %{x:}'+"<extra></extra>"))
             fig.update_xaxes(title='Liczba przyznanych grantów')
             fig.update_yaxes(title='Wydział')
-            fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,
+            fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='Granty przyzanen',title_x=0.5,
             					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),
             					separators =',',margin=dict(t=100, b=0, l=180, r=50))
             
@@ -863,7 +863,7 @@ elif sekcja == 'Badania naukowe':
             fig1.update_xaxes(title='Liczba złożonych wniosków')
             fig1.update_yaxes(title='Wydział')
             
-            fig1.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,
+            fig1.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='Wnioski złożone',title_x=0.5,
             					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),
             					separators =',',margin=dict(t=100, b=0, l=180, r=50))
             
