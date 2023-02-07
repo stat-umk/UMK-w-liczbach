@@ -654,7 +654,7 @@ elif sekcja == 'Badania naukowe':
                 else:
                     kw['kolor'][j] = 'rgb(0,70,180)'
             barwa = kw['kolor'][::-1]
-            barwa[::-1].iloc[17] = 'rgb(0,70,180)'
+            barwa[::-1].loc[17] = 'rgb(0,70,180)'
             
             
             kw1 = pd.DataFrame(DF6[DF6['Rok']==roki].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
