@@ -649,8 +649,8 @@ elif sekcja == 'Badania naukowe':
                     kw['kolor'][j] = 'rgb(0,70,180)'
             barwa = kw['kolor'][::-1]
             kw1 = pd.DataFrame(DF6[DF6['Rok']==roki].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
-            x1 = kw1.index[::-1]
-            y1 = kw1['Kwota przyznana[zł]'][::-1]
+            x1 = kw1.index[::-1]+' '
+            y1 = kw1['Kwota przyznana[zł]'][::-1]+'-100'
             kw1 = kw1.reset_index()
             kw1['kolor']=' '
             for j,i in enumerate(kw1['Jednostka']):
@@ -658,7 +658,7 @@ elif sekcja == 'Badania naukowe':
                     kw1['kolor'][j] = kolwyd[i]
                 else:
                     kw1['kolor'][j] = 'rgb(0,70,180)'
-            barwa3 = kw1['kolor'][::-1]
+            barwa3 = kw1['kolor'][::-1]+'white'
         
             fig = go.Figure()
             fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
