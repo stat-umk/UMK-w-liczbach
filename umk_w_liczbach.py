@@ -664,7 +664,7 @@ elif sekcja == 'Badania naukowe':
                 else:
                     kw1['kolor'][j] = 'rgb(0,70,180)'
             barwa3 = kw1['kolor'][::-1]
-            st.dataframe(x1)
+            st.dataframe(kw1)
             st.dataframe(y1)
             st.dataframe(barwa3)
             fig = go.Figure()
