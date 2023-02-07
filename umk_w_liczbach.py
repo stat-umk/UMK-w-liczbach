@@ -654,7 +654,7 @@ elif sekcja == 'Badania naukowe':
             
             kw1 = pd.DataFrame(DF6[DF6['Rok']==roki].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
             st.dataframe(kw1)
-            kw1.loc[None] = None
+            kw1.loc[' '] = None
             x1 = kw1.index[::-1]
             y1 = kw1['Kwota przyznana[zł]'][::-1]
             kw1 = kw1.reset_index()
@@ -666,8 +666,8 @@ elif sekcja == 'Badania naukowe':
                     kw1['kolor'][j] = 'rgb(0,70,180)'
             barwa3 = kw1['kolor'][::-1]
             barwa3[::-1].iloc[17] = 'white'
-            st.dataframe(y1)
-            st.dataframe(barwa3)
+            #st.dataframe(y1)
+            #st.dataframe(barwa3)
             fig = go.Figure()
             fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
                                 textfont=dict( size=12,color='black'),marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,name='Przyznany',
