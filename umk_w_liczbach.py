@@ -652,7 +652,7 @@ elif sekcja == 'Badania naukowe':
             st.dataframe(y)
             st.dataframe(barwa)
             
-            kw1 = pd.DataFrame(DF6[DF6['Rok']==roki].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
+            kw1 = pd.DataFrame(DF6[DF6['Rok']==roki].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1].append(pd.Series({'Jednostka':' ','Kwota przyznana[zł]':-100,'kolor':'white'},name=17))
             x1 = kw1.index[::-1]
             y1 = kw1['Kwota przyznana[zł]'][::-1]
             kw1 = kw1.reset_index()
