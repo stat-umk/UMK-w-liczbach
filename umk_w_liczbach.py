@@ -348,7 +348,8 @@ elif sekcja == 'Studenci i absolwenci':
         st.header('Stypendia ministra w podziale na wydziały wraz ze współczynnikiem skuteczności (w %)')
         r = st.selectbox('Wybierz rok : ', lata[::-1],index=9)
         lg = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Przyznane'].agg(np.sum)).sort_values(by='Przyznane')[::-1]
-        lg.loc[' '] = None
+        if not lg.empty:
+                lg.loc[' '] = None
         x = lg.index[::-1]
         y = lg['Przyznane'][::-1]
         lg = lg.reset_index()
@@ -359,10 +360,11 @@ elif sekcja == 'Studenci i absolwenci':
             else:
                 lg['kolor'][j] = 'rgb(0,70,180)'
         barwa4 = lg['kolor'][::-1]
-        barwa4[::-1].loc[17] = 'white'
+        barwa4[::-1].loc[17] = 'rgb(0,70,180)'
         
         lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Złożone'].agg(np.sum)).sort_values(by='Złożone')[::-1]
-        lg1.loc[' '] = None
+        if not lg.empty:
+                lg.loc[' '] = None
         x1 = lg1.index[::-1]
         y1 = lg1['Złożone'][::-1]
         lg1 = lg1.reset_index()
@@ -373,7 +375,7 @@ elif sekcja == 'Studenci i absolwenci':
             else:
                 lg1['kolor'][j] = 'rgb(0,70,180)'
         barwa5 = lg1['kolor'][::-1]
-        barwa5[::-1].loc[17] = 'white'
+        barwa5[::-1].loc[17] = 'rgb(0,70,180)'
         fig = go.Figure()      
            
         fig.add_trace(go.Bar(x=y,y=x,orientation='h',hovertemplate = 'Stypendia przyznane: %{x:}'+"<extra></extra>",
@@ -383,7 +385,7 @@ elif sekcja == 'Studenci i absolwenci':
            			textfont=dict( size=12,color='black'),marker_color=barwa5,marker_pattern_shape="x",name='Złożony'
            		      ))
         fig.update_xaxes(title='Liczba wniosków').update_traces(marker_line_color='black',marker_line_width=1.5)
-        fig.update_yaxes(title='Wydział')
+        fig.update_yaxes(title='Wydział',categoryorder='array', categoryarray= x1)
         fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),
            				height=800,width=1500,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),barmode='group',legend_traceorder='reversed',
            				separators =',',showlegend=True,legend_title_text='Rodzaj wniosku',margin=dict(t=100, b=0, l=180, r=50),legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
@@ -680,7 +682,7 @@ elif sekcja == 'Badania naukowe':
             fig.add_trace(go.Bar(x=y,y=x,orientation='h',
             				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożony',marker_pattern_shape="x",
             			      textposition='outside',hovertemplate = 'Kwota wnioskowana: %{x:,}zł'+"<extra></extra>"))
-            fig.update_xaxes(title='Kwota wnioskowana[zł]')
+            fig.update_xaxes(title='Kwota[zł]')
             fig.update_yaxes(title='Wydział',categoryorder='array', categoryarray= x)
             fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_traceorder='reversed',
             					height=800,width=1400,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1,
@@ -690,6 +692,8 @@ elif sekcja == 'Badania naukowe':
     	    
         elif (li == 'Liczba'):
             lw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Liczba wniosków'].agg(np.sum)).sort_values(by='Liczba wniosków')[::-1]
+            if not lw.empty:
+                lw.loc[' '] = None
             x = lw.index[::-1]
             y = lw['Liczba wniosków'][::-1]
             
@@ -702,8 +706,11 @@ elif sekcja == 'Badania naukowe':
                 else:
                     lw['kolor'][j] = 'rgb(0,70,180)'
             barwa1 = lw['kolor'][::-1]
+            barwa1[::-1].loc[17] = 'rgb(0,70,180)'
             
             lg = pd.DataFrame(DF6[DF6['Rok']==roki].groupby('Jednostka')['Liczba grantów'].agg(np.sum)).sort_values(by='Liczba grantów')[::-1]
+            if not kw.empty:
+                lg.loc[' '] = None
             x1 = lg.index[::-1]
             y1 = lg['Liczba grantów'][::-1]
         
@@ -716,6 +723,7 @@ elif sekcja == 'Badania naukowe':
                 else:
                     lg['kolor'][j] = 'rgb(0,70,180)'
             barwa4 = lg['kolor'][::-1]
+            barwa4[::-1].loc[17] = 'rgb(0,70,180)'
         
             fig = go.Figure()
             fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
@@ -728,7 +736,7 @@ elif sekcja == 'Badania naukowe':
             				textfont=dict( size=12,color='black'),marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,name='Złożony',marker_pattern_shape="x",
             			      textposition='outside',hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>"))
             fig.update_xaxes(title='Liczba wniosków')
-            fig.update_yaxes(title='Wydział')
+            fig.update_yaxes(title='Wydział',categoryorder='array', categoryarray= x)
             
             fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
             					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),legend_traceorder='reversed',
