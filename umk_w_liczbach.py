@@ -746,8 +746,7 @@ elif sekcja == 'Badania naukowe':
         
         else:
             st.write('*dla lat 2012-2018 nie dysponujemy danymi o skuteczności oraz danymi o składanych wnioskach')
-        if (li == 'Liczba') or (li == 'Kwota') and (roki > 2018):
-            st.write('Liczba przyznanych grantów może być większa niż złożonych wniosków, gdyż granty mogą być przyznane w roku kalendarzowym następującym po roku złożenia wniosku.')
+        
         
         
         if (roki in [2019,2020,2021]) and (li == 'Liczba') :		       
