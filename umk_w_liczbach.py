@@ -681,7 +681,7 @@ elif sekcja == 'Badania naukowe':
             				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożony',marker_pattern_shape="x",
             			      textposition='outside',hovertemplate = 'Kwota wnioskowana: %{x:,}zł'+"<extra></extra>"))
             fig.update_xaxes(title='Kwota wnioskowana[zł]')
-            fig.update_yaxes(title='Wydział',categoryorder='array', categoryarray= x1)
+            fig.update_yaxes(title='Wydział',categoryorder='array', categoryarray= x)
             fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_traceorder='reversed',
             					height=800,width=1400,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1,
     			 legend_title_text='Rodzaj wniosku')
