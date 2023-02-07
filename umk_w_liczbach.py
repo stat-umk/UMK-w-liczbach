@@ -663,8 +663,8 @@ elif sekcja == 'Badania naukowe':
                 else:
                     kw1['kolor'][j] = 'rgb(0,70,180)'
             barwa3 = kw1['kolor'][::-1]
-            x1.loc[17] = ' '
-            st.dataframe(x1)
+            
+            st.dataframe(type(x1))
             st.dataframe(barwa3)
             fig = go.Figure()
             fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
