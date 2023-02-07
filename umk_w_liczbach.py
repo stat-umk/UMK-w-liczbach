@@ -641,7 +641,8 @@ elif sekcja == 'Badania naukowe':
         li = st.selectbox('Wybierz podsumowanie:',['Liczba','Kwota'])
         if (li == 'Kwota'):
             kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
-            kw.loc[' '] = None if not kw.empty
+            if not kw.empty:
+			kw.loc[' '] = None
             x = kw.index[::-1]
             y = kw['Kwota wnioskowana[zł]'][::-1]
             
