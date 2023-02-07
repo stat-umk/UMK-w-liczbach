@@ -648,7 +648,7 @@ elif sekcja == 'Badania naukowe':
                 else:
                     kw['kolor'][j] = 'rgb(0,70,180)'
             barwa = kw['kolor'][::-1]
-            st.dataframe(x)
+            st.dataframe(kw)
             st.dataframe(y)
             st.dataframe(barwa)
             
