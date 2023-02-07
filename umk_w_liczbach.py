@@ -362,7 +362,7 @@ elif sekcja == 'Studenci i absolwenci':
         barwa4[::-1].loc[17] = 'white'
         
         lg1 = pd.DataFrame(DF20[DF20['Rok']==r].groupby('Wydział')['Złożone'].agg(np.sum)).sort_values(by='Złożone')[::-1]
-        lg.loc[' '] = None
+        lg1.loc[' '] = None
         x1 = lg1.index[::-1]
         y1 = lg1['Złożone'][::-1]
         lg1 = lg1.reset_index()
@@ -642,7 +642,7 @@ elif sekcja == 'Badania naukowe':
         if (li == 'Kwota'):
             kw = pd.DataFrame(DF4[DF4['Rok']==roki].groupby('Jednostka')['Kwota wnioskowana[zł]'].agg(np.sum)).sort_values(by='Kwota wnioskowana[zł]')[::-1]
             if not kw.empty:
-			kw.loc[' '] = None
+                kw.loc[' '] = None
             x = kw.index[::-1]
             y = kw['Kwota wnioskowana[zł]'][::-1]
             
@@ -655,11 +655,12 @@ elif sekcja == 'Badania naukowe':
                 else:
                     kw['kolor'][j] = 'rgb(0,70,180)'
             barwa = kw['kolor'][::-1]
-            barwa[::-1].loc[17] = 'rgb(0,70,180)'
+            barwa[::-1].loc[17] = 'white'
             
             
             kw1 = pd.DataFrame(DF6[DF6['Rok']==roki].groupby('Jednostka')['Kwota przyznana[zł]'].agg(np.sum)).sort_values(by='Kwota przyznana[zł]')[::-1]
-            kw1.loc[' '] = None if not k1.empty
+            if not kw1.empty:
+                kw1.loc[' '] = None
             x1 = kw1.index[::-1]
             y1 = kw1['Kwota przyznana[zł]'][::-1]
             kw1 = kw1.reset_index()
@@ -670,7 +671,7 @@ elif sekcja == 'Badania naukowe':
                 else:
                     kw1['kolor'][j] = 'rgb(0,70,180)'
             barwa3 = kw1['kolor'][::-1]
-            barwa3[::-1].loc[17] = 'rgb(0,70,180)'
+            barwa3[::-1].loc[17] = 'white'
             fig = go.Figure()
             fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
                                 textfont=dict( size=12,color='black'),marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,name='Przyznany',
