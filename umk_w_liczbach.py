@@ -148,26 +148,36 @@ elif sekcja == 'Studenci i absolwenci':
     
     
     if sekcja1 == 'Studenci i absolwenci':
-        DF7 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='L_kier_stud',dtype={'Rok':str})
-        DF8 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='N-wni',dtype={'Rok':int})
-        DF9 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Z-czni',dtype={'Rok':int})
-        DF10 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stacjonarne',dtype={'Rok':int})
+        DF7 = pd.read_pickle('pick/L_kier_stud.pickle')
+        DF7['Rok'] = DF7['Rok'].astype('str')
+        DF8 = pd.read_pickle('pick/N-wni.pickle')
+        DF8['Rok'] = DF8['Rok'].astype('int')
+        DF9 = pd.read_pickle('pick/Z-czni.pickle')
+        DF9['Rok'] = DF9['Rok'].astype('int')
+        DF10 = pd.read_pickle('pick/Stacjonarne.pickle')
+        DF10['Rok'] = DF10['Rok'].astype('int')
         DF10['Wydział'] = DF10['Wydział'].replace(['Ogółem'],'Ogółem UMK')
-        DF11 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Niestacjonarne',dtype={'Rok':int})
+        DF11 = pd.read_pickle('pick/Niestacjonarne.pickle')
+        DF11['Rok'] = DF11['Rok'].astype('int')
         DF11['Wydział'] = DF11['Wydział'].replace(['Ogółem'],'Ogółem UMK')
-        DF12 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='doktoranci',dtype={'Rok':int})
+        DF12 = pd.read_pickle('pick/doktoranci.pickle')
+        DF12['Rok'] = DF12['Rok'].astype('int')
         DF12['Wydział'] = DF12['Wydział'].replace(['Ogółem'],'Ogółem UMK')
-        DF13 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Podyplomowe',dtype={'Rok':int})
-        DF14 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Ogółem',dtype={'Rok':int})
+        DF13 = pd.read_pickle('pick/Podyplomowe.pickle')
+        DF13['Rok'] = DF13['Rok'].astype('int')
+        DF14 = pd.read_pickle('pick/Ogółem.pickle')
+        DF14['Rok'] = DF14['Rok'].astype('int')
 
         DF15 = pd.read_pickle('pick/Stud_og.pickle')
         DF15['Rok'] = DF15['Rok'].astype('int')
         DF15['Wydział'] = DF15['Wydział'].replace(['Ogółem'],'Ogółem UMK')
 
 	
-        DF17 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Absolwenci',dtype={'Rok':int})
+        DF17 = pd.read_pickle('pick/Absolwenci.pickle')
+        DF17['Rok'] = DF17['Rok'].astype('int')
         DF17['Rodzaj'] = DF17['Rodzaj'].replace(['Ogółem'],'Ogółem UMK')
-        DF17a = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Absolwenci1',dtype={'Rok':int})
+        DF17a = pd.read_pickle('pick/Absolwenci1.pickle')
+        DF17a['Rok'] = DF17a['Rok'].astype('int')
         DF17a['Forma kształcenia'] = DF17a['Forma kształcenia'].replace(['Ogółem'],'Ogółem UMK')
 	
         
