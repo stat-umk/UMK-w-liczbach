@@ -668,11 +668,11 @@ elif sekcja == 'Badania naukowe':
             barwa3 = kw1['kolor'][::-1]
             barwa3[::-1].loc[17] = 'rgb(0,70,180)'
             fig = go.Figure()
-            fig.add_trace(go.Bar(x=y,y=x,orientation='h',
+            fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
                                 textfont=dict( size=12,color='black'),marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,name='Przyznany',
                               textposition='outside',hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>",legendrank=1))
         
-            fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
+            fig.add_trace(go.Bar(x=y,y=x,orientation='h',
             				textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożony',marker_pattern_shape="x",
             			      textposition='outside',hovertemplate = 'Kwota wnioskowana: %{x:,}zł'+"<extra></extra>",legendrank=2))
             fig.update_xaxes(title='Kwota[zł]')
