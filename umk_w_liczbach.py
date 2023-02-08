@@ -266,7 +266,7 @@ elif sekcja == 'Studenci i absolwenci':
         DF19a = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr_stacjo',dtype={'Rok':int})
         DF19b = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr_niestacjo',dtype={'Rok':int})
         DF19c = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr_dokt',dtype={'Rok':int})
-        st.header('Porównanie liczby uczestników studiów stacjonarnych i niestacjonarnych na wybranych wydziałach')
+        st.header('Porównanie liczby uczestników studiów na wybranych wydziałach')
         DF10['Wydział'] = DF10['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         DF11['Wydział'] = DF11['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         DF12['Wydział'] = DF12['Wydział'].replace(['Ogółem'],'Ogółem UMK')
@@ -306,12 +306,12 @@ elif sekcja == 'Studenci i absolwenci':
         elif (gz3 == 'Wyłącz') and (kat09 == 'Studia doktoranckie'):
             st.plotly_chart(px.bar(DF12[(DF12['Wydział'].isin(wydz746))].sort_values(by=['Wydział','Rok']),x='Rok',y='Liczba',barmode = 'group',hover_name="Wydział", color='Wydział',width=1500,height=500,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz746))),pattern_shape="Wydział").update_yaxes(tickformat=",",showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',title='Liczba uczestników').update_traces(hovertemplate = '<br>Liczba uczestników studiów doktoranckich: <b>%{y:}</b><br>',textfont=dict( size=14),texttemplate="%{y:}",textposition='inside').update_xaxes(dtick=1).update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=','),use_container_width=True)
             
-        st.header('Zmiana liczby uczestników studiów stacjonarnych i niestacjonarnych w stosunku do roku poprzedniego w podziale na wydziały')
+        st.header('Zmiana liczby uczestników studiów w stosunku do roku poprzedniego w podziale na wydziały')
         kat099 = st.selectbox('Wybierz kategorię :     ',['Studia stacjonarne i niestacjonarne','Studia stacjonarne','Studia niestacjonarne','Studia doktoranckie'])
         wydz1 = st.multiselect('Wybierz wydział :    ',DF12['Wydział'].unique(),['Ogółem UMK','Matematyki i Informatyki'])
         if kat099 == 'Studia stacjonarne i niestacjonarne':
             st.plotly_chart(px.line(DF15[(DF15['Wydział'].isin(wydz1))].sort_values(by=['Wydział','Rok']),x='Rok',y='Zmiana',hover_name="Wydział",color='Wydział',width=1400,height=500,symbol='Wydział',markers=True,color_discrete_sequence=list(map(lambda x: kolwyd1[x],sorted(wydz1))))
-        		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,d}",textfont=dict( size=14),hovertemplate='<br>Zmiana liczby uczestników studiów stacjonarnych i niestacjonarnych: <b>%{y:,.2f}%</b><br>')
+        		    .update_traces(marker_size=10,textposition='top right',texttemplate="%{y:,d}",textfont=dict( size=14),hovertemplate='Zmiana liczby uczestników studiów stacjonarnych i niestacjonarnych: <b>%{y:,.2f}%</b>')
         		    .update_xaxes(showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside',range=[2011-1/5,2021+1/5],dtick=1)
         		    .update_yaxes(tickformat = ' ',rangemode='tozero',zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',showline=False,linewidth=1,gridwidth=1,gridcolor='gray',title='Zmiana liczby uczestników studiów[%]')
         		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"),use_container_width=True)
