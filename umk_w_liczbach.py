@@ -730,7 +730,7 @@ elif sekcja == 'Badania naukowe':
             fig.update_xaxes(title='Liczba wniosków')
             fig.update_yaxes(title='Wydział',categoryorder='array', categoryarray= x)
             
-            fig.update_layout(xaxis={'categoryorder': 'total descending'},xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
+            fig.update_layout(xaxis_categoryorder='total descending',xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
             					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),legend_traceorder='reversed',
             					separators =',',showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
             
