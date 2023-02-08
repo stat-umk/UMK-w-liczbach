@@ -670,11 +670,11 @@ elif sekcja == 'Badania naukowe':
             fig = go.Figure()
             fig.add_trace(go.Bar(x=y,y=x,orientation='h',
                                 textfont=dict( size=12,color='black'),marker_color=barwa,marker_line_color='black',marker_line_width=1.5,name='Złożony',
-                              textposition='outside',hovertemplate = 'Kwota wnioskowana: %{x:,}zł'+"<extra></extra>",legendrank=2))
+                              textposition='outside',hovertemplate = 'Kwota wnioskowana: %{x:,}zł'+"<extra></extra>",legendrank=1))
         
             fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
             				textfont=dict( size=12,color='black'),marker_color=barwa3,marker_line_color='black',marker_line_width=1.5,name='Przyznany',marker_pattern_shape="x",
-            			      textposition='outside',hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>",legendrank=1))
+            			      textposition='outside',hovertemplate = 'Kwota przyznanych grantów: %{x:,}zł'+"<extra></extra>",legendrank=2))
             fig.update_xaxes(title='Kwota[zł]')
             fig.update_yaxes(title='Wydział')
             fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_traceorder='reversed',
