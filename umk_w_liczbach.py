@@ -12,7 +12,7 @@ from streamlit_option_menu import option_menu
 
 
 
-st.set_page_config(page_title='UMK w liczbach', page_icon = ':chart_with_upwards_trend:',initial_sidebar_state='expanded')
+st.set_page_config(page_title='UMK w liczbach', page_icon = ':bar_chart:',initial_sidebar_state='expanded')
 
 
 lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
