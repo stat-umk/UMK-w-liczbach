@@ -162,7 +162,7 @@ elif sekcja == 'Studenci i absolwenci':
         DF14 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Ogółem',dtype={'Rok':int})
 
         DF15 = pd.read_pickle(io='pick/Stud_og.pickle')
-	DF15['Rok'] = DF15['Rok'].astype('int')
+        DF15['Rok'] = DF15['Rok'].astype('int')
         DF15['Wydział'] = DF15['Wydział'].replace(['Ogółem'],'Ogółem UMK')
 
 	
