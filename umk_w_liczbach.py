@@ -720,17 +720,17 @@ elif sekcja == 'Badania naukowe':
             fig = go.Figure()
             fig.add_trace(go.Bar(x=y1,y=x1,orientation='h',
                                 textfont=dict( size=12,color='black'),marker_color=barwa4,marker_line_color='black',marker_line_width=1.5,name='Przyznany',
-                              textposition='outside',hovertemplate = 'Liczba przyznanych grantów: %{x:}'+"<extra></extra>"))
+                              textposition='outside',hovertemplate = 'Liczba przyznanych grantów: %{x:}'+"<extra></extra>",legendrank=1))
         
             
             
             fig.add_trace(go.Bar(x=y,y=x,orientation='h',
             				textfont=dict( size=12,color='black'),marker_color=barwa1,marker_line_color='black',marker_line_width=1.5,name='Złożony',marker_pattern_shape="x",
-            			      textposition='outside',hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>"))
+            			      textposition='outside',hovertemplate = 'Wnioski złożone: %{x:}'+"<extra></extra>",legendrank=2))
             fig.update_xaxes(title='Liczba wniosków')
-            fig.update_yaxes(title='Wydział',categoryorder='array', categoryarray= x)
+            fig.update_yaxes(title='Wydział')
             
-            fig.update_layout(xaxis_categoryorder='total descending',xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
+            fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title_x=0.5,legend_title_text='Rodzaj wniosku',
             					height=800,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),legend_traceorder='reversed',
             					separators =',',showlegend=True,legend_orientation='h',legend_x=-0.1,legend_yanchor='top',legend_y=1.1)
             
