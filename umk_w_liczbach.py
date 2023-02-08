@@ -264,25 +264,28 @@ elif sekcja == 'Studenci i absolwenci':
 	
     
     elif sekcja1 == 'Porównanie wydziałów':
-        DF10 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stacjonarne',dtype={'Rok':int})
+        DF10 = pd.read_pickle('pick/Stacjonarne.pickle')
+        DF10['Rok'] = DF10['Rok'].astype('int')
+        DF10['Wydział'] = DF10['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         
-        DF11 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Niestacjonarne',dtype={'Rok':int})
-       
-        DF12 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='doktoranci',dtype={'Rok':int})
+        DF11 = pd.read_pickle('pick/Niestacjonarne.pickle')
+        DF11['Rok'] = DF11['Rok'].astype('int')
+        DF11['Wydział'] = DF11['Wydział'].replace(['Ogółem'],'Ogółem UMK')
+        DF12 = pd.read_pickle('pick/doktoranci.pickle')
+        DF12['Rok'] = DF12['Rok'].astype('int')
+        DF12['Wydział'] = DF12['Wydział'].replace(['Ogółem'],'Ogółem UMK')
         
-        DF15 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Stud_og',dtype={'Rok':int})
+        DF15 = pd.read_pickle('pick/Stud_og.pickle')
+        DF15['Rok'] = DF15['Rok'].astype('int')
+        DF15['Wydział'] = DF15['Wydział'].replace(['Ogółem'],'Ogółem UMK')
       
         DF19 = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr',dtype={'Rok':int})
         DF19a = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr_stacjo',dtype={'Rok':int})
         DF19b = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr_niestacjo',dtype={'Rok':int})
         DF19c = pd.read_excel(io='Studenci.xlsx',engine='openpyxl',sheet_name='Wydz_sr_dokt',dtype={'Rok':int})
+        
+        
         st.header('Porównanie liczby uczestników studiów na wybranych wydziałach')
-        DF10['Wydział'] = DF10['Wydział'].replace(['Ogółem'],'Ogółem UMK')
-        DF11['Wydział'] = DF11['Wydział'].replace(['Ogółem'],'Ogółem UMK')
-        DF12['Wydział'] = DF12['Wydział'].replace(['Ogółem'],'Ogółem UMK')
-        DF15['Wydział'] = DF15['Wydział'].replace(['Ogółem'],'Ogółem UMK')
-        
-        
         kat09 = st.selectbox('Wybierz kategorię :   ',['Studia stacjonarne i niestacjonarne','Studia stacjonarne','Studia niestacjonarne','Studia doktoranckie'])
         wydz746 = st.multiselect('Wybierz wydział:       ',DF12[DF12['Wydział']!='Ogółem UMK']['Wydział'].unique(),['Farmaceutyczny','Matematyki i Informatyki'])
         gz3 = st.radio('Średnio na 1 wydział UMK - Włącz/Wyłącz:',('Włącz','Wyłącz'))
