@@ -228,7 +228,7 @@ elif sekcja == 'Studenci i absolwenci':
 	
 	
         st.header('Liczba absolwentów uniwersytetu')
-        ab = st.selectbox('Wybierz kategorię:    ',['Ogółem UMK','Studia stacjonarne i niestacjonarne','Studia stacjonarne','Studia niestacjonarne','Studia doktoranckie','Studia podyplomowe'])	
+        ab = st.selectbox('Wybierz kategorię:    ',['Ogółem','Studia stacjonarne i niestacjonarne','Studia stacjonarne','Studia niestacjonarne','Studia doktoranckie','Studia podyplomowe'])	
         st.plotly_chart(px.bar(DF17a[(DF17a['Forma kształcenia']==ab)],x='Rok',y='Liczba',width=1500,height=500)
 		    .update_traces(marker_color='rgb(0,70,180)',texttemplate="%{y:}",textposition='inside',textfont=dict( size=14,color='white'),hovertemplate = '<br>Liczba absolwentów: <b>%{y:}</b><br>')
 		    .update_xaxes(dtick=1)
