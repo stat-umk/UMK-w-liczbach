@@ -178,7 +178,7 @@ elif sekcja == 'Studenci i absolwenci':
         DF17['Rodzaj'] = DF17['Rodzaj'].replace(['Ogółem'],'Ogółem UMK')
         DF17a = pd.read_pickle('pick/Absolwenci1.pickle')
         DF17a['Rok'] = DF17a['Rok'].astype('int')
-        DF17a['Forma kształcenia'] = DF17a['Forma kształcenia'].replace(['Ogółem'],'Ogółem UMK')
+        #DF17a['Forma kształcenia'] = DF17a['Forma kształcenia'].replace(['Ogółem'],'Ogółem UMK')
 	
         
         st.header('Liczba kierunków studiów')
