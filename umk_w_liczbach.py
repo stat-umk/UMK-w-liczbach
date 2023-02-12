@@ -781,7 +781,7 @@ elif sekcja == 'Badania naukowe':
             height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),separators=',')
     
             st.plotly_chart(fig,use_container_width=True)
-            st.write('Współczynnik skuteczności jest określony jako stosunek liczby otrzymanych przyznanych grantów do złożonych wniosków (w %)')
+            st.write('Współczynnik skuteczności jest określony jako stosunek liczby lub kwoty (odpowiednio) przyznanych grantów do złożonych wniosków (w %).')
         elif (li == 'Kwota' or li == 'Liczba') and (roki not in [2019,2020,2021]) :
             st.write('*dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
         
@@ -901,7 +901,7 @@ elif sekcja == 'Badania naukowe':
                               hovertemplate = '<br>Liczba przyznanych grantów: <b>%{x:}</b><br>'+"<extra></extra>"))
             fig.update_xaxes(title='Liczba przyznanych grantów')
             fig.update_yaxes(title='Wydział')
-            fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Granty przyzanen',title_x=0.5,
+            fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Granty przyznane',title_x=0.5,
             					height=800,width=1600,plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),
             					separators =',',margin=dict(t=100, b=0, l=180, r=50))
             
