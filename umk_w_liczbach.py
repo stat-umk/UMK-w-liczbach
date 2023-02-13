@@ -590,7 +590,7 @@ elif sekcja == 'Pracownicy':
     		    .update_yaxes(title='Przeciętne wynagrodzenie brutto',tickformat=",",zeroline=True, zerolinewidth=1, zerolinecolor='rgba(0,0,0,0.5)',rangemode='tozero',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')
     		    .update_xaxes(dtick=1,range=[np.min(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])-1/5,np.max(DF28[(DF28['Kategoria'].isin(wydz318)) & (DF28['Wynagrodzenie'].notna())]['Rok'])+1/5],showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
     		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"),use_container_width=True)
-        st.write('Średnia krajowa na podstawie danych GUS https://wynagrodzenia.pl/gus')
+        st.write('Średnia krajowa na podstawie danych GUS https://bdl.stat.gov.pl/bdl/start')
     	
       
     	
