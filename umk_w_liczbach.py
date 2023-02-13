@@ -751,7 +751,7 @@ elif sekcja == 'Badania naukowe':
             st.plotly_chart(fig,use_container_width=True)	
         
         else:
-            st.write('*dla lat 2012-2018 nie dysponujemy danymi o skuteczności oraz danymi o składanych wnioskach')
+            st.write('Dla lat 2012-2018 nie dysponujemy danymi o skuteczności oraz danymi o składanych wnioskach')
         
         
         
@@ -774,7 +774,7 @@ elif sekcja == 'Badania naukowe':
             textfont=dict( size=12,color='black')))
             fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5
             ,hovertemplate = '<br>Skuteczność: <b>%{x:,.2f}%</b><br>'+"<extra></extra>")
-            fig.update_xaxes(title='Skuteczność [%]',range=[0,110])
+            fig.update_xaxes(title='Skuteczność [%]')
             fig.update_yaxes(title='Wydział')
     
             fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Współczynnik skuteczności',title_x=0.5,
@@ -782,9 +782,10 @@ elif sekcja == 'Badania naukowe':
     
             st.plotly_chart(fig,use_container_width=True)
             st.write('Współczynnik skuteczności jest określony jako stosunek liczby lub kwoty (odpowiednio) przyznanych grantów do złożonych wniosków (w %).')
-            st.write('*w 2019 roku Collegium Medicum nie prowadziło rejestru złożonych krajowych wniosków grantowych, dlatego dane dotyczące wniosków odnoszą się tylko do toruńskiej części UMK.')
+            st.write('W 2019 roku Collegium Medicum nie prowadziło rejestru złożonych krajowych wniosków grantowych, dlatego dane dotyczące wniosków odnoszą się tylko do toruńskiej części UMK.')
+            st.write('Skuteczność powyżej 100% może wynikać z faktu, że w danym roku przyznano grant, o który wnioskowano w roku wcześniejszym.')
         elif (li == 'Kwota' or li == 'Liczba') and (roki not in [2019,2020,2021]) :
-            st.write('*dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
+            st.write('Dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
             
         if (roki in [2019,2020,2021]) and (li == 'Kwota') :		       
             kw = pd.DataFrame(DF31[DF31['Rok']==roki].groupby('Jednostka')['Skuteczność1'].agg(np.sum)).sort_values(by='Skuteczność1')[::-1]
@@ -805,7 +806,7 @@ elif sekcja == 'Badania naukowe':
             textfont=dict( size=12,color='black')))
             fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5
             ,hovertemplate = '<br>Skuteczność: <b>%{x:,.2f}%</b><br>'+"<extra></extra>")
-            fig.update_xaxes(title='Skuteczność [%]',range=[0,110])
+            fig.update_xaxes(title='Skuteczność [%]')
             fig.update_yaxes(title='Wydział')
     
             fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Współczynnik skuteczności',title_x=0.5,
@@ -813,9 +814,10 @@ elif sekcja == 'Badania naukowe':
     
             st.plotly_chart(fig,use_container_width=True)
             st.write('Współczynnik skuteczności jest określony jako stosunek liczby lub kwoty (odpowiednio) przyznanych grantów do złożonych wniosków (w %).')
-            st.write('*w 2019 roku Collegium Medicum nie prowadziło rejestru złożonych krajowych wniosków grantowych, dlatego dane dotyczące wniosków odnoszą się tylko do toruńskiej części UMK.')
+            st.write('W 2019 roku Collegium Medicum nie prowadziło rejestru złożonych krajowych wniosków grantowych, dlatego dane dotyczące wniosków odnoszą się tylko do toruńskiej części UMK.')
+            st.write('Skuteczność powyżej 100% może wynikać z faktu, że w danym roku przyznano grant, o który wnioskowano w roku wcześniejszym.')
         elif (li == 'Kwota' or li == 'Liczba') and (roki not in [2019,2020,2021]) :
-            st.write('*dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
+            st.write('Dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
         
         
     
