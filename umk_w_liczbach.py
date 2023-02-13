@@ -782,9 +782,9 @@ elif sekcja == 'Badania naukowe':
     
             st.plotly_chart(fig,use_container_width=True)
             st.write('Współczynnik skuteczności jest określony jako stosunek liczby lub kwoty (odpowiednio) przyznanych grantów do złożonych wniosków (w %).')
+            st.write('*w 2019 roku Collegium Medicum nie prowadziło rejestru złożonych krajowych wniosków grantowych, dlatego dane dotyczące wniosków odnoszą się tylko do toruńskiej części UMK.')
         elif (li == 'Kwota' or li == 'Liczba') and (roki not in [2019,2020,2021]) :
             st.write('*dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
-            st.write('*w 2019 roku Collegium Medicum nie prowadziło rejestru złożonych krajowych wniosków grantowych, dlatego dane dotyczące wniosków odnoszą się tylko do toruńskiej części UMK.')
             
         if (roki in [2019,2020,2021]) and (li == 'Kwota') :		       
             kw = pd.DataFrame(DF31[DF31['Rok']==roki].groupby('Jednostka')['Skuteczność1'].agg(np.sum)).sort_values(by='Skuteczność1')[::-1]
@@ -813,9 +813,9 @@ elif sekcja == 'Badania naukowe':
     
             st.plotly_chart(fig,use_container_width=True)
             st.write('Współczynnik skuteczności jest określony jako stosunek liczby lub kwoty (odpowiednio) przyznanych grantów do złożonych wniosków (w %).')
+            st.write('*w 2019 roku Collegium Medicum nie prowadziło rejestru złożonych krajowych wniosków grantowych, dlatego dane dotyczące wniosków odnoszą się tylko do toruńskiej części UMK.')
         elif (li == 'Kwota' or li == 'Liczba') and (roki not in [2019,2020,2021]) :
             st.write('*dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
-            st.write('*w 2019 roku Collegium Medicum nie prowadziło rejestru złożonych krajowych wniosków grantowych, dlatego dane dotyczące wniosków odnoszą się tylko do toruńskiej części UMK.')
         
         
     
