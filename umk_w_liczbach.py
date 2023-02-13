@@ -784,7 +784,38 @@ elif sekcja == 'Badania naukowe':
             st.write('Współczynnik skuteczności jest określony jako stosunek liczby lub kwoty (odpowiednio) przyznanych grantów do złożonych wniosków (w %).')
         elif (li == 'Kwota' or li == 'Liczba') and (roki not in [2019,2020,2021]) :
             st.write('*dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
-        
+            st.write('*w 2019 roku Collegium Medicum nie prowadziło rejestru złożonych krajowych wniosków grantowych, dlatego dane dotyczące wniosków odnoszą się tylko do toruńskiej części UMK.')
+            
+        if (roki in [2019,2020,2021]) and (li == 'Kwota') :		       
+            kw = pd.DataFrame(DF31[DF31['Rok']==roki].groupby('Jednostka')['Skuteczność1'].agg(np.sum)).sort_values(by='Skuteczność1')[::-1]
+            x = kw.index[::-1]
+            y = kw['Skuteczność1'][::-1]
+    
+            kw = kw.reset_index()
+            kw['kolor']=' '
+            for j,i in enumerate(kw['Jednostka']):
+                if i in list(kolwyd.keys()):
+                    kw['kolor'][j] = kolwyd[i]
+                else:
+                    kw['kolor'][j] = 'rgb(0,70,180)'
+            barwa = kw['kolor'][::-1]
+    
+            fig = go.Figure()
+            fig.add_trace(go.Bar(x=y,y=x,orientation='h',
+            textfont=dict( size=12,color='black')))
+            fig.update_traces(marker_color=barwa,marker_line_color='black',marker_line_width=1.5
+            ,hovertemplate = '<br>Skuteczność: <b>%{x:,.2f}%</b><br>'+"<extra></extra>")
+            fig.update_xaxes(title='Skuteczność [%]',range=[0,110])
+            fig.update_yaxes(title='Wydział')
+    
+            fig.update_layout(xaxis=dict(showline=False,showgrid=True,showticklabels=True,linewidth=2,linecolor='black',gridwidth=1,gridcolor='gray',mirror=True),title='<b>Współczynnik skuteczności',title_x=0.5,
+            height=600,width=1600,plot_bgcolor='white',margin=dict(t=100, b=0, l=180, r=50),font=dict(family='Lato',size=18,color="Black"),separators=',')
+    
+            st.plotly_chart(fig,use_container_width=True)
+            st.write('Współczynnik skuteczności jest określony jako stosunek liczby lub kwoty (odpowiednio) przyznanych grantów do złożonych wniosków (w %).')
+        elif (li == 'Kwota' or li == 'Liczba') and (roki not in [2019,2020,2021]) :
+            st.write('*dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
+            st.write('*w 2019 roku Collegium Medicum nie prowadziło rejestru złożonych krajowych wniosków grantowych, dlatego dane dotyczące wniosków odnoszą się tylko do toruńskiej części UMK.')
         
         
     
