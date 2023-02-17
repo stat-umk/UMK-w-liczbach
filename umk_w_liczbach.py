@@ -751,7 +751,7 @@ elif sekcja == 'Badania naukowe':
             st.plotly_chart(fig,use_container_width=True)	
         
         else:
-            st.write('Dla lat 2012-2018 nie dysponujemy danymi o skuteczności oraz danymi o składanych wnioskach')
+            st.write('Dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
         
         
         
@@ -784,7 +784,7 @@ elif sekcja == 'Badania naukowe':
             st.write('Współczynnik skuteczności jest określony jako stosunek liczby lub kwoty (odpowiednio) przyznanych grantów do złożonych wniosków (w %).')
             st.write('W 2019 roku Collegium Medicum nie prowadziło rejestru złożonych krajowych wniosków grantowych, dlatego dane dotyczące wniosków odnoszą się tylko do toruńskiej części UMK.')
             st.write('Skuteczność powyżej 100% może wynikać z faktu, że w danym roku przyznano grant, o który wnioskowano w roku wcześniejszym.')
-        elif (li == 'Kwota' or li == 'Liczba') and (roki not in [2019,2020,2021]) :
+        elif (li == 'Liczba') and (roki not in [2019,2020,2021]) :
             st.write('Dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
             
         if (roki in [2019,2020,2021]) and (li == 'Kwota') :		       
@@ -816,7 +816,7 @@ elif sekcja == 'Badania naukowe':
             st.write('Współczynnik skuteczności jest określony jako stosunek liczby lub kwoty (odpowiednio) przyznanych grantów do złożonych wniosków (w %).')
             st.write('W 2019 roku Collegium Medicum nie prowadziło rejestru złożonych krajowych wniosków grantowych, dlatego dane dotyczące wniosków odnoszą się tylko do toruńskiej części UMK.')
             st.write('Skuteczność powyżej 100% może wynikać z faktu, że w danym roku przyznano grant, o który wnioskowano w roku wcześniejszym.')
-        elif (li == 'Kwota' or li == 'Liczba') and (roki not in [2019,2020,2021]) :
+        elif (li == 'Kwota') and (roki not in [2019,2020,2021]) :
             st.write('Dla lat 2012-2018 nie dysponujemy danymi o składanych wnioskach')
         
         
