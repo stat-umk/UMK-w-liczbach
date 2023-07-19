@@ -14,7 +14,7 @@ from streamlit_option_menu import option_menu
 st.set_page_config(page_title='UMK w liczbac', page_icon = ':bar_chart:',initial_sidebar_state='expanded')
 
 
-lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
+lata = [2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022]
 kolor = {'fioletowy':'rgb(170,40,150)','niebieski':'rgb(0,175,250)','zielony':'rgb(0,165,80)','oliwkowy':'rgb(170,210,60)','pomarańczowy':'rgb(255,130,30)','czerwony':'rgb(250,20,20)'}
 kolwyd1 = {'Nauk Biologicznych i Weterynaryjnych (od 2019)':kolor['oliwkowy'],'Biologii i Ochrony Środowiska (2012-2018)':kolor['zielony'],'Filologiczny (2010-2018)':kolor['niebieski'],
            'Chemii':kolor['oliwkowy'],'Humanistyczny (2010-2018)':kolor['niebieski'],'Humanistyczny (od 2019)':kolor['niebieski'],'Fizyki, Astronomii i Informatyki Stosowanej':kolor['oliwkowy'],
@@ -239,7 +239,7 @@ elif sekcja == 'Studenci i absolwenci':
         kat43 = st.selectbox('Wybierz kategorię :   ',['Ogółem UMK','Studia stacjonarne','Studia niestacjonarne','Studia doktoranckie','Studia podyplomowe'])
         st.plotly_chart(px.line(DF17[DF17['Rodzaj']==kat43],x='Rok',y='Zmiana[%]',color = 'Kategoria',hover_name="Kategoria",markers=True,width=1500,height=500,color_discrete_sequence=['rgb(255,205,0)','rgb(0,70,180)'])
 		    .update_traces(hovertemplate = '<br>Zmiana liczby studentów i absolwentów: <b>%{y:,.2f}%</b><br>'+"<extra></extra>",textposition="top right",texttemplate = "%{y:,.2f}%",textfont=dict( size=14))
-	        .update_xaxes(title_font=dict(size=12), title='Rok',range=[2010.95,2021+1/5],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
+	        .update_xaxes(title_font=dict(size=12), title='Rok',range=[2010.95,2022+1/5],dtick=1,showline=True,showticklabels=True,linecolor='gray',linewidth=1,ticks='outside')
 		    .update_yaxes(title_font=dict(size=12),title = 'Zmiana liczby studentów/absolwentów[%]',tickformat=",",range=[-50,50],zeroline=True, zerolinewidth=4, zerolinecolor='rgba(0,0,0,1)',showline=False,linewidth=1,gridwidth=1,gridcolor='gray')                        
 		    .update_layout(plot_bgcolor='white',font=dict(family='Lato',size=18,color="Black"),separators=',',hovermode="x"),use_container_width=True)
         st.write('Wartości poniżej 0 oznaczają spadek liczby studentów względem roku poprzedniego, a powyżej - wzrost.')
