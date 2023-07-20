@@ -120,7 +120,7 @@ if sekcja == 'Strona główna':
     st.markdown('<div style="text-align: justify; font-size: 25px;">Uniwersytet Mikołaja Kopernika jest jednym z 43 uniwersytetów publicznych w Polsce i jedną z 10 uczelni w programie „Inicjatywa Doskonałości - Uczelnia Badawcza”. '+
 		' Zatrudnia ponad 4 000 pracowników i kształci w ramach różnych form studiów ponad 19 000 studentów. '+
 		'Niniejsza aplikacja ma na celu prezentację wizualną danych dotyczących tej znakomitej uczelni. '+
-		'Dane pochodzą ze sprawozdań Rektora UMK za lata 2010-2021 i prezentują stan na ostatni dzień danego roku.</div>', unsafe_allow_html=True)
+		'Dane pochodzą ze sprawozdań Rektora UMK za lata 2010-2022 i prezentują stan na ostatni dzień danego roku.</div>', unsafe_allow_html=True)
     st.markdown(' ')
     st.markdown('<div style="text-align: justify; font-size: 25px;">Uniwersytet podzielony jest na wydziały. Każdy z wydziałów posiada unikatowe logo, które charakteryzuje kolor '+
 		'oraz pozycja mniejszego kółka na obwodzie większego niebieskiego koła. Poniższa grafika przedstawia loga poszczególnych '+
