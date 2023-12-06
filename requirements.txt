@@ -1,4 +1,5 @@
-SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True
+Dora
+scikit_learn==1.2.2
 numpy==1.21.6
 openpyxl==3.0.10
 pandas==1.4.2
